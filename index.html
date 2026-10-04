@@ -1,58 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#070707"
+  >
+
   <title>559627WIN</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
     *{
       box-sizing:border-box;
       margin:0;
-      padding:0
+      padding:0;
     }
 
     html{
-      scroll-behavior:smooth
+      scroll-behavior:smooth;
     }
 
     body{
       font-family:Arial,Helvetica,sans-serif;
       background:#070707;
       color:#fff;
-      min-height:100vh
+      min-height:100vh;
+      padding-bottom:78px;
     }
 
     body.lock{
-      overflow:hidden
+      overflow:hidden;
     }
 
-    button,input{
-      font:inherit
+    button,
+    input{
+      font:inherit;
     }
 
     button{
-      cursor:pointer
+      cursor:pointer;
     }
 
     .hidden{
-      display:none!important
+      display:none!important;
     }
 
-    /* =========================
+
+    /* =========================================================
        HEADER
-    ========================= */
+    ========================================================= */
 
     header{
       position:sticky;
       top:0;
       z-index:100;
-      height:72px;
-      background:rgba(10,10,10,.97);
+      height:70px;
+      background:rgba(8,8,8,.97);
       backdrop-filter:blur(12px);
-      border-bottom:1px solid #292929
+      border-bottom:1px solid #292929;
     }
 
     .header-inner{
@@ -63,133 +83,138 @@
       padding:0 20px;
       display:flex;
       align-items:center;
-      gap:15px
+      gap:14px;
     }
 
     .menu-button{
-      width:44px;
-      height:44px;
+      width:43px;
+      height:43px;
       border:1px solid #333;
       border-radius:10px;
       background:#171717;
       color:#fff;
-      font-size:22px
+      font-size:22px;
     }
 
     .menu-button:hover{
-      border-color:#f5c400
+      border-color:#f5c400;
     }
 
     .logo{
       font-size:27px;
       font-weight:900;
+      white-space:nowrap;
       letter-spacing:-1px;
-      white-space:nowrap
     }
 
-    .logo span,
-    .drawer-logo span{
-      color:#f5c400
+    .logo span{
+      color:#f5c400;
     }
 
     .search-container{
       flex:1;
       max-width:650px;
-      margin:0 auto
+      margin:auto;
     }
 
     .search-input{
       width:100%;
-      height:44px;
-      padding:0 16px;
-      background:#171717;
+      height:43px;
+      padding:0 15px;
       border:1px solid #333;
-      border-radius:11px;
+      border-radius:10px;
+      background:#171717;
       color:#fff;
-      outline:none
+      outline:none;
     }
 
     .search-input:focus{
-      border-color:#f5c400
+      border-color:#f5c400;
     }
 
     .account-button{
       border:0;
-      border-radius:10px;
-      padding:12px 18px;
+      border-radius:9px;
+      padding:11px 17px;
       background:#f5c400;
       color:#000;
-      font-weight:900
+      font-weight:900;
     }
 
     .account-button:hover{
-      background:#ffd72a
+      background:#ffd72a;
     }
 
-    /* =========================
+
+    /* =========================================================
        HERO
-    ========================= */
+    ========================================================= */
 
     .hero{
       max-width:1450px;
-      margin:22px auto;
+      margin:20px auto;
       padding:55px 35px;
-      border-radius:20px;
       border:1px solid #292929;
+      border-radius:20px;
       background:
         radial-gradient(
           circle at 85% 20%,
           rgba(245,196,0,.22),
           transparent 35%
         ),
-        linear-gradient(135deg,#191919,#090909)
+        linear-gradient(
+          135deg,
+          #191919,
+          #090909
+        );
     }
 
     .hero h1{
       font-size:clamp(35px,5vw,62px);
-      line-height:1.05
+      line-height:1.05;
     }
 
     .hero h1 span{
-      color:#f5c400
+      color:#f5c400;
     }
 
     .hero p{
       margin-top:15px;
       color:#aaa;
-      font-size:18px
+      font-size:18px;
     }
 
     .hero-actions{
       display:flex;
       gap:10px;
       margin-top:25px;
-      flex-wrap:wrap
+      flex-wrap:wrap;
     }
 
     .hero-button{
+      padding:13px 20px;
       border:0;
       border-radius:9px;
-      padding:13px 20px;
-      font-weight:900;
       background:#f5c400;
-      color:#000
+      color:#000;
+      font-weight:900;
     }
 
     .hero-button.secondary{
       background:#202020;
       color:#fff;
-      border:1px solid #363636
+      border:1px solid #363636;
     }
 
-    /* =========================
+
+    /* =========================================================
        MENUS HORIZONTAIS
-    ========================= */
+    ========================================================= */
 
     .quick-menu,
     .slots-tabs{
       max-width:1450px;
-      margin:0 auto 25px;
+      margin:0 auto 20px;
       padding:0 20px 10px;
       display:flex;
       gap:10px;
@@ -197,82 +222,79 @@
       overflow-y:hidden;
 
       scrollbar-width:auto;
-      scrollbar-color:#f5c400 #181818
+      scrollbar-color:#f5c400 #181818;
     }
 
     .quick-menu::-webkit-scrollbar,
     .slots-tabs::-webkit-scrollbar{
       display:block;
-      height:8px
+      height:8px;
     }
 
     .quick-menu::-webkit-scrollbar-track,
     .slots-tabs::-webkit-scrollbar-track{
       background:#181818;
-      border-radius:10px
+      border-radius:10px;
     }
 
     .quick-menu::-webkit-scrollbar-thumb,
     .slots-tabs::-webkit-scrollbar-thumb{
       background:#f5c400;
-      border-radius:10px
-    }
-
-    .quick-menu::-webkit-scrollbar-thumb:hover,
-    .slots-tabs::-webkit-scrollbar-thumb:hover{
-      background:#ffd72a
+      border-radius:10px;
     }
 
     .quick-button,
     .slots-tab{
+      flex-shrink:0;
       white-space:nowrap;
       padding:11px 18px;
       border-radius:30px;
       border:1px solid #303030;
       background:#171717;
-      color:#ccc
+      color:#ccc;
     }
 
-    .quick-button:hover,
     .quick-button.active,
-    .slots-tab:hover,
-    .slots-tab.active{
+    .quick-button:hover,
+    .slots-tab.active,
+    .slots-tab:hover{
       background:#f5c400;
       color:#000;
       border-color:#f5c400;
-      font-weight:900
+      font-weight:900;
     }
 
-    /* =========================
-       JOGOS HOME
-    ========================= */
+
+    /* =========================================================
+       SEÇÕES
+    ========================================================= */
 
     .section{
       max-width:1450px;
       margin:auto;
-      padding:0 20px 60px
+      padding:0 20px 60px;
     }
 
     .section-header{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
-      margin-bottom:18px
+      margin-bottom:18px;
     }
 
     .section-header h2{
-      font-size:26px
+      font-size:27px;
     }
 
     .status{
       color:#777;
-      font-size:14px
+      font-size:14px;
     }
 
-    /* =========================
+
+    /* =========================================================
        PROVEDORES HOME
-    ========================= */
+    ========================================================= */
 
     .providers{
       display:flex;
@@ -283,49 +305,55 @@
       padding-bottom:10px;
 
       scrollbar-width:auto;
-      scrollbar-color:#f5c400 #181818
+      scrollbar-color:#f5c400 #181818;
     }
 
     .providers::-webkit-scrollbar{
       display:block;
-      height:8px
+      height:8px;
     }
 
     .providers::-webkit-scrollbar-track{
       background:#181818;
-      border-radius:10px
+      border-radius:10px;
     }
 
     .providers::-webkit-scrollbar-thumb{
       background:#f5c400;
-      border-radius:10px
-    }
-
-    .providers::-webkit-scrollbar-thumb:hover{
-      background:#ffd72a
+      border-radius:10px;
     }
 
     .provider-button{
+      flex-shrink:0;
       white-space:nowrap;
       padding:9px 15px;
       background:#151515;
       color:#bbb;
       border:1px solid #303030;
-      border-radius:25px
+      border-radius:25px;
     }
 
-    .provider-button:hover,
-    .provider-button.active{
+    .provider-button.active,
+    .provider-button:hover{
       background:#f5c400;
       color:#000;
       border-color:#f5c400;
-      font-weight:900
+      font-weight:900;
     }
+
+
+    /* =========================================================
+       GRID DE JOGOS
+    ========================================================= */
 
     .games{
       display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(175px,1fr));
-      gap:15px
+      grid-template-columns:
+        repeat(
+          auto-fill,
+          minmax(175px,1fr)
+        );
+      gap:15px;
     }
 
     .game-card{
@@ -333,26 +361,28 @@
       background:#111;
       border:1px solid #262626;
       border-radius:13px;
-      transition:transform .2s,border-color .2s
+      transition:
+        transform .2s,
+        border-color .2s;
     }
 
     .game-card:hover{
       transform:translateY(-4px);
-      border-color:#f5c400
+      border-color:#f5c400;
     }
 
     .game-image{
       position:relative;
       width:100%;
       aspect-ratio:1/1;
-      background:#181818
+      background:#181818;
     }
 
     .game-image img{
       width:100%;
       height:100%;
       object-fit:cover;
-      display:block
+      display:block;
     }
 
     .favorite{
@@ -363,18 +393,18 @@
       height:36px;
       border:0;
       border-radius:50%;
-      background:rgba(0,0,0,.7);
+      background:rgba(0,0,0,.75);
       color:#fff;
       font-size:18px;
-      z-index:2
+      z-index:2;
     }
 
     .favorite.active{
-      color:#f5c400
+      color:#f5c400;
     }
 
     .game-info{
-      padding:10px
+      padding:10px;
     }
 
     .game-title{
@@ -382,14 +412,13 @@
       overflow:hidden;
       text-overflow:ellipsis;
       font-size:14px;
-      font-weight:900
+      font-weight:900;
     }
 
     .game-provider{
-      margin-top:5px;
-      margin-bottom:10px;
+      margin:5px 0 10px;
       color:#777;
-      font-size:12px
+      font-size:12px;
     }
 
     .play-button{
@@ -399,11 +428,11 @@
       border-radius:7px;
       background:#f5c400;
       color:#000;
-      font-weight:900
+      font-weight:900;
     }
 
     .play-button:hover{
-      background:#ffd72a
+      background:#ffd72a;
     }
 
     .loading,
@@ -412,27 +441,28 @@
       grid-column:1/-1;
       padding:60px 20px;
       text-align:center;
-      color:#777
+      color:#777;
     }
 
     .error{
-      color:#ff7777
+      color:#ff7777;
     }
 
-    /* =========================
-       SLOTS
-    ========================= */
+
+    /* =========================================================
+       TELA SLOTS
+    ========================================================= */
 
     #slotsScreen{
-      display:none
+      display:none;
     }
 
     #slotsScreen.active{
-      display:block
+      display:block;
     }
 
     #homeScreen.hidden-home{
-      display:none
+      display:none;
     }
 
     .slots-header{
@@ -441,38 +471,38 @@
       padding:0 20px;
       display:flex;
       align-items:center;
-      gap:12px
+      gap:12px;
     }
 
     .back-button{
-      width:44px;
-      height:44px;
+      width:43px;
+      height:43px;
       border:1px solid #333;
       border-radius:10px;
       background:#171717;
       color:#fff;
-      font-size:22px
+      font-size:22px;
     }
 
     .slots-header h2{
-      font-size:25px
+      font-size:25px;
     }
 
     .slots-search{
       max-width:1450px;
-      margin:0 auto 14px;
-      padding:0 20px
+      margin:0 auto 15px;
+      padding:0 20px;
     }
 
     .slots-search input{
       width:100%;
       height:46px;
-      background:#171717;
+      padding:0 15px;
       border:1px solid #333;
       border-radius:10px;
+      background:#171717;
       color:#fff;
-      padding:0 15px;
-      outline:none
+      outline:none;
     }
 
     .slots-layout{
@@ -480,95 +510,105 @@
       margin:auto;
       padding:0 20px 60px;
       display:grid;
-      grid-template-columns:100px 1fr;
-      gap:14px
+      grid-template-columns:110px 1fr;
+      gap:14px;
     }
 
-    /* =========================
-       BARRA VERTICAL PROVEDORES
-    ========================= */
+
+    /* =========================================================
+       SIDEBAR PROVEDORES
+    ========================================================= */
 
     .provider-sidebar{
+      height:max-content;
+      max-height:
+        calc(
+          100vh - 120px
+        );
+      overflow-y:auto;
+      overflow-x:hidden;
+      padding:8px;
+      position:sticky;
+      top:85px;
+
       background:#101010;
       border:1px solid #292929;
       border-radius:12px;
-      padding:8px;
-      height:max-content;
-      max-height:calc(100vh - 110px);
-      overflow-y:auto;
-      overflow-x:hidden;
-      position:sticky;
-      top:86px;
 
       scrollbar-width:auto;
-      scrollbar-color:#f5c400 #181818
+      scrollbar-color:#f5c400 #181818;
     }
 
     .provider-sidebar::-webkit-scrollbar{
       display:block;
-      width:8px
+      width:8px;
     }
 
     .provider-sidebar::-webkit-scrollbar-track{
       background:#181818;
-      border-radius:10px
+      border-radius:10px;
     }
 
     .provider-sidebar::-webkit-scrollbar-thumb{
       background:#f5c400;
-      border-radius:10px
-    }
-
-    .provider-sidebar::-webkit-scrollbar-thumb:hover{
-      background:#ffd72a
+      border-radius:10px;
     }
 
     .side-provider{
       width:100%;
-      padding:11px 5px;
+      padding:11px 4px;
       margin-bottom:6px;
       border:1px solid #292929;
       border-radius:8px;
       background:#171717;
       color:#bbb;
       font-size:12px;
-      font-weight:800
+      font-weight:800;
     }
 
     .side-provider.active,
     .side-provider:hover{
       background:#f5c400;
       color:#000;
-      border-color:#f5c400
+      border-color:#f5c400;
     }
 
     .slots-content{
-      min-width:0
+      min-width:0;
     }
 
     .slots-grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:10px
+      grid-template-columns:
+        repeat(
+          3,
+          minmax(0,1fr)
+        );
+      gap:10px;
     }
 
     .slots-grid .game-info{
-      padding:7px
+      padding:7px;
     }
 
     .slots-grid .game-title{
-      font-size:12px
+      font-size:12px;
     }
 
     .slots-grid .game-provider{
       font-size:10px;
-      margin:4px 0 7px
+      margin:4px 0 7px;
     }
 
     .slots-grid .play-button{
       font-size:11px;
-      padding:8px 4px
+      padding:8px 4px;
     }
+
+
+    /* =========================================================
+       PAGINAÇÃO
+    ========================================================= */
 
     .pagination{
       display:flex;
@@ -576,7 +616,7 @@
       align-items:center;
       gap:8px;
       margin-top:20px;
-      flex-wrap:wrap
+      flex-wrap:wrap;
     }
 
     .page-button{
@@ -585,7 +625,7 @@
       border:1px solid #333;
       border-radius:8px;
       background:#171717;
-      color:#ddd
+      color:#ddd;
     }
 
     .page-button.active,
@@ -593,12 +633,226 @@
       background:#f5c400;
       color:#000;
       border-color:#f5c400;
-      font-weight:900
     }
 
-    /* =========================
+
+    /* =========================================================
+       PERFIL
+    ========================================================= */
+
+    #profileScreen,
+    #offersScreen,
+    #promotionScreen,
+    #depositScreen{
+      display:none;
+    }
+
+    #profileScreen.active,
+    #offersScreen.active,
+    #promotionScreen.active,
+    #depositScreen.active{
+      display:block;
+    }
+
+    .profile-container{
+      max-width:900px;
+      margin:auto;
+      padding:20px 20px 100px;
+    }
+
+    .profile-top{
+      position:relative;
+      overflow:hidden;
+      padding:28px 20px 24px;
+      border-radius:18px;
+      border:1px solid #333;
+      background:
+        radial-gradient(
+          circle at 90% 0%,
+          rgba(245,196,0,.25),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #222,
+          #101010
+        );
+    }
+
+    .profile-user{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .avatar{
+      width:68px;
+      height:68px;
+      flex-shrink:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:#f5c400;
+      color:#000;
+      font-size:32px;
+      font-weight:900;
+      border:3px solid #fff;
+    }
+
+    .profile-name{
+      font-size:23px;
+      font-weight:900;
+    }
+
+    .profile-email{
+      margin-top:5px;
+      color:#999;
+      font-size:13px;
+      word-break:break-all;
+    }
+
+    .profile-demo{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:
+        repeat(2,1fr);
+      gap:10px;
+    }
+
+    .balance-card{
+      padding:15px;
+      border-radius:12px;
+      background:#171717;
+      border:1px solid #333;
+    }
+
+    .balance-card span{
+      color:#888;
+      font-size:13px;
+    }
+
+    .balance-value{
+      margin-top:5px;
+      font-size:24px;
+      font-weight:900;
+      color:#f5c400;
+    }
+
+    .profile-menu{
+      margin-top:15px;
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    }
+
+    .profile-item{
+      width:100%;
+      min-height:65px;
+      padding:12px 15px;
+      display:flex;
+      align-items:center;
+      gap:13px;
+      text-align:left;
+      border:1px solid #292929;
+      border-radius:11px;
+      background:#171717;
+      color:#fff;
+    }
+
+    .profile-item:hover{
+      border-color:#f5c400;
+      background:#1d1d1d;
+    }
+
+    .profile-icon{
+      width:38px;
+      height:38px;
+      flex-shrink:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:9px;
+      background:#f5c400;
+      color:#000;
+      font-size:19px;
+    }
+
+    .profile-item-content{
+      flex:1;
+      min-width:0;
+    }
+
+    .profile-item-title{
+      font-size:16px;
+      font-weight:800;
+    }
+
+    .profile-item-description{
+      margin-top:3px;
+      color:#777;
+      font-size:12px;
+    }
+
+    .profile-arrow{
+      color:#777;
+      font-size:23px;
+    }
+
+
+    /* =========================================================
+       OUTRAS TELAS
+    ========================================================= */
+
+    .simple-screen{
+      max-width:900px;
+      margin:auto;
+      padding:25px 20px 100px;
+    }
+
+    .simple-header{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .simple-header h2{
+      font-size:27px;
+    }
+
+    .simple-card{
+      padding:22px;
+      margin-bottom:12px;
+      border:1px solid #292929;
+      border-radius:14px;
+      background:#121212;
+    }
+
+    .simple-card h3{
+      margin-bottom:8px;
+    }
+
+    .simple-card p{
+      color:#999;
+      line-height:1.5;
+    }
+
+    .demo-action{
+      width:100%;
+      padding:13px;
+      margin-top:15px;
+      border:0;
+      border-radius:9px;
+      background:#f5c400;
+      color:#000;
+      font-weight:900;
+    }
+
+
+    /* =========================================================
        DRAWER
-    ========================= */
+    ========================================================= */
 
     .drawer{
       position:fixed;
@@ -607,12 +861,12 @@
       background:rgba(0,0,0,.7);
       opacity:0;
       visibility:hidden;
-      transition:.2s
+      transition:.2s;
     }
 
     .drawer.open{
       opacity:1;
-      visibility:visible
+      visibility:visible;
     }
 
     .drawer-panel{
@@ -623,23 +877,27 @@
       background:#101010;
       border-right:1px solid #292929;
       transform:translateX(-100%);
-      transition:.25s
+      transition:.25s;
     }
 
     .drawer.open .drawer-panel{
-      transform:translateX(0)
+      transform:translateX(0);
     }
 
     .drawer-header{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      margin-bottom:25px
+      margin-bottom:25px;
     }
 
     .drawer-logo{
       font-size:24px;
-      font-weight:900
+      font-weight:900;
+    }
+
+    .drawer-logo span{
+      color:#f5c400;
     }
 
     .close-button{
@@ -649,7 +907,7 @@
       border-radius:50%;
       background:#222;
       color:#fff;
-      font-size:22px
+      font-size:22px;
     }
 
     .menu-item{
@@ -660,17 +918,18 @@
       border:1px solid #292929;
       border-radius:9px;
       background:#171717;
-      color:#ddd
+      color:#ddd;
     }
 
     .menu-item:hover{
       background:#f5c400;
-      color:#000
+      color:#000;
     }
 
-    /* =========================
+
+    /* =========================================================
        MODAIS
-    ========================= */
+    ========================================================= */
 
     .modal{
       position:fixed;
@@ -680,11 +939,11 @@
       align-items:center;
       justify-content:center;
       padding:15px;
-      background:rgba(0,0,0,.9)
+      background:rgba(0,0,0,.9);
     }
 
     .modal.show{
-      display:flex
+      display:flex;
     }
 
     .modal-box{
@@ -693,35 +952,35 @@
       max-height:92vh;
       overflow-y:auto;
       padding:25px;
-      background:#111;
       border:1px solid #333;
-      border-radius:15px
+      border-radius:15px;
+      background:#111;
     }
 
     .modal-header{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      margin-bottom:20px
+      margin-bottom:20px;
     }
 
     .modal-header h2{
-      font-size:23px
+      font-size:23px;
     }
 
     .field{
       width:100%;
       padding:13px;
       margin-bottom:9px;
-      background:#181818;
       border:1px solid #333;
       border-radius:8px;
+      background:#181818;
       color:#fff;
-      outline:none
+      outline:none;
     }
 
     .field:focus{
-      border-color:#f5c400
+      border-color:#f5c400;
     }
 
     .primary-button{
@@ -731,7 +990,7 @@
       border-radius:8px;
       background:#f5c400;
       color:#000;
-      font-weight:900
+      font-weight:900;
     }
 
     .secondary-button{
@@ -741,28 +1000,28 @@
       border:1px solid #333;
       border-radius:8px;
       background:#181818;
-      color:#fff
+      color:#fff;
     }
 
     .modal-message{
       margin-top:12px;
       color:#999;
       font-size:14px;
-      line-height:1.4
+      line-height:1.4;
     }
 
     .info-card{
       padding:18px;
       margin-bottom:10px;
-      background:#171717;
       border:1px solid #292929;
-      border-radius:11px
+      border-radius:11px;
+      background:#171717;
     }
 
     .points{
       margin-top:8px;
       font-size:34px;
-      font-weight:900
+      font-weight:900;
     }
 
     .check-row{
@@ -772,17 +1031,18 @@
       margin:5px 0 14px;
       color:#bbb;
       font-size:13px;
-      line-height:1.4
+      line-height:1.4;
     }
 
     .check-row input{
       margin-top:3px;
-      accent-color:#f5c400
+      accent-color:#f5c400;
     }
 
-    /* =========================
+
+    /* =========================================================
        JOGO
-    ========================= */
+    ========================================================= */
 
     .game-modal{
       position:fixed;
@@ -790,11 +1050,11 @@
       z-index:1000;
       display:none;
       flex-direction:column;
-      background:#000
+      background:#000;
     }
 
     .game-modal.show{
-      display:flex
+      display:flex;
     }
 
     .game-bar{
@@ -804,156 +1064,291 @@
       align-items:center;
       justify-content:space-between;
       background:#101010;
-      border-bottom:1px solid #292929
+      border-bottom:1px solid #292929;
     }
 
     .game-frame{
       flex:1;
       width:100%;
       border:0;
-      background:#000
+      background:#000;
     }
 
-    /* =========================
+
+    /* =========================================================
+       BARRA INFERIOR FIXA
+    ========================================================= */
+
+    .bottom-nav{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:700;
+      height:76px;
+      display:grid;
+      grid-template-columns:
+        repeat(5,1fr);
+      background:#151515;
+      border-top:1px solid #333;
+      box-shadow:
+        0 -5px 25px
+        rgba(0,0,0,.4);
+    }
+
+    .bottom-nav-button{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:4px;
+      border:0;
+      background:transparent;
+      color:#777;
+      font-size:11px;
+      font-weight:700;
+    }
+
+    .bottom-nav-icon{
+      font-size:22px;
+      line-height:1;
+    }
+
+    .bottom-nav-button.active{
+      color:#f5c400;
+    }
+
+    .bottom-nav-button.active::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:25%;
+      right:25%;
+      height:3px;
+      background:#f5c400;
+      border-radius:0 0 5px 5px;
+    }
+
+    .bottom-nav-button:hover{
+      color:#f5c400;
+    }
+
+
+    /* =========================================================
        MOBILE
-    ========================= */
+    ========================================================= */
 
     @media(max-width:700px){
 
+      body{
+        padding-bottom:76px;
+      }
+
       header{
-        height:64px
+        height:64px;
       }
 
       .header-inner{
         padding:0 10px;
-        gap:9px
+        gap:9px;
       }
 
       .logo{
-        font-size:21px
+        font-size:21px;
       }
 
       .search-container{
-        display:none
+        display:none;
       }
 
       .account-button{
         margin-left:auto;
-        padding:10px 12px
+        padding:10px 12px;
       }
 
       .hero{
         margin:12px;
-        padding:32px 20px
+        padding:32px 20px;
       }
 
       .hero h1{
-        font-size:35px
+        font-size:35px;
       }
 
       .hero p{
-        font-size:15px
+        font-size:15px;
       }
 
       .section{
-        padding:0 12px 40px
+        padding:0 12px 40px;
       }
 
       .games{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:9px
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+        gap:9px;
       }
 
       .game-info{
-        padding:8px
+        padding:8px;
       }
 
       .game-title{
-        font-size:13px
+        font-size:13px;
       }
 
       .game-provider{
-        font-size:11px
+        font-size:11px;
       }
 
       .play-button{
-        font-size:12px;
-        padding:9px 5px
+        font-size:11px;
+        padding:9px 4px;
       }
 
       .quick-menu,
       .slots-tabs{
         padding-left:12px;
         padding-right:12px;
-        padding-bottom:10px
       }
 
       .providers{
-        padding-bottom:10px
+        padding-bottom:10px;
       }
 
       .slots-header{
-        padding:0 12px
+        padding:0 12px;
       }
 
       .slots-search{
-        padding:0 12px
+        padding:0 12px;
       }
 
       .slots-layout{
         padding:0 12px 40px;
-        grid-template-columns:72px 1fr;
-        gap:8px
+        grid-template-columns:74px 1fr;
+        gap:8px;
       }
 
       .provider-sidebar{
         padding:5px;
-        max-height:calc(100vh - 100px)
+        max-height:
+          calc(
+            100vh - 105px
+          );
       }
 
       .side-provider{
         font-size:10px;
-        padding:10px 2px
+        padding:10px 2px;
       }
 
       .slots-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        gap:7px
+        grid-template-columns:
+          repeat(3,minmax(0,1fr));
+        gap:7px;
       }
 
       .slots-grid .favorite{
         width:28px;
         height:28px;
-        font-size:14px;
         top:4px;
-        right:4px
+        right:4px;
+        font-size:14px;
       }
 
       .slots-grid .game-info{
-        padding:5px
+        padding:5px;
       }
 
       .slots-grid .game-title{
-        font-size:10px
+        font-size:10px;
       }
 
       .slots-grid .game-provider{
-        font-size:9px
+        font-size:9px;
       }
 
       .slots-grid .play-button{
         font-size:9px;
-        padding:7px 2px
+        padding:7px 2px;
+      }
+
+      .profile-container{
+        padding:
+          14px
+          14px
+          95px;
+      }
+
+      .profile-top{
+        padding:22px 15px;
+      }
+
+      .profile-user{
+        gap:12px;
+      }
+
+      .avatar{
+        width:58px;
+        height:58px;
+        font-size:26px;
+      }
+
+      .profile-name{
+        font-size:19px;
+      }
+
+      .profile-demo{
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .balance-value{
+        font-size:20px;
+      }
+
+      .profile-item{
+        min-height:62px;
+      }
+
+      .profile-item-title{
+        font-size:14px;
+      }
+
+      .profile-item-description{
+        font-size:11px;
+      }
+
+      .simple-screen{
+        padding:
+          20px
+          14px
+          95px;
+      }
+
+      .simple-header h2{
+        font-size:24px;
       }
 
       .modal-box{
-        padding:20px
+        padding:20px;
       }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
@@ -962,7 +1357,6 @@
     <button
       class="menu-button"
       onclick="openMenu()"
-      aria-label="Abrir menu"
     >
       ☰
     </button>
@@ -988,7 +1382,10 @@
       class="account-button"
       onclick="openAccount()"
     >
-      👤 <span id="accountLabel">Entrar</span>
+      👤
+      <span id="accountLabel">
+        Entrar
+      </span>
     </button>
 
   </div>
@@ -996,9 +1393,9 @@
 </header>
 
 
-<!-- =========================
+<!-- =========================================================
      HOME
-========================= -->
+========================================================= -->
 
 <main id="homeScreen">
 
@@ -1034,8 +1431,6 @@
 
   </section>
 
-
-  <!-- MENU PRINCIPAL COM ROLAGEM -->
 
   <div class="quick-menu">
 
@@ -1113,8 +1508,6 @@
     </div>
 
 
-    <!-- PROVEDORES COM ROLAGEM -->
-
     <div
       id="providers"
       class="providers"
@@ -1137,9 +1530,9 @@
 </main>
 
 
-<!-- =========================
-     TELA SLOTS
-========================= -->
+<!-- =========================================================
+     SLOTS
+========================================================= -->
 
 <section id="slotsScreen">
 
@@ -1170,8 +1563,6 @@
 
   </div>
 
-
-  <!-- ABAS COM ROLAGEM -->
 
   <div class="slots-tabs">
 
@@ -1215,8 +1606,6 @@
 
   <div class="slots-layout">
 
-    <!-- PROVEDORES COM BARRA VERTICAL -->
-
     <aside
       id="providerSidebar"
       class="provider-sidebar"
@@ -1258,9 +1647,537 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
+     PERFIL
+========================================================= -->
+
+<section id="profileScreen">
+
+  <div class="profile-container">
+
+    <div class="profile-top">
+
+      <div class="profile-user">
+
+        <div
+          id="profileAvatar"
+          class="avatar"
+        >
+          👤
+        </div>
+
+        <div>
+
+          <div
+            id="profileName"
+            class="profile-name"
+          >
+            Visitante
+          </div>
+
+          <div
+            id="profileEmail"
+            class="profile-email"
+          >
+            Entre ou crie sua conta
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="profile-demo">
+
+        <div class="balance-card">
+
+          <span>
+            Saldo demo
+          </span>
+
+          <div
+            id="profileBalance"
+            class="balance-value"
+          >
+            R$ 100.000,00
+          </div>
+
+        </div>
+
+
+        <div class="balance-card">
+
+          <span>
+            Pontos
+          </span>
+
+          <div
+            id="profilePoints"
+            class="balance-value"
+          >
+            0
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="profile-menu">
+
+
+      <button
+        class="profile-item"
+        onclick="openRecords()"
+      >
+
+        <div class="profile-icon">
+          📋
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Meus Registros
+          </div>
+
+          <div class="profile-item-description">
+            Histórico das atividades demo
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        class="profile-item"
+        onclick="openWithdrawals()"
+      >
+
+        <div class="profile-icon">
+          💳
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Gestão de saques
+          </div>
+
+          <div class="profile-item-description">
+            Área demonstrativa de saques
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        class="profile-item"
+        onclick="showPromotion()"
+      >
+
+        <div class="profile-icon">
+          🎁
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Promoção
+          </div>
+
+          <div class="profile-item-description">
+            Consulte as promoções demo
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        class="profile-item"
+        onclick="openDataModal()"
+      >
+
+        <div class="profile-icon">
+          👤
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Dados
+          </div>
+
+          <div class="profile-item-description">
+            Informações da sua conta
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        class="profile-item"
+        onclick="openSecurityModal()"
+      >
+
+        <div class="profile-icon">
+          🛡️
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Segurança
+          </div>
+
+          <div class="profile-item-description">
+            Proteção e acesso da conta
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        class="profile-item"
+        onclick="openFindUs()"
+      >
+
+        <div class="profile-icon">
+          📍
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Encontre-nos
+          </div>
+
+          <div class="profile-item-description">
+            Informações da plataforma
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        class="profile-item"
+        onclick="openFaq()"
+      >
+
+        <div class="profile-icon">
+          ❓
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            FAQ
+          </div>
+
+          <div class="profile-item-description">
+            Perguntas frequentes
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        id="profileLoginButton"
+        class="profile-item"
+        onclick="openLogin()"
+      >
+
+        <div class="profile-icon">
+          🔐
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Entrar na conta
+          </div>
+
+          <div class="profile-item-description">
+            Acesse sua conta
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+
+      <button
+        id="profileLogoutButton"
+        class="profile-item hidden"
+        onclick="logout()"
+      >
+
+        <div class="profile-icon">
+          🚪
+        </div>
+
+        <div class="profile-item-content">
+
+          <div class="profile-item-title">
+            Sair da conta
+          </div>
+
+          <div class="profile-item-description">
+            Encerrar sessão
+          </div>
+
+        </div>
+
+        <div class="profile-arrow">
+          ›
+        </div>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     OFERTAS
+========================================================= -->
+
+<section id="offersScreen">
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="goHome()"
+      >
+        ←
+      </button>
+
+      <h2>
+        🎁 Ofertas
+      </h2>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Oferta Demo
+      </h3>
+
+      <p>
+        Área demonstrativa para futuras ofertas
+        da plataforma 559627WIN.
+      </p>
+
+      <button
+        class="demo-action"
+        onclick="showDemoMessage()"
+      >
+        VER OFERTA
+      </button>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Bônus de boas-vindas
+      </h3>
+
+      <p>
+        Ambiente de demonstração.
+        Nenhum depósito real é realizado.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROMOÇÃO
+========================================================= -->
+
+<section id="promotionScreen">
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="goHome()"
+      >
+        ←
+      </button>
+
+      <h2>
+        👑 Promoção
+      </h2>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Promoção Demo
+      </h3>
+
+      <p>
+        Esta área ficará disponível para
+        cadastrar as promoções da sua plataforma.
+      </p>
+
+      <button
+        class="demo-action"
+        onclick="claimDemoReward()"
+      >
+        RECEBER 100 PONTOS DEMO
+      </button>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Programa VIP
+      </h3>
+
+      <p>
+        Sistema demonstrativo de níveis e
+        recompensas.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DEPÓSITO
+========================================================= -->
+
+<section id="depositScreen">
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="goHome()"
+      >
+        ←
+      </button>
+
+      <h2>
+        💳 Depósito
+      </h2>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Saldo virtual
+      </h3>
+
+      <p>
+        Esta é uma área exclusivamente
+        demonstrativa.
+        Não existe movimentação financeira real.
+      </p>
+
+      <button
+        class="demo-action"
+        onclick="addDemoBalance()"
+      >
+        ADICIONAR R$ 1.000 DEMO
+      </button>
+
+    </div>
+
+
+    <div
+      id="depositMessage"
+      class="simple-card"
+    >
+      Saldo atual:
+      <strong>
+        R$ 100.000,00
+      </strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
      MENU LATERAL
-========================= -->
+========================================================= -->
 
 <div
   id="drawer"
@@ -1328,6 +2245,38 @@
 
     <button
       class="menu-item"
+      onclick="openOffers()"
+    >
+      🎁 Ofertas
+    </button>
+
+
+    <button
+      class="menu-item"
+      onclick="showPromotion()"
+    >
+      👑 Promoção
+    </button>
+
+
+    <button
+      class="menu-item"
+      onclick="openDeposit()"
+    >
+      💳 Depósito demo
+    </button>
+
+
+    <button
+      class="menu-item"
+      onclick="openProfile()"
+    >
+      👤 Perfil
+    </button>
+
+
+    <button
+      class="menu-item"
       onclick="openVip()"
     >
       👑 VIP
@@ -1341,46 +2290,110 @@
       🎁 Recompensas
     </button>
 
-
-    <button
-      class="menu-item"
-      onclick="openBonus()"
-    >
-      🎁 Resgatar bônus demo
-    </button>
-
-
-    <button
-      class="menu-item"
-      onclick="openAccount()"
-    >
-      👤 Minha conta
-    </button>
-
-
-    <button
-      class="menu-item"
-      onclick="openRegister()"
-    >
-      📝 Criar cadastro
-    </button>
-
-
-    <button
-      class="menu-item"
-      onclick="openLogin()"
-    >
-      🔐 Entrar
-    </button>
-
   </div>
 
 </div>
 
 
-<!-- =========================
-     CONTA
-========================= -->
+<!-- =========================================================
+     BARRA INFERIOR
+========================================================= -->
+
+<nav
+  id="bottomNav"
+  class="bottom-nav"
+>
+
+  <button
+    id="navHome"
+    class="bottom-nav-button active"
+    onclick="goHome()"
+  >
+
+    <span class="bottom-nav-icon">
+      🏠
+    </span>
+
+    <span>
+      Começar
+    </span>
+
+  </button>
+
+
+  <button
+    id="navOffers"
+    class="bottom-nav-button"
+    onclick="openOffers()"
+  >
+
+    <span class="bottom-nav-icon">
+      🎁
+    </span>
+
+    <span>
+      Ofertas
+    </span>
+
+  </button>
+
+
+  <button
+    id="navPromotion"
+    class="bottom-nav-button"
+    onclick="showPromotion()"
+  >
+
+    <span class="bottom-nav-icon">
+      👑
+    </span>
+
+    <span>
+      Promoção
+    </span>
+
+  </button>
+
+
+  <button
+    id="navDeposit"
+    class="bottom-nav-button"
+    onclick="openDeposit()"
+  >
+
+    <span class="bottom-nav-icon">
+      💳
+    </span>
+
+    <span>
+      Depósito
+    </span>
+
+  </button>
+
+
+  <button
+    id="navProfile"
+    class="bottom-nav-button"
+    onclick="openProfile()"
+  >
+
+    <span class="bottom-nav-icon">
+      👤
+    </span>
+
+    <span>
+      Perfil
+    </span>
+
+  </button>
+
+</nav>
+
+
+<!-- =========================================================
+     MODAL CONTA
+========================================================= -->
 
 <div
   id="accountModal"
@@ -1411,9 +2424,9 @@
 </div>
 
 
-<!-- =========================
+<!-- =========================================================
      LOGIN / CADASTRO
-========================= -->
+========================================================= -->
 
 <div
   id="authModal"
@@ -1438,17 +2451,18 @@
     </div>
 
 
-    <div
-      class="info-card"
-      style="margin-bottom:14px"
-    >
+    <div class="info-card">
 
       <strong>
         Crie sua conta demo
       </strong>
 
       <div
-        style="color:#888;margin-top:5px;font-size:13px"
+        style="
+          color:#888;
+          margin-top:5px;
+          font-size:13px;
+        "
       >
         Sem telefone e sem confirmação de e-mail.
       </div>
@@ -1498,7 +2512,8 @@
       >
 
       <span>
-        Confirmo que tenho 18 anos ou mais e aceito os termos de uso da plataforma demo.
+        Confirmo que tenho 18 anos ou mais e aceito
+        os termos de uso da plataforma demo.
       </span>
 
     </label>
@@ -1531,9 +2546,9 @@
 </div>
 
 
-<!-- =========================
+<!-- =========================================================
      VIP
-========================= -->
+========================================================= -->
 
 <div
   id="vipModal"
@@ -1568,7 +2583,7 @@
         style="
           font-size:30px;
           font-weight:900;
-          color:#f5c400
+          color:#f5c400;
         "
       >
         VIP Demo
@@ -1595,9 +2610,9 @@
 </div>
 
 
-<!-- =========================
+<!-- =========================================================
      RECOMPENSAS
-========================= -->
+========================================================= -->
 
 <div
   id="rewardsModal"
@@ -1654,9 +2669,9 @@
 </div>
 
 
-<!-- =========================
+<!-- =========================================================
      JOGO
-========================= -->
+========================================================= -->
 
 <div
   id="gameModal"
@@ -1690,22 +2705,19 @@
 
 <script>
 
-  /* =========================
-     SUPABASE
-  ========================= */
+  /* =========================================================
+     CONFIGURAÇÃO
+  ========================================================= */
 
   const SUPABASE_URL =
     "https://dzjjtdxukdagcjjjpnpq.supabase.co";
 
-
   const SUPABASE_KEY =
     "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
-
 
   const GAMES_FUNCTION =
     SUPABASE_URL +
     "/functions/v1/bigbang-games";
-
 
   const LAUNCH_FUNCTION =
     SUPABASE_URL +
@@ -1719,9 +2731,9 @@
     );
 
 
-  /* =========================
+  /* =========================================================
      VARIÁVEIS
-  ========================= */
+  ========================================================= */
 
   let allGames = [];
 
@@ -1736,7 +2748,6 @@
   let authMode =
     "signup";
 
-
   let slotsTab =
     "slots";
 
@@ -1746,14 +2757,11 @@
   let slotsPage =
     1;
 
-
   const SLOTS_PER_PAGE =
     24;
 
-
   const favoriteKey =
     "559627_favorites";
-
 
   const searchElement =
     document.getElementById(
@@ -1761,9 +2769,309 @@
     );
 
 
-  /* =========================
+  /* =========================================================
+     NAVEGAÇÃO
+  ========================================================= */
+
+  function hideAllScreens(){
+
+    document
+      .getElementById(
+        "homeScreen"
+      )
+      .classList.add(
+        "hidden-home"
+      );
+
+    document
+      .getElementById(
+        "slotsScreen"
+      )
+      .classList.remove(
+        "active"
+      );
+
+    document
+      .getElementById(
+        "profileScreen"
+      )
+      .classList.remove(
+        "active"
+      );
+
+    document
+      .getElementById(
+        "offersScreen"
+      )
+      .classList.remove(
+        "active"
+      );
+
+    document
+      .getElementById(
+        "promotionScreen"
+      )
+      .classList.remove(
+        "active"
+      );
+
+    document
+      .getElementById(
+        "depositScreen"
+      )
+      .classList.remove(
+        "active"
+      );
+
+  }
+
+
+  function setBottomActive(
+    id
+  ){
+
+    document
+      .querySelectorAll(
+        ".bottom-nav-button"
+      )
+      .forEach(
+        button =>
+          button.classList.remove(
+            "active"
+          )
+      );
+
+    const button =
+      document.getElementById(
+        id
+      );
+
+    if(button){
+
+      button.classList.add(
+        "active"
+      );
+
+    }
+
+  }
+
+
+  function goHome(){
+
+    closeMenu();
+
+    hideAllScreens();
+
+
+    document
+      .getElementById(
+        "homeScreen"
+      )
+      .classList.remove(
+        "hidden-home"
+      );
+
+
+    setBottomActive(
+      "navHome"
+    );
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  function openProfile(){
+
+    closeMenu();
+
+    hideAllScreens();
+
+
+    document
+      .getElementById(
+        "profileScreen"
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    updateProfile();
+
+    setBottomActive(
+      "navProfile"
+    );
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  function openOffers(){
+
+    closeMenu();
+
+    hideAllScreens();
+
+
+    document
+      .getElementById(
+        "offersScreen"
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    setBottomActive(
+      "navOffers"
+    );
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  function showPromotion(){
+
+    closeMenu();
+
+    hideAllScreens();
+
+
+    document
+      .getElementById(
+        "promotionScreen"
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    setBottomActive(
+      "navPromotion"
+    );
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  function openDeposit(){
+
+    closeMenu();
+
+    hideAllScreens();
+
+
+    document
+      .getElementById(
+        "depositScreen"
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    updateDeposit();
+
+    setBottomActive(
+      "navDeposit"
+    );
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  /* =========================================================
+     SLOTS
+  ========================================================= */
+
+  function openSlots(){
+
+    closeMenu();
+
+    hideAllScreens();
+
+
+    document
+      .getElementById(
+        "slotsScreen"
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    slotsPage =
+      1;
+
+    slotsProvider =
+      "Todos";
+
+    slotsTab =
+      "slots";
+
+
+    document
+      .querySelectorAll(
+        ".slots-tab"
+      )
+      .forEach(
+        (button,index) =>
+          button.classList.toggle(
+            "active",
+            index === 0
+          )
+      );
+
+
+    renderProviderSidebar();
+
+    renderSlots();
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  function closeSlots(){
+
+    goHome();
+
+  }
+
+
+  /* =========================================================
      FAVORITOS
-  ========================= */
+  ========================================================= */
 
   function getFavorites(){
 
@@ -1799,10 +3107,8 @@
     const key =
       String(id);
 
-
     const list =
       getFavorites();
-
 
     const index =
       list.indexOf(key);
@@ -1832,22 +3138,14 @@
       filteredGames
     );
 
-
     renderSlots();
 
   }
 
 
-  /* =========================
-     CLASSIFICAÇÃO
-  ========================= */
-
-  function normalizeGame(game){
-
-    return game || {};
-
-  }
-
+  /* =========================================================
+     JOGOS
+  ========================================================= */
 
   function gameText(game){
 
@@ -1880,7 +3178,7 @@
 
 
     if(
-      /\bslot(s)?\b/.test(text)
+      text.includes("slot")
     ){
 
       return true;
@@ -1889,16 +3187,7 @@
 
 
     if(
-      /\bcasino\b/.test(text)
-    ){
-
-      return true;
-
-    }
-
-
-    if(
-      /\bvideo slot(s)?\b/.test(text)
+      text.includes("casino")
     ){
 
       return true;
@@ -1909,33 +3198,17 @@
     const nonSlot = [
 
       "pescaria",
-
       "fish",
-
       "fishing",
-
       "esporte",
-
       "sport",
-
-      "mini game",
-
       "crash",
-
       "aviator",
-
-      "table",
-
       "baccarat",
-
       "blackjack",
-
       "roulette",
-
       "roleta",
-
       "poker",
-
       "live casino"
 
     ];
@@ -1975,17 +3248,12 @@
   }
 
 
-  /* =========================
-     CARREGAR JOGOS
-  ========================= */
-
   async function loadGames(){
 
     const gamesElement =
       document.getElementById(
         "games"
       );
-
 
     const status =
       document.getElementById(
@@ -1999,10 +3267,6 @@
           Carregando jogos...
         </div>
       `;
-
-
-    status.textContent =
-      "Carregando...";
 
 
     try{
@@ -2048,9 +3312,7 @@
         Array.isArray(
           result.data
         )
-        ? result.data.map(
-            normalizeGame
-          )
+        ? result.data
         : [];
 
 
@@ -2072,16 +3334,11 @@
       status.textContent =
         `${allGames.length} jogos disponíveis`;
 
-
     }catch(error){
 
       console.error(
         error
       );
-
-
-      status.textContent =
-        "Erro";
 
 
       gamesElement.innerHTML =
@@ -2099,26 +3356,14 @@
           </div>
         `;
 
-
-      document.getElementById(
-        "slotsGames"
-      ).innerHTML =
-        `
-          <div class="error">
-
-            Não foi possível carregar os slots.
-
-          </div>
-        `;
-
     }
 
   }
 
 
-  /* =========================
-     PROVEDORES HOME
-  ========================= */
+  /* =========================================================
+     PROVEDORES
+  ========================================================= */
 
   function buildProviders(){
 
@@ -2152,12 +3397,7 @@
 
       <button
         class="provider-button active"
-        onclick="
-          selectProvider(
-            'Todos',
-            this
-          )
-        "
+        onclick="selectProvider('Todos',this)"
       >
         Todos
       </button>
@@ -2228,10 +3468,6 @@
   }
 
 
-  /* =========================
-     FILTRO HOME
-  ========================= */
-
   function filterGames(){
 
     const search =
@@ -2252,35 +3488,28 @@
               game.title ||
               game.name ||
               ""
-            ).toLowerCase();
+            )
+            .toLowerCase();
 
 
           const provider =
             getProvider(
               game
-            ).toLowerCase();
+            )
+            .toLowerCase();
 
 
           const matchesSearch =
-
             !search ||
-
-            title.includes(
-              search
-            ) ||
-
-            provider.includes(
-              search
-            );
+            title.includes(search) ||
+            provider.includes(search);
 
 
           const matchesProvider =
-
             selectedProvider ===
-              "Todos" ||
-
+            "Todos" ||
             getProvider(game) ===
-              selectedProvider;
+            selectedProvider;
 
 
           return (
@@ -2299,49 +3528,9 @@
   }
 
 
-  /* =========================
-     RENDER HOME
-  ========================= */
-
-  function renderGames(
-    games
-  ){
-
-    const container =
-      document.getElementById(
-        "games"
-      );
-
-
-    if(
-      !games.length
-    ){
-
-      container.innerHTML =
-        `
-          <div class="empty">
-            Nenhum jogo encontrado.
-          </div>
-        `;
-
-      return;
-
-    }
-
-
-    container.innerHTML =
-      games
-        .map(
-          gameCardHtml
-        )
-        .join("");
-
-  }
-
-
-  /* =========================
-     CARD
-  ========================= */
+  /* =========================================================
+     CARD JOGO
+  ========================================================= */
 
   function gameCardHtml(
     game
@@ -2403,7 +3592,8 @@
                   display:flex;
                   align-items:center;
                   justify-content:center;
-                  color:#777
+                  color:#777;
+                  font-weight:900;
                 "
               >
                 559627WIN
@@ -2453,11 +3643,9 @@
 
 
           <div class="game-provider">
-
             ${escapeHtml(
               provider
             )}
-
           </div>
 
 
@@ -2482,102 +3670,45 @@
   }
 
 
-  /* =========================
-     ABRIR SLOTS
-  ========================= */
+  function renderGames(
+    games
+  ){
 
-  function openSlots(){
-
-    closeMenu();
-
-
-    document
-      .getElementById(
-        "homeScreen"
-      )
-      .classList.add(
-        "hidden-home"
+    const container =
+      document.getElementById(
+        "games"
       );
 
 
-    document
-      .getElementById(
-        "slotsScreen"
-      )
-      .classList.add(
-        "active"
-      );
+    if(
+      !games.length
+    ){
+
+      container.innerHTML =
+        `
+          <div class="empty">
+            Nenhum jogo encontrado.
+          </div>
+        `;
+
+      return;
+
+    }
 
 
-    slotsPage =
-      1;
-
-
-    slotsProvider =
-      "Todos";
-
-
-    slotsTab =
-      "slots";
-
-
-    document
-      .querySelectorAll(
-        ".slots-tab"
-      )
-      .forEach(
-        (b,i) =>
-          b.classList.toggle(
-            "active",
-            i === 0
-          )
-      );
-
-
-    renderProviderSidebar();
-
-    renderSlots();
-
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
+    container.innerHTML =
+      games
+        .map(
+          gameCardHtml
+        )
+        .join("");
 
   }
 
 
-  function closeSlots(){
-
-    document
-      .getElementById(
-        "slotsScreen"
-      )
-      .classList.remove(
-        "active"
-      );
-
-
-    document
-      .getElementById(
-        "homeScreen"
-      )
-      .classList.remove(
-        "hidden-home"
-      );
-
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
-
-  }
-
-
-  /* =========================
-     ABAS SLOTS
-  ========================= */
+  /* =========================================================
+     SLOTS
+  ========================================================= */
 
   function setSlotsTab(
     tab,
@@ -2586,7 +3717,6 @@
 
     slotsTab =
       tab;
-
 
     slotsPage =
       1;
@@ -2618,16 +3748,16 @@
   }
 
 
-  /* =========================
-     SIDEBAR SLOTS
-  ========================= */
-
   function renderProviderSidebar(){
 
     const sidebar =
       document.getElementById(
         "providerSidebar"
       );
+
+
+    if(!sidebar)
+      return;
 
 
     const slotGames =
@@ -2669,14 +3799,11 @@
           }
         "
         onclick="
-          setSlotsProvider(
-            'Todos'
-          )
+          setSlotsProvider('Todos')
         "
       >
         TODOS
       </button>
-
 
       ${
         providers.map(
@@ -2723,10 +3850,8 @@
     slotsProvider =
       provider;
 
-
     slotsPage =
       1;
-
 
     renderProviderSidebar();
 
@@ -2734,10 +3859,6 @@
 
   }
 
-
-  /* =========================
-     JOGOS DOS SLOTS
-  ========================= */
 
   function getSlotGames(){
 
@@ -2771,25 +3892,20 @@
                 game.title ||
                 game.name ||
                 ""
-              ).toLowerCase();
+              )
+              .toLowerCase();
 
 
             const provider =
               getProvider(
                 game
-              ).toLowerCase();
+              )
+              .toLowerCase();
 
 
             return (
-
-              title.includes(
-                search
-              ) ||
-
-              provider.includes(
-                search
-              )
-
+              title.includes(search) ||
+              provider.includes(search)
             );
 
           }
@@ -2806,9 +3922,7 @@
       games =
         games.filter(
           game =>
-            getProvider(
-              game
-            ) ===
+            getProvider(game) ===
             slotsProvider
         );
 
@@ -2821,16 +3935,15 @@
     ){
 
       games =
-        games
-          .slice(
-            0,
-            100
-          );
+        games.slice(
+          0,
+          100
+        );
 
     }
 
 
-    else if(
+    if(
       slotsTab ===
       "recent"
     ){
@@ -2846,7 +3959,7 @@
     }
 
 
-    else if(
+    if(
       slotsTab ===
       "favorites"
     ){
@@ -2866,10 +3979,6 @@
 
   }
 
-
-  /* =========================
-     RENDER SLOTS
-  ========================= */
 
   function renderSlots(){
 
@@ -2922,7 +4031,8 @@
 
     const start =
       (
-        slotsPage - 1
+        slotsPage -
+        1
       ) *
       SLOTS_PER_PAGE;
 
@@ -2931,7 +4041,7 @@
       games.slice(
         start,
         start +
-          SLOTS_PER_PAGE
+        SLOTS_PER_PAGE
       );
 
 
@@ -2953,7 +4063,6 @@
 
       pagination.innerHTML =
         "";
-
 
       return;
 
@@ -3046,9 +4155,9 @@
     );
 
 
-  /* =========================
-     ABRIR JOGO DEMO
-  ========================= */
+  /* =========================================================
+     JOGO DEMO
+  ========================================================= */
 
   async function launchGame(
     gameId,
@@ -3144,17 +4253,6 @@
       }
 
 
-      if(
-        !result.game_url
-      ){
-
-        throw new Error(
-          "A BigBang não retornou uma URL."
-        );
-
-      }
-
-
       gameTitle.textContent =
         title;
 
@@ -3162,11 +4260,9 @@
       frame.src =
         result.game_url;
 
-
     }catch(error){
 
       console.error(
-        "Erro no jogo:",
         error
       );
 
@@ -3210,9 +4306,9 @@
   }
 
 
-  /* =========================
-     MENU
-  ========================= */
+  /* =========================================================
+     MENU LATERAL
+  ========================================================= */
 
   function openMenu(){
 
@@ -3256,18 +4352,9 @@
   }
 
 
-  function goHome(){
-
-    closeMenu();
-
-    closeSlots();
-
-  }
-
-
-  /* =========================
-     BOTÕES HOME
-  ========================= */
+  /* =========================================================
+     FILTROS HOME
+  ========================================================= */
 
   function activateQuickButton(
     button
@@ -3302,7 +4389,7 @@
 
     closeMenu();
 
-    closeSlots();
+    goHome();
 
 
     selectedProvider =
@@ -3355,8 +4442,7 @@
 
     closeMenu();
 
-    closeSlots();
-
+    goHome();
 
     activateQuickButton(
       button
@@ -3364,10 +4450,11 @@
 
 
     renderGames(
-      [...allGames].slice(
-        0,
-        50
-      )
+      [...allGames]
+        .slice(
+          0,
+          50
+        )
     );
 
   }
@@ -3379,8 +4466,7 @@
 
     closeMenu();
 
-    closeSlots();
-
+    goHome();
 
     activateQuickButton(
       button
@@ -3398,9 +4484,184 @@
   }
 
 
-  /* =========================
+  /* =========================================================
+     PERFIL
+  ========================================================= */
+
+  function updateProfile(){
+
+    const name =
+      document.getElementById(
+        "profileName"
+      );
+
+    const email =
+      document.getElementById(
+        "profileEmail"
+      );
+
+    const avatar =
+      document.getElementById(
+        "profileAvatar"
+      );
+
+    const loginButton =
+      document.getElementById(
+        "profileLoginButton"
+      );
+
+    const logoutButton =
+      document.getElementById(
+        "profileLogoutButton"
+      );
+
+    const points =
+      document.getElementById(
+        "profilePoints"
+      );
+
+
+    if(currentUser){
+
+      const userEmail =
+        currentUser.email ||
+        "Usuário";
+
+
+      name.textContent =
+        userEmail
+          .split("@")[0];
+
+
+      email.textContent =
+        userEmail;
+
+
+      avatar.textContent =
+        userEmail
+          .charAt(0)
+          .toUpperCase();
+
+
+      loginButton.classList.add(
+        "hidden"
+      );
+
+
+      logoutButton.classList.remove(
+        "hidden"
+      );
+
+    }else{
+
+      name.textContent =
+        "Visitante";
+
+
+      email.textContent =
+        "Entre ou crie sua conta";
+
+
+      avatar.textContent =
+        "👤";
+
+
+      loginButton.classList.remove(
+        "hidden"
+      );
+
+
+      logoutButton.classList.add(
+        "hidden"
+      );
+
+    }
+
+
+    points.textContent =
+      getPoints();
+
+  }
+
+
+  function openRecords(){
+
+    alert(
+      "📋 Meus Registros\n\n" +
+      "Área demonstrativa.\n\n" +
+      "Aqui poderão aparecer posteriormente " +
+      "histórico de jogos, favoritos e atividades."
+    );
+
+  }
+
+
+  function openWithdrawals(){
+
+    alert(
+      "💳 Gestão de saques\n\n" +
+      "Área demonstrativa.\n\n" +
+      "Nenhum saque real é realizado neste ambiente."
+    );
+
+  }
+
+
+  function openDataModal(){
+
+    if(!currentUser){
+
+      openLogin();
+
+      return;
+
+    }
+
+
+    alert(
+      "👤 Dados da conta\n\n" +
+      "E-mail:\n" +
+      currentUser.email
+    );
+
+  }
+
+
+  function openSecurityModal(){
+
+    alert(
+      "🛡️ Segurança\n\n" +
+      "Sua conta utiliza autenticação do Supabase."
+    );
+
+  }
+
+
+  function openFindUs(){
+
+    alert(
+      "📍 Encontre-nos\n\n" +
+      "559627WIN\n\n" +
+      "Plataforma demonstrativa."
+    );
+
+  }
+
+
+  function openFaq(){
+
+    alert(
+      "❓ FAQ\n\n" +
+      "Os jogos funcionam em modo demonstração.\n\n" +
+      "Não há movimentação financeira real nesta versão."
+    );
+
+  }
+
+
+  /* =========================================================
      CONTA
-  ========================= */
+  ========================================================= */
 
   function openAccount(){
 
@@ -3433,11 +4694,8 @@
       content.innerHTML = `
 
         <div class="info-card">
-
           Você ainda não está conectado.
-
         </div>
-
 
         <button
           class="primary-button"
@@ -3445,7 +4703,6 @@
         >
           📝 Criar cadastro
         </button>
-
 
         <button
           class="secondary-button"
@@ -3455,7 +4712,6 @@
         </button>
 
       `;
-
 
       return;
 
@@ -3502,9 +4758,9 @@
   }
 
 
-  /* =========================
+  /* =========================================================
      CADASTRO
-  ========================= */
+  ========================================================= */
 
   function openRegister(){
 
@@ -3656,10 +4912,6 @@
   }
 
 
-  /* =========================
-     LOGIN / CADASTRO
-  ========================= */
-
   async function submitAuth(){
 
     const email =
@@ -3780,14 +5032,7 @@
 
               email,
 
-              password,
-
-              options:{
-
-                emailRedirectTo:
-                  window.location.origin
-
-              }
+              password
 
             });
 
@@ -3806,7 +5051,7 @@
 
           updateAccountLabel();
 
-          renderAccount();
+          updateProfile();
 
 
           message.textContent =
@@ -3820,21 +5065,20 @@
                 "authModal"
               );
 
-
               updateAccountLabel();
+
+              updateProfile();
 
             },
             500
           );
 
-
         }else{
 
           message.textContent =
-            "Cadastro criado, mas o Supabase ainda está pedindo confirmação de e-mail. Desative 'Confirm email' no provedor Email do Supabase.";
+            "Cadastro criado, mas o Supabase ainda está exigindo confirmação de e-mail. Desative Confirm email no provedor Email do Supabase.";
 
         }
-
 
       }else{
 
@@ -3864,6 +5108,8 @@
 
         updateAccountLabel();
 
+        updateProfile();
+
 
         message.textContent =
           "Login realizado!";
@@ -3876,15 +5122,15 @@
               "authModal"
             );
 
-
             updateAccountLabel();
+
+            updateProfile();
 
           },
           500
         );
 
       }
-
 
     }catch(error){
 
@@ -3902,9 +5148,9 @@
   }
 
 
-  /* =========================
+  /* =========================================================
      LOGOUT
-  ========================= */
+  ========================================================= */
 
   async function logout(){
 
@@ -3919,6 +5165,8 @@
 
     updateAccountLabel();
 
+    updateProfile();
+
     renderAccount();
 
 
@@ -3926,12 +5174,15 @@
       "accountModal"
     );
 
+
+    goHome();
+
   }
 
 
-  /* =========================
-     VERIFICAR USUÁRIO
-  ========================= */
+  /* =========================================================
+     AUTH
+  ========================================================= */
 
   async function checkUser(){
 
@@ -3950,12 +5201,10 @@
 
     updateAccountLabel();
 
+    updateProfile();
+
   }
 
-
-  /* =========================
-     OBSERVAR LOGIN
-  ========================= */
 
   supabaseClient
     .auth
@@ -3969,13 +5218,15 @@
 
         updateAccountLabel();
 
+        updateProfile();
+
       }
     );
 
 
-  /* =================================================
-     ESCONDER ENTRAR E CRIAR CADASTRO
-  ================================================= */
+  /* =========================================================
+     ESCONDER LOGIN APÓS LOGIN
+  ========================================================= */
 
   function updateAccountLabel(){
 
@@ -3984,12 +5235,10 @@
         "accountLabel"
       );
 
-
     const accountButton =
       document.getElementById(
         "accountButton"
       );
-
 
     const registerButton =
       document.getElementById(
@@ -4056,9 +5305,9 @@
   }
 
 
-  /* =========================
+  /* =========================================================
      VIP
-  ========================= */
+  ========================================================= */
 
   function openVip(){
 
@@ -4084,9 +5333,9 @@
   }
 
 
-  /* =========================
+  /* =========================================================
      RECOMPENSAS
-  ========================= */
+  ========================================================= */
 
   function openRewards(){
 
@@ -4122,9 +5371,18 @@
 
   function openBonus(){
 
-    closeMenu();
-
     openRewards();
+
+  }
+
+
+  function getPoints(){
+
+    return Number(
+      localStorage.getItem(
+        "559627_demo_points"
+      ) || 0
+    );
 
   }
 
@@ -4145,40 +5403,129 @@
     );
 
 
-    document
-      .getElementById(
+    const rewardPoints =
+      document.getElementById(
         "rewardPoints"
-      )
-      .textContent =
-      points;
+      );
 
 
-    document
-      .getElementById(
+    const rewardMessage =
+      document.getElementById(
         "rewardMessage"
-      )
-      .textContent =
-      "🎉 Você recebeu 100 pontos de demonstração!";
+      );
+
+
+    if(rewardPoints){
+
+      rewardPoints.textContent =
+        points;
+
+    }
+
+
+    if(rewardMessage){
+
+      rewardMessage.textContent =
+        "🎉 Você recebeu 100 pontos de demonstração!";
+
+    }
+
+
+    updateProfile();
 
   }
 
 
-  function getPoints(){
+  /* =========================================================
+     SALDO DEMO
+  ========================================================= */
+
+  function getDemoBalance(){
 
     return Number(
       localStorage.getItem(
-        "559627_demo_points"
-      ) || 0
+        "559627_demo_balance"
+      ) ||
+      100000
     );
 
   }
 
 
-  /* =========================
-     MODAIS
-  ========================= */
+  function addDemoBalance(){
 
-  function closeModal(id){
+    let balance =
+      getDemoBalance();
+
+
+    balance +=
+      1000;
+
+
+    localStorage.setItem(
+      "559627_demo_balance",
+      String(balance)
+    );
+
+
+    updateDeposit();
+
+    updateProfile();
+
+  }
+
+
+  function updateDeposit(){
+
+    const element =
+      document.getElementById(
+        "depositMessage"
+      );
+
+
+    if(!element)
+      return;
+
+
+    element.innerHTML = `
+
+      Saldo atual:
+
+      <strong>
+        ${formatMoney(
+          getDemoBalance()
+        )}
+      </strong>
+
+    `;
+
+  }
+
+
+  function formatMoney(
+    value
+  ){
+
+    return Number(
+      value
+    ).toLocaleString(
+      "pt-BR",
+      {
+        style:"currency",
+        currency:"BRL"
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     MODAIS
+  ========================================================= */
+
+  function closeModal(
+    id
+  ){
 
     const modal =
       document.getElementById(
@@ -4197,9 +5544,9 @@
   }
 
 
-  /* =========================
-     BUSCA HOME
-  ========================= */
+  /* =========================================================
+     BUSCA
+  ========================================================= */
 
   searchElement
     .addEventListener(
@@ -4212,9 +5559,22 @@
     );
 
 
-  /* =========================
+  /* =========================================================
+     MENSAGEM DEMO
+  ========================================================= */
+
+  function showDemoMessage(){
+
+    alert(
+      "🎁 Oferta demo selecionada!"
+    );
+
+  }
+
+
+  /* =========================================================
      ESC
-  ========================= */
+  ========================================================= */
 
   document
     .addEventListener(
@@ -4252,9 +5612,9 @@
     );
 
 
-  /* =========================
-     FECHAR MODAIS
-  ========================= */
+  /* =========================================================
+     CLIQUE FORA DOS MODAIS
+  ========================================================= */
 
   document
     .querySelectorAll(
@@ -4285,9 +5645,9 @@
     );
 
 
-  /* =========================
+  /* =========================================================
      ESCAPES
-  ========================= */
+  ========================================================= */
 
   function escapeHtml(
     value
@@ -4296,27 +5656,22 @@
     return String(
       value ?? ""
     )
-
       .replaceAll(
         "&",
         "&amp;"
       )
-
       .replaceAll(
         "<",
         "&lt;"
       )
-
       .replaceAll(
         ">",
         "&gt;"
       )
-
       .replaceAll(
         '"',
         "&quot;"
       )
-
       .replaceAll(
         "'",
         "&#039;"
@@ -4343,22 +5698,18 @@
     return String(
       value ?? ""
     )
-
       .replaceAll(
         "\\",
         "\\\\"
       )
-
       .replaceAll(
         "'",
         "\\'"
       )
-
       .replaceAll(
         "\n",
         " "
       )
-
       .replaceAll(
         "\r",
         " "
@@ -4367,13 +5718,17 @@
   }
 
 
-  /* =========================
+  /* =========================================================
      INICIALIZAÇÃO
-  ========================= */
+  ========================================================= */
 
   loadGames();
 
   checkUser();
+
+  updateDeposit();
+
+  updateProfile();
 
 </script>
 
