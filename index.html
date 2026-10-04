@@ -11,6 +11,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#070707;
@@ -18,6 +19,7 @@ body{
   min-height:100vh;
   padding-bottom:78px
 }
+
 button,input{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
@@ -40,6 +42,7 @@ header{
   border-bottom:1px solid #292929;
   backdrop-filter:blur(12px)
 }
+
 .header{
   height:100%;
   max-width:1450px;
@@ -49,6 +52,7 @@ header{
   align-items:center;
   gap:12px
 }
+
 .menu-btn,
 .back-btn,
 .close-btn{
@@ -60,23 +64,28 @@ header{
   color:#fff;
   font-size:21px
 }
+
 .menu-btn:hover,
 .back-btn:hover,
 .close-btn:hover{
   border-color:var(--gold)
 }
+
 .logo{
   font-size:25px;
   font-weight:900;
   white-space:nowrap;
   cursor:pointer
 }
+
 .logo span{color:var(--gold)}
+
 .header-search{
   flex:1;
   max-width:650px;
   margin:auto
 }
+
 .search{
   width:100%;
   height:42px;
@@ -87,7 +96,9 @@ header{
   color:#fff;
   outline:none
 }
+
 .search:focus{border-color:var(--gold)}
+
 .login-btn{
   border:0;
   border-radius:9px;
@@ -108,30 +119,39 @@ header{
     radial-gradient(circle at 85% 15%,rgba(245,196,0,.25),transparent 35%),
     linear-gradient(135deg,#1b1b1b,#090909)
 }
-.hero h1{font-size:clamp(35px,5vw,62px)}
+
+.hero h1{
+  font-size:clamp(35px,5vw,62px)
+}
+
 .hero h1 span{color:var(--gold)}
+
 .hero p{
   margin-top:12px;
   color:#aaa;
   font-size:17px
 }
+
 .hero-buttons{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
   margin-top:23px
 }
+
 .gold-btn,
 .dark-btn{
   border-radius:9px;
   padding:13px 20px;
   font-weight:900
 }
+
 .gold-btn{
   border:0;
   background:var(--gold);
   color:#000
 }
+
 .dark-btn{
   border:1px solid #444;
   background:#191919;
@@ -147,6 +167,7 @@ header{
   overflow-x:auto;
   scrollbar-width:thin
 }
+
 .category{
   white-space:nowrap;
   padding:10px 16px;
@@ -155,6 +176,7 @@ header{
   background:#151515;
   color:#bbb
 }
+
 .category.active,
 .category:hover{
   background:var(--gold);
@@ -168,6 +190,7 @@ header{
   margin:auto;
   padding:0 18px
 }
+
 .section-title{
   display:flex;
   align-items:center;
@@ -175,7 +198,9 @@ header{
   gap:10px;
   margin-bottom:15px
 }
+
 .section-title h2{font-size:25px}
+
 .count{
   font-size:12px;
   color:#777
@@ -190,6 +215,7 @@ header{
   scrollbar-width:thin;
   scrollbar-color:var(--gold)#181818
 }
+
 .provider{
   flex:none;
   padding:9px 15px;
@@ -198,6 +224,7 @@ header{
   background:#151515;
   color:#aaa
 }
+
 .provider.active,
 .provider:hover{
   background:var(--gold);
@@ -210,6 +237,7 @@ header{
   grid-template-columns:repeat(6,minmax(0,1fr));
   gap:13px
 }
+
 .game{
   overflow:hidden;
   border:1px solid #292929;
@@ -217,21 +245,25 @@ header{
   background:#111;
   transition:.2s
 }
+
 .game:hover{
   transform:translateY(-3px);
   border-color:var(--gold)
 }
+
 .game-img{
   position:relative;
   aspect-ratio:1/1;
   background:#181818
 }
+
 .game-img img{
   width:100%;
   height:100%;
   display:block;
   object-fit:cover
 }
+
 .fav{
   position:absolute;
   right:7px;
@@ -244,8 +276,11 @@ header{
   color:#fff;
   z-index:2
 }
+
 .fav.active{color:var(--gold)}
+
 .game-body{padding:9px}
+
 .game-name{
   font-size:13px;
   font-weight:900;
@@ -253,11 +288,13 @@ header{
   overflow:hidden;
   text-overflow:ellipsis
 }
+
 .game-provider{
   color:#777;
   font-size:11px;
   margin:4px 0 8px
 }
+
 .play{
   width:100%;
   padding:9px;
@@ -268,6 +305,7 @@ header{
   font-size:12px;
   font-weight:900
 }
+
 .loading,
 .empty,
 .error{
@@ -276,6 +314,7 @@ header{
   text-align:center;
   color:#777
 }
+
 .error{color:#ff7777}
 
 /* SCREENS */
@@ -290,6 +329,7 @@ header{
   align-items:center;
   gap:13px
 }
+
 .screen-head h2{font-size:25px}
 
 /* SLOTS */
@@ -298,6 +338,7 @@ header{
   margin:auto;
   padding:0 18px 14px
 }
+
 .slots-search input{
   width:100%;
   height:44px;
@@ -308,6 +349,7 @@ header{
   color:#fff;
   outline:none
 }
+
 .slot-tabs{
   max-width:1450px;
   margin:auto;
@@ -316,6 +358,7 @@ header{
   gap:8px;
   overflow-x:auto
 }
+
 .slot-tab{
   white-space:nowrap;
   padding:10px 15px;
@@ -324,12 +367,14 @@ header{
   background:#151515;
   color:#aaa
 }
+
 .slot-tab.active{
   background:var(--gold);
   color:#000;
   border-color:var(--gold);
   font-weight:900
 }
+
 .slots-layout{
   max-width:1450px;
   margin:auto;
@@ -338,6 +383,7 @@ header{
   grid-template-columns:105px 1fr;
   gap:14px
 }
+
 .provider-sidebar{
   height:calc(100vh - 190px);
   max-height:700px;
@@ -349,11 +395,14 @@ header{
   scrollbar-width:thin;
   scrollbar-color:var(--gold)#181818
 }
+
 .provider-sidebar::-webkit-scrollbar{width:6px}
+
 .provider-sidebar::-webkit-scrollbar-thumb{
   background:var(--gold);
   border-radius:10px
 }
+
 .side-provider{
   width:100%;
   padding:12px 3px;
@@ -365,17 +414,20 @@ header{
   font-size:10px;
   font-weight:700
 }
+
 .side-provider.active,
 .side-provider:hover{
   background:var(--gold);
   color:#000;
   border-color:var(--gold)
 }
+
 .slots-grid{
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:12px
 }
+
 .pagination{
   display:flex;
   justify-content:center;
@@ -383,6 +435,7 @@ header{
   flex-wrap:wrap;
   margin-top:22px
 }
+
 .page{
   min-width:38px;
   height:38px;
@@ -391,6 +444,7 @@ header{
   background:#171717;
   color:#aaa
 }
+
 .page.active{
   background:var(--gold);
   color:#000;
@@ -403,6 +457,7 @@ header{
   margin:auto;
   padding:18px 18px 90px
 }
+
 .profile-card{
   padding:22px;
   border:1px solid var(--border);
@@ -411,11 +466,13 @@ header{
     radial-gradient(circle at 90% 10%,rgba(245,196,0,.23),transparent 35%),
     #151515
 }
+
 .profile-user{
   display:flex;
   align-items:center;
   gap:14px
 }
+
 .avatar{
   width:64px;
   height:64px;
@@ -428,39 +485,47 @@ header{
   font-size:26px;
   font-weight:900
 }
+
 .profile-name{
   font-size:20px;
   font-weight:900
 }
+
 .profile-email{
   margin-top:4px;
   color:#777;
   font-size:12px
 }
+
 .profile-stats{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
   margin-top:18px
 }
+
 .stat{
   padding:14px;
   border:1px solid #333;
   border-radius:11px;
   background:#202020
 }
+
 .stat small{color:#777}
+
 .stat strong{
   display:block;
   margin-top:5px;
   color:var(--gold);
   font-size:20px
 }
+
 .profile-menu{
   display:grid;
   gap:8px;
   margin-top:12px
 }
+
 .profile-item{
   width:100%;
   min-height:68px;
@@ -474,7 +539,9 @@ header{
   color:#fff;
   text-align:left
 }
+
 .profile-item:hover{border-color:var(--gold)}
+
 .profile-icon{
   width:45px;
   height:45px;
@@ -487,13 +554,17 @@ header{
   color:#000;
   font-size:21px
 }
+
 .profile-info{flex:1}
+
 .profile-title{font-weight:900}
+
 .profile-desc{
   margin-top:3px;
   color:#777;
   font-size:11px
 }
+
 .arrow{
   font-size:25px;
   color:#777
@@ -505,6 +576,7 @@ header{
   margin:auto;
   padding:18px 18px 90px
 }
+
 .card{
   padding:19px;
   margin-bottom:10px;
@@ -512,12 +584,15 @@ header{
   border-radius:14px;
   background:#151515
 }
+
 .card h3{font-size:18px}
+
 .card p{
   margin-top:7px;
   color:#999;
   line-height:1.5
 }
+
 .action{
   width:100%;
   margin-top:13px;
@@ -528,6 +603,7 @@ header{
   color:#000;
   font-weight:900
 }
+
 .outline{
   width:100%;
   margin-top:9px;
@@ -548,12 +624,15 @@ header{
     radial-gradient(circle at 85% 10%,rgba(245,196,0,.3),transparent 35%),
     #121212
 }
+
 .invite h2{font-size:26px}
+
 .invite p{
   margin-top:8px;
   color:#999;
   line-height:1.5
 }
+
 .ref-box{
   margin-top:17px;
   padding:14px;
@@ -561,10 +640,12 @@ header{
   border-radius:11px;
   background:#0d0d0d
 }
+
 .ref-label{
   font-size:11px;
   color:#777
 }
+
 .ref-code{
   margin-top:5px;
   color:var(--gold);
@@ -572,11 +653,13 @@ header{
   font-weight:900;
   letter-spacing:1px
 }
+
 .link-row{
   display:flex;
   gap:8px;
   margin-top:10px
 }
+
 .link-row input{
   flex:1;
   min-width:0;
@@ -587,6 +670,7 @@ header{
   background:#101010;
   color:#fff
 }
+
 .copy{
   padding:0 15px;
   border:0;
@@ -595,21 +679,25 @@ header{
   color:#000;
   font-weight:900
 }
+
 .qr{
   display:flex;
   justify-content:center;
   margin:18px 0
 }
+
 .qr-inner{
   padding:10px;
   background:#fff;
   border-radius:8px
 }
+
 .share{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:7px
 }
+
 .share button{
   padding:10px 5px;
   border:1px solid #333;
@@ -617,6 +705,7 @@ header{
   background:#191919;
   color:#fff
 }
+
 .invite-stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -636,7 +725,9 @@ header{
   background:rgba(0,0,0,.8);
   backdrop-filter:blur(7px)
 }
+
 .modal.show{display:flex}
+
 .modal-box{
   width:min(500px,100%);
   max-height:90vh;
@@ -646,13 +737,16 @@ header{
   border-radius:17px;
   background:#111
 }
+
 .modal-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-bottom:16px
 }
+
 .modal-head h2{font-size:22px}
+
 .field{
   width:100%;
   height:46px;
@@ -664,7 +758,9 @@ header{
   color:#fff;
   outline:none
 }
+
 .field:focus{border-color:var(--gold)}
+
 .primary{
   width:100%;
   padding:13px;
@@ -674,6 +770,7 @@ header{
   color:#000;
   font-weight:900
 }
+
 .secondary{
   width:100%;
   margin-top:9px;
@@ -684,6 +781,7 @@ header{
   color:#fff;
   font-weight:900
 }
+
 .check{
   display:flex;
   align-items:flex-start;
@@ -693,12 +791,14 @@ header{
   font-size:12px;
   line-height:1.4
 }
+
 .auth-switch{
   margin-top:14px;
   text-align:center;
   color:#888;
   font-size:13px
 }
+
 .message{
   margin-top:10px;
   color:var(--gold);
@@ -715,7 +815,9 @@ header{
   flex-direction:column;
   background:#000
 }
+
 .game-modal.show{display:flex}
+
 .game-head{
   height:58px;
   display:flex;
@@ -725,6 +827,7 @@ header{
   background:#101010;
   border-bottom:1px solid #292929
 }
+
 .game-frame{
   width:100%;
   height:calc(100vh - 58px);
@@ -740,7 +843,9 @@ header{
   display:none;
   background:rgba(0,0,0,.7)
 }
+
 .drawer-bg.show{display:block}
+
 .drawer{
   position:fixed;
   left:0;
@@ -755,13 +860,17 @@ header{
   transform:translateX(-100%);
   transition:.25s
 }
+
 .drawer.show{transform:translateX(0)}
+
 .drawer-logo{
   font-size:25px;
   font-weight:900;
   margin-bottom:18px
 }
+
 .drawer-logo span{color:var(--gold)}
+
 .drawer-item{
   width:100%;
   padding:13px;
@@ -772,6 +881,7 @@ header{
   color:#fff;
   text-align:left
 }
+
 .drawer-item:hover{
   border-color:var(--gold);
   color:var(--gold)
@@ -791,6 +901,7 @@ header{
   border-top:1px solid #292929;
   backdrop-filter:blur(12px)
 }
+
 .nav{
   border:0;
   background:none;
@@ -803,7 +914,9 @@ header{
   font-size:10px;
   font-weight:700
 }
+
 .nav span{font-size:20px}
+
 .nav.active,
 .nav:hover{color:var(--gold)}
 
@@ -824,6 +937,7 @@ header{
   pointer-events:none;
   transition:.25s
 }
+
 .toast.show{
   transform:translate(-50%,0);
   opacity:1
@@ -833,57 +947,83 @@ header{
   .games{grid-template-columns:repeat(5,minmax(0,1fr))}
   .slots-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
+
 @media(max-width:800px){
+
   .header-search{display:none}
+
   .games{
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:8px
   }
+
   .slots-grid{
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:7px
   }
+
   .slots-layout{
     grid-template-columns:78px 1fr;
     padding-left:10px;
     padding-right:10px
   }
+
   .provider-sidebar{
     height:calc(100vh - 190px)
   }
+
   .container{padding:0 10px}
+
   .hero{
     margin:10px;
     padding:35px 20px
   }
+
   .game-name{font-size:11px}
   .game-provider{font-size:9px}
+
   .play{
     padding:8px 3px;
     font-size:10px
   }
+
   .fav{
     width:27px;
     height:27px;
     font-size:11px
   }
 }
+
 @media(max-width:500px){
+
   .logo{font-size:20px}
+
   .login-btn{
     padding:10px 11px;
     font-size:11px
   }
+
   .slots-layout{
     grid-template-columns:70px 1fr
   }
+
   .side-provider{
     font-size:9px;
     padding:10px 2px
   }
-  .profile-stats{grid-template-columns:1fr}
-  .share{grid-template-columns:1fr 1fr}
-  .invite-stats{grid-template-columns:repeat(3,1fr)}
+
+  .profile-stats{
+    grid-template-columns:1fr
+  }
+
+  .share{
+    grid-template-columns:1fr 1fr
+  }
+
+  .invite-stats{
+    grid-template-columns:repeat(3,1fr)
+  }
+
   .hero h1{font-size:35px}
 }
 </style>
@@ -909,7 +1049,11 @@ header{
       >
     </div>
 
-    <button id="loginBtn" class="login-btn" onclick="openAccount()">
+    <button
+      id="loginBtn"
+      class="login-btn"
+      onclick="openAccount()"
+    >
       Entrar
     </button>
 
@@ -933,7 +1077,10 @@ header{
 
     <div class="hero-buttons">
 
-      <button class="gold-btn" onclick="openSlots()">
+      <button
+        class="gold-btn"
+        onclick="openSlots()"
+      >
         🎰 Explorar Slots
       </button>
 
@@ -952,31 +1099,52 @@ header{
 
   <div class="categories">
 
-    <button class="category active" onclick="homeCategory('popular',this)">
+    <button
+      class="category active"
+      onclick="homeCategory('popular',this)"
+    >
       🔥 Popular
     </button>
 
-    <button class="category" onclick="openSlots()">
+    <button
+      class="category"
+      onclick="openSlots()"
+    >
       🎰 Slots
     </button>
 
-    <button class="category" onclick="homeCategory('mini',this)">
+    <button
+      class="category"
+      onclick="homeCategory('mini',this)"
+    >
       🕹️ Mini
     </button>
 
-    <button class="category" onclick="homeCategory('fishing',this)">
+    <button
+      class="category"
+      onclick="homeCategory('fishing',this)"
+    >
       🎣 Pescaria
     </button>
 
-    <button class="category" onclick="homeCategory('sports',this)">
+    <button
+      class="category"
+      onclick="homeCategory('sports',this)"
+    >
       ⚽ Esporte
     </button>
 
-    <button class="category" onclick="homeCategory('recent',this)">
+    <button
+      class="category"
+      onclick="homeCategory('recent',this)"
+    >
       🕘 Recentes
     </button>
 
-    <button class="category" onclick="showFavorites()">
+    <button
+      class="category"
+      onclick="showFavorites()"
+    >
       ⭐ Favoritos
     </button>
 
@@ -991,15 +1159,24 @@ header{
         🔥 Popular
       </h2>
 
-      <span id="homeCount" class="count">
+      <span
+        id="homeCount"
+        class="count"
+      >
         Conectando...
       </span>
 
     </div>
 
-    <div id="homeProviders" class="provider-scroll"></div>
+    <div
+      id="homeProviders"
+      class="provider-scroll"
+    ></div>
 
-    <div id="homeGames" class="games">
+    <div
+      id="homeGames"
+      class="games"
+    >
 
       <div class="loading">
         🎰 Conectando aos jogos...
@@ -1013,11 +1190,19 @@ header{
 
 
 <!-- SLOTS -->
-<section id="slotsScreen" class="screen">
+<section
+  id="slotsScreen"
+  class="screen"
+>
 
   <div class="screen-head">
 
-    <button class="back-btn" onclick="goHome()">←</button>
+    <button
+      class="back-btn"
+      onclick="goHome()"
+    >
+      ←
+    </button>
 
     <h2>🎰 Slots</h2>
 
@@ -1079,11 +1264,17 @@ header{
 
   <div class="slots-layout">
 
-    <aside id="providerSidebar" class="provider-sidebar"></aside>
+    <aside
+      id="providerSidebar"
+      class="provider-sidebar"
+    ></aside>
 
     <div>
 
-      <div id="slotsGrid" class="slots-grid">
+      <div
+        id="slotsGrid"
+        class="slots-grid"
+      >
 
         <div class="loading">
           🎰 Carregando...
@@ -1091,7 +1282,10 @@ header{
 
       </div>
 
-      <div id="slotsPagination" class="pagination"></div>
+      <div
+        id="slotsPagination"
+        class="pagination"
+      ></div>
 
     </div>
 
@@ -1101,13 +1295,24 @@ header{
 
 
 <!-- PROFILE -->
-<section id="profileScreen" class="screen">
+<section
+  id="profileScreen"
+  class="screen"
+>
 
   <div class="profile">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
 
-      <button class="back-btn" onclick="goHome()">←</button>
+      <button
+        class="back-btn"
+        onclick="goHome()"
+      >
+        ←
+      </button>
 
       <h2>Perfil</h2>
 
@@ -1117,17 +1322,26 @@ header{
 
       <div class="profile-user">
 
-        <div id="profileAvatar" class="avatar">
+        <div
+          id="profileAvatar"
+          class="avatar"
+        >
           👤
         </div>
 
         <div>
 
-          <div id="profileName" class="profile-name">
+          <div
+            id="profileName"
+            class="profile-name"
+          >
             Visitante
           </div>
 
-          <div id="profileEmail" class="profile-email">
+          <div
+            id="profileEmail"
+            class="profile-email"
+          >
             Entre ou crie sua conta
           </div>
 
@@ -1139,12 +1353,18 @@ header{
 
         <div class="stat">
           <small>Saldo DEMO</small>
-          <strong id="profileBalance">R$ 0,00</strong>
+
+          <strong id="profileBalance">
+            R$ 0,00
+          </strong>
         </div>
 
         <div class="stat">
           <small>Pontos</small>
-          <strong id="profilePoints">0</strong>
+
+          <strong id="profilePoints">
+            0
+          </strong>
         </div>
 
       </div>
@@ -1153,95 +1373,205 @@ header{
 
     <div class="profile-menu">
 
-      <button class="profile-item" onclick="openWallet()">
+      <button
+        class="profile-item"
+        onclick="openWallet()"
+      >
         <div class="profile-icon">💰</div>
+
         <div class="profile-info">
-          <div class="profile-title">Minha carteira</div>
-          <div class="profile-desc">Saldo e movimentações DEMO</div>
+          <div class="profile-title">
+            Minha carteira
+          </div>
+
+          <div class="profile-desc">
+            Saldo e movimentações DEMO
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openInvite()">
+
+      <button
+        class="profile-item"
+        onclick="openInvite()"
+      >
         <div class="profile-icon">🤝</div>
+
         <div class="profile-info">
-          <div class="profile-title">Convidar amigos</div>
-          <div class="profile-desc">Seu link exclusivo de convite</div>
+          <div class="profile-title">
+            Convidar amigos
+          </div>
+
+          <div class="profile-desc">
+            Seu link exclusivo de convite
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openPromotion()">
+
+      <button
+        class="profile-item"
+        onclick="openPromotion()"
+      >
         <div class="profile-icon">🎁</div>
+
         <div class="profile-info">
-          <div class="profile-title">Promoções</div>
-          <div class="profile-desc">Ofertas e benefícios</div>
+          <div class="profile-title">
+            Promoções
+          </div>
+
+          <div class="profile-desc">
+            Ofertas e benefícios
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openRecords()">
+
+      <button
+        class="profile-item"
+        onclick="openRecords()"
+      >
         <div class="profile-icon">📋</div>
+
         <div class="profile-info">
-          <div class="profile-title">Meus registros</div>
-          <div class="profile-desc">Histórico de atividades</div>
+          <div class="profile-title">
+            Meus registros
+          </div>
+
+          <div class="profile-desc">
+            Histórico de atividades
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openNotifications()">
+
+      <button
+        class="profile-item"
+        onclick="openNotifications()"
+      >
         <div class="profile-icon">🔔</div>
+
         <div class="profile-info">
-          <div class="profile-title">Notificações</div>
-          <div class="profile-desc">Avisos da plataforma</div>
+          <div class="profile-title">
+            Notificações
+          </div>
+
+          <div class="profile-desc">
+            Avisos da plataforma
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openData()">
+
+      <button
+        class="profile-item"
+        onclick="openData()"
+      >
         <div class="profile-icon">👤</div>
+
         <div class="profile-info">
-          <div class="profile-title">Meus dados</div>
-          <div class="profile-desc">Informações da conta</div>
+          <div class="profile-title">
+            Meus dados
+          </div>
+
+          <div class="profile-desc">
+            Informações da conta
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openSecurity()">
+
+      <button
+        class="profile-item"
+        onclick="openSecurity()"
+      >
         <div class="profile-icon">🔐</div>
+
         <div class="profile-info">
-          <div class="profile-title">Segurança</div>
-          <div class="profile-desc">Configurações da conta</div>
+          <div class="profile-title">
+            Segurança
+          </div>
+
+          <div class="profile-desc">
+            Configurações da conta
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openSupport()">
+
+      <button
+        class="profile-item"
+        onclick="openSupport()"
+      >
         <div class="profile-icon">💬</div>
+
         <div class="profile-info">
-          <div class="profile-title">Suporte</div>
-          <div class="profile-desc">Fale com a equipe</div>
+          <div class="profile-title">
+            Suporte
+          </div>
+
+          <div class="profile-desc">
+            Fale com a equipe
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openFaq()">
+
+      <button
+        class="profile-item"
+        onclick="openFaq()"
+      >
         <div class="profile-icon">❓</div>
+
         <div class="profile-info">
-          <div class="profile-title">FAQ</div>
-          <div class="profile-desc">Perguntas frequentes</div>
+          <div class="profile-title">
+            FAQ
+          </div>
+
+          <div class="profile-desc">
+            Perguntas frequentes
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
-      <button class="profile-item" onclick="openAbout()">
+
+      <button
+        class="profile-item"
+        onclick="openAbout()"
+      >
         <div class="profile-icon">ℹ️</div>
+
         <div class="profile-info">
-          <div class="profile-title">Sobre</div>
-          <div class="profile-desc">Sobre a 559627WIN</div>
+          <div class="profile-title">
+            Sobre
+          </div>
+
+          <div class="profile-desc">
+            Sobre a 559627WIN
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
+
 
       <button
         id="profileLoginButton"
@@ -1249,12 +1579,20 @@ header{
         onclick="openLogin()"
       >
         <div class="profile-icon">🔑</div>
+
         <div class="profile-info">
-          <div class="profile-title">Entrar</div>
-          <div class="profile-desc">Acessar minha conta</div>
+          <div class="profile-title">
+            Entrar
+          </div>
+
+          <div class="profile-desc">
+            Acessar minha conta
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
+
 
       <button
         id="profileLogoutButton"
@@ -1262,10 +1600,17 @@ header{
         onclick="logout()"
       >
         <div class="profile-icon">🚪</div>
+
         <div class="profile-info">
-          <div class="profile-title">Sair</div>
-          <div class="profile-desc">Encerrar sessão</div>
+          <div class="profile-title">
+            Sair
+          </div>
+
+          <div class="profile-desc">
+            Encerrar sessão
+          </div>
         </div>
+
         <div class="arrow">›</div>
       </button>
 
@@ -1277,21 +1622,36 @@ header{
 
 
 <!-- INVITE -->
-<section id="inviteScreen" class="screen">
+<section
+  id="inviteScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
 
-      <button class="back-btn" onclick="openProfile()">←</button>
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
 
-      <h2>🤝 Convidar amigos</h2>
+      <h2>
+        🤝 Convidar amigos
+      </h2>
 
     </div>
 
     <div class="invite">
 
-      <h2>Convide amigos e ganhe recompensas DEMO</h2>
+      <h2>
+        Convide amigos e ganhe recompensas DEMO
+      </h2>
 
       <p>
         Cada usuário possui um código e um link exclusivo de convite.
@@ -1303,39 +1663,63 @@ header{
           SEU CÓDIGO DE CONVITE
         </div>
 
-        <div id="refCode" class="ref-code">—</div>
+        <div
+          id="refCode"
+          class="ref-code"
+        >
+          —
+        </div>
 
       </div>
 
       <div class="link-row">
 
-        <input id="inviteLink" readonly>
+        <input
+          id="inviteLink"
+          readonly
+        >
 
-        <button class="copy" onclick="copyInvite()">
+        <button
+          class="copy"
+          onclick="copyInvite()"
+        >
           COPIAR
         </button>
 
       </div>
 
       <div class="qr">
-        <div id="qrCode" class="qr-inner"></div>
+
+        <div
+          id="qrCode"
+          class="qr-inner"
+        ></div>
+
       </div>
 
       <div class="share">
 
-        <button onclick="shareInvite('whatsapp')">
+        <button
+          onclick="shareInvite('whatsapp')"
+        >
           WhatsApp
         </button>
 
-        <button onclick="shareInvite('telegram')">
+        <button
+          onclick="shareInvite('telegram')"
+        >
           Telegram
         </button>
 
-        <button onclick="shareInvite('native')">
+        <button
+          onclick="shareInvite('native')"
+        >
           Compartilhar
         </button>
 
-        <button onclick="copyInvite()">
+        <button
+          onclick="copyInvite()"
+        >
           Copiar
         </button>
 
@@ -1368,24 +1752,43 @@ header{
 
 
 <!-- OFFERS -->
-<section id="offersScreen" class="screen">
+<section
+  id="offersScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="goHome()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="goHome()"
+      >
+        ←
+      </button>
+
       <h2>🎁 Ofertas</h2>
+
     </div>
 
     <div class="card">
 
-      <h3>🎁 Oferta de boas-vindas</h3>
+      <h3>
+        🎁 Oferta de boas-vindas
+      </h3>
 
       <p>
         Ambiente demonstrativo. Consulte as promoções disponíveis.
       </p>
 
-      <button class="action" onclick="openPromotion()">
+      <button
+        class="action"
+        onclick="openPromotion()"
+      >
         VER PROMOÇÃO
       </button>
 
@@ -1393,13 +1796,18 @@ header{
 
     <div class="card">
 
-      <h3>🤝 Convide seus amigos</h3>
+      <h3>
+        🤝 Convide seus amigos
+      </h3>
 
       <p>
         Cada conta possui um link exclusivo de convite.
       </p>
 
-      <button class="action" onclick="openInvite()">
+      <button
+        class="action"
+        onclick="openInvite()"
+      >
         CONVIDAR
       </button>
 
@@ -1411,24 +1819,43 @@ header{
 
 
 <!-- PROMOTION -->
-<section id="promotionScreen" class="screen">
+<section
+  id="promotionScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>🎁 Promoções</h2>
+
     </div>
 
     <div class="card">
 
-      <h3>🎉 Recompensa DEMO</h3>
+      <h3>
+        🎉 Recompensa DEMO
+      </h3>
 
       <p>
         Sistema de recompensas disponível apenas para demonstração.
       </p>
 
-      <button class="action" onclick="claimReward()">
+      <button
+        class="action"
+        onclick="claimReward()"
+      >
         RESGATAR DEMO
       </button>
 
@@ -1440,18 +1867,34 @@ header{
 
 
 <!-- WALLET -->
-<section id="walletScreen" class="screen">
+<section
+  id="walletScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>💰 Carteira</h2>
+
     </div>
 
     <div class="card">
 
-      <h3>Saldo DEMO</h3>
+      <h3>
+        Saldo DEMO
+      </h3>
 
       <p
         id="walletBalance"
@@ -1474,13 +1917,27 @@ header{
 
 
 <!-- RECORDS -->
-<section id="recordsScreen" class="screen">
+<section
+  id="recordsScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>📋 Registros</h2>
+
     </div>
 
     <div id="recordsList"></div>
@@ -1491,23 +1948,47 @@ header{
 
 
 <!-- DATA -->
-<section id="dataScreen" class="screen">
+<section
+  id="dataScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>👤 Meus dados</h2>
+
     </div>
 
     <div class="card">
+
       <h3>E-mail</h3>
-      <p id="dataEmail">Não conectado</p>
+
+      <p id="dataEmail">
+        Não conectado
+      </p>
+
     </div>
 
     <div class="card">
+
       <h3>ID da conta</h3>
-      <p id="dataId">—</p>
+
+      <p id="dataId">
+        —
+      </p>
+
     </div>
 
   </div>
@@ -1516,13 +1997,27 @@ header{
 
 
 <!-- SECURITY -->
-<section id="securityScreen" class="screen">
+<section
+  id="securityScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>🔐 Segurança</h2>
+
     </div>
 
     <div class="card">
@@ -1533,7 +2028,10 @@ header{
         Atualize sua senha de acesso.
       </p>
 
-      <button class="action" onclick="changePassword()">
+      <button
+        class="action"
+        onclick="changePassword()"
+      >
         ALTERAR SENHA
       </button>
 
@@ -1547,7 +2045,10 @@ header{
         A sessão atual é gerenciada pelo Supabase Auth.
       </p>
 
-      <button class="outline" onclick="logout()">
+      <button
+        class="outline"
+        onclick="logout()"
+      >
         SAIR DA CONTA
       </button>
 
@@ -1559,18 +2060,34 @@ header{
 
 
 <!-- ABOUT -->
-<section id="aboutScreen" class="screen">
+<section
+  id="aboutScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>ℹ️ Sobre</h2>
+
     </div>
 
     <div class="card">
 
-      <h3>559627WIN</h3>
+      <h3>
+        559627WIN
+      </h3>
 
       <p>
         Plataforma demonstrativa para navegação, jogos, perfil,
@@ -1581,7 +2098,9 @@ header{
 
     <div class="card">
 
-      <h3>Ambiente DEMO</h3>
+      <h3>
+        Ambiente DEMO
+      </h3>
 
       <p>
         Os créditos exibidos são virtuais e destinados
@@ -1596,36 +2115,65 @@ header{
 
 
 <!-- FAQ -->
-<section id="faqScreen" class="screen">
+<section
+  id="faqScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>❓ FAQ</h2>
+
     </div>
 
     <div class="card">
-      <h3>Como funciona?</h3>
+
+      <h3>
+        Como funciona?
+      </h3>
+
       <p>
         A plataforma reúne jogos DEMO, perfil,
         carteira virtual, promoções e convites.
       </p>
+
     </div>
 
     <div class="card">
-      <h3>O saldo é dinheiro real?</h3>
+
+      <h3>
+        O saldo é dinheiro real?
+      </h3>
+
       <p>
         Não. O saldo atual é exclusivamente virtual.
       </p>
+
     </div>
 
     <div class="card">
-      <h3>Como funciona o convite?</h3>
+
+      <h3>
+        Como funciona o convite?
+      </h3>
+
       <p>
         Cada usuário autenticado recebe um código exclusivo
         e um link de convite.
       </p>
+
     </div>
 
   </div>
@@ -1634,18 +2182,34 @@ header{
 
 
 <!-- SUPPORT -->
-<section id="supportScreen" class="screen">
+<section
+  id="supportScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>💬 Suporte</h2>
+
     </div>
 
     <div class="card">
 
-      <h3>Atendimento</h3>
+      <h3>
+        Atendimento
+      </h3>
 
       <p>
         Entre em contato com a equipe responsável pela plataforma.
@@ -1666,34 +2230,63 @@ header{
 
 
 <!-- NOTIFICATIONS -->
-<section id="notificationsScreen" class="screen">
+<section
+  id="notificationsScreen"
+  class="screen"
+>
 
   <div class="simple">
 
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
+    <div
+      class="screen-head"
+      style="padding-left:0;padding-right:0"
+    >
+
+      <button
+        class="back-btn"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
       <h2>🔔 Notificações</h2>
+
     </div>
 
     <div class="card">
-      <h3>🎁 Bem-vindo</h3>
+
+      <h3>
+        🎁 Bem-vindo
+      </h3>
+
       <p>
         Explore os recursos da 559627WIN.
       </p>
+
     </div>
 
     <div class="card">
-      <h3>💰 Carteira DEMO</h3>
+
+      <h3>
+        💰 Carteira DEMO
+      </h3>
+
       <p>
         Seus créditos virtuais estão disponíveis para testes.
       </p>
+
     </div>
 
     <div class="card">
-      <h3>🤝 Convide amigos</h3>
+
+      <h3>
+        🤝 Convide amigos
+      </h3>
+
       <p>
         Compartilhe seu link exclusivo.
       </p>
+
     </div>
 
   </div>
@@ -1702,39 +2295,67 @@ header{
 
 
 <!-- DRAWER -->
-<div id="drawerBg" class="drawer-bg" onclick="closeMenu()"></div>
+<div
+  id="drawerBg"
+  class="drawer-bg"
+  onclick="closeMenu()"
+></div>
 
-<div id="drawer" class="drawer">
+<div
+  id="drawer"
+  class="drawer"
+>
 
   <div class="drawer-logo">
     559627<span>WIN</span>
   </div>
 
-  <button class="drawer-item" onclick="goHome()">
+  <button
+    class="drawer-item"
+    onclick="goHome()"
+  >
     🏠 Início
   </button>
 
-  <button class="drawer-item" onclick="openSlots()">
+  <button
+    class="drawer-item"
+    onclick="openSlots()"
+  >
     🎰 Slots
   </button>
 
-  <button class="drawer-item" onclick="openProfile()">
+  <button
+    class="drawer-item"
+    onclick="openProfile()"
+  >
     👤 Perfil
   </button>
 
-  <button class="drawer-item" onclick="openInvite()">
+  <button
+    class="drawer-item"
+    onclick="openInvite()"
+  >
     🤝 Convidar amigos
   </button>
 
-  <button class="drawer-item" onclick="openWallet()">
+  <button
+    class="drawer-item"
+    onclick="openWallet()"
+  >
     💰 Carteira DEMO
   </button>
 
-  <button class="drawer-item" onclick="openOffers()">
+  <button
+    class="drawer-item"
+    onclick="openOffers()"
+  >
     🎁 Ofertas
   </button>
 
-  <button class="drawer-item" onclick="openSupport()">
+  <button
+    class="drawer-item"
+    onclick="openSupport()"
+  >
     💬 Suporte
   </button>
 
@@ -1744,27 +2365,47 @@ header{
 <!-- BOTTOM NAV -->
 <nav class="bottom">
 
-  <button id="navHome" class="nav active" onclick="goHome()">
+  <button
+    id="navHome"
+    class="nav active"
+    onclick="goHome()"
+  >
     <span>🏠</span>
     Início
   </button>
 
-  <button id="navSlots" class="nav" onclick="openSlots()">
+  <button
+    id="navSlots"
+    class="nav"
+    onclick="openSlots()"
+  >
     <span>🎰</span>
     Slots
   </button>
 
-  <button id="navOffers" class="nav" onclick="openOffers()">
+  <button
+    id="navOffers"
+    class="nav"
+    onclick="openOffers()"
+  >
     <span>🎁</span>
     Ofertas
   </button>
 
-  <button id="navInvite" class="nav" onclick="openInvite()">
+  <button
+    id="navInvite"
+    class="nav"
+    onclick="openInvite()"
+  >
     <span>🤝</span>
     Convide
   </button>
 
-  <button id="navProfile" class="nav" onclick="openProfile()">
+  <button
+    id="navProfile"
+    class="nav"
+    onclick="openProfile()"
+  >
     <span>👤</span>
     Perfil
   </button>
@@ -1773,7 +2414,10 @@ header{
 
 
 <!-- AUTH -->
-<div id="authModal" class="modal">
+<div
+  id="authModal"
+  class="modal"
+>
 
   <div class="modal-box">
 
@@ -1783,13 +2427,17 @@ header{
         Entrar
       </h2>
 
-      <button class="close-btn" onclick="closeAuth()">
+      <button
+        class="close-btn"
+        onclick="closeAuth()"
+      >
         ×
       </button>
 
     </div>
 
 
+    <!-- LOGIN -->
     <div id="loginForm">
 
       <input
@@ -1806,18 +2454,28 @@ header{
         placeholder="Senha"
       >
 
-      <button class="primary" onclick="login()">
+      <button
+        class="primary"
+        onclick="login()"
+      >
         ENTRAR
       </button>
 
-      <button class="secondary" onclick="openRegister()">
+      <button
+        class="secondary"
+        onclick="openRegister()"
+      >
         CRIAR CONTA
       </button>
 
     </div>
 
 
-    <div id="registerForm" class="hidden">
+    <!-- REGISTER -->
+    <div
+      id="registerForm"
+      class="hidden"
+    >
 
       <input
         id="registerEmail"
@@ -1853,25 +2511,37 @@ header{
 
       </label>
 
-      <button class="primary" onclick="register()">
+      <button
+        class="primary"
+        onclick="register()"
+      >
         CRIAR CADASTRO
       </button>
 
-      <button class="secondary" onclick="openLogin()">
+      <button
+        class="secondary"
+        onclick="openLogin()"
+      >
         JÁ TENHO UMA CONTA
       </button>
 
     </div>
 
-    <div id="authMessage" class="message"></div>
+    <div
+      id="authMessage"
+      class="message"
+    ></div>
 
   </div>
 
 </div>
 
 
-<!-- GAME -->
-<div id="gameModal" class="game-modal">
+<!-- GAME MODAL -->
+<div
+  id="gameModal"
+  class="game-modal"
+>
 
   <div class="game-head">
 
@@ -1879,7 +2549,10 @@ header{
       Jogo
     </strong>
 
-    <button class="close-btn" onclick="closeGame()">
+    <button
+      class="close-btn"
+      onclick="closeGame()"
+    >
       ×
     </button>
 
@@ -1894,11 +2567,15 @@ header{
 </div>
 
 
-<div id="toast" class="toast"></div>
+<div
+  id="toast"
+  class="toast"
+></div>
 
 
 <script>
 "use strict";
+
 
 /* =========================================================
    CONFIGURAÇÃO
@@ -1930,13 +2607,17 @@ const supabaseClient =
 ========================================================= */
 
 let currentUser = null;
+
 let allGames = [];
+
 let slotsGames = [];
 
 let homeProvider = "Todos";
 
 let slotsTab = "slots";
+
 let slotsProvider = "Todos";
+
 let slotsPage = 1;
 
 const SLOTS_PER_PAGE = 15;
@@ -2080,6 +2761,7 @@ function toggleFavorite(id){
   saveFavorites(favorites);
 
   renderHome();
+
   renderSlots();
 
 }
@@ -2112,15 +2794,36 @@ function hideScreens(){
     .getElementById("homeScreen")
     .style.display = "none";
 
-  screens.forEach(id => {
+  screens.forEach(
+    id => {
 
-    const element =
-      document.getElementById(id);
+      const element =
+        document.getElementById(id);
 
-    if(element){
-      element.classList.remove("active");
+      if(element){
+
+        element.classList.remove(
+          "active"
+        );
+
+      }
+
     }
+  );
 
+}
+
+
+/*
+  CORRIGIDO:
+  antes era top()
+  agora é scrollToTop()
+*/
+function scrollToTop(){
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
   });
 
 }
@@ -2131,25 +2834,22 @@ function activeNav(id){
   document
     .querySelectorAll(".nav")
     .forEach(
-      x => x.classList.remove("active")
+      x =>
+        x.classList.remove(
+          "active"
+        )
     );
 
   const item =
     document.getElementById(id);
 
   if(item){
-    item.classList.add("active");
+
+    item.classList.add(
+      "active"
+    );
+
   }
-
-}
-
-
-function top(){
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
 
 }
 
@@ -2157,6 +2857,7 @@ function top(){
 function goHome(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2167,7 +2868,7 @@ function goHome(){
 
   renderHome();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2175,6 +2876,7 @@ function goHome(){
 function openSlots(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2184,7 +2886,9 @@ function openSlots(){
   activeNav("navSlots");
 
   slotsPage = 1;
+
   slotsProvider = "Todos";
+
   slotsTab = "slots";
 
   document
@@ -2194,7 +2898,10 @@ function openSlots(){
   document
     .querySelectorAll(".slot-tab")
     .forEach(
-      x => x.classList.remove("active")
+      x =>
+        x.classList.remove(
+          "active"
+        )
     );
 
   const tab =
@@ -2203,13 +2910,18 @@ function openSlots(){
     );
 
   if(tab){
-    tab.classList.add("active");
+
+    tab.classList.add(
+      "active"
+    );
+
   }
 
   renderProviderSidebar();
+
   renderSlots();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2217,6 +2929,7 @@ function openSlots(){
 function openProfile(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2227,7 +2940,7 @@ function openProfile(){
 
   updateProfile();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2235,6 +2948,7 @@ function openProfile(){
 function openInvite(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2245,7 +2959,7 @@ function openInvite(){
 
   renderInvite();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2253,6 +2967,7 @@ function openInvite(){
 function openOffers(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2261,7 +2976,7 @@ function openOffers(){
 
   activeNav("navOffers");
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2269,13 +2984,14 @@ function openOffers(){
 function openPromotion(){
 
   closeMenu();
+
   hideScreens();
 
   document
     .getElementById("promotionScreen")
     .classList.add("active");
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2283,6 +2999,7 @@ function openPromotion(){
 function openWallet(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2291,7 +3008,7 @@ function openWallet(){
 
   updateWallet();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2299,6 +3016,7 @@ function openWallet(){
 function openRecords(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2307,7 +3025,7 @@ function openRecords(){
 
   renderRecords();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2315,6 +3033,7 @@ function openRecords(){
 function openData(){
 
   closeMenu();
+
   hideScreens();
 
   document
@@ -2323,7 +3042,7 @@ function openData(){
 
   renderData();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2331,13 +3050,14 @@ function openData(){
 function openSecurity(){
 
   closeMenu();
+
   hideScreens();
 
   document
     .getElementById("securityScreen")
     .classList.add("active");
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2345,13 +3065,14 @@ function openSecurity(){
 function openAbout(){
 
   closeMenu();
+
   hideScreens();
 
   document
     .getElementById("aboutScreen")
     .classList.add("active");
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2359,13 +3080,14 @@ function openAbout(){
 function openFaq(){
 
   closeMenu();
+
   hideScreens();
 
   document
     .getElementById("faqScreen")
     .classList.add("active");
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2373,13 +3095,14 @@ function openFaq(){
 function openSupport(){
 
   closeMenu();
+
   hideScreens();
 
   document
     .getElementById("supportScreen")
     .classList.add("active");
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2387,13 +3110,14 @@ function openSupport(){
 function openNotifications(){
 
   closeMenu();
+
   hideScreens();
 
   document
     .getElementById("notificationsScreen")
     .classList.add("active");
 
-  top();
+  scrollToTop();
 
 }
 
@@ -2430,7 +3154,6 @@ function closeMenu(){
 
 /* =========================================================
    CARREGAMENTO DOS JOGOS
-   CORRIGIDO
 ========================================================= */
 
 async function loadGames(){
@@ -2444,14 +3167,22 @@ async function loadGames(){
   const count =
     document.getElementById("homeCount");
 
+
   home.innerHTML =
     `
     <div class="loading">
+
       🎰 Conectando aos jogos...
+
       <br><br>
-      <small>Isso pode levar alguns segundos.</small>
+
+      <small>
+        Isso pode levar alguns segundos.
+      </small>
+
     </div>
     `;
+
 
   slots.innerHTML =
     `
@@ -2460,24 +3191,20 @@ async function loadGames(){
     </div>
     `;
 
+
   count.textContent =
     "Conectando...";
 
 
   console.log(
-    "[559627WIN] Iniciando carregamento:",
+    "[559627WIN] Chamando:",
     GAMES_FUNCTION
   );
 
 
-  /*
-    Timeout de 30 segundos.
-    Assim a página nunca fica eternamente
-    presa em "Carregando jogos..."
-  */
-
   const controller =
     new AbortController();
+
 
   const timeout =
     setTimeout(
@@ -2572,18 +3299,6 @@ async function loadGames(){
     }
 
 
-    /*
-      Aceita os formatos:
-
-      data: [...]
-
-      data: {
-        games: [...]
-      }
-
-      games: [...]
-    */
-
     let games = [];
 
 
@@ -2619,7 +3334,7 @@ async function loadGames(){
 
 
     console.log(
-      "[559627WIN] Quantidade:",
+      "[559627WIN] Jogos encontrados:",
       games.length
     );
 
@@ -2627,15 +3342,11 @@ async function loadGames(){
     if(!games.length){
 
       throw new Error(
-        "A conexão funcionou, mas a API não retornou jogos."
+        "A API respondeu, mas não retornou nenhum jogo."
       );
 
     }
 
-
-    /*
-      Normalização dos jogos.
-    */
 
     allGames =
       games.map(
@@ -2688,8 +3399,7 @@ async function loadGames(){
 
 
     console.log(
-      "[559627WIN] ✓ Jogos carregados:",
-      allGames.length
+      "[559627WIN] Jogos carregados com sucesso."
     );
 
 
@@ -2697,15 +3407,16 @@ async function loadGames(){
 
     clearTimeout(timeout);
 
+
     console.error(
-      "[559627WIN] ERRO:",
+      "[559627WIN] ERRO AO CARREGAR JOGOS:",
       error
     );
 
 
     let message =
       error.message ||
-      "Erro desconhecido";
+      "Erro desconhecido.";
 
 
     if(
@@ -2714,7 +3425,7 @@ async function loadGames(){
     ){
 
       message =
-        "A conexão demorou mais de 30 segundos.";
+        "A conexão com a API demorou mais de 30 segundos.";
 
     }
 
@@ -2796,7 +3507,8 @@ function buildProviders(){
           )
           .filter(Boolean)
       )
-    ].sort();
+    ]
+    .sort();
 
 
   const container =
@@ -2809,13 +3521,18 @@ function buildProviders(){
 
 
   const all =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
+
 
   all.className =
     "provider active";
 
+
   all.textContent =
     "Todos";
+
 
   all.onclick =
     () => {
@@ -2835,13 +3552,18 @@ function buildProviders(){
     provider => {
 
       const button =
-        document.createElement("button");
+        document.createElement(
+          "button"
+        );
+
 
       button.className =
         "provider";
 
+
       button.textContent =
         provider;
+
 
       button.onclick =
         () => {
@@ -2853,11 +3575,13 @@ function buildProviders(){
 
         };
 
-      container.appendChild(button);
+
+      container.appendChild(
+        button
+      );
 
     }
   );
-
 
 }
 
@@ -2874,7 +3598,9 @@ function renderHome(){
 
   const search =
     document
-      .getElementById("globalSearch")
+      .getElementById(
+        "globalSearch"
+      )
       .value
       .trim()
       .toLowerCase();
@@ -2899,14 +3625,18 @@ function renderHome(){
   }
 
 
-  if(homeProvider !== "Todos"){
+  if(
+    homeProvider !==
+    "Todos"
+  ){
 
     list =
       list.filter(
         game =>
           String(
             game.provider || ""
-          ) === homeProvider
+          ) ===
+          homeProvider
       );
 
   }
@@ -2923,7 +3653,9 @@ function renderHome(){
 
 
   document
-    .getElementById("homeCount")
+    .getElementById(
+      "homeCount"
+    )
     .textContent =
     `${list.length} jogos`;
 
@@ -2981,6 +3713,22 @@ function gameCard(game){
     "";
 
 
+  const safeId =
+    escapeHtml(id)
+      .replaceAll(
+        "'",
+        "\\'"
+      );
+
+
+  const safeTitle =
+    escapeHtml(title)
+      .replaceAll(
+        "'",
+        "\\'"
+      );
+
+
   return `
     <article class="game">
 
@@ -3003,7 +3751,7 @@ function gameCard(game){
 
         <button
           class="fav ${isFavorite(id) ? "active" : ""}"
-          onclick="event.stopPropagation();toggleFavorite('${escapeHtml(id)}')"
+          onclick="event.stopPropagation();toggleFavorite('${safeId}')"
         >
           ${isFavorite(id) ? "★" : "☆"}
         </button>
@@ -3022,10 +3770,7 @@ function gameCard(game){
 
         <button
           class="play"
-          onclick="launchGame(
-            '${escapeHtml(id)}',
-            '${escapeHtml(title).replaceAll("'","&#039;")}'
-          )"
+          onclick="launchGame('${safeId}','${safeTitle}')"
         >
           JOGAR DEMO
         </button>
@@ -3071,7 +3816,7 @@ function renderProviderSidebar(){
     );
 
 
-  if(!sidebar) return;
+  if(!sidebar)return;
 
 
   const providers =
@@ -3087,23 +3832,32 @@ function renderProviderSidebar(){
           )
           .filter(Boolean)
       )
-    ].sort();
+    ]
+    .sort();
 
 
   sidebar.innerHTML = "";
 
 
   const all =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
+
 
   all.className =
     "side-provider";
 
 
   if(
-    slotsProvider === "Todos"
+    slotsProvider ===
+    "Todos"
   ){
-    all.classList.add("active");
+
+    all.classList.add(
+      "active"
+    );
+
   }
 
 
@@ -3121,28 +3875,39 @@ function renderProviderSidebar(){
         1;
 
       renderProviderSidebar();
+
       renderSlots();
 
     };
 
 
-  sidebar.appendChild(all);
+  sidebar.appendChild(
+    all
+  );
 
 
   providers.forEach(
     provider => {
 
       const button =
-        document.createElement("button");
+        document.createElement(
+          "button"
+        );
+
 
       button.className =
         "side-provider";
 
 
       if(
-        provider === slotsProvider
+        provider ===
+        slotsProvider
       ){
-        button.classList.add("active");
+
+        button.classList.add(
+          "active"
+        );
+
       }
 
 
@@ -3160,12 +3925,15 @@ function renderProviderSidebar(){
             1;
 
           renderProviderSidebar();
+
           renderSlots();
 
         };
 
 
-      sidebar.appendChild(button);
+      sidebar.appendChild(
+        button
+      );
 
     }
   );
@@ -3173,7 +3941,10 @@ function renderProviderSidebar(){
 }
 
 
-function setSlotsTab(tab,button){
+function setSlotsTab(
+  tab,
+  button
+){
 
   slotsTab =
     tab;
@@ -3183,14 +3954,20 @@ function setSlotsTab(tab,button){
 
 
   document
-    .querySelectorAll(".slot-tab")
+    .querySelectorAll(
+      ".slot-tab"
+    )
     .forEach(
       x =>
-        x.classList.remove("active")
+        x.classList.remove(
+          "active"
+        )
     );
 
 
-  button.classList.add("active");
+  button.classList.add(
+    "active"
+  );
 
 
   renderSlots();
@@ -3206,7 +3983,7 @@ function renderSlots(){
     );
 
 
-  if(!grid) return;
+  if(!grid)return;
 
 
   let list =
@@ -3215,7 +3992,9 @@ function renderSlots(){
 
   const search =
     document
-      .getElementById("slotsSearch")
+      .getElementById(
+        "slotsSearch"
+      )
       .value
       .trim()
       .toLowerCase();
@@ -3240,20 +4019,27 @@ function renderSlots(){
   }
 
 
-  if(slotsProvider !== "Todos"){
+  if(
+    slotsProvider !==
+    "Todos"
+  ){
 
     list =
       list.filter(
         game =>
           String(
             game.provider || ""
-          ) === slotsProvider
+          ) ===
+          slotsProvider
       );
 
   }
 
 
-  if(slotsTab === "favorites"){
+  if(
+    slotsTab ===
+    "favorites"
+  ){
 
     list =
       list.filter(
@@ -3267,7 +4053,10 @@ function renderSlots(){
   }
 
 
-  if(slotsTab === "recent"){
+  if(
+    slotsTab ===
+    "recent"
+  ){
 
     const recent =
       getRecent();
@@ -3296,7 +4085,10 @@ function renderSlots(){
     );
 
 
-  if(slotsPage > pages){
+  if(
+    slotsPage >
+    pages
+  ){
 
     slotsPage =
       pages;
@@ -3336,12 +4128,16 @@ function renderSlots(){
   }
 
 
-  renderPagination(pages);
+  renderPagination(
+    pages
+  );
 
 }
 
 
-function renderPagination(pages){
+function renderPagination(
+  pages
+){
 
   const element =
     document.getElementById(
@@ -3349,10 +4145,13 @@ function renderPagination(pages){
     );
 
 
-  element.innerHTML = "";
+  element.innerHTML =
+    "";
 
 
-  if(pages <= 1) return;
+  if(
+    pages <= 1
+  )return;
 
 
   for(
@@ -3362,15 +4161,19 @@ function renderPagination(pages){
   ){
 
     const button =
-      document.createElement("button");
+      document.createElement(
+        "button"
+      );
 
 
     button.className =
       "page" +
       (
         i === slotsPage
-        ? " active"
-        : ""
+        ?
+        " active"
+        :
+        ""
       );
 
 
@@ -3386,15 +4189,14 @@ function renderPagination(pages){
 
         renderSlots();
 
-        window.scrollTo({
-          top:0,
-          behavior:"smooth"
-        });
+        scrollToTop();
 
       };
 
 
-    element.appendChild(button);
+    element.appendChild(
+      button
+    );
 
   }
 
@@ -3430,7 +4232,8 @@ function saveRecent(id){
     getRecent()
       .filter(
         x =>
-          x !== String(id)
+          x !==
+          String(id)
       );
 
 
@@ -3453,7 +4256,10 @@ function saveRecent(id){
    ABRIR JOGO
 ========================================================= */
 
-async function launchGame(gameId,title){
+async function launchGame(
+  gameId,
+  title
+){
 
   if(!gameId){
 
@@ -3484,7 +4290,9 @@ async function launchGame(gameId,title){
     );
 
 
-  modal.classList.add("show");
+  modal.classList.add(
+    "show"
+  );
 
 
   titleElement.textContent =
@@ -3497,7 +4305,9 @@ async function launchGame(gameId,title){
     "about:blank";
 
 
-  saveRecent(gameId);
+  saveRecent(
+    gameId
+  );
 
 
   try{
@@ -3559,14 +4369,17 @@ async function launchGame(gameId,title){
     saveRecord({
       type:"game",
       title:title,
-      description:"Jogo DEMO aberto",
+      description:
+        "Jogo DEMO aberto",
       value:0
     });
 
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     titleElement.textContent =
@@ -3590,12 +4403,18 @@ async function launchGame(gameId,title){
 function closeGame(){
 
   document
-    .getElementById("gameModal")
-    .classList.remove("show");
+    .getElementById(
+      "gameModal"
+    )
+    .classList.remove(
+      "show"
+    );
 
 
   document
-    .getElementById("gameFrame")
+    .getElementById(
+      "gameFrame"
+    )
     .src =
     "about:blank";
 
@@ -3624,28 +4443,44 @@ function openAccount(){
 function openLogin(){
 
   document
-    .getElementById("authModal")
-    .classList.add("show");
+    .getElementById(
+      "authModal"
+    )
+    .classList.add(
+      "show"
+    );
 
 
   document
-    .getElementById("loginForm")
-    .classList.remove("hidden");
+    .getElementById(
+      "loginForm"
+    )
+    .classList.remove(
+      "hidden"
+    );
 
 
   document
-    .getElementById("registerForm")
-    .classList.add("hidden");
+    .getElementById(
+      "registerForm"
+    )
+    .classList.add(
+      "hidden"
+    );
 
 
   document
-    .getElementById("authTitle")
+    .getElementById(
+      "authTitle"
+    )
     .textContent =
     "Entrar";
 
 
   document
-    .getElementById("authMessage")
+    .getElementById(
+      "authMessage"
+    )
     .textContent =
     "";
 
@@ -3655,28 +4490,44 @@ function openLogin(){
 function openRegister(){
 
   document
-    .getElementById("authModal")
-    .classList.add("show");
+    .getElementById(
+      "authModal"
+    )
+    .classList.add(
+      "show"
+    );
 
 
   document
-    .getElementById("loginForm")
-    .classList.add("hidden");
+    .getElementById(
+      "loginForm"
+    )
+    .classList.add(
+      "hidden"
+    );
 
 
   document
-    .getElementById("registerForm")
-    .classList.remove("hidden");
+    .getElementById(
+      "registerForm"
+    )
+    .classList.remove(
+      "hidden"
+    );
 
 
   document
-    .getElementById("authTitle")
+    .getElementById(
+      "authTitle"
+    )
     .textContent =
     "Criar cadastro";
 
 
   document
-    .getElementById("authMessage")
+    .getElementById(
+      "authMessage"
+    )
     .textContent =
     "";
 
@@ -3686,8 +4537,12 @@ function openRegister(){
 function closeAuth(){
 
   document
-    .getElementById("authModal")
-    .classList.remove("show");
+    .getElementById(
+      "authModal"
+    )
+    .classList.remove(
+      "show"
+    );
 
 }
 
@@ -3696,18 +4551,25 @@ async function login(){
 
   const email =
     document
-      .getElementById("loginEmail")
+      .getElementById(
+        "loginEmail"
+      )
       .value
       .trim();
 
 
   const password =
     document
-      .getElementById("loginPassword")
+      .getElementById(
+        "loginPassword"
+      )
       .value;
 
 
-  if(!email || !password){
+  if(
+    !email ||
+    !password
+  ){
 
     showAuthMessage(
       "Informe e-mail e senha."
@@ -3752,6 +4614,7 @@ async function login(){
   closeAuth();
 
   updateAuthUI();
+
   updateProfile();
 
 
@@ -3766,26 +4629,34 @@ async function register(){
 
   const email =
     document
-      .getElementById("registerEmail")
+      .getElementById(
+        "registerEmail"
+      )
       .value
       .trim();
 
 
   const password =
     document
-      .getElementById("registerPassword")
+      .getElementById(
+        "registerPassword"
+      )
       .value;
 
 
   const password2 =
     document
-      .getElementById("registerPassword2")
+      .getElementById(
+        "registerPassword2"
+      )
       .value;
 
 
   const age =
     document
-      .getElementById("ageCheck")
+      .getElementById(
+        "ageCheck"
+      )
       .checked;
 
 
@@ -3800,7 +4671,10 @@ async function register(){
   }
 
 
-  if(password.length < 6){
+  if(
+    password.length <
+    6
+  ){
 
     showAuthMessage(
       "A senha precisa ter pelo menos 6 caracteres."
@@ -3811,7 +4685,10 @@ async function register(){
   }
 
 
-  if(password !== password2){
+  if(
+    password !==
+    password2
+  ){
 
     showAuthMessage(
       "As senhas não são iguais."
@@ -3850,6 +4727,7 @@ async function register(){
       .signUp({
 
         email,
+
         password,
 
         options:{
@@ -3874,17 +4752,24 @@ async function register(){
   }
 
 
-  if(data.session){
+  if(
+    data.session
+  ){
 
     currentUser =
       data.user;
 
+
     clearPendingReferral();
+
 
     closeAuth();
 
+
     updateAuthUI();
+
     updateProfile();
+
 
     showToast(
       "Cadastro criado!"
@@ -3903,14 +4788,18 @@ async function register(){
 
 async function logout(){
 
-  await supabaseClient.auth.signOut();
+  await supabaseClient.auth
+    .signOut();
+
 
   currentUser =
     null;
 
+
   updateAuthUI();
 
   goHome();
+
 
   showToast(
     "Sessão encerrada."
@@ -3919,10 +4808,14 @@ async function logout(){
 }
 
 
-function showAuthMessage(message){
+function showAuthMessage(
+  message
+){
 
   document
-    .getElementById("authMessage")
+    .getElementById(
+      "authMessage"
+    )
     .textContent =
     message;
 
@@ -4065,8 +4958,10 @@ function updateProfile(){
     name.textContent =
       "Visitante";
 
+
     email.textContent =
       "Entre ou crie sua conta";
+
 
     avatar.textContent =
       "👤";
@@ -4077,13 +4972,18 @@ function updateProfile(){
       currentUser.email ||
       "";
 
+
     name.textContent =
       userEmail
-        ? userEmail.split("@")[0]
-        : "Usuário";
+      ?
+      userEmail.split("@")[0]
+      :
+      "Usuário";
+
 
     email.textContent =
       userEmail;
+
 
     avatar.textContent =
       (
@@ -4096,7 +4996,9 @@ function updateProfile(){
 
 
   balance.textContent =
-    money(getBalance());
+    money(
+      getBalance()
+    );
 
 
   points.textContent =
@@ -4108,9 +5010,13 @@ function updateProfile(){
 function updateWallet(){
 
   document
-    .getElementById("walletBalance")
+    .getElementById(
+      "walletBalance"
+    )
     .textContent =
-    money(getBalance());
+    money(
+      getBalance()
+    );
 
 }
 
@@ -4138,7 +5044,9 @@ function getRecords(){
 }
 
 
-function saveRecord(record){
+function saveRecord(
+  record
+){
 
   const records =
     getRecords();
@@ -4160,7 +5068,10 @@ function saveRecord(record){
   localStorage.setItem(
     userKey("records"),
     JSON.stringify(
-      records.slice(0,100)
+      records.slice(
+        0,
+        100
+      )
     )
   );
 
@@ -4184,10 +5095,15 @@ function renderRecords(){
     element.innerHTML =
       `
       <div class="card">
-        <h3>Nenhum registro</h3>
+
+        <h3>
+          Nenhum registro
+        </h3>
+
         <p>
           Suas atividades DEMO aparecerão aqui.
         </p>
+
       </div>
       `;
 
@@ -4242,14 +5158,18 @@ function renderRecords(){
 function renderData(){
 
   document
-    .getElementById("dataEmail")
+    .getElementById(
+      "dataEmail"
+    )
     .textContent =
     currentUser?.email ||
     "Não conectado";
 
 
   document
-    .getElementById("dataId")
+    .getElementById(
+      "dataId"
+    )
     .textContent =
     currentUser?.id ||
     "—";
@@ -4261,7 +5181,9 @@ function renderData(){
    REFERRAL
 ========================================================= */
 
-function hashString(value){
+function hashString(
+  value
+){
 
   let hash = 0;
 
@@ -4287,7 +5209,9 @@ function hashString(value){
   }
 
 
-  return Math.abs(hash);
+  return Math.abs(
+    hash
+  );
 
 }
 
@@ -4302,9 +5226,14 @@ function getReferralCode(){
 
 
   const raw =
-    String(currentUser.id)
-      .replaceAll("-","")
-      .toUpperCase();
+    String(
+      currentUser.id
+    )
+    .replaceAll(
+      "-",
+      ""
+    )
+    .toUpperCase();
 
 
   const hash =
@@ -4316,8 +5245,14 @@ function getReferralCode(){
   return (
     "559627-" +
     hash
-      .padStart(6,"0")
-      .slice(0,6)
+      .padStart(
+        6,
+        "0"
+      )
+      .slice(
+        0,
+        6
+      )
   );
 
 }
@@ -4346,7 +5281,9 @@ function getPendingReferral(){
 
 
   const ref =
-    params.get("ref");
+    params.get(
+      "ref"
+    );
 
 
   if(ref){
@@ -4391,13 +5328,17 @@ function renderInvite(){
 
 
   document
-    .getElementById("refCode")
+    .getElementById(
+      "refCode"
+    )
     .textContent =
     code;
 
 
   document
-    .getElementById("inviteLink")
+    .getElementById(
+      "inviteLink"
+    )
     .value =
     link;
 
@@ -4445,26 +5386,34 @@ function renderInvite(){
   const stats =
     JSON.parse(
       localStorage.getItem(
-        userKey("ref_stats")
+        userKey(
+          "ref_stats"
+        )
       ) ||
       '{"clicks":0,"direct":0,"rewards":0}'
     );
 
 
   document
-    .getElementById("refClicks")
+    .getElementById(
+      "refClicks"
+    )
     .textContent =
     stats.clicks || 0;
 
 
   document
-    .getElementById("refDirect")
+    .getElementById(
+      "refDirect"
+    )
     .textContent =
     stats.direct || 0;
 
 
   document
-    .getElementById("refRewards")
+    .getElementById(
+      "refRewards"
+    )
     .textContent =
     stats.rewards || 0;
 
@@ -4519,7 +5468,9 @@ function copyInvite(){
 }
 
 
-async function shareInvite(type){
+async function shareInvite(
+  type
+){
 
   const link =
     getInviteLink();
@@ -4530,11 +5481,16 @@ async function shareInvite(type){
     link;
 
 
-  if(type === "whatsapp"){
+  if(
+    type ===
+    "whatsapp"
+  ){
 
     window.open(
       "https://wa.me/?text=" +
-      encodeURIComponent(text),
+      encodeURIComponent(
+        text
+      ),
       "_blank"
     );
 
@@ -4543,11 +5499,16 @@ async function shareInvite(type){
   }
 
 
-  if(type === "telegram"){
+  if(
+    type ===
+    "telegram"
+  ){
 
     window.open(
       "https://t.me/share/url?url=" +
-      encodeURIComponent(link) +
+      encodeURIComponent(
+        link
+      ) +
       "&text=" +
       encodeURIComponent(
         "Conheça a 559627WIN"
@@ -4560,14 +5521,19 @@ async function shareInvite(type){
   }
 
 
-  if(navigator.share){
+  if(
+    navigator.share
+  ){
 
     try{
 
       await navigator.share({
-        title:"559627WIN",
-        text:"Conheça a 559627WIN",
-        url:link
+        title:
+          "559627WIN",
+        text:
+          "Conheça a 559627WIN",
+        url:
+          link
       });
 
     }catch{}
@@ -4588,11 +5554,15 @@ async function shareInvite(type){
 function claimReward(){
 
   const key =
-    userKey("reward_claimed");
+    userKey(
+      "reward_claimed"
+    );
 
 
   if(
-    localStorage.getItem(key)
+    localStorage.getItem(
+      key
+    )
   ){
 
     showToast(
@@ -4609,7 +5579,9 @@ function claimReward(){
 
 
   localStorage.setItem(
-    userKey("points"),
+    userKey(
+      "points"
+    ),
     String(
       points + 100
     )
@@ -4626,10 +5598,19 @@ function claimReward(){
 
 
   saveRecord({
-    type:"reward",
-    title:"Recompensa DEMO",
-    description:"+100 pontos",
-    value:100
+
+    type:
+      "reward",
+
+    title:
+      "Recompensa DEMO",
+
+    description:
+      "+100 pontos",
+
+    value:
+      100
+
   });
 
 
@@ -4644,10 +5625,15 @@ function claimReward(){
    CATEGORIAS
 ========================================================= */
 
-function homeCategory(type,button){
+function homeCategory(
+  type,
+  button
+){
 
   document
-    .querySelectorAll(".category")
+    .querySelectorAll(
+      ".category"
+    )
     .forEach(
       x =>
         x.classList.remove(
@@ -4667,13 +5653,18 @@ function homeCategory(type,button){
     );
 
 
-  if(type === "popular"){
+  if(
+    type ===
+    "popular"
+  ){
 
     title.textContent =
       "🔥 Popular";
 
+
     homeProvider =
       "Todos";
+
 
     renderHome();
 
@@ -4682,7 +5673,10 @@ function homeCategory(type,button){
   }
 
 
-  if(type === "recent"){
+  if(
+    type ===
+    "recent"
+  ){
 
     title.textContent =
       "🕘 Recentes";
@@ -4698,7 +5692,9 @@ function homeCategory(type,button){
           id =>
             allGames.find(
               game =>
-                String(game.id) ===
+                String(
+                  game.id
+                ) ===
                 String(id)
             )
         )
@@ -4706,16 +5702,27 @@ function homeCategory(type,button){
 
 
     document
-      .getElementById("homeGames")
+      .getElementById(
+        "homeGames"
+      )
       .innerHTML =
       list.length
       ?
       list
-        .slice(0,60)
-        .map(gameCard)
+        .slice(
+          0,
+          60
+        )
+        .map(
+          gameCard
+        )
         .join("")
       :
-      '<div class="empty">Nenhum jogo recente.</div>';
+      `
+      <div class="empty">
+        Nenhum jogo recente.
+      </div>
+      `;
 
 
     return;
@@ -4725,10 +5732,14 @@ function homeCategory(type,button){
 
   title.textContent =
     type === "mini"
-    ? "🕹️ Mini"
-    : type === "fishing"
-    ? "🎣 Pescaria"
-    : "⚽ Esporte";
+    ?
+    "🕹️ Mini"
+    :
+    type === "fishing"
+    ?
+    "🎣 Pescaria"
+    :
+    "⚽ Esporte";
 
 
   let list =
@@ -4741,32 +5752,71 @@ function homeCategory(type,button){
 
         const text =
           (
-            String(game.name || "") +
+            String(
+              game.name ||
+              ""
+            ) +
             " " +
-            String(game.title || "") +
+            String(
+              game.title ||
+              ""
+            ) +
             " " +
-            String(game.game_type || "")
+            String(
+              game.game_type ||
+              ""
+            )
           )
           .toLowerCase();
 
 
-        if(type === "fishing")
+        if(
+          type ===
+          "fishing"
+        ){
+
           return (
-            text.includes("fish") ||
-            text.includes("pesca")
+            text.includes(
+              "fish"
+            ) ||
+            text.includes(
+              "pesca"
+            )
           );
 
+        }
 
-        if(type === "sports")
+
+        if(
+          type ===
+          "sports"
+        ){
+
           return (
-            text.includes("sport") ||
-            text.includes("football") ||
-            text.includes("soccer")
+            text.includes(
+              "sport"
+            ) ||
+            text.includes(
+              "football"
+            ) ||
+            text.includes(
+              "soccer"
+            )
           );
 
+        }
 
-        if(type === "mini")
-          return text.includes("mini");
+
+        if(
+          type ===
+          "mini"
+        ){
+
+          return text.includes(
+            "mini"
+          );
+
+        }
 
 
         return true;
@@ -4776,16 +5826,27 @@ function homeCategory(type,button){
 
 
   document
-    .getElementById("homeGames")
+    .getElementById(
+      "homeGames"
+    )
     .innerHTML =
     list.length
     ?
     list
-      .slice(0,60)
-      .map(gameCard)
+      .slice(
+        0,
+        60
+      )
+      .map(
+        gameCard
+      )
       .join("")
     :
-    '<div class="empty">Nenhum jogo encontrado.</div>';
+    `
+    <div class="empty">
+      Nenhum jogo encontrado.
+    </div>
+    `;
 
 }
 
@@ -4800,11 +5861,17 @@ function showFavorites(){
 
 
   document
-    .getElementById("slotsScreen")
-    .classList.add("active");
+    .getElementById(
+      "slotsScreen"
+    )
+    .classList.add(
+      "active"
+    );
 
 
-  activeNav("navSlots");
+  activeNav(
+    "navSlots"
+  );
 
 
   slotsTab =
@@ -4812,7 +5879,9 @@ function showFavorites(){
 
 
   document
-    .querySelectorAll(".slot-tab")
+    .querySelectorAll(
+      ".slot-tab"
+    )
     .forEach(
       x =>
         x.classList.remove(
@@ -4838,7 +5907,7 @@ function showFavorites(){
 
   renderSlots();
 
-  top();
+  scrollToTop();
 
 }
 
@@ -4847,19 +5916,27 @@ function showFavorites(){
    PESQUISA
 ========================================================= */
 
-function handleSearch(value){
+function handleSearch(
+  value
+){
 
   const slotsVisible =
     document
-      .getElementById("slotsScreen")
+      .getElementById(
+        "slotsScreen"
+      )
       .classList
-      .contains("active");
+      .contains(
+        "active"
+      );
 
 
   if(slotsVisible){
 
     document
-      .getElementById("slotsSearch")
+      .getElementById(
+        "slotsSearch"
+      )
       .value =
       value;
 
@@ -4898,14 +5975,13 @@ async function changePassword(){
     );
 
 
-  if(!password){
-
-    return;
-
-  }
+  if(!password)return;
 
 
-  if(password.length < 6){
+  if(
+    password.length <
+    6
+  ){
 
     showToast(
       "A senha precisa ter pelo menos 6 caracteres."
@@ -4968,7 +6044,7 @@ async function init(){
   if(error){
 
     console.error(
-      "[559627WIN] Erro sessão:",
+      "[559627WIN] Erro de sessão:",
       error
     );
 
@@ -4986,9 +6062,7 @@ async function init(){
 
 
   /*
-    IMPORTANTE:
-    O carregamento dos jogos acontece
-    uma única vez aqui.
+    Carrega os jogos uma única vez.
   */
 
   await loadGames();
@@ -5002,6 +6076,7 @@ async function init(){
           session?.user ||
           null;
 
+
         updateAuthUI();
 
         updateProfile();
@@ -5011,6 +6086,10 @@ async function init(){
 
 }
 
+
+/* =========================================================
+   INICIAR
+========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
