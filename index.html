@@ -1,1185 +1,892 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>559627WIN</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-:root{
-  --bg:#080808;
-  --panel:#151515;
-  --panel2:#1d1d1d;
-  --line:#303030;
-  --gold:#f7c900;
-  --gold2:#ffdb35;
-  --text:#fff;
-  --muted:#999;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:
-    radial-gradient(circle at top,#171717 0,#080808 45%);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  min-height:100vh;
-  padding-bottom:75px;
-}
-
-button,input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
-}
-
-/* =========================
-HEADER
-========================= */
-
-.header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  height:68px;
-  background:rgba(8,8,8,.96);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid #292929;
-}
-
-.header-inner{
-  height:100%;
-  max-width:1500px;
-  margin:auto;
-  padding:0 18px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.menu-btn{
-  width:44px;
-  height:44px;
-  border:1px solid #333;
-  border-radius:12px;
-  background:#171717;
-  color:white;
-  font-size:23px;
-}
-
-.logo{
-  font-size:27px;
-  font-weight:900;
-  white-space:nowrap;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  color:var(--gold);
-}
-
-.header-search{
-  flex:1;
-  max-width:720px;
-  margin:auto;
-}
-
-.search{
-  width:100%;
-  height:44px;
-  border-radius:12px;
-  border:1px solid #333;
-  background:#171717;
-  color:white;
-  padding:0 17px;
-  outline:none;
-}
-
-.search:focus{
-  border-color:var(--gold);
-}
-
-.login-btn{
-  border:0;
-  border-radius:12px;
-  background:var(--gold);
-  color:#000;
-  font-weight:900;
-  padding:12px 17px;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-  max-width:1500px;
-  margin:18px auto;
-  padding:42px 30px;
-  border:1px solid #292929;
-  border-radius:22px;
-  background:
-    radial-gradient(circle at 90% 30%,rgba(247,201,0,.18),transparent 35%),
-    linear-gradient(135deg,#191919,#0b0b0b);
-}
-
-.hero h1{
-  font-size:clamp(34px,5vw,62px);
-  line-height:1;
-}
-
-.hero h1 span{
-  color:var(--gold);
-}
-
-.hero p{
-  margin-top:15px;
-  color:#aaa;
-  font-size:18px;
-}
-
-.hero-buttons{
-  margin-top:25px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.gold-btn{
-  border:0;
-  border-radius:12px;
-  background:var(--gold);
-  color:#000;
-  padding:14px 20px;
-  font-weight:900;
-}
-
-.dark-btn{
-  border:1px solid #3a3a3a;
-  border-radius:12px;
-  background:#202020;
-  color:white;
-  padding:14px 20px;
-  font-weight:900;
-}
-
-/* =========================
-CATEGORIES
-========================= */
-
-.category-wrap{
-  max-width:1500px;
-  margin:auto;
-  padding:0 18px 20px;
-}
-
-.category-grid{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:9px;
-}
-
-.category{
-  min-height:70px;
-  border:1px solid #303030;
-  border-radius:14px;
-  background:#151515;
-  color:#ddd;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  font-weight:800;
-}
-
-.category .icon{
-  font-size:24px;
-}
-
-.category:hover,
-.category.active{
-  background:var(--gold);
-  color:#000;
-  border-color:var(--gold);
-}
-
-/* =========================
-CONTENT
-========================= */
-
-.container{
-  max-width:1500px;
-  margin:auto;
-  padding:0 18px;
-}
-
-.section{
-  margin-bottom:38px;
-}
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-
-.section-title h2{
-  font-size:27px;
-}
-
-.section-title span{
-  color:#777;
-}
-
-/* =========================
-PROVIDERS
-========================= */
-
-.provider-scroll{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  padding-bottom:5px;
-}
-
-.provider-scroll::-webkit-scrollbar{
-  display:none;
-}
-
-.provider{
-  flex:0 0 auto;
-  padding:11px 17px;
-  border:1px solid #303030;
-  border-radius:25px;
-  background:#151515;
-  color:#ccc;
-  white-space:nowrap;
-}
-
-.provider.active,
-.provider:hover{
-  background:var(--gold);
-  color:#000;
-  border-color:var(--gold);
-  font-weight:900;
-}
-
-/* =========================
-GAME GRID
-========================= */
-
-.games{
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:14px;
-}
-
-.game{
-  position:relative;
-  overflow:hidden;
-  background:#111;
-  border:1px solid #292929;
-  border-radius:15px;
-  transition:.18s;
-}
-
-.game:hover{
-  transform:translateY(-3px);
-  border-color:var(--gold);
-}
-
-.game-img{
-  position:relative;
-  aspect-ratio:1/1;
-  background:#181818;
-}
-
-.game-img img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-
-.favorite{
-  position:absolute;
-  right:8px;
-  top:8px;
-  width:34px;
-  height:34px;
-  border:0;
-  border-radius:50%;
-  background:rgba(0,0,0,.72);
-  color:#fff;
-  font-size:18px;
-  z-index:2;
-}
-
-.favorite.on{
-  color:var(--gold);
-}
-
-.game-info{
-  padding:10px;
-}
-
-.game-name{
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  font-weight:900;
-  font-size:14px;
-}
-
-.game-provider{
-  color:#777;
-  font-size:11px;
-  margin-top:5px;
-}
-
-.play{
-  width:100%;
-  margin-top:9px;
-  border:0;
-  border-radius:8px;
-  background:var(--gold);
-  color:#000;
-  padding:10px;
-  font-weight:900;
-}
-
-/* =========================
-SLOTS SCREEN - NOVO LAYOUT
-========================= */
-
-.slots-page{
-  min-height:calc(100vh - 68px);
-  background:#1b1b1b;
-}
-
-.slots-header{
-  height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  border-bottom:1px solid #3a3a3a;
-  background:#191919;
-}
-
-.slots-back{
-  position:absolute;
-  left:14px;
-  width:42px;
-  height:42px;
-  border:0;
-  background:transparent;
-  color:#ddd;
-  font-size:34px;
-  line-height:1;
-}
-
-.slots-title{
-  font-size:25px;
-  font-weight:500;
-  color:#eee;
-}
-
-.slots-title::after{
-  content:"";
-  display:inline-block;
-  margin-left:8px;
-  width:0;
-  height:0;
-  border-left:6px solid transparent;
-  border-right:6px solid transparent;
-  border-top:7px solid #aaa;
-  vertical-align:middle;
-}
-
-.slots-content{
-  padding:18px;
-}
-
-.slots-search{
-  position:relative;
-  margin-bottom:18px;
-}
-
-.slots-search input{
-  width:100%;
-  height:58px;
-  border:1px solid #555;
-  border-radius:30px;
-  background:#171717;
-  color:#fff;
-  padding:0 55px 0 20px;
-  font-size:18px;
-  outline:none;
-}
-
-.slots-search input:focus{
-  border-color:var(--gold);
-}
-
-.slots-search-icon{
-  position:absolute;
-  right:18px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--gold);
-  font-size:27px;
-  pointer-events:none;
-}
-
-.slots-layout{
-  display:grid;
-  grid-template-columns:148px minmax(0,1fr);
-  gap:18px;
-  align-items:start;
-}
-
-.slots-main{
-  min-width:0;
-}
-
-.slots-tabs{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  margin-bottom:18px;
-}
-
-.slots-tabs::-webkit-scrollbar{
-  display:none;
-}
-
-.slots-tab{
-  flex:0 0 auto;
-  min-height:54px;
-  padding:0 20px;
-  border:1px solid #4a4a4a;
-  border-radius:13px;
-  background:#191919;
-  color:#bbb;
-  font-size:16px;
-  font-weight:500;
-}
-
-.slots-tab.active{
-  background:var(--gold);
-  color:#111;
-  border-color:var(--gold);
-  font-weight:800;
-}
-
-.slot-providers-sidebar{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  max-height:calc(100vh - 205px);
-  overflow-y:auto;
-  padding-right:4px;
-  scrollbar-width:thin;
-  position:sticky;
-  top:82px;
-}
-
-.slot-providers-sidebar::-webkit-scrollbar{
-  width:4px;
-}
-
-.slot-provider{
-  width:100%;
-  min-height:96px;
-  padding:9px 6px;
-  border:1px solid #414141;
-  border-radius:16px;
-  background:linear-gradient(180deg,#242424,#1b1b1b);
-  color:#ccc;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  font-weight:600;
-  transition:.18s;
-}
-
-.slot-provider:hover{
-  border-color:#777;
-  transform:translateY(-1px);
-}
-
-.slot-provider.active{
-  background:linear-gradient(180deg,#292929,#202020);
-  border-color:var(--gold);
-  box-shadow:0 0 0 1px rgba(247,201,0,.2);
-  color:#fff;
-}
-
-.slot-provider-logo{
-  width:100%;
-  min-height:38px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  font-weight:900;
-  color:#fff;
-  text-align:center;
-}
-
-.slot-provider-name{
-  font-size:14px;
-  line-height:1.15;
-  text-align:center;
-  max-width:100%;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.slots-result-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:12px;
-}
-
-.slots-result-head h2{
-  font-size:20px;
-  font-weight:800;
-}
-
-.slots-result-count{
-  color:#888;
-  font-size:13px;
-}
-
-.slots-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
-}
-
-.slots-grid .game{
-  border-radius:14px;
-  background:#151515;
-  border:1px solid #333;
-  overflow:hidden;
-}
-
-.slots-grid .game-img{
-  aspect-ratio:1/1;
-}
-
-.slots-grid .game-info{
-  padding:7px;
-}
-
-.slots-grid .game-name{
-  font-size:12px;
-}
-
-.slots-grid .game-provider{
-  display:none;
-}
-
-.slots-grid .play{
-  display:none;
-}
-
-.slots-grid .favorite{
-  width:31px;
-  height:31px;
-  right:6px;
-  top:6px;
-}
-
-@media(min-width:901px){
-  .slots-page{
-    max-width:1500px;
-    margin:auto;
-  }
-
-  .slots-content{
-    padding:20px;
-  }
-
-  .slots-grid{
-    grid-template-columns:repeat(5,minmax(0,1fr));
-    gap:14px;
-  }
-}
-
-@media(max-width:900px){
-  body{
-    background:#292929;
-  }
-
-  .slots-page{
-    min-height:calc(100vh - 70px);
-    padding-bottom:10px;
-  }
-
-  .slots-header{
-    height:64px;
-    background:#1b1b1b;
-  }
-
-  .slots-title{
-    font-size:25px;
-  }
-
-  .slots-back{
-    left:8px;
-    font-size:34px;
-  }
-
-  .slots-content{
-    padding:14px 10px 20px;
-  }
-
-  .slots-search{
-    margin-bottom:14px;
-  }
-
-  .slots-search input{
-    height:58px;
-    font-size:17px;
-    padding-left:20px;
-  }
-
-  .slots-layout{
-    grid-template-columns:148px minmax(0,1fr);
-    gap:10px;
-  }
-
-  .slot-providers-sidebar{
-    gap:9px;
-    max-height:calc(100vh - 185px);
-    position:sticky;
-    top:74px;
-    overflow-y:auto;
-  }
-
-  .slot-provider{
-    min-height:92px;
-    border-radius:15px;
-  }
-
-  .slot-provider-logo{
-    font-size:19px;
-  }
-
-  .slot-provider-name{
-    font-size:13px;
-  }
-
-  .slots-tabs{
-    gap:8px;
-    margin-bottom:14px;
-  }
-
-  .slots-tab{
-    min-height:54px;
-    padding:0 16px;
-    font-size:15px;
-    border-radius:12px;
-  }
-
-  .slots-result-head{
-    margin-bottom:10px;
-  }
-
-  .slots-result-head h2{
-    font-size:17px;
-  }
-
-  .slots-result-count{
-    font-size:11px;
-  }
-
-  .slots-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:7px;
-  }
-
-  .slots-grid .game{
-    border-radius:10px;
-  }
-
-  .slots-grid .favorite{
-    width:28px;
-    height:28px;
-    font-size:15px;
-  }
-}
-
-/* =========================
-PAGINATION
-========================= */
-
-.pagination{
-  display:flex;
-  justify-content:center;
-  gap:7px;
-  margin:30px 0;
-}
-
-.page{
-  min-width:42px;
-  height:42px;
-  border:1px solid #333;
-  border-radius:9px;
-  background:#151515;
-  color:white;
-}
-
-.page.active{
-  background:var(--gold);
-  color:#000;
-  border-color:var(--gold);
-  font-weight:900;
-}
-
-/* =========================
-DRAWER
-========================= */
-
-.drawer{
-  position:fixed;
-  inset:0;
-  z-index:500;
-  background:rgba(0,0,0,.72);
-  opacity:0;
-  visibility:hidden;
-  transition:.2s;
-}
-
-.drawer.open{
-  opacity:1;
-  visibility:visible;
-}
-
-.drawer-panel{
-  width:330px;
-  max-width:90%;
-  height:100%;
-  overflow-y:auto;
-  background:#111;
-  border-right:1px solid #333;
-  padding:18px;
-  transform:translateX(-100%);
-  transition:.25s;
-}
-
-.drawer.open .drawer-panel{
-  transform:translateX(0);
-}
-
-.drawer-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
-}
-
-.drawer-logo{
-  font-size:25px;
-  font-weight:900;
-}
-
-.drawer-logo span{
-  color:var(--gold);
-}
-
-.close{
-  width:42px;
-  height:42px;
-  border:0;
-  border-radius:50%;
-  background:#242424;
-  color:#fff;
-  font-size:22px;
-}
-
-.menu-item{
-  width:100%;
-  text-align:left;
-  padding:15px;
-  margin-bottom:8px;
-  border:1px solid #2d2d2d;
-  border-radius:12px;
-  background:#171717;
-  color:#ddd;
-  font-weight:700;
-}
-
-.menu-item:hover{
-  background:var(--gold);
-  color:#000;
-}
-
-/* =========================
-MODAL
-========================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:800;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-  background:rgba(0,0,0,.9);
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  width:100%;
-  max-width:480px;
-  max-height:90vh;
-  overflow:auto;
-  background:#111;
-  border:1px solid #333;
-  border-radius:17px;
-  padding:22px;
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
-}
-
-.modal-head h2{
-  font-size:23px;
-}
-
-.field{
-  width:100%;
-  padding:13px;
-  margin-bottom:10px;
-  border-radius:9px;
-  border:1px solid #333;
-  background:#181818;
-  color:#fff;
-  outline:none;
-}
-
-.field:focus{
-  border-color:var(--gold);
-}
-
-.full-btn{
-  width:100%;
-  border:0;
-  border-radius:9px;
-  padding:13px;
-  background:var(--gold);
-  color:#000;
-  font-weight:900;
-  margin-top:5px;
-}
-
-.info{
-  padding:16px;
-  border:1px solid #2d2d2d;
-  border-radius:12px;
-  background:#171717;
-  margin-bottom:10px;
-}
-
-.big-number{
-  font-size:35px;
-  font-weight:900;
-  color:var(--gold);
-  margin-top:5px;
-}
-
-/* =========================
-GAME PLAYER
-========================= */
-
-.game-modal{
-  position:fixed;
-  inset:0;
-  z-index:1000;
-  background:#000;
-  display:none;
-  flex-direction:column;
-}
-
-.game-modal.show{
-  display:flex;
-}
-
-.game-header{
-  height:56px;
-  background:#111;
-  border-bottom:1px solid #292929;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 12px;
-}
-
-.game-header strong{
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-}
-
-.game-frame{
-  flex:1;
-  width:100%;
-  border:0;
-}
-
-/* =========================
-BOTTOM NAV
-========================= */
-
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:200;
-  height:70px;
-  background:rgba(24,24,24,.98);
-  border-top:1px solid #333;
-  display:none;
-  grid-template-columns:repeat(4,1fr);
-}
-
-.bottom-item{
-  border:0;
-  background:transparent;
-  color:#777;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:3px;
-  font-size:12px;
-}
-
-.bottom-item .bi{
-  font-size:22px;
-}
-
-.bottom-item.active{
-  color:var(--gold);
-}
-
-/* =========================
-LOADING
-========================= */
-
-.loading,
-.empty,
-.error{
-  grid-column:1/-1;
-  padding:50px 20px;
-  text-align:center;
-  color:#777;
-}
-
-.error{
-  color:#ff7373;
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:900px){
-
-  .header{
-    height:62px;
-  }
-
-  .header-inner{
-    padding:0 10px;
-    gap:8px;
-  }
-
-  .logo{
-    font-size:21px;
-  }
-
-  .header-search{
-    display:none;
-  }
-
-  .login-btn{
-    margin-left:auto;
-    padding:10px 12px;
-  }
-
-  .hero{
-    margin:10px;
-    padding:30px 20px;
-  }
-
-  .hero h1{
-    font-size:35px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .category-wrap{
-    padding:0 10px 16px;
-  }
-
-  .category-grid{
-    display:flex;
-    overflow-x:auto;
-    scrollbar-width:none;
-    gap:8px;
-  }
-
-  .category-grid::-webkit-scrollbar{
-    display:none;
-  }
-
-  .category{
-    min-width:78px;
-    min-height:72px;
-    padding:8px;
-  }
-
-  .container{
-    padding:0 10px;
-  }
-
-  .games{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:7px;
-  }
-
-  .game{
-    border-radius:10px;
-  }
-
-  .game-info{
-    padding:7px;
-  }
-
-  .game-name{
-    font-size:11px;
-  }
-
-  .game-provider{
-    font-size:9px;
-  }
-
-  .play{
-    font-size:10px;
-    padding:8px 2px;
-  }
-
-  .favorite{
-    width:29px;
-    height:29px;
-    font-size:15px;
-    right:5px;
-    top:5px;
-  }
-
-  .section-title h2{
-    font-size:21px;
-  }
-
-  .section-title span{
-    font-size:11px;
-  }
-
-  .bottom-nav{
-    display:grid;
-  }
-
-  body{
-    padding-bottom:70px;
-  }
-
-}
-
-@media(min-width:901px){
-  body{
-    padding-bottom:0;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>559627WIN</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0
+    }
+
+    html{
+      scroll-behavior:smooth
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#070707;
+      color:#fff;
+      min-height:100vh
+    }
+
+    body.lock{
+      overflow:hidden
+    }
+
+    button,input{
+      font:inherit
+    }
+
+    button{
+      cursor:pointer
+    }
+
+    .hidden{
+      display:none!important
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      height:72px;
+      background:rgba(10,10,10,.97);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #292929
+    }
+
+    .header-inner{
+      width:100%;
+      max-width:1450px;
+      height:100%;
+      margin:auto;
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      gap:15px
+    }
+
+    .menu-button{
+      width:44px;
+      height:44px;
+      border:1px solid #333;
+      border-radius:10px;
+      background:#171717;
+      color:#fff;
+      font-size:22px
+    }
+
+    .menu-button:hover{
+      border-color:#f5c400
+    }
+
+    .logo{
+      font-size:27px;
+      font-weight:900;
+      letter-spacing:-1px;
+      white-space:nowrap
+    }
+
+    .logo span,
+    .drawer-logo span{
+      color:#f5c400
+    }
+
+    .search-container{
+      flex:1;
+      max-width:650px;
+      margin:0 auto
+    }
+
+    .search-input{
+      width:100%;
+      height:44px;
+      padding:0 16px;
+      background:#171717;
+      border:1px solid #333;
+      border-radius:11px;
+      color:#fff;
+      outline:none
+    }
+
+    .search-input:focus{
+      border-color:#f5c400
+    }
+
+    .account-button{
+      border:0;
+      border-radius:10px;
+      padding:12px 18px;
+      background:#f5c400;
+      color:#000;
+      font-weight:900
+    }
+
+    .account-button:hover{
+      background:#ffd72a
+    }
+
+    .hero{
+      max-width:1450px;
+      margin:22px auto;
+      padding:55px 35px;
+      border-radius:20px;
+      border:1px solid #292929;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(245,196,0,.22),
+          transparent 35%
+        ),
+        linear-gradient(135deg,#191919,#090909)
+    }
+
+    .hero h1{
+      font-size:clamp(35px,5vw,62px);
+      line-height:1.05
+    }
+
+    .hero h1 span{
+      color:#f5c400
+    }
+
+    .hero p{
+      margin-top:15px;
+      color:#aaa;
+      font-size:18px
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      margin-top:25px;
+      flex-wrap:wrap
+    }
+
+    .hero-button{
+      border:0;
+      border-radius:9px;
+      padding:13px 20px;
+      font-weight:900;
+      background:#f5c400;
+      color:#000
+    }
+
+    .hero-button.secondary{
+      background:#202020;
+      color:#fff;
+      border:1px solid #363636
+    }
+
+    .quick-menu,
+    .slots-tabs{
+      max-width:1450px;
+      margin:0 auto 25px;
+      padding:0 20px;
+      display:flex;
+      gap:10px;
+      overflow-x:auto;
+      scrollbar-width:none
+    }
+
+    .quick-menu::-webkit-scrollbar,
+    .slots-tabs::-webkit-scrollbar{
+      display:none
+    }
+
+    .quick-button,
+    .slots-tab{
+      white-space:nowrap;
+      padding:11px 18px;
+      border-radius:30px;
+      border:1px solid #303030;
+      background:#171717;
+      color:#ccc
+    }
+
+    .quick-button:hover,
+    .quick-button.active,
+    .slots-tab:hover,
+    .slots-tab.active{
+      background:#f5c400;
+      color:#000;
+      border-color:#f5c400;
+      font-weight:900
+    }
+
+    .section{
+      max-width:1450px;
+      margin:auto;
+      padding:0 20px 60px
+    }
+
+    .section-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:18px
+    }
+
+    .section-header h2{
+      font-size:26px
+    }
+
+    .status{
+      color:#777;
+      font-size:14px
+    }
+
+    .providers{
+      display:flex;
+      gap:8px;
+      overflow-x:auto;
+      margin-bottom:20px;
+      scrollbar-width:none
+    }
+
+    .providers::-webkit-scrollbar{
+      display:none
+    }
+
+    .provider-button{
+      white-space:nowrap;
+      padding:9px 15px;
+      background:#151515;
+      color:#bbb;
+      border:1px solid #303030;
+      border-radius:25px
+    }
+
+    .provider-button:hover,
+    .provider-button.active{
+      background:#f5c400;
+      color:#000;
+      border-color:#f5c400;
+      font-weight:900
+    }
+
+    .games{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(175px,1fr));
+      gap:15px
+    }
+
+    .game-card{
+      overflow:hidden;
+      background:#111;
+      border:1px solid #262626;
+      border-radius:13px;
+      transition:transform .2s,border-color .2s
+    }
+
+    .game-card:hover{
+      transform:translateY(-4px);
+      border-color:#f5c400
+    }
+
+    .game-image{
+      position:relative;
+      width:100%;
+      aspect-ratio:1/1;
+      background:#181818
+    }
+
+    .game-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block
+    }
+
+    .favorite{
+      position:absolute;
+      top:8px;
+      right:8px;
+      width:36px;
+      height:36px;
+      border:0;
+      border-radius:50%;
+      background:rgba(0,0,0,.7);
+      color:#fff;
+      font-size:18px;
+      z-index:2
+    }
+
+    .favorite.active{
+      color:#f5c400
+    }
+
+    .game-info{
+      padding:10px
+    }
+
+    .game-title{
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      font-size:14px;
+      font-weight:900
+    }
+
+    .game-provider{
+      margin-top:5px;
+      margin-bottom:10px;
+      color:#777;
+      font-size:12px
+    }
+
+    .play-button{
+      width:100%;
+      padding:10px;
+      border:0;
+      border-radius:7px;
+      background:#f5c400;
+      color:#000;
+      font-weight:900
+    }
+
+    .play-button:hover{
+      background:#ffd72a
+    }
+
+    .loading,
+    .empty,
+    .error{
+      grid-column:1/-1;
+      padding:60px 20px;
+      text-align:center;
+      color:#777
+    }
+
+    .error{
+      color:#ff7777
+    }
+
+    /* =========================
+       SLOTS
+    ========================= */
+
+    #slotsScreen{
+      display:none
+    }
+
+    #slotsScreen.active{
+      display:block
+    }
+
+    #homeScreen.hidden-home{
+      display:none
+    }
+
+    .slots-header{
+      max-width:1450px;
+      margin:18px auto 12px;
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      gap:12px
+    }
+
+    .back-button{
+      width:44px;
+      height:44px;
+      border:1px solid #333;
+      border-radius:10px;
+      background:#171717;
+      color:#fff;
+      font-size:22px
+    }
+
+    .slots-header h2{
+      font-size:25px
+    }
+
+    .slots-search{
+      max-width:1450px;
+      margin:0 auto 14px;
+      padding:0 20px
+    }
+
+    .slots-search input{
+      width:100%;
+      height:46px;
+      background:#171717;
+      border:1px solid #333;
+      border-radius:10px;
+      color:#fff;
+      padding:0 15px;
+      outline:none
+    }
+
+    .slots-layout{
+      max-width:1450px;
+      margin:auto;
+      padding:0 20px 60px;
+      display:grid;
+      grid-template-columns:100px 1fr;
+      gap:14px
+    }
+
+    .provider-sidebar{
+      background:#101010;
+      border:1px solid #292929;
+      border-radius:12px;
+      padding:8px;
+      height:max-content;
+      position:sticky;
+      top:86px
+    }
+
+    .side-provider{
+      width:100%;
+      padding:11px 5px;
+      margin-bottom:6px;
+      border:1px solid #292929;
+      border-radius:8px;
+      background:#171717;
+      color:#bbb;
+      font-size:12px;
+      font-weight:800
+    }
+
+    .side-provider.active,
+    .side-provider:hover{
+      background:#f5c400;
+      color:#000;
+      border-color:#f5c400
+    }
+
+    .slots-content{
+      min-width:0
+    }
+
+    .slots-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px
+    }
+
+    .slots-grid .game-info{
+      padding:7px
+    }
+
+    .slots-grid .game-title{
+      font-size:12px
+    }
+
+    .slots-grid .game-provider{
+      font-size:10px;
+      margin:4px 0 7px
+    }
+
+    .slots-grid .play-button{
+      font-size:11px;
+      padding:8px 4px
+    }
+
+    .pagination{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      margin-top:20px;
+      flex-wrap:wrap
+    }
+
+    .page-button{
+      min-width:40px;
+      padding:9px 12px;
+      border:1px solid #333;
+      border-radius:8px;
+      background:#171717;
+      color:#ddd
+    }
+
+    .page-button.active,
+    .page-button:hover{
+      background:#f5c400;
+      color:#000;
+      border-color:#f5c400;
+      font-weight:900
+    }
+
+    /* =========================
+       DRAWER
+    ========================= */
+
+    .drawer{
+      position:fixed;
+      inset:0;
+      z-index:500;
+      background:rgba(0,0,0,.7);
+      opacity:0;
+      visibility:hidden;
+      transition:.2s
+    }
+
+    .drawer.open{
+      opacity:1;
+      visibility:visible
+    }
+
+    .drawer-panel{
+      width:320px;
+      max-width:88%;
+      height:100%;
+      padding:20px;
+      background:#101010;
+      border-right:1px solid #292929;
+      transform:translateX(-100%);
+      transition:.25s
+    }
+
+    .drawer.open .drawer-panel{
+      transform:translateX(0)
+    }
+
+    .drawer-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:25px
+    }
+
+    .drawer-logo{
+      font-size:24px;
+      font-weight:900
+    }
+
+    .close-button{
+      width:40px;
+      height:40px;
+      border:0;
+      border-radius:50%;
+      background:#222;
+      color:#fff;
+      font-size:22px
+    }
+
+    .menu-item{
+      width:100%;
+      padding:14px;
+      margin-bottom:7px;
+      text-align:left;
+      border:1px solid #292929;
+      border-radius:9px;
+      background:#171717;
+      color:#ddd
+    }
+
+    .menu-item:hover{
+      background:#f5c400;
+      color:#000
+    }
+
+    /* =========================
+       MODAIS
+    ========================= */
+
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:800;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:15px;
+      background:rgba(0,0,0,.9)
+    }
+
+    .modal.show{
+      display:flex
+    }
+
+    .modal-box{
+      width:100%;
+      max-width:470px;
+      max-height:92vh;
+      overflow-y:auto;
+      padding:25px;
+      background:#111;
+      border:1px solid #333;
+      border-radius:15px
+    }
+
+    .modal-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:20px
+    }
+
+    .modal-header h2{
+      font-size:23px
+    }
+
+    .field{
+      width:100%;
+      padding:13px;
+      margin-bottom:9px;
+      background:#181818;
+      border:1px solid #333;
+      border-radius:8px;
+      color:#fff;
+      outline:none
+    }
+
+    .field:focus{
+      border-color:#f5c400
+    }
+
+    .primary-button{
+      width:100%;
+      padding:13px;
+      border:0;
+      border-radius:8px;
+      background:#f5c400;
+      color:#000;
+      font-weight:900
+    }
+
+    .secondary-button{
+      width:100%;
+      padding:12px;
+      margin-top:8px;
+      border:1px solid #333;
+      border-radius:8px;
+      background:#181818;
+      color:#fff
+    }
+
+    .modal-message{
+      margin-top:12px;
+      color:#999;
+      font-size:14px;
+      line-height:1.4
+    }
+
+    .info-card{
+      padding:18px;
+      margin-bottom:10px;
+      background:#171717;
+      border:1px solid #292929;
+      border-radius:11px
+    }
+
+    .points{
+      margin-top:8px;
+      font-size:34px;
+      font-weight:900
+    }
+
+    .check-row{
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+      margin:5px 0 14px;
+      color:#bbb;
+      font-size:13px;
+      line-height:1.4
+    }
+
+    .check-row input{
+      margin-top:3px;
+      accent-color:#f5c400
+    }
+
+    /* =========================
+       GAME
+    ========================= */
+
+    .game-modal{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      flex-direction:column;
+      background:#000
+    }
+
+    .game-modal.show{
+      display:flex
+    }
+
+    .game-bar{
+      height:55px;
+      padding:0 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:#101010;
+      border-bottom:1px solid #292929
+    }
+
+    .game-frame{
+      flex:1;
+      width:100%;
+      border:0;
+      background:#000
+    }
+
+    @media(max-width:700px){
+
+      header{
+        height:64px
+      }
+
+      .header-inner{
+        padding:0 10px;
+        gap:9px
+      }
+
+      .logo{
+        font-size:21px
+      }
+
+      .search-container{
+        display:none
+      }
+
+      .account-button{
+        margin-left:auto;
+        padding:10px 12px
+      }
+
+      .hero{
+        margin:12px;
+        padding:32px 20px
+      }
+
+      .hero h1{
+        font-size:35px
+      }
+
+      .hero p{
+        font-size:15px
+      }
+
+      .section{
+        padding:0 12px 40px
+      }
+
+      .games{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:9px
+      }
+
+      .game-info{
+        padding:8px
+      }
+
+      .game-title{
+        font-size:13px
+      }
+
+      .game-provider{
+        font-size:11px
+      }
+
+      .play-button{
+        font-size:12px;
+        padding:9px 5px
+      }
+
+      .slots-header{
+        padding:0 12px
+      }
+
+      .slots-search{
+        padding:0 12px
+      }
+
+      .slots-layout{
+        padding:0 12px 40px;
+        grid-template-columns:72px 1fr;
+        gap:8px
+      }
+
+      .provider-sidebar{
+        padding:5px
+      }
+
+      .side-provider{
+        font-size:10px;
+        padding:10px 2px
+      }
+
+      .slots-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:7px
+      }
+
+      .slots-grid .favorite{
+        width:28px;
+        height:28px;
+        font-size:14px;
+        top:4px;
+        right:4px
+      }
+
+      .slots-grid .game-info{
+        padding:5px
+      }
+
+      .slots-grid .game-title{
+        font-size:10px
+      }
+
+      .slots-grid .game-provider{
+        font-size:9px
+      }
+
+      .slots-grid .play-button{
+        font-size:9px;
+        padding:7px 2px
+      }
+
+      .modal-box{
+        padding:20px
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header">
+<header>
   <div class="header-inner">
 
-    <button class="menu-btn" onclick="openMenu()">☰</button>
+    <button
+      class="menu-button"
+      onclick="openMenu()"
+      aria-label="Abrir menu"
+    >
+      ☰
+    </button>
 
     <div class="logo">
       559627<span>WIN</span>
     </div>
 
-    <div class="header-search">
+    <div class="search-container">
       <input
         id="searchInput"
-        class="search"
+        class="search-input"
+        type="search"
         placeholder="🔎 Procurar jogo..."
-        oninput="handleSearch()"
+        autocomplete="off"
       >
     </div>
 
     <button
-      id="loginBtn"
-      class="login-btn"
+      id="accountButton"
+      class="account-button"
       onclick="openAccount()"
     >
-      👤 Entrar
+      👤 <span id="accountLabel">Entrar</span>
     </button>
 
   </div>
 </header>
 
-
-<!-- =========================
-HOME
-========================= -->
-
-<main id="homeScreen" class="screen active">
+<main id="homeScreen">
 
   <section class="hero">
 
@@ -1192,17 +899,18 @@ HOME
       Explore milhares de jogos no modo demonstração.
     </p>
 
-    <div class="hero-buttons">
+    <div class="hero-actions">
 
       <button
-        class="gold-btn"
+        class="hero-button"
         onclick="openSlots()"
       >
         🎰 Explorar Slots
       </button>
 
       <button
-        class="dark-btn"
+        id="registerHomeButton"
+        class="hero-button secondary"
         onclick="openRegister()"
       >
         📝 Criar cadastro
@@ -1212,248 +920,234 @@ HOME
 
   </section>
 
+  <div class="quick-menu">
 
-  <section class="category-wrap">
+    <button
+      id="quickAll"
+      class="quick-button active"
+      onclick="showAll(this)"
+    >
+      🎰 Todos
+    </button>
 
-    <div class="category-grid">
+    <button
+      class="quick-button"
+      onclick="showPopular(this)"
+    >
+      🔥 Populares
+    </button>
 
-      <button
-        class="category active"
-        onclick="showHomeCategory('popular',this)"
+    <button
+      class="quick-button"
+      onclick="openSlots()"
+    >
+      🎰 Slots
+    </button>
+
+    <button
+      class="quick-button"
+      onclick="showNew(this)"
+    >
+      ✨ Novidades
+    </button>
+
+    <button
+      class="quick-button"
+      onclick="openVip()"
+    >
+      👑 VIP
+    </button>
+
+    <button
+      class="quick-button"
+      onclick="openRewards()"
+    >
+      🎁 Recompensas
+    </button>
+
+    <button
+      class="quick-button"
+      onclick="openBonus()"
+    >
+      🎁 Resgatar bônus
+    </button>
+
+  </div>
+
+  <section
+    id="gamesSection"
+    class="section"
+  >
+
+    <div class="section-header">
+
+      <h2>
+        🎰 Jogos
+      </h2>
+
+      <span
+        id="status"
+        class="status"
       >
-        <span class="icon">🔥</span>
-        Popular
-      </button>
+        Carregando...
+      </span>
 
-      <button
-        class="category"
-        onclick="openSlots()"
-      >
-        <span class="icon">🎰</span>
-        Slots
-      </button>
+    </div>
 
-      <button
-        class="category"
-        onclick="showHomeCategory('mini',this)"
-      >
-        <span class="icon">🕹️</span>
-        Mini
-      </button>
+    <div
+      id="providers"
+      class="providers"
+    ></div>
 
-      <button
-        class="category"
-        onclick="showHomeCategory('fishing',this)"
-      >
-        <span class="icon">🎣</span>
-        Pescaria
-      </button>
-
-      <button
-        class="category"
-        onclick="showHomeCategory('sports',this)"
-      >
-        <span class="icon">⚽</span>
-        Esporte
-      </button>
-
-      <button
-        class="category"
-        onclick="showHomeCategory('recent',this)"
-      >
-        <span class="icon">🕘</span>
-        Recentes
-      </button>
-
-      <button
-        class="category"
-        onclick="showFavorites()"
-      >
-        <span class="icon">⭐</span>
-        Favoritos
-      </button>
-
+    <div
+      id="games"
+      class="games"
+    >
+      <div class="loading">
+        Carregando jogos...
+      </div>
     </div>
 
   </section>
 
-
-  <div class="container">
-
-    <section class="section">
-
-      <div class="section-title">
-
-        <h2 id="homeTitle">
-          🔥 Popular
-        </h2>
-
-        <span id="homeCount">
-          Carregando...
-        </span>
-
-      </div>
-
-      <div id="homeProviders" class="provider-scroll"></div>
-
-      <div id="homeGames" class="games">
-
-        <div class="loading">
-          Carregando jogos...
-        </div>
-
-      </div>
-
-      <div id="homePagination" class="pagination"></div>
-
-    </section>
-
-  </div>
-
 </main>
 
 
 <!-- =========================
-SLOTS
+     TELA DE SLOTS
 ========================= -->
 
-<main id="slotsScreen" class="screen">
+<section id="slotsScreen">
 
-  <div class="slots-page">
+  <div class="slots-header">
 
-    <div class="slots-header">
+    <button
+      class="back-button"
+      onclick="closeSlots()"
+    >
+      ←
+    </button>
 
-      <button
-        class="slots-back"
-        onclick="goHome()"
-        aria-label="Voltar"
-      >
-        ‹
-      </button>
+    <h2>
+      🎰 Slots
+    </h2>
 
-      <div class="slots-title">
-        Slots
-      </div>
+  </div>
 
-    </div>
+  <div class="slots-search">
+
+    <input
+      id="slotsSearch"
+      type="search"
+      placeholder="🔎 Procurar slot..."
+      autocomplete="off"
+    >
+
+  </div>
+
+  <div class="slots-tabs">
+
+    <button
+      class="slots-tab active"
+      onclick="setSlotsTab('slots',this)"
+    >
+      Slots
+    </button>
+
+    <button
+      class="slots-tab"
+      onclick="setSlotsTab('popular',this)"
+    >
+      Popular
+    </button>
+
+    <button
+      class="slots-tab"
+      onclick="setSlotsTab('all',this)"
+    >
+      Todas as marcas
+    </button>
+
+    <button
+      class="slots-tab"
+      onclick="setSlotsTab('recent',this)"
+    >
+      Recente
+    </button>
+
+    <button
+      class="slots-tab"
+      onclick="setSlotsTab('favorites',this)"
+    >
+      Favoritos
+    </button>
+
+  </div>
+
+  <div class="slots-layout">
+
+    <aside
+      id="providerSidebar"
+      class="provider-sidebar"
+    ></aside>
 
     <div class="slots-content">
 
-      <div class="slots-search">
-
-        <input
-          id="slotSearchInput"
-          type="text"
-          placeholder="Pesquisar"
-          autocomplete="off"
-        >
-
-        <div class="slots-search-icon">⌕</div>
-
+      <div
+        id="slotsStatus"
+        class="status"
+        style="margin-bottom:10px"
+      >
+        Carregando...
       </div>
 
-      <div class="slots-layout">
-
-        <aside
-          id="slotProviders"
-          class="slot-providers-sidebar"
-        ></aside>
-
-        <section class="slots-main">
-
-          <div class="slots-tabs">
-
-            <button
-              class="slots-tab active"
-              data-slot-mode="all"
-              onclick="setSlotMode('all',this)"
-            >
-              🎰 Slots
-            </button>
-
-            <button
-              class="slots-tab"
-              data-slot-mode="popular"
-              onclick="setSlotMode('popular',this)"
-            >
-              Popular
-            </button>
-
-            <button
-              class="slots-tab"
-              data-slot-mode="brands"
-              onclick="setSlotMode('brands',this)"
-            >
-              Todas as Marcas
-            </button>
-
-            <button
-              class="slots-tab"
-              data-slot-mode="recent"
-              onclick="setSlotMode('recent',this)"
-            >
-              Recente
-            </button>
-
-            <button
-              class="slots-tab"
-              data-slot-mode="favorites"
-              onclick="setSlotMode('favorites',this)"
-            >
-              Favoritos
-            </button>
-
-          </div>
-
-          <div class="slots-result-head">
-            <h2 id="slotResultTitle">Slots</h2>
-            <span id="slotCount" class="slots-result-count">Carregando...</span>
-          </div>
-
-          <div id="slotGames" class="slots-grid">
-            <div class="loading">Carregando Slots...</div>
-          </div>
-
-          <div id="slotPagination" class="pagination"></div>
-
-        </section>
-
+      <div
+        id="slotsGames"
+        class="slots-grid"
+      >
+        <div class="loading">
+          Carregando slots...
+        </div>
       </div>
+
+      <div
+        id="pagination"
+        class="pagination"
+      ></div>
 
     </div>
 
   </div>
 
-</main>
+</section>
 
 
 <!-- =========================
-DRAWER
+     MENU LATERAL
 ========================= -->
 
 <div
   id="drawer"
   class="drawer"
-  onclick="drawerOutside(event)"
+  onclick="handleDrawerClick(event)"
 >
 
   <div class="drawer-panel">
 
-    <div class="drawer-head">
+    <div class="drawer-header">
 
       <div class="drawer-logo">
         559627<span>WIN</span>
       </div>
 
       <button
-        class="close"
+        class="close-button"
         onclick="closeMenu()"
       >
         ×
       </button>
 
     </div>
-
 
     <button
       class="menu-item"
@@ -1464,9 +1158,9 @@ DRAWER
 
     <button
       class="menu-item"
-      onclick="showHomeCategory('popular')"
+      onclick="showAll()"
     >
-      🔥 Popular
+      🎰 Todos os jogos
     </button>
 
     <button
@@ -1478,37 +1172,16 @@ DRAWER
 
     <button
       class="menu-item"
-      onclick="showHomeCategory('mini')"
+      onclick="showPopular()"
     >
-      🕹️ Mini jogos
+      🔥 Populares
     </button>
 
     <button
       class="menu-item"
-      onclick="showHomeCategory('fishing')"
+      onclick="showNew()"
     >
-      🎣 Pescaria
-    </button>
-
-    <button
-      class="menu-item"
-      onclick="showHomeCategory('sports')"
-    >
-      ⚽ Esporte
-    </button>
-
-    <button
-      class="menu-item"
-      onclick="showHomeCategory('recent')"
-    >
-      🕘 Recentes
-    </button>
-
-    <button
-      class="menu-item"
-      onclick="showFavorites()"
-    >
-      ⭐ Favoritos
+      ✨ Novidades
     </button>
 
     <button
@@ -1559,19 +1232,24 @@ DRAWER
 
 
 <!-- =========================
-ACCOUNT
+     CONTA
 ========================= -->
 
-<div id="accountModal" class="modal">
+<div
+  id="accountModal"
+  class="modal"
+>
 
   <div class="modal-box">
 
-    <div class="modal-head">
+    <div class="modal-header">
 
-      <h2>👤 Minha conta</h2>
+      <h2>
+        👤 Minha conta
+      </h2>
 
       <button
-        class="close"
+        class="close-button"
         onclick="closeModal('accountModal')"
       >
         ×
@@ -1587,25 +1265,45 @@ ACCOUNT
 
 
 <!-- =========================
-AUTH
+     LOGIN / CADASTRO
 ========================= -->
 
-<div id="authModal" class="modal">
+<div
+  id="authModal"
+  class="modal"
+>
 
   <div class="modal-box">
 
-    <div class="modal-head">
+    <div class="modal-header">
 
       <h2 id="authTitle">
         📝 Criar cadastro
       </h2>
 
       <button
-        class="close"
+        class="close-button"
         onclick="closeModal('authModal')"
       >
         ×
       </button>
+
+    </div>
+
+    <div
+      class="info-card"
+      style="margin-bottom:14px"
+    >
+
+      <strong>
+        Crie sua conta demo
+      </strong>
+
+      <div
+        style="color:#888;margin-top:5px;font-size:13px"
+      >
+        Sem telefone e sem confirmação de e-mail.
+      </div>
 
     </div>
 
@@ -1614,6 +1312,7 @@ AUTH
       class="field"
       type="email"
       placeholder="E-mail"
+      autocomplete="email"
     >
 
     <input
@@ -1621,27 +1320,55 @@ AUTH
       class="field"
       type="password"
       placeholder="Senha"
+      autocomplete="new-password"
     >
 
+    <div id="confirmPasswordWrap">
+
+      <input
+        id="authConfirmPassword"
+        class="field"
+        type="password"
+        placeholder="Confirmar senha"
+        autocomplete="new-password"
+      >
+
+    </div>
+
+    <label
+      id="ageCheckWrap"
+      class="check-row"
+    >
+
+      <input
+        id="ageCheck"
+        type="checkbox"
+      >
+
+      <span>
+        Confirmo que tenho 18 anos ou mais e aceito os termos de uso da plataforma demo.
+      </span>
+
+    </label>
+
     <button
-      class="full-btn"
+      class="primary-button"
       onclick="submitAuth()"
     >
       Continuar
     </button>
 
     <button
-      id="toggleAuth"
-      class="dark-btn"
-      style="width:100%;margin-top:8px"
-      onclick="toggleAuth()"
+      id="toggleAuthButton"
+      class="secondary-button"
+      onclick="toggleAuthMode()"
     >
       Já tenho uma conta
     </button>
 
     <div
       id="authMessage"
-      style="margin-top:12px;color:#aaa"
+      class="modal-message"
     ></div>
 
   </div>
@@ -1650,19 +1377,24 @@ AUTH
 
 
 <!-- =========================
-VIP
+     VIP
 ========================= -->
 
-<div id="vipModal" class="modal">
+<div
+  id="vipModal"
+  class="modal"
+>
 
   <div class="modal-box">
 
-    <div class="modal-head">
+    <div class="modal-header">
 
-      <h2>👑 VIP 559627WIN</h2>
+      <h2>
+        👑 VIP
+      </h2>
 
       <button
-        class="close"
+        class="close-button"
         onclick="closeModal('vipModal')"
       >
         ×
@@ -1670,35 +1402,31 @@ VIP
 
     </div>
 
-    <div class="info">
+    <div class="info-card">
 
       <div style="color:#aaa">
         Nível atual
       </div>
 
-      <div class="big-number">
-        VIP 1
+      <div
+        style="font-size:30px;font-weight:900;color:#f5c400"
+      >
+        VIP Demo
       </div>
 
     </div>
 
-    <div class="info">
+    <div class="info-card">
 
-      <div style="color:#aaa">
-        Pontos demo
-      </div>
+      ⭐ Pontos demo
 
       <div
         id="vipPoints"
-        class="big-number"
+        class="points"
       >
         0
       </div>
 
-    </div>
-
-    <div class="info">
-      Continue explorando a plataforma para acumular pontos de demonstração.
     </div>
 
   </div>
@@ -1707,19 +1435,24 @@ VIP
 
 
 <!-- =========================
-REWARDS
+     RECOMPENSAS
 ========================= -->
 
-<div id="rewardsModal" class="modal">
+<div
+  id="rewardsModal"
+  class="modal"
+>
 
   <div class="modal-box">
 
-    <div class="modal-head">
+    <div class="modal-header">
 
-      <h2>🎁 Recompensas</h2>
+      <h2>
+        🎁 Recompensas
+      </h2>
 
       <button
-        class="close"
+        class="close-button"
         onclick="closeModal('rewardsModal')"
       >
         ×
@@ -1727,13 +1460,13 @@ REWARDS
 
     </div>
 
-    <div class="info">
+    <div class="info-card">
 
-      Pontos disponíveis
+      Pontos demo
 
       <div
         id="rewardPoints"
-        class="big-number"
+        class="points"
       >
         0
       </div>
@@ -1741,15 +1474,15 @@ REWARDS
     </div>
 
     <button
-      class="full-btn"
+      class="primary-button"
       onclick="claimDemoReward()"
     >
-      🎁 Resgatar recompensa demo
+      Resgatar 100 pontos demo
     </button>
 
     <div
       id="rewardMessage"
-      style="margin-top:12px;color:#aaa"
+      class="modal-message"
     ></div>
 
   </div>
@@ -1758,60 +1491,22 @@ REWARDS
 
 
 <!-- =========================
-BOTTOM NAV
+     JOGO
 ========================= -->
 
-<nav class="bottom-nav">
+<div
+  id="gameModal"
+  class="game-modal"
+>
 
-  <button
-    class="bottom-item active"
-    onclick="goHome()"
-  >
-    <span class="bi">🏠</span>
-    Início
-  </button>
-
-  <button
-    class="bottom-item"
-    onclick="openRewards()"
-  >
-    <span class="bi">🎁</span>
-    Ofertas
-  </button>
-
-  <button
-    class="bottom-item"
-    onclick="openVip()"
-  >
-    <span class="bi">👑</span>
-    VIP
-  </button>
-
-  <button
-    class="bottom-item"
-    onclick="openAccount()"
-  >
-    <span class="bi">👤</span>
-    Perfil
-  </button>
-
-</nav>
-
-
-<!-- =========================
-GAME PLAYER
-========================= -->
-
-<div id="gameModal" class="game-modal">
-
-  <div class="game-header">
+  <div class="game-bar">
 
     <strong id="gameTitle">
       Jogo
     </strong>
 
     <button
-      class="close"
+      class="close-button"
       onclick="closeGame()"
     >
       ×
@@ -1830,1348 +1525,752 @@ GAME PLAYER
 
 <script>
 
-/* =========================================
-CONFIGURAÇÃO
-========================================= */
+  const SUPABASE_URL =
+    "https://dzjjtdxukdagcjjjpnpq.supabase.co";
 
-const SUPABASE_URL =
-  "https://dzjjtdxukdagcjjjpnpq.supabase.co";
+  const SUPABASE_KEY =
+    "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
 
-const SUPABASE_KEY =
-  "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
+  const GAMES_FUNCTION =
+    SUPABASE_URL + "/functions/v1/bigbang-games";
 
-const GAMES_FUNCTION =
-  SUPABASE_URL +
-  "/functions/v1/bigbang-games";
-
-const LAUNCH_FUNCTION =
-  SUPABASE_URL +
-  "/functions/v1/bigbang-launch";
-
-const supabaseClient =
-  supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+  const LAUNCH_FUNCTION =
+    SUPABASE_URL + "/functions/v1/bigbang-launch";
 
 
-/* =========================================
-ESTADO
-========================================= */
-
-let allGames = [];
-
-let currentUser = null;
-
-let selectedProvider = "Todos";
-
-let selectedSlotProvider = "Todos";
-
-let slotMode = "all";
-
-let homeMode = "popular";
-
-let authMode = "signup";
-
-let homePage = 1;
-
-let slotPage = 1;
-
-const PAGE_SIZE = 30;
-
-
-/* =========================================
-ELEMENTOS
-========================================= */
-
-const homeGames =
-  document.getElementById("homeGames");
-
-const slotGames =
-  document.getElementById("slotGames");
-
-const homeProviders =
-  document.getElementById("homeProviders");
-
-const slotProviders =
-  document.getElementById("slotProviders");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-
-/* =========================================
-INICIALIZAÇÃO
-========================================= */
-
-document.addEventListener("input", event => {
-
-  if(event.target && event.target.id === "slotSearchInput"){
-    slotPage = 1;
-    renderSlots();
-  }
-
-});
-
-
-document.addEventListener(
-  "DOMContentLoaded",
-  async () => {
-
-    await checkUser();
-
-    await loadGames();
-
-  }
-);
-
-
-/* =========================================
-CARREGAR CATÁLOGO
-========================================= */
-
-async function loadGames(){
-
-  try{
-
-    homeGames.innerHTML =
-      `<div class="loading">
-        Carregando catálogo BigBang...
-      </div>`;
-
-    const response =
-      await fetch(
-        GAMES_FUNCTION,
-        {
-          method:"GET",
-          headers:{
-            apikey:SUPABASE_KEY,
-            Authorization:
-              "Bearer " + SUPABASE_KEY
-          }
-        }
-      );
-
-    const result =
-      await response.json();
-
-    if(
-      !response.ok ||
-      !result.success
-    ){
-      throw new Error(
-        result.error ||
-        "Erro ao carregar catálogo."
-      );
-    }
-
-    allGames =
-      Array.isArray(result.data)
-        ? result.data
-        : [];
-
-    console.log(
-      "Jogos carregados:",
-      allGames.length
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
     );
 
-    buildHomeProviders();
 
-    buildSlotProviders();
+  let allGames = [];
 
-    renderHome();
+  let filteredGames = [];
 
-  }catch(error){
+  let selectedProvider = "Todos";
 
-    console.error(error);
+  let currentUser = null;
 
-    homeGames.innerHTML =
-      `<div class="error">
-        Não foi possível carregar os jogos.<br><br>
-        ${escapeHtml(error.message)}
-      </div>`;
+  let authMode = "signup";
+
+
+  let slotsTab = "slots";
+
+  let slotsProvider = "Todos";
+
+  let slotsPage = 1;
+
+  const SLOTS_PER_PAGE = 24;
+
+
+  const favoriteKey =
+    "559627_favorites";
+
+
+  const searchElement =
+    document.getElementById("searchInput");
+
+
+  /* =========================
+     FAVORITOS
+  ========================= */
+
+  function getFavorites(){
+
+    try{
+
+      return JSON.parse(
+        localStorage.getItem(
+          favoriteKey
+        ) || "[]"
+      );
+
+    }catch{
+
+      return [];
+
+    }
 
   }
 
-}
+
+  function isFavorite(id){
+
+    return getFavorites()
+      .includes(String(id));
+
+  }
 
 
-/* =========================================
-NORMALIZAR TEXTO
-========================================= */
+  function toggleFavorite(id){
 
-function normalize(value){
+    const key =
+      String(id);
 
-  return String(
-    value || ""
-  )
-  .normalize("NFD")
-  .replace(
-    /[\u0300-\u036f]/g,
-    ""
-  )
-  .toLowerCase();
+    const list =
+      getFavorites();
 
-}
+    const index =
+      list.indexOf(key);
 
 
-/* =========================================
-DETECTAR CATEGORIA
-========================================= */
+    if(index >= 0){
 
-function gameType(game){
+      list.splice(index,1);
 
-  const explicit = normalize(
-    [
-      game.game_type,
-      game.type,
-      game.category,
-      game.category_title
+    }else{
+
+      list.push(key);
+
+    }
+
+
+    localStorage.setItem(
+      favoriteKey,
+      JSON.stringify(list)
+    );
+
+
+    renderGames(
+      filteredGames
+    );
+
+    renderSlots();
+
+  }
+
+
+  /* =========================
+     NORMALIZAÇÃO
+  ========================= */
+
+  function normalizeGame(game){
+
+    return game || {};
+
+  }
+
+
+  function gameText(game){
+
+    return [
+
+      game?.game_type,
+
+      game?.type,
+
+      game?.category,
+
+      game?.category_title,
+
+      game?.title,
+
+      game?.name
+
     ]
     .filter(Boolean)
     .join(" ")
-  );
+    .toLowerCase();
 
-  const title = normalize(
-    [game.title, game.name]
-      .filter(Boolean)
-      .join(" ")
-  );
-
-  const text = `${explicit} ${title}`;
-
-  if(
-    /fishing|fish|pesca|pescaria|fishing game/.test(text)
-  ){
-    return "fishing";
   }
 
-  if(
-    /sport|sports|football|soccer|basketball|esporte/.test(text)
-  ){
-    return "sports";
-  }
 
-  if(
-    /mini|arcade|minigame|mini game/.test(text)
-  ){
-    return "mini";
-  }
+  function isSlotGame(game){
 
-  if(
-    /slot|slots|slot game/.test(text)
-  ){
-    return "slots";
-  }
-
-  return "slots";
-}
+    const text =
+      gameText(game);
 
 
-/* =========================================
-PROVEDORES HOME
-========================================= */
+    if(
+      /\bslot(s)?\b/.test(text)
+    ){
 
-function buildHomeProviders(){
-
-  const providers =
-    [
-      ...new Set(
-        allGames
-          .map(
-            game =>
-              game.provider
-          )
-          .filter(Boolean)
-      )
-    ]
-    .sort(
-      (a,b) =>
-        String(a).localeCompare(
-          String(b)
-        )
-    );
-
-  homeProviders.innerHTML =
-    `
-    <button
-      class="provider active"
-      onclick="selectHomeProvider('Todos',this)"
-    >
-      Todos
-    </button>
-    `;
-
-  providers.forEach(
-    provider => {
-
-      const button =
-        document.createElement(
-          "button"
-        );
-
-      button.className =
-        "provider";
-
-      button.textContent =
-        provider;
-
-      button.onclick =
-        () =>
-          selectHomeProvider(
-            provider,
-            button
-          );
-
-      homeProviders.appendChild(
-        button
-      );
+      return true;
 
     }
-  );
-
-}
 
 
-/* =========================================
-PROVEDORES SLOTS
-========================================= */
+    if(
+      /\bcasino\b/.test(text)
+    ){
 
-function getProviderShortName(provider){
-
-  const value = String(provider || "").trim();
-  const normalized = normalize(value);
-
-  const map = {
-    "pg soft":"PG",
-    "pgsoft":"PG",
-    "pragmatic play":"PP",
-    "pragmatic":"PP",
-    "jdb":"JDB",
-    "tada":"TADA",
-    "918kiss":"918KISS",
-    "worldmatch":"WM",
-    "playngo":"Play'n GO"
-  };
-
-  return map[normalized] || value;
-}
-
-
-function buildSlotProviders(){
-
-  const providers = [
-    ...new Set(
-      allGames
-        .filter(
-          game =>
-            gameType(game) === "slots"
-        )
-        .map(
-          game =>
-            game.provider
-        )
-        .filter(Boolean)
-    )
-  ].sort(
-    (a,b) =>
-      String(a).localeCompare(
-        String(b)
-      )
-  );
-
-
-  slotProviders.innerHTML = "";
-
-
-  const allButton =
-    document.createElement(
-      "button"
-    );
-
-  allButton.className =
-    "slot-provider active";
-
-  allButton.innerHTML = `
-    <div class="slot-provider-logo">
-      🎰
-    </div>
-
-    <div class="slot-provider-name">
-      Todos
-    </div>
-  `;
-
-  allButton.onclick =
-    () =>
-      selectSlotProvider(
-        "Todos",
-        allButton
-      );
-
-  slotProviders.appendChild(
-    allButton
-  );
-
-
-  providers.forEach(
-    provider => {
-
-      const button =
-        document.createElement(
-          "button"
-        );
-
-      button.className =
-        "slot-provider";
-
-
-      const shortName =
-        getProviderShortName(
-          provider
-        );
-
-
-      button.innerHTML = `
-        <div class="slot-provider-logo">
-          ${escapeHtml(shortName)}
-        </div>
-
-        <div class="slot-provider-name">
-          ${escapeHtml(provider)}
-        </div>
-      `;
-
-
-      button.onclick =
-        () =>
-          selectSlotProvider(
-            provider,
-            button
-          );
-
-
-      slotProviders.appendChild(
-        button
-      );
+      return true;
 
     }
-  );
-
-}
 
 
-/* =========================================
-SELECIONAR PROVEDOR HOME
-========================================= */
+    if(
+      /\bvideo slot(s)?\b/.test(text)
+    ){
 
-function selectHomeProvider(
-  provider,
-  button
-){
+      return true;
 
-  selectedProvider =
-    provider;
-
-  document
-    .querySelectorAll(
-      "#homeProviders .provider"
-    )
-    .forEach(
-      el =>
-        el.classList.remove(
-          "active"
-        )
-    );
-
-  button.classList.add(
-    "active"
-  );
-
-  homePage = 1;
-
-  renderHome();
-
-}
-
-
-/* =========================================
-SELECIONAR PROVEDOR SLOTS
-========================================= */
-
-function selectSlotProvider(
-  provider,
-  button
-){
-
-  selectedSlotProvider =
-    provider;
-
-  document
-    .querySelectorAll(
-      "#slotProviders .slot-provider"
-    )
-    .forEach(
-      el =>
-        el.classList.remove(
-          "active"
-        )
-    );
-
-  button.classList.add(
-    "active"
-  );
-
-  slotPage = 1;
-
-  renderSlots();
-
-}
-
-
-/* =========================================
-BUSCA
-========================================= */
-
-function handleSearch(){
-
-  const slotsActive =
-    document
-      .getElementById(
-        "slotsScreen"
-      )
-      .classList.contains(
-        "active"
-      );
-
-  if(slotsActive){
-
-    const slotInput =
-      document.getElementById(
-        "slotSearchInput"
-      );
-
-    if(slotInput){
-      slotInput.value =
-        searchInput.value;
     }
 
-    slotPage = 1;
 
-    renderSlots();
+    const nonSlot = [
 
-  }else{
+      "pescaria",
 
-    homePage = 1;
+      "fish",
 
-    renderHome();
+      "fishing",
 
-  }
+      "esporte",
 
-}
+      "sport",
+
+      "mini game",
+
+      "crash",
+
+      "aviator",
+
+      "table",
+
+      "baccarat",
+
+      "blackjack",
+
+      "roulette",
+
+      "roleta",
+
+      "poker",
+
+      "live casino"
+
+    ];
 
 
-/* =========================================
-FILTRAR BUSCA
-========================================= */
+    if(
+      nonSlot.some(
+        word => text.includes(word)
+      )
+    ){
 
-function matchesSearch(
-  game,
-  search
-){
+      return false;
 
-  if(!search)
+    }
+
+
     return true;
 
-  const text =
-    normalize(
-      [
-        game.title,
-        game.name,
-        game.provider,
-        game.category,
-        game.category_title,
-        game.game_type
-      ]
-      .filter(Boolean)
-      .join(" ")
-    );
-
-  return text.includes(
-    normalize(search)
-  );
-
-}
+  }
 
 
-/* =========================================
-HOME CATEGORIA
-========================================= */
+  function getProvider(game){
 
-function showHomeCategory(
-  mode,
-  button
-){
+    return String(
 
-  closeMenu();
+      game?.provider ||
 
-  showScreen(
-    "homeScreen"
-  );
+      game?.provider_name ||
 
-  homeMode =
-    mode;
+      game?.brand ||
 
-  homePage = 1;
+      "Outros"
 
-  document
-    .querySelectorAll(
-      ".category"
-    )
-    .forEach(
-      el =>
-        el.classList.remove(
-          "active"
+    ).trim();
+
+  }
+
+
+  /* =========================
+     CARREGAR JOGOS
+  ========================= */
+
+  async function loadGames(){
+
+    const gamesElement =
+      document.getElementById(
+        "games"
+      );
+
+    const status =
+      document.getElementById(
+        "status"
+      );
+
+
+    gamesElement.innerHTML =
+      '<div class="loading">Carregando jogos...</div>';
+
+    status.textContent =
+      "Carregando...";
+
+
+    try{
+
+      const response =
+        await fetch(
+          GAMES_FUNCTION,
+          {
+
+            headers:{
+
+              "apikey":
+                SUPABASE_KEY,
+
+              "Authorization":
+                "Bearer " +
+                SUPABASE_KEY
+
+            }
+
+          }
+        );
+
+
+      const result =
+        await response.json();
+
+
+      if(
+        !response.ok ||
+        !result.success
+      ){
+
+        throw new Error(
+          result.error ||
+          "Não foi possível carregar os jogos."
+        );
+
+      }
+
+
+      allGames =
+        Array.isArray(
+          result.data
         )
-    );
-
-  if(button){
-
-    button.classList.add(
-      "active"
-    );
-
-  }
-
-  renderHome();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
+        ? result.data.map(
+            normalizeGame
+          )
+        : [];
 
 
-/* =========================================
-RENDER HOME
-========================================= */
-
-function renderHome(){
-
-  if(!allGames.length)
-    return;
-
-  let games =
-    [...allGames];
-
-  const search =
-    searchInput.value.trim();
+      filteredGames =
+        [...allGames];
 
 
-  if(
-    homeMode ===
-    "slots"
-  ){
+      buildProviders();
 
-    games =
-      games.filter(
-        game =>
-          gameType(game) ===
-          "slots"
+      renderGames(
+        filteredGames
       );
 
-  }
+      renderProviderSidebar();
+
+      renderSlots();
 
 
-  if(
-    homeMode ===
-    "mini"
-  ){
-
-    games =
-      games.filter(
-        game =>
-          gameType(game) ===
-          "mini"
-      );
-
-  }
+      status.textContent =
+        `${allGames.length} jogos disponíveis`;
 
 
-  if(
-    homeMode ===
-    "fishing"
-  ){
+    }catch(error){
 
-    games =
-      games.filter(
-        game =>
-          gameType(game) ===
-          "fishing"
-      );
-
-  }
+      console.error(error);
 
 
-  if(
-    homeMode ===
-    "sports"
-  ){
-
-    games =
-      games.filter(
-        game =>
-          gameType(game) ===
-          "sports"
-      );
-
-  }
+      status.textContent =
+        "Erro";
 
 
-  if(
-    homeMode ===
-    "recent"
-  ){
+      gamesElement.innerHTML =
+        `
+          <div class="error">
 
-    games =
-      [...games].reverse();
+            Não foi possível carregar os jogos.
 
-  }
+            <br><br>
 
+            ${escapeHtml(
+              error.message
+            )}
 
-  if(
-    homeMode ===
-    "popular"
-  ){
-
-    games =
-      [...games];
-
-  }
+          </div>
+        `;
 
 
-  if(
-    selectedProvider !==
-    "Todos"
-  ){
+      document.getElementById(
+        "slotsGames"
+      ).innerHTML =
+        `
+          <div class="error">
 
-    games =
-      games.filter(
-        game =>
-          String(
-            game.provider || ""
-          ) ===
-          selectedProvider
-      );
+            Não foi possível carregar os slots.
 
-  }
-
-
-  games =
-    games.filter(
-      game =>
-        matchesSearch(
-          game,
-          search
-        )
-    );
-
-
-  const total =
-    games.length;
-
-  const start =
-    (homePage - 1) *
-    PAGE_SIZE;
-
-  const pageGames =
-    games.slice(
-      start,
-      start + PAGE_SIZE
-    );
-
-
-  document
-    .getElementById(
-      "homeCount"
-    )
-    .textContent =
-    `${total} jogos`;
-
-
-  document
-    .getElementById(
-      "homeTitle"
-    )
-    .textContent =
-    homeTitle();
-
-
-  renderGameGrid(
-    homeGames,
-    pageGames
-  );
-
-
-  renderPagination(
-    "homePagination",
-    total,
-    homePage,
-    page => {
-
-      homePage =
-        page;
-
-      renderHome();
-
-      window.scrollTo({
-        top:300,
-        behavior:"smooth"
-      });
+          </div>
+        `;
 
     }
-  );
-
-}
-
-
-/* =========================================
-TÍTULO HOME
-========================================= */
-
-function homeTitle(){
-
-  const titles = {
-
-    popular:
-      "🔥 Popular",
-
-    recent:
-      "🕘 Recentes",
-
-    mini:
-      "🕹️ Mini jogos",
-
-    fishing:
-      "🎣 Pescaria",
-
-    sports:
-      "⚽ Esportes",
-
-    slots:
-      "🎰 Slots"
-
-  };
-
-  return (
-    titles[homeMode] ||
-    "🎰 Jogos"
-  );
-
-}
-
-
-/* =========================================
-ABRIR SLOTS
-========================================= */
-
-function openSlots(){
-
-  closeMenu();
-
-  showScreen(
-    "slotsScreen"
-  );
-
-  slotMode =
-    "all";
-
-  selectedSlotProvider =
-    "Todos";
-
-  slotPage =
-    1;
-
-
-  const slotInput =
-    document.getElementById(
-      "slotSearchInput"
-    );
-
-  if(slotInput){
-
-    slotInput.value =
-      "";
 
   }
 
 
-  document
-    .querySelectorAll(
-      ".slots-tab"
-    )
-    .forEach(
-      el =>
-        el.classList.remove(
-          "active"
+  /* =========================
+     PROVEDORES HOME
+  ========================= */
+
+  function buildProviders(){
+
+    const container =
+      document.getElementById(
+        "providers"
+      );
+
+
+    const providers =
+      [
+        ...new Set(
+
+          allGames
+
+            .map(
+              getProvider
+            )
+
+            .filter(Boolean)
+
         )
-    );
+      ]
+      .sort(
+        (a,b) =>
+          a.localeCompare(b)
+      );
 
 
-  const firstTab =
-    document.querySelector(
-      '[data-slot-mode="all"]'
-    );
+    container.innerHTML = `
 
-  if(firstTab){
+      <button
+        class="provider-button active"
+        onclick="selectProvider('Todos',this)"
+      >
+        Todos
+      </button>
 
-    firstTab.classList.add(
-      "active"
-    );
+      ${
+        providers.map(
+          provider => `
 
-  }
+            <button
+              class="provider-button"
+              onclick="selectProvider(${escapeAttribute(JSON.stringify(provider))},this)"
+            >
+              ${escapeHtml(provider)}
+            </button>
 
+          `
+        ).join("")
+      }
 
-  document
-    .querySelectorAll(
-      "#slotProviders .slot-provider"
-    )
-    .forEach(
-      el =>
-        el.classList.remove(
-          "active"
-        )
-    );
-
-
-  const allProvider =
-    document.querySelector(
-      "#slotProviders .slot-provider"
-    );
-
-  if(allProvider){
-
-    allProvider.classList.add(
-      "active"
-    );
+    `;
 
   }
 
 
-  renderSlots();
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================================
-MODO SLOTS
-========================================= */
-
-function setSlotMode(
-  mode,
-  button
-){
-
-  slotMode =
-    mode;
-
-  slotPage =
-    1;
-
-
-  if(
-    mode ===
-    "favorites"
+  function selectProvider(
+    provider,
+    button
   ){
 
-    selectedSlotProvider =
-      "Todos";
+    selectedProvider =
+      provider;
 
 
     document
       .querySelectorAll(
-        "#slotProviders .slot-provider"
+        "#providers .provider-button"
       )
       .forEach(
-        el =>
-          el.classList.remove(
+        item =>
+          item.classList.remove(
             "active"
           )
       );
 
 
-    const allProvider =
-      document.querySelector(
-        "#slotProviders .slot-provider"
-      );
+    if(button){
 
-    if(allProvider){
-
-      allProvider.classList.add(
+      button.classList.add(
         "active"
       );
 
     }
 
-  }
 
-
-  document
-    .querySelectorAll(
-      ".slots-tab"
-    )
-    .forEach(
-      el =>
-        el.classList.remove(
-          "active"
-        )
-    );
-
-
-  button.classList.add(
-    "active"
-  );
-
-
-  renderSlots();
-
-}
-
-
-/* =========================================
-RENDER SLOTS
-========================================= */
-
-function renderSlots(){
-
-  let games =
-    allGames.filter(
-      game =>
-        gameType(game) ===
-        "slots"
-    );
-
-
-  if(
-    selectedSlotProvider !==
-    "Todos"
-  ){
-
-    games =
-      games.filter(
-        game =>
-          String(
-            game.provider || ""
-          ) ===
-          String(
-            selectedSlotProvider
-          )
-      );
+    filterGames();
 
   }
 
 
-  if(
-    slotMode ===
-    "recent"
-  ){
+  /* =========================
+     FILTRO HOME
+  ========================= */
 
-    games =
-      [...games].reverse();
+  function filterGames(){
 
-  }
-
-
-  if(
-    slotMode ===
-    "popular" ||
-    slotMode ===
-    "brands" ||
-    slotMode ===
-    "all"
-  ){
-
-    games =
-      [...games];
-
-  }
-
-
-  if(
-    slotMode ===
-    "favorites"
-  ){
-
-    games =
-      games.filter(
-        game =>
-          isFavorite(
-            game.id
-          )
-      );
-
-  }
-
-
-  const slotInput =
-    document.getElementById(
-      "slotSearchInput"
-    );
-
-  const search =
-    slotInput
-      ? slotInput.value.trim()
-      : "";
-
-
-  games =
-    games.filter(
-      game =>
-        matchesSearch(
-          game,
-          search
-        )
-    );
-
-
-  const total =
-    games.length;
-
-
-  const pages =
-    Math.max(
-      1,
-      Math.ceil(
-        total /
-        PAGE_SIZE
+    const search =
+      (
+        searchElement.value ||
+        ""
       )
+      .trim()
+      .toLowerCase();
+
+
+    filteredGames =
+      allGames.filter(
+        game => {
+
+          const title =
+            String(
+              game.title ||
+              game.name ||
+              ""
+            ).toLowerCase();
+
+
+          const provider =
+            getProvider(
+              game
+            ).toLowerCase();
+
+
+          const matchesSearch =
+
+            !search ||
+
+            title.includes(
+              search
+            ) ||
+
+            provider.includes(
+              search
+            );
+
+
+          const matchesProvider =
+
+            selectedProvider ===
+              "Todos" ||
+
+            getProvider(game) ===
+              selectedProvider;
+
+
+          return (
+            matchesSearch &&
+            matchesProvider
+          );
+
+        }
+      );
+
+
+    renderGames(
+      filteredGames
     );
-
-
-  if(
-    slotPage >
-    pages
-  ){
-
-    slotPage =
-      pages;
 
   }
 
 
-  const start =
-    (slotPage - 1) *
-    PAGE_SIZE;
+  /* =========================
+     CARDS
+  ========================= */
+
+  function renderGames(games){
+
+    const container =
+      document.getElementById(
+        "games"
+      );
 
 
-  const pageGames =
-    games.slice(
-      start,
-      start + PAGE_SIZE
-    );
+    if(!games.length){
 
+      container.innerHTML =
+        `
+          <div class="empty">
+            Nenhum jogo encontrado.
+          </div>
+        `;
 
-  const titles = {
-
-    all:
-      "Slots",
-
-    popular:
-      "Popular",
-
-    brands:
-      "Todas as Marcas",
-
-    recent:
-      "Recente",
-
-    favorites:
-      "Favoritos"
-
-  };
-
-
-  const titleElement =
-    document.getElementById(
-      "slotResultTitle"
-    );
-
-  if(titleElement){
-
-    titleElement.textContent =
-      titles[slotMode] ||
-      "Slots";
-
-  }
-
-
-  const countElement =
-    document.getElementById(
-      "slotCount"
-    );
-
-  if(countElement){
-
-    countElement.textContent =
-      `${total} slots`;
-
-  }
-
-
-  renderGameGrid(
-    slotGames,
-    pageGames
-  );
-
-
-  renderPagination(
-    "slotPagination",
-    total,
-    slotPage,
-    page => {
-
-      slotPage =
-        page;
-
-      renderSlots();
-
-      window.scrollTo({
-        top:0,
-        behavior:"smooth"
-      });
+      return;
 
     }
-  );
-
-}
 
 
-/* =========================================
-FAVORITOS
-========================================= */
-
-function getFavorites(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        "559627_favorites"
-      ) || "[]"
-    );
-
-  }catch{
-
-    return [];
-
-  }
-
-}
-
-
-function saveFavorites(
-  list
-){
-
-  localStorage.setItem(
-    "559627_favorites",
-    JSON.stringify(list)
-  );
-
-}
-
-
-function toggleFavorite(
-  id
-){
-
-  const list =
-    getFavorites();
-
-  const key =
-    String(id);
-
-  const index =
-    list.indexOf(key);
-
-
-  if(index >= 0){
-
-    list.splice(
-      index,
-      1
-    );
-
-  }else{
-
-    list.push(key);
+    container.innerHTML =
+      games
+        .map(
+          gameCardHtml
+        )
+        .join("");
 
   }
 
 
-  saveFavorites(
-    list
-  );
+  function gameCardHtml(game){
+
+    const id =
+      String(
+        game.id ?? ""
+      );
 
 
-  renderCurrentScreen();
-
-}
-
-
-function isFavorite(
-  id
-){
-
-  return getFavorites()
-    .includes(
-      String(id)
-    );
-
-}
+    const title =
+      game.title ||
+      game.name ||
+      "Jogo";
 
 
-function showFavorites(
-  slotsOnly=false
-){
-
-  closeMenu();
+    const provider =
+      getProvider(game);
 
 
-  if(slotsOnly){
+    const image =
+      game.thumbnail ||
+      game.image ||
+      "";
 
-    showScreen(
-      "slotsScreen"
-    );
 
-    slotMode =
-      "favorites";
+    return `
 
-    selectedSlotProvider =
-      "Todos";
+      <article class="game-card">
 
-    slotPage =
+        <div class="game-image">
+
+          ${
+            image
+
+              ?
+
+              `
+                <img
+                  src="${escapeAttribute(image)}"
+                  alt="${escapeAttribute(title)}"
+                  loading="lazy"
+                >
+              `
+
+              :
+
+              `
+                <div
+                  style="
+                    height:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#777
+                  "
+                >
+                  559627WIN
+                </div>
+              `
+          }
+
+
+          <button
+            class="favorite ${
+              isFavorite(id)
+                ? "active"
+                : ""
+            }"
+            onclick="
+              event.stopPropagation();
+              toggleFavorite('${escapeJs(id)}')
+            "
+          >
+            ${
+              isFavorite(id)
+                ? "★"
+                : "☆"
+            }
+          </button>
+
+        </div>
+
+
+        <div class="game-info">
+
+          <div
+            class="game-title"
+            title="${escapeAttribute(title)}"
+          >
+            ${escapeHtml(title)}
+          </div>
+
+
+          <div class="game-provider">
+
+            ${escapeHtml(provider)}
+
+          </div>
+
+
+          <button
+            class="play-button"
+            onclick="
+              launchGame(
+                '${escapeJs(id)}',
+                '${escapeJs(title)}'
+              )
+            "
+          >
+            ▶ JOGAR DEMO
+          </button>
+
+        </div>
+
+      </article>
+
+    `;
+
+  }
+
+
+  /* =========================
+     ABRIR SLOTS
+  ========================= */
+
+  function openSlots(){
+
+    closeMenu();
+
+
+    document
+      .getElementById(
+        "homeScreen"
+      )
+      .classList.add(
+        "hidden-home"
+      );
+
+
+    document
+      .getElementById(
+        "slotsScreen"
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    slotsPage =
       1;
 
 
-    const slotInput =
-      document.getElementById(
-        "slotSearchInput"
-      );
+    slotsProvider =
+      "Todos";
 
-    if(slotInput){
 
-      slotInput.value =
-        "";
-
-    }
+    slotsTab =
+      "slots";
 
 
     document
@@ -3179,51 +2278,467 @@ function showFavorites(
         ".slots-tab"
       )
       .forEach(
-        el =>
-          el.classList.remove(
-            "active"
+        (b,i) =>
+          b.classList.toggle(
+            "active",
+            i === 0
           )
       );
 
 
-    const favoriteTab =
-      document.querySelector(
-        '[data-slot-mode="favorites"]'
-      );
+    renderProviderSidebar();
 
-    if(favoriteTab){
+    renderSlots();
 
-      favoriteTab.classList.add(
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  function closeSlots(){
+
+    document
+      .getElementById(
+        "slotsScreen"
+      )
+      .classList.remove(
         "active"
       );
 
-    }
+
+    document
+      .getElementById(
+        "homeScreen"
+      )
+      .classList.remove(
+        "hidden-home"
+      );
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  /* =========================
+     TABS SLOTS
+  ========================= */
+
+  function setSlotsTab(
+    tab,
+    button
+  ){
+
+    slotsTab =
+      tab;
+
+
+    slotsPage =
+      1;
 
 
     document
       .querySelectorAll(
-        "#slotProviders .slot-provider"
+        ".slots-tab"
       )
       .forEach(
-        el =>
-          el.classList.remove(
+        item =>
+          item.classList.remove(
             "active"
           )
       );
 
 
-    const allProvider =
-      document.querySelector(
-        "#slotProviders .slot-provider"
-      );
+    if(button){
 
-    if(allProvider){
-
-      allProvider.classList.add(
+      button.classList.add(
         "active"
       );
 
     }
+
+
+    renderSlots();
+
+  }
+
+
+  /* =========================
+     SIDEBAR PROVEDORES
+  ========================= */
+
+  function renderProviderSidebar(){
+
+    const sidebar =
+      document.getElementById(
+        "providerSidebar"
+      );
+
+
+    const slotGames =
+      allGames.filter(
+        isSlotGame
+      );
+
+
+    const providers =
+      [
+        ...new Set(
+
+          slotGames
+
+            .map(
+              getProvider
+            )
+
+            .filter(Boolean)
+
+        )
+      ]
+      .sort(
+        (a,b) =>
+          a.localeCompare(b)
+      );
+
+
+    sidebar.innerHTML = `
+
+      <button
+        class="side-provider ${
+          slotsProvider === "Todos"
+            ? "active"
+            : ""
+        }"
+        onclick="setSlotsProvider('Todos')"
+      >
+        TODOS
+      </button>
+
+      ${
+        providers.map(
+          provider => `
+
+            <button
+              class="side-provider ${
+                slotsProvider === provider
+                  ? "active"
+                  : ""
+              }"
+              onclick="
+                setSlotsProvider(
+                  ${escapeAttribute(
+                    JSON.stringify(provider)
+                  )}
+                )
+              "
+            >
+              ${escapeHtml(provider)}
+            </button>
+
+          `
+        ).join("")
+      }
+
+    `;
+
+  }
+
+
+  function setSlotsProvider(
+    provider
+  ){
+
+    slotsProvider =
+      provider;
+
+
+    slotsPage =
+      1;
+
+
+    renderProviderSidebar();
+
+    renderSlots();
+
+  }
+
+
+  /* =========================
+     FILTRO DOS SLOTS
+  ========================= */
+
+  function getSlotGames(){
+
+    let games =
+      allGames.filter(
+        isSlotGame
+      );
+
+
+    const search =
+      (
+        document.getElementById(
+          "slotsSearch"
+        ).value ||
+        ""
+      )
+      .trim()
+      .toLowerCase();
+
+
+    if(search){
+
+      games =
+        games.filter(
+          game => {
+
+            const title =
+              String(
+                game.title ||
+                game.name ||
+                ""
+              ).toLowerCase();
+
+
+            const provider =
+              getProvider(
+                game
+              ).toLowerCase();
+
+
+            return (
+
+              title.includes(
+                search
+              ) ||
+
+              provider.includes(
+                search
+              )
+
+            );
+
+          }
+        );
+
+    }
+
+
+    if(
+      slotsProvider !==
+      "Todos"
+    ){
+
+      games =
+        games.filter(
+          game =>
+            getProvider(game) ===
+            slotsProvider
+        );
+
+    }
+
+
+    if(
+      slotsTab ===
+      "popular"
+    ){
+
+      games =
+        games
+          .slice(
+            0,
+            100
+          );
+
+    }
+
+
+    else if(
+      slotsTab ===
+      "recent"
+    ){
+
+      games =
+        [...games]
+          .reverse()
+          .slice(
+            0,
+            100
+          );
+
+    }
+
+
+    else if(
+      slotsTab ===
+      "favorites"
+    ){
+
+      games =
+        games.filter(
+          game =>
+            isFavorite(
+              game.id
+            )
+        );
+
+    }
+
+
+    return games;
+
+  }
+
+
+  /* =========================
+     RENDER SLOTS
+  ========================= */
+
+  function renderSlots(){
+
+    const container =
+      document.getElementById(
+        "slotsGames"
+      );
+
+
+    const status =
+      document.getElementById(
+        "slotsStatus"
+      );
+
+
+    const pagination =
+      document.getElementById(
+        "pagination"
+      );
+
+
+    if(!container)
+      return;
+
+
+    const games =
+      getSlotGames();
+
+
+    const totalPages =
+      Math.max(
+        1,
+        Math.ceil(
+          games.length /
+          SLOTS_PER_PAGE
+        )
+      );
+
+
+    if(
+      slotsPage >
+      totalPages
+    ){
+
+      slotsPage =
+        totalPages;
+
+    }
+
+
+    const start =
+      (
+        slotsPage - 1
+      ) *
+      SLOTS_PER_PAGE;
+
+
+    const pageGames =
+      games.slice(
+        start,
+        start +
+          SLOTS_PER_PAGE
+      );
+
+
+    status.textContent =
+      `${games.length} slots encontrados`;
+
+
+    if(!pageGames.length){
+
+      container.innerHTML =
+        `
+          <div class="empty">
+            Nenhum slot encontrado.
+          </div>
+        `;
+
+
+      pagination.innerHTML =
+        "";
+
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      pageGames
+        .map(
+          gameCardHtml
+        )
+        .join("");
+
+
+    pagination.innerHTML =
+      Array.from(
+        {
+          length:
+            totalPages
+        },
+        (_,index) => {
+
+          const page =
+            index + 1;
+
+
+          return `
+
+            <button
+              class="page-button ${
+                page === slotsPage
+                  ? "active"
+                  : ""
+              }"
+              onclick="
+                goSlotsPage(${page})
+              "
+            >
+              ${page}
+            </button>
+
+          `;
+
+        }
+      )
+      .join("");
+
+  }
+
+
+  function goSlotsPage(
+    page
+  ){
+
+    slotsPage =
+      page;
 
 
     renderSlots();
@@ -3234,1180 +2749,1353 @@ function showFavorites(
       behavior:"smooth"
     });
 
-    return;
-
   }
-
-
-  const games =
-    allGames.filter(
-      game =>
-        isFavorite(
-          game.id
-        )
-    );
-
-
-  showScreen(
-    "homeScreen"
-  );
 
 
   document
     .getElementById(
-      "homeTitle"
+      "slotsSearch"
     )
-    .textContent =
-    "⭐ Favoritos";
+    .addEventListener(
+      "input",
+      () => {
 
+        slotsPage =
+          1;
 
-  document
-    .getElementById(
-      "homeCount"
-    )
-    .textContent =
-    `${games.length} favoritos`;
-
-
-  renderGameGrid(
-    homeGames,
-    games.slice(
-      0,
-      PAGE_SIZE
-    )
-  );
-
-}
-
-
-/* =========================================
-RENDER GRID
-========================================= */
-
-function renderGameGrid(
-  element,
-  games
-){
-
-  if(!games.length){
-
-    element.innerHTML =
-      `<div class="empty">
-        Nenhum jogo encontrado.
-      </div>`;
-
-    return;
-
-  }
-
-
-  element.innerHTML =
-    games.map(
-      game => {
-
-        const title =
-          game.title ||
-          game.name ||
-          "Jogo";
-
-        const provider =
-          game.provider ||
-          "BigBang";
-
-        const image =
-          game.thumbnail ||
-          "";
-
-        const fav =
-          isFavorite(
-            game.id
-          );
-
-
-        return `
-          <article class="game">
-
-            <div class="game-img">
-
-              <img
-                src="${escapeAttr(image)}"
-                alt="${escapeAttr(title)}"
-                loading="lazy"
-              >
-
-              <button
-                class="favorite ${fav ? "on":""}"
-                onclick="event.stopPropagation();toggleFavorite('${escapeJs(String(game.id))}')"
-                title="Favorito"
-              >
-                ${fav ? "★":"☆"}
-              </button>
-
-            </div>
-
-            <div class="game-info">
-
-              <div
-                class="game-name"
-                title="${escapeAttr(title)}"
-              >
-                ${escapeHtml(title)}
-              </div>
-
-              <div class="game-provider">
-                ${escapeHtml(provider)}
-              </div>
-
-              <button
-                class="play"
-                onclick="launchGame('${escapeJs(String(game.id))}','${escapeJs(title)}')"
-              >
-                ▶ JOGAR DEMO
-              </button>
-
-            </div>
-
-          </article>
-        `;
+        renderSlots();
 
       }
-    )
-    .join("");
-
-}
-
-
-/* =========================================
-PAGINAÇÃO
-========================================= */
-
-function renderPagination(
-  elementId,
-  total,
-  current,
-  callback
-){
-
-  const element =
-    document.getElementById(
-      elementId
-    );
-
-  const pages =
-    Math.ceil(
-      total /
-      PAGE_SIZE
     );
 
 
-  if(pages <= 1){
+  /* =========================
+     ABRIR JOGO
+  ========================= */
 
-    element.innerHTML =
-      "";
-
-    return;
-
-  }
-
-
-  let html =
-    "";
-
-
-  const max =
-    Math.min(
-      pages,
-      12
-    );
-
-
-  for(
-    let i=1;
-    i<=max;
-    i++
+  async function launchGame(
+    gameId,
+    title
   ){
 
-    html += `
-      <button
-        class="page ${i===current?"active":""}"
-        onclick="window.__pageCallback(${i})"
-      >
-        ${i}
-      </button>
-    `;
+    const modal =
+      document.getElementById(
+        "gameModal"
+      );
+
+
+    const frame =
+      document.getElementById(
+        "gameFrame"
+      );
+
+
+    const gameTitle =
+      document.getElementById(
+        "gameTitle"
+      );
+
+
+    modal.classList.add(
+      "show"
+    );
+
+
+    document.body.classList.add(
+      "lock"
+    );
+
+
+    gameTitle.textContent =
+      `Carregando ${title}...`;
+
+
+    frame.src =
+      "about:blank";
+
+
+    try{
+
+      const response =
+        await fetch(
+          LAUNCH_FUNCTION,
+          {
+
+            method:"POST",
+
+            headers:{
+
+              "Content-Type":
+                "application/json",
+
+              "apikey":
+                SUPABASE_KEY,
+
+              "Authorization":
+                "Bearer " +
+                SUPABASE_KEY
+
+            },
+
+            body:
+              JSON.stringify({
+                game_id:
+                  String(gameId)
+              })
+
+          }
+        );
+
+
+      const result =
+        await response.json();
+
+
+      if(
+        !response.ok ||
+        !result.success
+      ){
+
+        throw new Error(
+          result.error ||
+          "Não foi possível abrir o jogo."
+        );
+
+      }
+
+
+      if(
+        !result.game_url
+      ){
+
+        throw new Error(
+          "A BigBang não retornou uma URL."
+        );
+
+      }
+
+
+      gameTitle.textContent =
+        title;
+
+
+      frame.src =
+        result.game_url;
+
+
+    }catch(error){
+
+      console.error(
+        "Erro no jogo:",
+        error
+      );
+
+
+      alert(
+        "Não foi possível abrir o jogo.\n\n" +
+        error.message
+      );
+
+
+      closeGame();
+
+    }
 
   }
 
 
-  if(
-    current <
-    pages
-  ){
+  function closeGame(){
 
-    html += `
-      <button
-        class="page"
-        onclick="window.__pageCallback(${current+1})"
-      >
-        ›
-      </button>
-    `;
-
-  }
-
-
-  element.innerHTML =
-    html;
-
-
-  window.__pageCallback =
-    callback;
-
-}
-
-
-/* =========================================
-RENDER TELA ATUAL
-========================================= */
-
-function renderCurrentScreen(){
-
-  if(
     document
       .getElementById(
-        "slotsScreen"
+        "gameFrame"
       )
-      .classList.contains(
-        "active"
+      .src =
+      "about:blank";
+
+
+    document
+      .getElementById(
+        "gameModal"
       )
-  ){
+      .classList.remove(
+        "show"
+      );
 
-    renderSlots();
 
-  }else{
-
-    renderHome();
+    document.body.classList.remove(
+      "lock"
+    );
 
   }
 
-}
+
+  /* =========================
+     MENU
+  ========================= */
+
+  function openMenu(){
+
+    document
+      .getElementById(
+        "drawer"
+      )
+      .classList.add(
+        "open"
+      );
+
+  }
 
 
-/* =========================================
-NAVEGAÇÃO
-========================================= */
+  function closeMenu(){
 
-function showScreen(
-  id
-){
+    document
+      .getElementById(
+        "drawer"
+      )
+      .classList.remove(
+        "open"
+      );
 
-  document
-    .querySelectorAll(
-      ".screen"
-    )
-    .forEach(
-      el =>
-        el.classList.remove(
-          "active"
-        )
-    );
+  }
 
 
-  document
-    .getElementById(
-      id
-    )
-    .classList.add(
-      "active"
-    );
+  function handleDrawerClick(
+    event
+  ){
 
-}
-
-
-function goHome(){
-
-  closeMenu();
-
-  showScreen(
-    "homeScreen"
-  );
-
-  homeMode =
-    "popular";
-
-  homePage =
-    1;
-
-  renderHome();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================================
-MENU
-========================================= */
-
-function openMenu(){
-
-  document
-    .getElementById(
+    if(
+      event.target.id ===
       "drawer"
-    )
-    .classList.add(
-      "open"
-    );
+    ){
 
-}
+      closeMenu();
 
+    }
 
-function closeMenu(){
-
-  document
-    .getElementById(
-      "drawer"
-    )
-    .classList.remove(
-      "open"
-    );
-
-}
+  }
 
 
-function drawerOutside(
-  event
-){
+  function goHome(){
 
-  if(
-    event.target.id ===
-    "drawer"
+    closeMenu();
+
+    closeSlots();
+
+  }
+
+
+  function scrollToGames(){
+
+    document
+      .getElementById(
+        "gamesSection"
+      )
+      .scrollIntoView({
+        behavior:"smooth"
+      });
+
+  }
+
+
+  function activateQuickButton(
+    button
+  ){
+
+    document
+      .querySelectorAll(
+        ".quick-button"
+      )
+      .forEach(
+        item =>
+          item.classList.remove(
+            "active"
+          )
+      );
+
+
+    if(button){
+
+      button.classList.add(
+        "active"
+      );
+
+    }
+
+  }
+
+
+  function showAll(
+    button
   ){
 
     closeMenu();
 
+    closeSlots();
+
+
+    selectedProvider =
+      "Todos";
+
+
+    document
+      .querySelectorAll(
+        "#providers .provider-button"
+      )
+      .forEach(
+        item =>
+          item.classList.remove(
+            "active"
+          )
+      );
+
+
+    const first =
+      document.querySelector(
+        "#providers .provider-button"
+      );
+
+
+    if(first){
+
+      first.classList.add(
+        "active"
+      );
+
+    }
+
+
+    activateQuickButton(
+      button ||
+      document.getElementById(
+        "quickAll"
+      )
+    );
+
+
+    filterGames();
+
   }
 
-}
+
+  function showPopular(
+    button
+  ){
+
+    closeMenu();
+
+    closeSlots();
 
 
-/* =========================================
-ACCOUNT
-========================================= */
-
-function openAccount(){
-
-  closeMenu();
-
-  renderAccount();
-
-  document
-    .getElementById(
-      "accountModal"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-
-function renderAccount(){
-
-  const content =
-    document.getElementById(
-      "accountContent"
+    activateQuickButton(
+      button
     );
 
 
-  if(!currentUser){
+    renderGames(
+      [...allGames].slice(
+        0,
+        50
+      )
+    );
+
+  }
+
+
+  function showNew(
+    button
+  ){
+
+    closeMenu();
+
+    closeSlots();
+
+
+    activateQuickButton(
+      button
+    );
+
+
+    renderGames(
+      [...allGames]
+        .slice(
+          -50
+        )
+        .reverse()
+    );
+
+  }
+
+
+  /* =========================
+     CONTA
+  ========================= */
+
+  function openAccount(){
+
+    closeMenu();
+
+    renderAccount();
+
+
+    document
+      .getElementById(
+        "accountModal"
+      )
+      .classList.add(
+        "show"
+      );
+
+  }
+
+
+  function renderAccount(){
+
+    const content =
+      document.getElementById(
+        "accountContent"
+      );
+
+
+    if(!currentUser){
+
+      content.innerHTML = `
+
+        <div class="info-card">
+
+          Você ainda não está conectado.
+
+        </div>
+
+
+        <button
+          class="primary-button"
+          onclick="openRegister()"
+        >
+          📝 Criar cadastro
+        </button>
+
+
+        <button
+          class="secondary-button"
+          onclick="openLogin()"
+        >
+          🔐 Entrar
+        </button>
+
+      `;
+
+
+      return;
+
+    }
+
 
     content.innerHTML = `
-      <div class="info">
-        Você ainda não está conectado.
+
+      <div class="info-card">
+
+        <div>
+          E-mail
+        </div>
+
+        <strong>
+          ${escapeHtml(
+            currentUser.email || ""
+          )}
+        </strong>
+
       </div>
 
-      <button
-        class="full-btn"
-        onclick="openRegister()"
-      >
-        📝 Criar cadastro
-      </button>
+
+      <div class="info-card">
+
+        ⭐ Pontos demo
+
+        <div class="points">
+          ${getPoints()}
+        </div>
+
+      </div>
+
 
       <button
-        class="dark-btn"
-        style="width:100%;margin-top:8px"
-        onclick="openLogin()"
+        class="primary-button"
+        onclick="logout()"
       >
-        🔐 Entrar
+        🚪 Sair da conta
       </button>
+
     `;
 
-    return;
-
   }
 
 
-  content.innerHTML = `
+  /* =========================
+     CADASTRO
+  ========================= */
 
-    <div class="info">
+  function openRegister(){
 
-      <div style="color:#999">
-        E-mail
-      </div>
+    closeMenu();
 
-      <strong>
-        ${escapeHtml(
-          currentUser.email || ""
-        )}
-      </strong>
-
-    </div>
-
-    <div class="info">
-
-      <div style="color:#999">
-        ⭐ Pontos demo
-      </div>
-
-      <div class="big-number">
-        ${getPoints()}
-      </div>
-
-    </div>
-
-    <div class="info">
-
-      <div style="color:#999">
-        ⭐ Favoritos
-      </div>
-
-      <div class="big-number">
-        ${getFavorites().length}
-      </div>
-
-    </div>
-
-    <button
-      class="full-btn"
-      onclick="logout()"
-    >
-      🚪 Sair
-    </button>
-
-  `;
-
-}
-
-
-/* =========================================
-AUTH
-========================================= */
-
-function openRegister(){
-
-  closeMenu();
-
-  closeModal(
-    "accountModal"
-  );
-
-  authMode =
-    "signup";
-
-
-  document
-    .getElementById(
-      "authTitle"
-    )
-    .textContent =
-    "📝 Criar cadastro";
-
-
-  document
-    .getElementById(
-      "toggleAuth"
-    )
-    .textContent =
-    "Já tenho uma conta";
-
-
-  document
-    .getElementById(
-      "authMessage"
-    )
-    .textContent =
-    "";
-
-
-  document
-    .getElementById(
-      "authModal"
-    )
-    .classList.add(
-      "show"
+    closeModal(
+      "accountModal"
     );
 
-}
+
+    authMode =
+      "signup";
 
 
-function openLogin(){
-
-  closeMenu();
-
-  closeModal(
-    "accountModal"
-  );
-
-  authMode =
-    "login";
-
-
-  document
-    .getElementById(
-      "authTitle"
-    )
-    .textContent =
-    "🔐 Entrar";
-
-
-  document
-    .getElementById(
-      "toggleAuth"
-    )
-    .textContent =
-    "Criar uma conta";
-
-
-  document
-    .getElementById(
-      "authMessage"
-    )
-    .textContent =
-    "";
-
-
-  document
-    .getElementById(
-      "authModal"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-
-function toggleAuth(){
-
-  if(
-    authMode ===
-    "signup"
-  ){
-
-    openLogin();
-
-  }else{
-
-    openRegister();
-
-  }
-
-}
-
-
-async function submitAuth(){
-
-  const email =
     document
       .getElementById(
-        "authEmail"
+        "authTitle"
       )
-      .value
-      .trim();
+      .textContent =
+      "📝 Criar cadastro";
 
 
-  const password =
     document
       .getElementById(
-        "authPassword"
+        "toggleAuthButton"
       )
-      .value;
+      .textContent =
+      "Já tenho uma conta";
 
 
-  const message =
-    document.getElementById(
-      "authMessage"
+    document
+      .getElementById(
+        "authMessage"
+      )
+      .textContent =
+      "";
+
+
+    document
+      .getElementById(
+        "confirmPasswordWrap"
+      )
+      .classList.remove(
+        "hidden"
+      );
+
+
+    document
+      .getElementById(
+        "ageCheckWrap"
+      )
+      .classList.remove(
+        "hidden"
+      );
+
+
+    document
+      .getElementById(
+        "authModal"
+      )
+      .classList.add(
+        "show"
+      );
+
+  }
+
+
+  function openLogin(){
+
+    closeMenu();
+
+    closeModal(
+      "accountModal"
     );
 
 
-  if(
-    !email ||
-    !password
-  ){
+    authMode =
+      "login";
 
-    message.textContent =
-      "Preencha e-mail e senha.";
 
-    return;
+    document
+      .getElementById(
+        "authTitle"
+      )
+      .textContent =
+      "🔐 Entrar";
+
+
+    document
+      .getElementById(
+        "toggleAuthButton"
+      )
+      .textContent =
+      "Criar uma conta";
+
+
+    document
+      .getElementById(
+        "authMessage"
+      )
+      .textContent =
+      "";
+
+
+    document
+      .getElementById(
+        "confirmPasswordWrap"
+      )
+      .classList.add(
+        "hidden"
+      );
+
+
+    document
+      .getElementById(
+        "ageCheckWrap"
+      )
+      .classList.add(
+        "hidden"
+      );
+
+
+    document
+      .getElementById(
+        "authModal"
+      )
+      .classList.add(
+        "show"
+      );
 
   }
 
 
-  if(
-    password.length <
-    6
-  ){
-
-    message.textContent =
-      "A senha precisa ter pelo menos 6 caracteres.";
-
-    return;
-
-  }
-
-
-  message.textContent =
-    "Processando...";
-
-
-  try{
+  function toggleAuthMode(){
 
     if(
       authMode ===
       "signup"
     ){
 
-      const {
-        data,
-        error
-      } =
-        await supabaseClient
-          .auth
-          .signUp({
-            email,
-            password
-          });
+      openLogin();
+
+    }else{
+
+      openRegister();
+
+    }
+
+  }
 
 
-      if(error)
-        throw error;
+  /* =========================
+     LOGIN / CADASTRO
+  ========================= */
+
+  async function submitAuth(){
+
+    const email =
+      document
+        .getElementById(
+          "authEmail"
+        )
+        .value
+        .trim();
 
 
-      if(data.session){
+    const password =
+      document
+        .getElementById(
+          "authPassword"
+        )
+        .value;
+
+
+    const confirm =
+      document
+        .getElementById(
+          "authConfirmPassword"
+        )
+        .value;
+
+
+    const ageCheck =
+      document
+        .getElementById(
+          "ageCheck"
+        )
+        .checked;
+
+
+    const message =
+      document
+        .getElementById(
+          "authMessage"
+        );
+
+
+    if(
+      !email ||
+      !password
+    ){
+
+      message.textContent =
+        "Preencha e-mail e senha.";
+
+      return;
+
+    }
+
+
+    if(
+      password.length < 6
+    ){
+
+      message.textContent =
+        "A senha precisa ter pelo menos 6 caracteres.";
+
+      return;
+
+    }
+
+
+    if(
+      authMode ===
+      "signup"
+    ){
+
+      if(
+        password !==
+        confirm
+      ){
 
         message.textContent =
-          "Cadastro criado e login realizado!";
+          "As senhas não são iguais.";
+
+        return;
+
+      }
+
+
+      if(!ageCheck){
+
+        message.textContent =
+          "Confirme que você tem 18 anos ou mais.";
+
+        return;
+
+      }
+
+    }
+
+
+    message.textContent =
+      "Processando...";
+
+
+    try{
+
+      if(
+        authMode ===
+        "signup"
+      ){
+
+        const {
+          data,
+          error
+        } =
+          await supabaseClient
+            .auth
+            .signUp({
+
+              email,
+
+              password,
+
+              options:{
+
+                emailRedirectTo:
+                  window.location.origin
+
+              }
+
+            });
+
+
+        if(error)
+          throw error;
+
+
+        if(
+          data.session
+        ){
+
+          currentUser =
+            data.user;
+
+
+          updateAccountLabel();
+
+          renderAccount();
+
+
+          message.textContent =
+            "Cadastro criado e login realizado!";
+
+
+          setTimeout(
+            () => {
+
+              closeModal(
+                "authModal"
+              );
+
+
+              updateAccountLabel();
+
+            },
+            500
+          );
+
+
+        }else{
+
+          message.textContent =
+            "Cadastro criado, mas o Supabase ainda está pedindo confirmação de e-mail. Desative 'Confirm email' no provedor Email do Supabase.";
+
+        }
+
 
       }else{
 
+        const {
+          data,
+          error
+        } =
+          await supabaseClient
+            .auth
+            .signInWithPassword({
+
+              email,
+
+              password
+
+            });
+
+
+        if(error)
+          throw error;
+
+
+        currentUser =
+          data?.user ||
+          null;
+
+
+        updateAccountLabel();
+
+
         message.textContent =
-          "Cadastro criado. Verifique o e-mail se a confirmação estiver ativada.";
+          "Login realizado!";
+
+
+        setTimeout(
+          () => {
+
+            closeModal(
+              "authModal"
+            );
+
+
+            updateAccountLabel();
+
+          },
+          500
+        );
+
+      }
+
+
+    }catch(error){
+
+      console.error(
+        error
+      );
+
+
+      message.textContent =
+        error.message ||
+        "Ocorreu um erro.";
+
+    }
+
+  }
+
+
+  async function logout(){
+
+    await supabaseClient
+      .auth
+      .signOut();
+
+
+    currentUser =
+      null;
+
+
+    updateAccountLabel();
+
+    renderAccount();
+
+
+    closeModal(
+      "accountModal"
+    );
+
+  }
+
+
+  async function checkUser(){
+
+    const {
+      data
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
+
+
+    currentUser =
+      data?.user ||
+      null;
+
+
+    updateAccountLabel();
+
+  }
+
+
+  supabaseClient
+    .auth
+    .onAuthStateChange(
+      (_event,session) => {
+
+        currentUser =
+          session?.user ||
+          null;
+
+
+        updateAccountLabel();
+
+      }
+    );
+
+
+  /* =====================================================
+     AQUI ESTÁ A ALTERAÇÃO PRINCIPAL QUE VOCÊ PEDIU
+     =====================================================
+
+     LOGADO:
+       - esconde Entrar
+       - esconde Criar cadastro
+
+     DESLOGADO:
+       - mostra Entrar
+       - mostra Criar cadastro
+  ===================================================== */
+
+  function updateAccountLabel(){
+
+    const label =
+      document.getElementById(
+        "accountLabel"
+      );
+
+
+    const accountButton =
+      document.getElementById(
+        "accountButton"
+      );
+
+
+    const registerButton =
+      document.getElementById(
+        "registerHomeButton"
+      );
+
+
+    if(currentUser){
+
+      if(label){
+
+        label.textContent =
+          "Conta";
+
+      }
+
+
+      if(accountButton){
+
+        accountButton.classList.add(
+          "hidden"
+        );
+
+      }
+
+
+      if(registerButton){
+
+        registerButton.classList.add(
+          "hidden"
+        );
 
       }
 
     }else{
 
-      const {
-        error
-      } =
-        await supabaseClient
-          .auth
-          .signInWithPassword({
-            email,
-            password
-          });
+      if(label){
+
+        label.textContent =
+          "Entrar";
+
+      }
 
 
-      if(error)
-        throw error;
+      if(accountButton){
+
+        accountButton.classList.remove(
+          "hidden"
+        );
+
+      }
 
 
-      message.textContent =
-        "Login realizado!";
+      if(registerButton){
+
+        registerButton.classList.remove(
+          "hidden"
+        );
+
+      }
+
+    }
+
+  }
 
 
-      setTimeout(
-        () => {
+  /* =========================
+     VIP
+  ========================= */
+
+  function openVip(){
+
+    closeMenu();
+
+
+    document
+      .getElementById(
+        "vipPoints"
+      )
+      .textContent =
+      getPoints();
+
+
+    document
+      .getElementById(
+        "vipModal"
+      )
+      .classList.add(
+        "show"
+      );
+
+  }
+
+
+  /* =========================
+     RECOMPENSAS
+  ========================= */
+
+  function openRewards(){
+
+    closeMenu();
+
+
+    document
+      .getElementById(
+        "rewardPoints"
+      )
+      .textContent =
+      getPoints();
+
+
+    document
+      .getElementById(
+        "rewardMessage"
+      )
+      .textContent =
+      "";
+
+
+    document
+      .getElementById(
+        "rewardsModal"
+      )
+      .classList.add(
+        "show"
+      );
+
+  }
+
+
+  function openBonus(){
+
+    closeMenu();
+
+    openRewards();
+
+  }
+
+
+  function claimDemoReward(){
+
+    let points =
+      getPoints();
+
+
+    points +=
+      100;
+
+
+    localStorage.setItem(
+      "559627_demo_points",
+      String(points)
+    );
+
+
+    document
+      .getElementById(
+        "rewardPoints"
+      )
+      .textContent =
+      points;
+
+
+    document
+      .getElementById(
+        "rewardMessage"
+      )
+      .textContent =
+      "🎉 Você recebeu 100 pontos de demonstração!";
+
+  }
+
+
+  function getPoints(){
+
+    return Number(
+      localStorage.getItem(
+        "559627_demo_points"
+      ) || 0
+    );
+
+  }
+
+
+  /* =========================
+     MODAIS
+  ========================= */
+
+  function closeModal(id){
+
+    const modal =
+      document.getElementById(
+        id
+      );
+
+
+    if(modal){
+
+      modal.classList.remove(
+        "show"
+      );
+
+    }
+
+  }
+
+
+  /* =========================
+     BUSCA HOME
+  ========================= */
+
+  searchElement
+    .addEventListener(
+      "input",
+      () => {
+
+        filterGames();
+
+      }
+    );
+
+
+  /* =========================
+     ESC
+  ========================= */
+
+  document
+    .addEventListener(
+      "keydown",
+      event => {
+
+        if(
+          event.key ===
+          "Escape"
+        ){
+
+          closeMenu();
+
+          closeGame();
+
+          closeModal(
+            "accountModal"
+          );
 
           closeModal(
             "authModal"
           );
 
-          updateAccountButton();
+          closeModal(
+            "vipModal"
+          );
 
-        },
-        500
-      );
+          closeModal(
+            "rewardsModal"
+          );
 
-    }
-
-  }catch(error){
-
-    console.error(error);
-
-    message.textContent =
-      error.message ||
-      "Ocorreu um erro.";
-
-  }
-
-}
-
-
-/* =========================================
-SUPABASE USER
-========================================= */
-
-async function checkUser(){
-
-  const {
-    data
-  } =
-    await supabaseClient
-      .auth
-      .getUser();
-
-
-  currentUser =
-    data?.user ||
-    null;
-
-
-  updateAccountButton();
-
-}
-
-
-supabaseClient
-  .auth
-  .onAuthStateChange(
-    (_event,session) => {
-
-      currentUser =
-        session?.user ||
-        null;
-
-      updateAccountButton();
-
-    }
-  );
-
-
-function updateAccountButton(){
-
-  const button =
-    document.getElementById(
-      "loginBtn"
-    );
-
-
-  if(currentUser){
-
-    button.textContent =
-      "👤 Conta";
-
-  }else{
-
-    button.textContent =
-      "👤 Entrar";
-
-  }
-
-}
-
-
-async function logout(){
-
-  await supabaseClient
-    .auth
-    .signOut();
-
-
-  currentUser =
-    null;
-
-
-  updateAccountButton();
-
-  renderAccount();
-
-  closeModal(
-    "accountModal"
-  );
-
-}
-
-
-/* =========================================
-VIP
-========================================= */
-
-function openVip(){
-
-  closeMenu();
-
-
-  document
-    .getElementById(
-      "vipPoints"
-    )
-    .textContent =
-    getPoints();
-
-
-  document
-    .getElementById(
-      "vipModal"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-
-/* =========================================
-RECOMPENSAS
-========================================= */
-
-function openRewards(){
-
-  closeMenu();
-
-
-  document
-    .getElementById(
-      "rewardPoints"
-    )
-    .textContent =
-    getPoints();
-
-
-  document
-    .getElementById(
-      "rewardMessage"
-    )
-    .textContent =
-    "";
-
-
-  document
-    .getElementById(
-      "rewardsModal"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-
-function openBonus(){
-
-  openRewards();
-
-}
-
-
-function claimDemoReward(){
-
-  let points =
-    getPoints();
-
-
-  points +=
-    100;
-
-
-  localStorage.setItem(
-    "559627_demo_points",
-    String(points)
-  );
-
-
-  document
-    .getElementById(
-      "rewardPoints"
-    )
-    .textContent =
-    points;
-
-
-  document
-    .getElementById(
-      "rewardMessage"
-    )
-    .textContent =
-    "🎉 Você recebeu 100 pontos de demonstração!";
-
-}
-
-
-/* =========================================
-PONTOS
-========================================= */
-
-function getPoints(){
-
-  return Number(
-    localStorage.getItem(
-      "559627_demo_points"
-    ) || 0
-  );
-
-}
-
-
-/* =========================================
-ABRIR JOGO
-========================================= */
-
-async function launchGame(
-  gameId,
-  title
-){
-
-  const modal =
-    document.getElementById(
-      "gameModal"
-    );
-
-
-  const frame =
-    document.getElementById(
-      "gameFrame"
-    );
-
-
-  const gameTitle =
-    document.getElementById(
-      "gameTitle"
-    );
-
-
-  modal.classList.add(
-    "show"
-  );
-
-
-  frame.src =
-    "about:blank";
-
-
-  gameTitle.textContent =
-    "Carregando " +
-    title +
-    "...";
-
-
-  try{
-
-    const response =
-      await fetch(
-        LAUNCH_FUNCTION,
-        {
-          method:"POST",
-
-          headers:{
-            "Content-Type":
-              "application/json",
-
-            apikey:
-              SUPABASE_KEY,
-
-            Authorization:
-              "Bearer " +
-              SUPABASE_KEY
-          },
-
-          body:
-            JSON.stringify({
-              game_id:
-                String(gameId)
-            })
         }
-      );
 
-
-    const result =
-      await response.json();
-
-
-    if(
-      !response.ok ||
-      !result.success
-    ){
-
-      throw new Error(
-        result.error ||
-        "Não foi possível abrir o jogo."
-      );
-
-    }
-
-
-    if(
-      !result.game_url
-    ){
-
-      throw new Error(
-        "A BigBang não retornou a URL do jogo."
-      );
-
-    }
-
-
-    gameTitle.textContent =
-      title;
-
-
-    frame.src =
-      result.game_url;
-
-
-  }catch(error){
-
-    console.error(error);
-
-
-    alert(
-      "Não foi possível abrir o jogo.\n\n" +
-      error.message
+      }
     );
 
 
-    closeGame();
+  /* =========================
+     FECHAR MODAIS CLICANDO FORA
+  ========================= */
+
+  document
+    .querySelectorAll(
+      ".modal"
+    )
+    .forEach(
+      modal => {
+
+        modal.addEventListener(
+          "click",
+          event => {
+
+            if(
+              event.target ===
+              modal
+            ){
+
+              closeModal(
+                modal.id
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  /* =========================
+     SEGURANÇA HTML
+  ========================= */
+
+  function escapeHtml(value){
+
+    return String(
+      value ?? ""
+    )
+
+      .replaceAll(
+        "&",
+        "&amp;"
+      )
+
+      .replaceAll(
+        "<",
+        "&lt;"
+      )
+
+      .replaceAll(
+        ">",
+        "&gt;"
+      )
+
+      .replaceAll(
+        '"',
+        "&quot;"
+      )
+
+      .replaceAll(
+        "'",
+        "&#039;"
+      );
 
   }
 
-}
 
-
-function closeGame(){
-
-  document
-    .getElementById(
-      "gameFrame"
-    )
-    .src =
-    "about:blank";
-
-
-  document
-    .getElementById(
-      "gameModal"
-    )
-    .classList.remove(
-      "show"
-    );
-
-}
-
-
-/* =========================================
-MODAIS
-========================================= */
-
-function closeModal(
-  id
-){
-
-  const modal =
-    document.getElementById(
-      id
-    );
-
-
-  if(modal){
-
-    modal.classList.remove(
-      "show"
-    );
-
-  }
-
-}
-
-
-/* =========================================
-SEGURANÇA HTML
-========================================= */
-
-function escapeHtml(
-  value
-){
-
-  return String(
-    value || ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
-  );
-
-}
-
-
-function escapeAttr(
-  value
-){
-
-  return escapeHtml(
+  function escapeAttribute(
     value
-  );
+  ){
 
-}
+    return escapeHtml(
+      value
+    );
+
+  }
 
 
-function escapeJs(
-  value
-){
+  function escapeJs(
+    value
+  ){
 
-  return String(
-    value || ""
-  )
-  .replace(
-    /\\/g,
-    "\\\\"
-  )
-  .replace(
-    /'/g,
-    "\\'"
-  )
-  .replace(
-    /"/g,
-    '\\"'
-  )
-  .replace(
-    /\n/g,
-    "\\n"
-  )
-  .replace(
-    /\r/g,
-    "\\r"
-  );
+    return String(
+      value ?? ""
+    )
 
-}
+      .replaceAll(
+        "\\",
+        "\\\\"
+      )
+
+      .replaceAll(
+        "'",
+        "\\'"
+      )
+
+      .replaceAll(
+        "\n",
+        " "
+      )
+
+      .replaceAll(
+        "\r",
+        " "
+      );
+
+  }
+
+
+  /* =========================
+     INICIALIZAÇÃO
+  ========================= */
+
+  loadGames();
+
+  checkUser();
 
 </script>
 
