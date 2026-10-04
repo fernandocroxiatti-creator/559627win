@@ -2,14 +2,18 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <title>559627WIN</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
   --bg:#070707;
@@ -17,28 +21,44 @@
   --panel2:#181818;
   --line:#292929;
   --gold:#f5c400;
+  --gold2:#ffda3a;
   --text:#fff;
   --muted:#888;
+  --green:#42d392;
+  --red:#ff6565;
 }
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   background:
-    radial-gradient(circle at top,#171717 0,#070707 45%);
+    radial-gradient(circle at top,#181818 0,#070707 48%);
   color:var(--text);
   font-family:Arial,Helvetica,sans-serif;
   min-height:100vh;
   padding-bottom:78px;
 }
 
-button,input{font:inherit}
-button{cursor:pointer}
-.hidden{display:none!important}
+button,
+input{
+  font:inherit;
+}
 
-/* HEADER */
+button{
+  cursor:pointer;
+}
 
-header{
+.hidden{
+  display:none!important;
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.header{
   position:sticky;
   top:0;
   z-index:100;
@@ -48,19 +68,17 @@ header{
   backdrop-filter:blur(14px);
 }
 
-.header{
+.header-inner{
   height:100%;
   max-width:1500px;
   margin:auto;
   padding:0 15px;
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
 }
 
-.menu-btn,
-.back-btn,
-.close-btn{
+.menu-btn{
   width:42px;
   height:42px;
   border:1px solid #333;
@@ -70,9 +88,7 @@ header{
   font-size:21px;
 }
 
-.menu-btn:hover,
-.back-btn:hover,
-.close-btn:hover{
+.menu-btn:hover{
   border-color:var(--gold);
 }
 
@@ -83,7 +99,9 @@ header{
   cursor:pointer;
 }
 
-.logo span{color:var(--gold)}
+.logo span{
+  color:var(--gold);
+}
 
 .header-search{
   flex:1;
@@ -102,7 +120,9 @@ header{
   outline:none;
 }
 
-.search:focus{border-color:var(--gold)}
+.search:focus{
+  border-color:var(--gold);
+}
 
 .login-btn{
   border:0;
@@ -113,27 +133,32 @@ header{
   font-weight:900;
 }
 
-/* HERO */
+/* =========================================================
+HOME HERO
+========================================================= */
 
 .hero{
   max-width:1500px;
   margin:18px auto;
-  padding:50px 30px;
+  padding:48px 30px;
   border:1px solid var(--line);
   border-radius:20px;
   background:
-    radial-gradient(circle at 85% 15%,rgba(245,196,0,.25),transparent 35%),
+    radial-gradient(circle at 85% 15%,rgba(245,196,0,.24),transparent 35%),
     linear-gradient(135deg,#191919,#090909);
 }
 
 .hero h1{
   font-size:clamp(35px,5vw,62px);
+  line-height:1;
 }
 
-.hero h1 span{color:var(--gold)}
+.hero h1 span{
+  color:var(--gold);
+}
 
 .hero p{
-  margin-top:12px;
+  margin-top:13px;
   color:#aaa;
   font-size:17px;
 }
@@ -164,7 +189,9 @@ header{
   color:#fff;
 }
 
-/* CATEGORIAS */
+/* =========================================================
+CATEGORIES
+========================================================= */
 
 .categories{
   max-width:1500px;
@@ -180,9 +207,9 @@ header{
 .category{
   flex:none;
   white-space:nowrap;
-  padding:10px 16px;
+  padding:11px 16px;
   border:1px solid var(--line);
-  border-radius:25px;
+  border-radius:24px;
   background:#151515;
   color:#aaa;
 }
@@ -195,7 +222,9 @@ header{
   font-weight:900;
 }
 
-/* CONTAINER */
+/* =========================================================
+CONTAINER
+========================================================= */
 
 .container{
   max-width:1500px;
@@ -204,7 +233,7 @@ header{
 }
 
 .section{
-  margin-bottom:30px;
+  margin-bottom:34px;
 }
 
 .section-title{
@@ -219,23 +248,29 @@ header{
   font-size:23px;
 }
 
-.section-title a,
-.see-all{
-  color:var(--gold);
-  font-size:13px;
-  font-weight:900;
-  border:0;
-  background:none;
+.section-title span{
+  color:#777;
+  font-size:12px;
 }
 
-/* PROVIDERS HORIZONTAL */
+.see-all{
+  border:0;
+  background:none;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:900;
+}
+
+/* =========================================================
+PROVIDERS HORIZONTAL
+========================================================= */
 
 .provider-scroll{
   display:flex;
   gap:8px;
   overflow-x:auto;
   padding-bottom:8px;
-  margin-bottom:15px;
+  margin-bottom:14px;
   scrollbar-width:thin;
   scrollbar-color:var(--gold)#181818;
 }
@@ -254,9 +289,12 @@ header{
   background:var(--gold);
   color:#000;
   border-color:var(--gold);
+  font-weight:900;
 }
 
-/* HORIZONTAL GAME ROW */
+/* =========================================================
+GAME ROW
+========================================================= */
 
 .game-row{
   display:flex;
@@ -271,7 +309,9 @@ header{
   flex:0 0 180px;
 }
 
-/* GAME CARD */
+/* =========================================================
+GAME CARD
+========================================================= */
 
 .games{
   display:grid;
@@ -351,21 +391,9 @@ header{
   font-weight:900;
 }
 
-/* LOADING */
-
-.loading,
-.empty,
-.error{
-  padding:55px 15px;
-  text-align:center;
-  color:#777;
-}
-
-.error{
-  color:#ff7777;
-}
-
-/* SCREENS */
+/* =========================================================
+SCREENS
+========================================================= */
 
 .screen{
   display:none;
@@ -388,7 +416,19 @@ header{
   font-size:25px;
 }
 
-/* SLOTS */
+.back-btn{
+  width:42px;
+  height:42px;
+  border:1px solid #333;
+  border-radius:10px;
+  background:#171717;
+  color:#fff;
+  font-size:21px;
+}
+
+/* =========================================================
+SLOTS
+========================================================= */
 
 .slots-search{
   max-width:1500px;
@@ -488,7 +528,9 @@ header{
   gap:12px;
 }
 
-/* PAGINATION */
+/* =========================================================
+PAGINATION
+========================================================= */
 
 .pagination{
   display:flex;
@@ -513,7 +555,9 @@ header{
   border-color:var(--gold);
 }
 
-/* PROFILE */
+/* =========================================================
+PROFILE
+========================================================= */
 
 .profile{
   max-width:850px;
@@ -574,7 +618,9 @@ header{
   background:#202020;
 }
 
-.stat small{color:#777}
+.stat small{
+  color:#777;
+}
 
 .stat strong{
   display:block;
@@ -639,7 +685,9 @@ header{
   color:#777;
 }
 
-/* SIMPLE */
+/* =========================================================
+SIMPLE PAGES
+========================================================= */
 
 .simple{
   max-width:850px;
@@ -687,7 +735,9 @@ header{
   font-weight:900;
 }
 
-/* INVITE */
+/* =========================================================
+INVITE
+========================================================= */
 
 .invite{
   padding:22px;
@@ -787,17 +837,19 @@ header{
   margin-top:15px;
 }
 
-/* AUTH */
+/* =========================================================
+AUTH
+========================================================= */
 
 .modal{
   position:fixed;
   inset:0;
-  z-index:500;
+  z-index:800;
   display:none;
   align-items:center;
   justify-content:center;
   padding:18px;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,.84);
   backdrop-filter:blur(7px);
 }
 
@@ -826,6 +878,27 @@ header{
   font-size:22px;
 }
 
+.close-btn{
+  width:42px;
+  height:42px;
+  border:1px solid #333;
+  border-radius:50%;
+  background:#191919;
+  color:#fff;
+  font-size:22px;
+}
+
+.auth-info{
+  padding:12px;
+  margin-bottom:12px;
+  border:1px solid #292929;
+  border-radius:10px;
+  background:#171717;
+  color:#999;
+  font-size:12px;
+  line-height:1.5;
+}
+
 .field{
   width:100%;
   height:46px;
@@ -840,6 +913,16 @@ header{
 
 .field:focus{
   border-color:var(--gold);
+}
+
+.check{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin:5px 0 14px;
+  color:#999;
+  font-size:12px;
+  line-height:1.4;
 }
 
 .primary{
@@ -863,16 +946,6 @@ header{
   font-weight:900;
 }
 
-.check{
-  display:flex;
-  align-items:flex-start;
-  gap:8px;
-  margin:5px 0 14px;
-  color:#999;
-  font-size:12px;
-  line-height:1.4;
-}
-
 .message{
   margin-top:10px;
   color:var(--gold);
@@ -880,7 +953,9 @@ header{
   line-height:1.4;
 }
 
-/* GAME */
+/* =========================================================
+GAME MODAL
+========================================================= */
 
 .game-modal{
   position:fixed;
@@ -896,23 +971,129 @@ header{
 }
 
 .game-head{
-  height:58px;
+  min-height:58px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:10px;
   padding:0 13px;
   background:#101010;
   border-bottom:1px solid #292929;
 }
 
+.game-head-title{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+}
+
+.game-head-title strong{
+  display:block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.game-head-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* =========================================================
+DEMO BET SELECTOR
+========================================================= */
+
+.demo-betbar{
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 12px;
+  background:#111;
+  border-bottom:1px solid #292929;
+  overflow-x:auto;
+  scrollbar-width:thin;
+  scrollbar-color:var(--gold)#181818;
+}
+
+.bet-label{
+  flex:none;
+  color:#777;
+  font-size:10px;
+  font-weight:700;
+}
+
+.bet-control{
+  flex:none;
+  height:40px;
+  min-width:42px;
+  padding:0 10px;
+  border:1px solid #393939;
+  border-radius:8px;
+  background:#191919;
+  color:#fff;
+  font-weight:900;
+}
+
+.bet-control:hover{
+  border-color:var(--gold);
+}
+
+.bet-value{
+  flex:none;
+  min-width:90px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 12px;
+  border:1px solid var(--gold);
+  border-radius:8px;
+  background:#211d05;
+  color:var(--gold);
+  font-weight:900;
+}
+
+.bet-option{
+  flex:none;
+  height:38px;
+  padding:0 12px;
+  border:1px solid #333;
+  border-radius:8px;
+  background:#171717;
+  color:#aaa;
+  font-size:11px;
+  font-weight:900;
+}
+
+.bet-option.active{
+  background:var(--gold);
+  color:#000;
+  border-color:var(--gold);
+}
+
+.demo-balance{
+  margin-left:auto;
+  flex:none;
+  color:#aaa;
+  font-size:11px;
+}
+
+.demo-balance strong{
+  color:var(--gold);
+}
+
 .game-frame{
   width:100%;
-  height:calc(100vh - 58px);
+  flex:1;
   border:0;
   background:#000;
 }
 
-/* DRAWER */
+/* =========================================================
+DRAWER
+========================================================= */
 
 .drawer-bg{
   position:fixed;
@@ -971,7 +1152,9 @@ header{
   color:var(--gold);
 }
 
-/* BOTTOM */
+/* =========================================================
+BOTTOM NAV
+========================================================= */
 
 .bottom{
   position:fixed;
@@ -1009,7 +1192,9 @@ header{
   color:var(--gold);
 }
 
-/* TOAST */
+/* =========================================================
+TOAST
+========================================================= */
 
 .toast{
   position:fixed;
@@ -1034,7 +1219,25 @@ header{
   opacity:1;
 }
 
-/* RESPONSIVE */
+/* =========================================================
+LOADING
+========================================================= */
+
+.loading,
+.empty,
+.error{
+  padding:55px 15px;
+  text-align:center;
+  color:#777;
+}
+
+.error{
+  color:#ff7777;
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
 
 @media(max-width:1100px){
 
@@ -1106,6 +1309,19 @@ header{
     font-size:11px;
   }
 
+  .demo-betbar{
+    padding:7px;
+    gap:5px;
+  }
+
+  .bet-label{
+    display:none;
+  }
+
+  .demo-balance{
+    margin-left:5px;
+  }
+
 }
 
 @media(max-width:500px){
@@ -1148,19 +1364,35 @@ header{
     font-size:20px;
   }
 
+  .bet-value{
+    min-width:78px;
+  }
+
+  .bet-option{
+    padding:0 9px;
+    font-size:10px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header">
+<!-- =========================================================
+HEADER
+========================================================= -->
+
+<header class="header">
+
+  <div class="header-inner">
 
     <button
       class="menu-btn"
       onclick="openMenu()"
-    >☰</button>
+    >
+      ☰
+    </button>
 
     <div
       class="logo"
@@ -1189,10 +1421,13 @@ header{
     </button>
 
   </div>
+
 </header>
 
 
-<!-- HOME -->
+<!-- =========================================================
+HOME
+========================================================= -->
 
 <main id="homeScreen">
 
@@ -1240,7 +1475,7 @@ header{
 
     <button
       class="category"
-      onclick="homeCategory('slots',this)"
+      onclick="openSlots()"
     >
       🎰 Slots
     </button>
@@ -1286,7 +1521,7 @@ header{
   <div class="container">
 
 
-    <!-- ÚLTIMOS JOGOS -->
+    <!-- ÚLTIMOS -->
 
     <section
       id="recentSection"
@@ -1461,6 +1696,8 @@ header{
     <div id="providerSections"></div>
 
 
+    <!-- TODOS -->
+
     <section class="section">
 
       <div class="section-title">
@@ -1469,10 +1706,7 @@ header{
           🎮 Todos os jogos
         </h2>
 
-        <span
-          id="homeCount"
-          style="color:#777;font-size:12px"
-        >
+        <span id="homeCount">
           Carregando...
         </span>
 
@@ -1496,7 +1730,9 @@ header{
 </main>
 
 
-<!-- SLOTS -->
+<!-- =========================================================
+SLOTS
+========================================================= -->
 
 <section
   id="slotsScreen"
@@ -1608,7 +1844,9 @@ header{
 </section>
 
 
-<!-- PROFILE -->
+<!-- =========================================================
+PROFILE
+========================================================= -->
 
 <section
   id="profileScreen"
@@ -1706,9 +1944,7 @@ header{
         onclick="openWallet()"
       >
 
-        <div class="profile-icon">
-          💰
-        </div>
+        <div class="profile-icon">💰</div>
 
         <div class="profile-info">
 
@@ -1722,9 +1958,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1734,9 +1968,7 @@ header{
         onclick="openInvite()"
       >
 
-        <div class="profile-icon">
-          🤝
-        </div>
+        <div class="profile-icon">🤝</div>
 
         <div class="profile-info">
 
@@ -1750,9 +1982,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1762,9 +1992,7 @@ header{
         onclick="openPromotion()"
       >
 
-        <div class="profile-icon">
-          🎁
-        </div>
+        <div class="profile-icon">🎁</div>
 
         <div class="profile-info">
 
@@ -1778,9 +2006,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1790,9 +2016,7 @@ header{
         onclick="openRecords()"
       >
 
-        <div class="profile-icon">
-          📋
-        </div>
+        <div class="profile-icon">📋</div>
 
         <div class="profile-info">
 
@@ -1806,9 +2030,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1818,9 +2040,7 @@ header{
         onclick="openNotifications()"
       >
 
-        <div class="profile-icon">
-          🔔
-        </div>
+        <div class="profile-icon">🔔</div>
 
         <div class="profile-info">
 
@@ -1834,9 +2054,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1846,9 +2064,7 @@ header{
         onclick="openData()"
       >
 
-        <div class="profile-icon">
-          👤
-        </div>
+        <div class="profile-icon">👤</div>
 
         <div class="profile-info">
 
@@ -1862,9 +2078,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1874,9 +2088,7 @@ header{
         onclick="openSecurity()"
       >
 
-        <div class="profile-icon">
-          🔐
-        </div>
+        <div class="profile-icon">🔐</div>
 
         <div class="profile-info">
 
@@ -1890,9 +2102,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1902,9 +2112,7 @@ header{
         onclick="openSupport()"
       >
 
-        <div class="profile-icon">
-          💬
-        </div>
+        <div class="profile-icon">💬</div>
 
         <div class="profile-info">
 
@@ -1918,9 +2126,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1930,9 +2136,7 @@ header{
         onclick="openFaq()"
       >
 
-        <div class="profile-icon">
-          ❓
-        </div>
+        <div class="profile-icon">❓</div>
 
         <div class="profile-info">
 
@@ -1946,9 +2150,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1958,9 +2160,7 @@ header{
         onclick="openAbout()"
       >
 
-        <div class="profile-icon">
-          ℹ️
-        </div>
+        <div class="profile-icon">ℹ️</div>
 
         <div class="profile-info">
 
@@ -1974,9 +2174,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -1987,9 +2185,7 @@ header{
         onclick="openLogin()"
       >
 
-        <div class="profile-icon">
-          🔑
-        </div>
+        <div class="profile-icon">🔑</div>
 
         <div class="profile-info">
 
@@ -2003,9 +2199,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -2016,9 +2210,7 @@ header{
         onclick="logout()"
       >
 
-        <div class="profile-icon">
-          🚪
-        </div>
+        <div class="profile-icon">🚪</div>
 
         <div class="profile-info">
 
@@ -2032,9 +2224,7 @@ header{
 
         </div>
 
-        <div class="arrow">
-          ›
-        </div>
+        <div class="arrow">›</div>
 
       </button>
 
@@ -2045,7 +2235,9 @@ header{
 </section>
 
 
-<!-- INVITE -->
+<!-- =========================================================
+INVITE
+========================================================= -->
 
 <section
   id="inviteScreen"
@@ -2203,7 +2395,9 @@ header{
 </section>
 
 
-<!-- OFFERS -->
+<!-- =========================================================
+OFFERS
+========================================================= -->
 
 <section
   id="offersScreen"
@@ -2212,10 +2406,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2255,7 +2447,9 @@ header{
 </section>
 
 
-<!-- PROMOTION -->
+<!-- =========================================================
+PROMOTION
+========================================================= -->
 
 <section
   id="promotionScreen"
@@ -2264,10 +2458,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2307,7 +2499,9 @@ header{
 </section>
 
 
-<!-- WALLET -->
+<!-- =========================================================
+WALLET
+========================================================= -->
 
 <section
   id="walletScreen"
@@ -2316,10 +2510,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2362,7 +2554,9 @@ header{
 </section>
 
 
-<!-- RECORDS -->
+<!-- =========================================================
+RECORDS
+========================================================= -->
 
 <section
   id="recordsScreen"
@@ -2371,10 +2565,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2389,7 +2581,6 @@ header{
 
     </div>
 
-
     <div id="recordsList"></div>
 
   </div>
@@ -2397,7 +2588,9 @@ header{
 </section>
 
 
-<!-- DATA -->
+<!-- =========================================================
+DATA
+========================================================= -->
 
 <section
   id="dataScreen"
@@ -2406,10 +2599,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2428,11 +2619,37 @@ header{
     <div class="card">
 
       <h3>
+        Identificação
+      </h3>
+
+      <p id="dataIdentifier">
+        —
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
         E-mail
       </h3>
 
       <p id="dataEmail">
-        Não conectado
+        —
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>
+        Telefone
+      </h3>
+
+      <p id="dataPhone">
+        —
       </p>
 
     </div>
@@ -2455,7 +2672,9 @@ header{
 </section>
 
 
-<!-- SECURITY -->
+<!-- =========================================================
+SECURITY
+========================================================= -->
 
 <section
   id="securityScreen"
@@ -2464,10 +2683,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2507,7 +2724,9 @@ header{
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================================================
+ABOUT
+========================================================= -->
 
 <section
   id="aboutScreen"
@@ -2516,10 +2735,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2542,8 +2759,9 @@ header{
       </h3>
 
       <p>
-        Plataforma demonstrativa de jogos, perfil,
-        carteira virtual e recursos de convite.
+        Plataforma demonstrativa de jogos,
+        perfil, carteira virtual e recursos
+        de convite.
       </p>
 
     </div>
@@ -2553,7 +2771,9 @@ header{
 </section>
 
 
-<!-- FAQ -->
+<!-- =========================================================
+FAQ
+========================================================= -->
 
 <section
   id="faqScreen"
@@ -2562,10 +2782,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2588,8 +2806,8 @@ header{
       </h3>
 
       <p>
-        A plataforma reúne jogos DEMO, perfil,
-        carteira virtual e convites.
+        A plataforma reúne jogos DEMO,
+        perfil, carteira virtual e convites.
       </p>
 
     </div>
@@ -2612,7 +2830,9 @@ header{
 </section>
 
 
-<!-- SUPPORT -->
+<!-- =========================================================
+SUPPORT
+========================================================= -->
 
 <section
   id="supportScreen"
@@ -2621,10 +2841,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2664,7 +2882,9 @@ header{
 </section>
 
 
-<!-- NOTIFICATIONS -->
+<!-- =========================================================
+NOTIFICATIONS
+========================================================= -->
 
 <section
   id="notificationsScreen"
@@ -2673,10 +2893,8 @@ header{
 
   <div class="simple">
 
-    <div
-      class="screen-head"
-      style="padding-left:0;padding-right:0"
-    >
+    <div class="screen-head"
+      style="padding-left:0;padding-right:0">
 
       <button
         class="back-btn"
@@ -2709,7 +2927,9 @@ header{
 </section>
 
 
-<!-- DRAWER -->
+<!-- =========================================================
+DRAWER
+========================================================= -->
 
 <div
   id="drawerBg"
@@ -2779,7 +2999,9 @@ header{
 </div>
 
 
-<!-- BOTTOM -->
+<!-- =========================================================
+BOTTOM NAV
+========================================================= -->
 
 <nav class="bottom">
 
@@ -2831,7 +3053,9 @@ header{
 </nav>
 
 
-<!-- AUTH -->
+<!-- =========================================================
+AUTH MODAL
+========================================================= -->
 
 <div
   id="authModal"
@@ -2843,7 +3067,7 @@ header{
     <div class="modal-head">
 
       <h2 id="authTitle">
-        Entrar
+        Criar cadastro
       </h2>
 
       <button
@@ -2856,93 +3080,86 @@ header{
     </div>
 
 
-    <div id="loginForm">
+    <div class="auth-info">
 
-      <input
-        id="loginEmail"
-        class="field"
-        type="email"
-        placeholder="E-mail"
-      >
+      <strong>
+        559627WIN
+      </strong>
 
-      <input
-        id="loginPassword"
-        class="field"
-        type="password"
-        placeholder="Senha"
-      >
+      <br>
 
-      <button
-        class="primary"
-        onclick="login()"
-      >
-        ENTRAR
-      </button>
-
-      <button
-        class="secondary"
-        onclick="openRegister()"
-      >
-        CRIAR CONTA
-      </button>
+      Use <b>e-mail ou telefone</b>.
+      O sistema identifica automaticamente
+      qual tipo de acesso você informou.
 
     </div>
 
 
-    <div
-      id="registerForm"
-      class="hidden"
+    <input
+      id="authIdentifier"
+      class="field"
+      type="text"
+      placeholder="E-mail ou telefone"
+      autocomplete="username"
+      inputmode="email"
     >
 
-      <input
-        id="registerEmail"
-        class="field"
-        type="email"
-        placeholder="E-mail"
-      >
+
+    <input
+      id="authPassword"
+      class="field"
+      type="password"
+      placeholder="Senha"
+      autocomplete="new-password"
+    >
+
+
+    <div id="confirmPasswordWrap">
 
       <input
-        id="registerPassword"
-        class="field"
-        type="password"
-        placeholder="Senha"
-      >
-
-      <input
-        id="registerPassword2"
+        id="authConfirmPassword"
         class="field"
         type="password"
         placeholder="Confirmar senha"
+        autocomplete="new-password"
       >
-
-      <label class="check">
-
-        <input
-          id="ageCheck"
-          type="checkbox"
-        >
-
-        <span>
-          Confirmo que tenho 18 anos ou mais.
-        </span>
-
-      </label>
-
-      <button
-        class="primary"
-        onclick="register()"
-      >
-        CRIAR CADASTRO
-      </button>
-
-      <button
-        class="secondary"
-        onclick="openLogin()"
-      >
-        JÁ TENHO UMA CONTA
-      </button>
 
     </div>
+
+
+    <label
+      id="ageCheckWrap"
+      class="check"
+    >
+
+      <input
+        id="ageCheck"
+        type="checkbox"
+      >
+
+      <span>
+        Confirmo que tenho 18 anos ou mais
+        e aceito os termos da plataforma DEMO.
+      </span>
+
+    </label>
+
+
+    <button
+      class="primary"
+      onclick="submitAuth()"
+    >
+      Continuar
+    </button>
+
+
+    <button
+      id="toggleAuthButton"
+      class="secondary"
+      onclick="toggleAuthMode()"
+    >
+      Já tenho uma conta
+    </button>
 
 
     <div
@@ -2955,7 +3172,9 @@ header{
 </div>
 
 
-<!-- GAME MODAL -->
+<!-- =========================================================
+GAME MODAL
+========================================================= -->
 
 <div
   id="gameModal"
@@ -2964,18 +3183,138 @@ header{
 
   <div class="game-head">
 
-    <strong id="gameTitle">
-      Jogo
-    </strong>
+    <div class="game-head-title">
 
-    <button
-      class="close-btn"
-      onclick="closeGame()"
-    >
-      ×
-    </button>
+      <strong id="gameTitle">
+        Jogo
+      </strong>
+
+    </div>
+
+
+    <div class="game-head-actions">
+
+      <button
+        class="close-btn"
+        onclick="closeGame()"
+      >
+        ×
+      </button>
+
+    </div>
 
   </div>
+
+
+  <!-- VALOR DA BET DEMO -->
+
+  <div class="demo-betbar">
+
+    <span class="bet-label">
+      BET DEMO
+    </span>
+
+
+    <button
+      class="bet-control"
+      onclick="changeBet(-1)"
+    >
+      −
+    </button>
+
+
+    <div
+      id="betValue"
+      class="bet-value"
+    >
+      R$ 0,50
+    </div>
+
+
+    <button
+      class="bet-control"
+      onclick="changeBet(1)"
+    >
+      +
+    </button>
+
+
+    <button
+      class="bet-option"
+      data-bet="0.10"
+      onclick="setBet(0.10)"
+    >
+      R$ 0,10
+    </button>
+
+    <button
+      class="bet-option"
+      data-bet="0.20"
+      onclick="setBet(0.20)"
+    >
+      R$ 0,20
+    </button>
+
+    <button
+      class="bet-option active"
+      data-bet="0.50"
+      onclick="setBet(0.50)"
+    >
+      R$ 0,50
+    </button>
+
+    <button
+      class="bet-option"
+      data-bet="1"
+      onclick="setBet(1)"
+    >
+      R$ 1,00
+    </button>
+
+    <button
+      class="bet-option"
+      data-bet="2"
+      onclick="setBet(2)"
+    >
+      R$ 2,00
+    </button>
+
+    <button
+      class="bet-option"
+      data-bet="5"
+      onclick="setBet(5)"
+    >
+      R$ 5,00
+    </button>
+
+    <button
+      class="bet-option"
+      data-bet="10"
+      onclick="setBet(10)"
+    >
+      R$ 10,00
+    </button>
+
+    <button
+      class="bet-option"
+      data-bet="20"
+      onclick="setBet(20)"
+    >
+      R$ 20,00
+    </button>
+
+
+    <div class="demo-balance">
+
+      DEMO:
+      <strong id="demoBetBalance">
+        R$ 100.000,00
+      </strong>
+
+    </div>
+
+  </div>
+
 
   <iframe
     id="gameFrame"
@@ -3039,7 +3378,31 @@ let slotsTab = "slots";
 
 let slotsPage = 1;
 
+let authMode = "register";
+
+let currentGameId = null;
+
+let currentGameTitle = "";
+
+let currentBet = 0.50;
+
 const SLOTS_PER_PAGE = 30;
+
+
+/* =========================================================
+VALORES DE BET DEMO
+========================================================= */
+
+const BET_VALUES = [
+  0.10,
+  0.20,
+  0.50,
+  1,
+  2,
+  5,
+  10,
+  20
+];
 
 
 /* =========================================================
@@ -3093,9 +3456,11 @@ function showToast(message){
   window.__toastTimer =
     setTimeout(
       () => {
+
         toast.classList.remove(
           "show"
         );
+
       },
       2500
     );
@@ -3107,7 +3472,10 @@ function userKey(name){
 
   if(!currentUser){
 
-    return "559627_guest_" + name;
+    return (
+      "559627_guest_" +
+      name
+    );
 
   }
 
@@ -3117,6 +3485,82 @@ function userKey(name){
     "_" +
     name
   );
+
+}
+
+
+function normalizePhone(value){
+
+  let digits =
+    String(value || "")
+      .replace(/\D/g,"");
+
+
+  if(
+    digits.startsWith("55")
+  ){
+
+    return "+" + digits;
+
+  }
+
+
+  if(
+    digits.length === 11
+  ){
+
+    return "+55" + digits;
+
+  }
+
+
+  if(
+    digits.length === 10
+  ){
+
+    return "+55" + digits;
+
+  }
+
+
+  return value;
+
+}
+
+
+function isEmail(value){
+
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    .test(
+      String(value || "")
+        .trim()
+    );
+
+}
+
+
+function isPhone(value){
+
+  const digits =
+    String(value || "")
+      .replace(/\D/g,"");
+
+  return (
+    digits.length >= 10 &&
+    digits.length <= 15
+  );
+
+}
+
+
+function getAuthIdentifier(){
+
+  return document
+    .getElementById(
+      "authIdentifier"
+    )
+    .value
+    .trim();
 
 }
 
@@ -3157,7 +3601,9 @@ function saveFavorites(list){
 function isFavorite(id){
 
   return getFavorites()
-    .includes(String(id));
+    .includes(
+      String(id)
+    );
 
 }
 
@@ -3171,7 +3617,9 @@ function toggleFavorite(id){
     getFavorites();
 
   const index =
-    favorites.indexOf(key);
+    favorites.indexOf(
+      key
+    );
 
   if(index >= 0){
 
@@ -3182,7 +3630,9 @@ function toggleFavorite(id){
 
   }else{
 
-    favorites.push(key);
+    favorites.push(
+      key
+    );
 
   }
 
@@ -3198,7 +3648,7 @@ function toggleFavorite(id){
 
 
 /* =========================================================
-ÚLTIMOS JOGOS
+RECENTES
 ========================================================= */
 
 function getRecent(){
@@ -3234,7 +3684,9 @@ function saveRecent(id){
         item !== key
     );
 
-  list.unshift(key);
+  list.unshift(
+    key
+  );
 
   localStorage.setItem(
     userKey("recent"),
@@ -3279,7 +3731,10 @@ function renderRecentSection(){
 
   const games =
     getRecentGames()
-      .slice(0,12);
+      .slice(
+        0,
+        12
+      );
 
   if(!games.length){
 
@@ -3376,7 +3831,9 @@ function gameMatches(
 function getCategoryGames(type){
 
   let games =
-    [...allGames];
+    [
+      ...allGames
+    ];
 
   if(
     type === "fishing" ||
@@ -3401,7 +3858,7 @@ function getCategoryGames(type){
 
 
 /* =========================================================
-CARD
+GAME CARD
 ========================================================= */
 
 function gameCard(game){
@@ -3510,13 +3967,13 @@ function gameCard(game){
 
 
 /* =========================================================
-HOME - SEÇÕES
+HOME
 ========================================================= */
 
 function renderRow(
   elementId,
   games,
-  limit = 12
+  limit=12
 ){
 
   const container =
@@ -3537,7 +3994,7 @@ function renderRow(
     container.innerHTML =
       `
       <div class="empty">
-        Nenhum jogo encontrado nesta categoria.
+        Nenhum jogo encontrado.
       </div>
       `;
 
@@ -3555,12 +4012,11 @@ function renderRow(
 
 function renderPopular(){
 
-  const games =
-    [...allGames];
-
   renderRow(
     "popularGames",
-    games,
+    [
+      ...allGames
+    ],
     12
   );
 
@@ -3570,7 +4026,9 @@ function renderPopular(){
 function renderHighlights(){
 
   let games =
-    [...allGames];
+    [
+      ...allGames
+    ];
 
   if(
     homeProvider !==
@@ -3581,7 +4039,8 @@ function renderHighlights(){
       games.filter(
         game =>
           String(
-            game.provider || ""
+            game.provider ||
+            ""
           ) ===
           homeProvider
       );
@@ -3601,20 +4060,59 @@ function renderCategorySections(){
 
   renderRow(
     "fishingGames",
-    getCategoryGames("fishing"),
+    getCategoryGames(
+      "fishing"
+    ),
     12
   );
 
   renderRow(
     "miniGames",
-    getCategoryGames("mini"),
+    getCategoryGames(
+      "mini"
+    ),
     12
   );
 
   renderRow(
     "sportsGames",
-    getCategoryGames("sports"),
+    getCategoryGames(
+      "sports"
+    ),
     12
+  );
+
+}
+
+
+function hashString(
+  value
+){
+
+  let hash =
+    0;
+
+  for(
+    let i=0;
+    i<value.length;
+    i++
+  ){
+
+    hash =
+      (
+        (
+          hash << 5
+        ) -
+        hash
+      ) +
+      value.charCodeAt(i);
+
+    hash |= 0;
+
+  }
+
+  return Math.abs(
+    hash
   );
 
 }
@@ -3660,17 +4158,16 @@ function renderProviderSections(){
             allGames.filter(
               game =>
                 String(
-                  game.provider || ""
+                  game.provider ||
+                  ""
                 ) ===
                 provider
             );
 
           const id =
             "provider_" +
-            Math.abs(
-              hashString(
-                provider
-              )
+            hashString(
+              provider
             );
 
           return `
@@ -3696,7 +4193,10 @@ function renderProviderSections(){
                 class="game-row"
               >
                 ${games
-                  .slice(0,12)
+                  .slice(
+                    0,
+                    12
+                  )
                   .map(gameCard)
                   .join("")}
               </div>
@@ -3721,7 +4221,9 @@ function renderHomeAll(){
   if(!container)return;
 
   let games =
-    [...allGames];
+    [
+      ...allGames
+    ];
 
   const search =
     document
@@ -3738,14 +4240,25 @@ function renderHomeAll(){
       games.filter(
         game =>
           (
-            String(game.name || "") +
+            String(
+              game.name ||
+              ""
+            ) +
             " " +
-            String(game.title || "") +
+            String(
+              game.title ||
+              ""
+            ) +
             " " +
-            String(game.provider || "")
+            String(
+              game.provider ||
+              ""
+            )
           )
           .toLowerCase()
-          .includes(search)
+          .includes(
+            search
+          )
       );
 
   }
@@ -3759,7 +4272,8 @@ function renderHomeAll(){
       games.filter(
         game =>
           String(
-            game.provider || ""
+            game.provider ||
+            ""
           ) ===
           homeProvider
       );
@@ -3775,7 +4289,10 @@ function renderHomeAll(){
 
   container.innerHTML =
     games
-      .slice(0,60)
+      .slice(
+        0,
+        60
+      )
       .map(gameCard)
       .join("");
 
@@ -3800,7 +4317,7 @@ function renderAllHomeSections(){
 
 
 /* =========================================================
-PROVIDERS
+PROVIDERS HOME
 ========================================================= */
 
 function buildProviders(){
@@ -3837,10 +4354,21 @@ function buildProviders(){
     );
 
   all.className =
-    "provider active";
+    "provider";
 
   all.textContent =
     "Todos";
+
+  if(
+    homeProvider ===
+    "Todos"
+  ){
+
+    all.classList.add(
+      "active"
+    );
+
+  }
 
   all.onclick =
     () => {
@@ -3851,6 +4379,8 @@ function buildProviders(){
       updateProviderButtons();
 
       renderHighlights();
+
+      renderHomeAll();
 
     };
 
@@ -3872,6 +4402,17 @@ function buildProviders(){
       button.textContent =
         provider;
 
+      if(
+        provider ===
+        homeProvider
+      ){
+
+        button.classList.add(
+          "active"
+        );
+
+      }
+
       button.onclick =
         () => {
 
@@ -3881,6 +4422,8 @@ function buildProviders(){
           updateProviderButtons();
 
           renderHighlights();
+
+          renderHomeAll();
 
         };
 
@@ -3916,7 +4459,95 @@ function updateProviderButtons(){
 
 
 /* =========================================================
-SLOTS
+NORMALIZAÇÃO DE PROVEDORES
+PG / PP / FG PRIMEIROS
+========================================================= */
+
+function providerPriority(
+  provider
+){
+
+  const p =
+    String(
+      provider || ""
+    )
+      .toLowerCase()
+      .replace(
+        /[^a-z0-9]/g,
+        ""
+      );
+
+  if(
+    p === "pg" ||
+    p.includes("pgsoft")
+  ){
+
+    return 1;
+
+  }
+
+  if(
+    p === "pp" ||
+    p.includes("pragmatic")
+  ){
+
+    return 2;
+
+  }
+
+  if(
+    p === "fg" ||
+    p.includes("fugaso") ||
+    p.includes("fastgames")
+  ){
+
+    return 3;
+
+  }
+
+  return 100;
+
+}
+
+
+function providerSort(
+  a,
+  b
+){
+
+  const priorityA =
+    providerPriority(
+      a
+    );
+
+  const priorityB =
+    providerPriority(
+      b
+    );
+
+  if(
+    priorityA !==
+    priorityB
+  ){
+
+    return (
+      priorityA -
+      priorityB
+    );
+
+  }
+
+  return String(a)
+    .localeCompare(
+      String(b),
+      "pt-BR"
+    );
+
+}
+
+
+/* =========================================================
+SIDEBAR PROVEDORES
 ========================================================= */
 
 function renderProviderSidebar(){
@@ -3937,15 +4568,19 @@ function renderProviderSidebar(){
               String(
                 game.provider ||
                 "Outros"
-              )
+              ).trim()
           )
           .filter(Boolean)
       )
     ]
-    .sort();
+    .sort(
+      providerSort
+    );
+
 
   sidebar.innerHTML =
     "";
+
 
   const all =
     document.createElement(
@@ -3988,6 +4623,7 @@ function renderProviderSidebar(){
     all
   );
 
+
   providers.forEach(
     provider => {
 
@@ -3998,6 +4634,7 @@ function renderProviderSidebar(){
 
       button.className =
         "side-provider";
+
 
       if(
         provider ===
@@ -4010,8 +4647,10 @@ function renderProviderSidebar(){
 
       }
 
+
       button.textContent =
         provider;
+
 
       button.onclick =
         () => {
@@ -4025,6 +4664,7 @@ function renderProviderSidebar(){
           slotsTab =
             "brands";
 
+
           document
             .querySelectorAll(
               ".slot-tab"
@@ -4036,10 +4676,12 @@ function renderProviderSidebar(){
                 )
             );
 
+
           const brands =
             document.querySelector(
               '.slot-tab[data-tab="brands"]'
             );
+
 
           if(brands){
 
@@ -4049,11 +4691,13 @@ function renderProviderSidebar(){
 
           }
 
+
           renderProviderSidebar();
 
           renderSlots();
 
         };
+
 
       sidebar.appendChild(
         button
@@ -4064,6 +4708,10 @@ function renderProviderSidebar(){
 
 }
 
+
+/* =========================================================
+SLOTS TAB
+========================================================= */
 
 function setSlotsTab(
   tab,
@@ -4091,6 +4739,7 @@ function setSlotsTab(
     "active"
   );
 
+
   if(
     tab ===
     "slots"
@@ -4103,10 +4752,15 @@ function setSlotsTab(
 
   }
 
+
   renderSlots();
 
 }
 
+
+/* =========================================================
+RENDER SLOTS
+========================================================= */
 
 function renderSlots(){
 
@@ -4118,7 +4772,10 @@ function renderSlots(){
   if(!grid)return;
 
   let list =
-    [...slotsGames];
+    [
+      ...slotsGames
+    ];
+
 
   const search =
     document
@@ -4129,23 +4786,36 @@ function renderSlots(){
       .trim()
       .toLowerCase();
 
+
   if(search){
 
     list =
       list.filter(
         game =>
           (
-            String(game.name || "") +
+            String(
+              game.name ||
+              ""
+            ) +
             " " +
-            String(game.title || "") +
+            String(
+              game.title ||
+              ""
+            ) +
             " " +
-            String(game.provider || "")
+            String(
+              game.provider ||
+              ""
+            )
           )
           .toLowerCase()
-          .includes(search)
+          .includes(
+            search
+          )
       );
 
   }
+
 
   if(
     slotsProvider !==
@@ -4156,12 +4826,14 @@ function renderSlots(){
       list.filter(
         game =>
           String(
-            game.provider || ""
+            game.provider ||
+            ""
           ) ===
           slotsProvider
       );
 
   }
+
 
   if(
     slotsTab ===
@@ -4179,6 +4851,7 @@ function renderSlots(){
 
   }
 
+
   if(
     slotsTab ===
     "recent"
@@ -4187,31 +4860,47 @@ function renderSlots(){
     const recent =
       getRecent();
 
+
     list.sort(
-      (a,b) =>
-        recent.indexOf(
-          String(
-            b.id
-          )
-        ) -
-        recent.indexOf(
-          String(
-            a.id
-          )
-        )
+      (a,b) => {
+
+        const ia =
+          recent.indexOf(
+            String(
+              a.id
+            )
+          );
+
+        const ib =
+          recent.indexOf(
+            String(
+              b.id
+            )
+          );
+
+
+        const sa =
+          ia < 0
+          ?
+          999999
+          :
+          ia;
+
+        const sb =
+          ib < 0
+          ?
+          999999
+          :
+          ib;
+
+
+        return sa - sb;
+
+      }
     );
 
   }
 
-  if(
-    slotsTab ===
-    "popular"
-  ){
-
-    list =
-      list.slice();
-
-  }
 
   const pages =
     Math.max(
@@ -4221,6 +4910,7 @@ function renderSlots(){
         SLOTS_PER_PAGE
       )
     );
+
 
   if(
     slotsPage >
@@ -4232,6 +4922,7 @@ function renderSlots(){
 
   }
 
+
   const start =
     (
       slotsPage -
@@ -4239,12 +4930,14 @@ function renderSlots(){
     ) *
     SLOTS_PER_PAGE;
 
+
   const page =
     list.slice(
       start,
       start +
       SLOTS_PER_PAGE
     );
+
 
   if(!page.length){
 
@@ -4264,12 +4957,17 @@ function renderSlots(){
 
   }
 
+
   renderPagination(
     pages
   );
 
 }
 
+
+/* =========================================================
+PAGINAÇÃO
+========================================================= */
 
 function renderPagination(
   pages
@@ -4285,13 +4983,19 @@ function renderPagination(
 
   if(
     pages <= 1
-  )return;
+  ){
+
+    return;
+
+  }
+
 
   const maxButtons =
     Math.min(
       pages,
       10
     );
+
 
   for(
     let i=1;
@@ -4317,6 +5021,7 @@ function renderPagination(
     button.textContent =
       i;
 
+
     button.onclick =
       () => {
 
@@ -4329,6 +5034,7 @@ function renderPagination(
 
       };
 
+
     element.appendChild(
       button
     );
@@ -4339,7 +5045,7 @@ function renderPagination(
 
 
 /* =========================================================
-ABERTURAS DE SLOTS
+OPEN SLOTS
 ========================================================= */
 
 function openSlots(){
@@ -4360,6 +5066,7 @@ function openSlots(){
     "navSlots"
   );
 
+
   slotsPage =
     1;
 
@@ -4369,12 +5076,14 @@ function openSlots(){
   slotsTab =
     "slots";
 
+
   document
     .getElementById(
       "slotsSearch"
     )
     .value =
     "";
+
 
   document
     .querySelectorAll(
@@ -4387,10 +5096,12 @@ function openSlots(){
         )
     );
 
+
   const tab =
     document.querySelector(
       '.slot-tab[data-tab="slots"]'
     );
+
 
   if(tab){
 
@@ -4399,6 +5110,7 @@ function openSlots(){
     );
 
   }
+
 
   renderProviderSidebar();
 
@@ -4416,6 +5128,7 @@ function openSlotsRecent(){
   slotsTab =
     "recent";
 
+
   document
     .querySelectorAll(
       ".slot-tab"
@@ -4427,10 +5140,12 @@ function openSlotsRecent(){
         )
     );
 
+
   const tab =
     document.querySelector(
       '.slot-tab[data-tab="recent"]'
     );
+
 
   if(tab){
 
@@ -4439,6 +5154,7 @@ function openSlotsRecent(){
     );
 
   }
+
 
   renderSlots();
 
@@ -4452,6 +5168,7 @@ function openSlotsPopular(){
   slotsTab =
     "popular";
 
+
   document
     .querySelectorAll(
       ".slot-tab"
@@ -4463,10 +5180,12 @@ function openSlotsPopular(){
         )
     );
 
+
   const tab =
     document.querySelector(
       '.slot-tab[data-tab="popular"]'
     );
+
 
   if(tab){
 
@@ -4475,6 +5194,7 @@ function openSlotsPopular(){
     );
 
   }
+
 
   renderSlots();
 
@@ -4493,6 +5213,7 @@ function openSlotsProvider(
   slotsTab =
     "brands";
 
+
   document
     .querySelectorAll(
       ".slot-tab"
@@ -4504,10 +5225,12 @@ function openSlotsProvider(
         )
     );
 
+
   const tab =
     document.querySelector(
       '.slot-tab[data-tab="brands"]'
     );
+
 
   if(tab){
 
@@ -4517,6 +5240,7 @@ function openSlotsProvider(
 
   }
 
+
   renderProviderSidebar();
 
   renderSlots();
@@ -4525,7 +5249,7 @@ function openSlotsProvider(
 
 
 /* =========================================================
-CATEGORIA HOME
+HOME CATEGORY
 ========================================================= */
 
 function homeCategory(
@@ -4544,12 +5268,11 @@ function homeCategory(
 
   }
 
+
   if(
     type ===
     "recent"
   ){
-
-    renderRecentSection();
 
     document
       .getElementById(
@@ -4563,6 +5286,7 @@ function homeCategory(
 
   }
 
+
   document
     .querySelectorAll(
       ".category"
@@ -4574,6 +5298,7 @@ function homeCategory(
         )
     );
 
+
   if(button){
 
     button.classList.add(
@@ -4582,41 +5307,47 @@ function homeCategory(
 
   }
 
+
   const list =
+    type ===
+    "popular"
+    ?
+    allGames
+    :
     getCategoryGames(
       type
     );
+
 
   const container =
     document.getElementById(
       "homeGames"
     );
 
+
+  container.innerHTML =
+    list
+      .slice(
+        0,
+        60
+      )
+      .map(gameCard)
+      .join("");
+
+
   document
     .getElementById(
-      "homeTitle"
-    );
-
-  if(type === "fishing"){
-
-    container.innerHTML =
-      list
-        .slice(0,60)
-        .map(gameCard)
-        .join("");
-
-  }else{
-
-    container.innerHTML =
-      list
-        .slice(0,60)
-        .map(gameCard)
-        .join("");
-
-  }
+      "homeCount"
+    )
+    .textContent =
+    `${list.length} jogos`;
 
 }
 
+
+/* =========================================================
+FAVORITOS
+========================================================= */
 
 function showFavorites(){
 
@@ -4624,6 +5355,7 @@ function showFavorites(){
 
   slotsTab =
     "favorites";
+
 
   document
     .querySelectorAll(
@@ -4636,10 +5368,12 @@ function showFavorites(){
         )
     );
 
+
   const button =
     document.querySelector(
       '.slot-tab[data-tab="favorites"]'
     );
+
 
   if(button){
 
@@ -4648,6 +5382,7 @@ function showFavorites(){
     );
 
   }
+
 
   renderSlots();
 
@@ -4671,6 +5406,7 @@ function handleSearch(
       .contains(
         "active"
       );
+
 
   if(slotsVisible){
 
@@ -4704,6 +5440,7 @@ function hideScreens(){
     )
     .style.display =
     "none";
+
 
   [
     "slotsScreen",
@@ -4765,10 +5502,12 @@ function activeNav(id){
         )
     );
 
+
   const item =
     document.getElementById(
       id
     );
+
 
   if(item){
 
@@ -4787,6 +5526,7 @@ function goHome(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "homeScreen"
@@ -4794,9 +5534,11 @@ function goHome(){
     .style.display =
     "block";
 
+
   activeNav(
     "navHome"
   );
+
 
   renderAllHomeSections();
 
@@ -4811,6 +5553,7 @@ function openProfile(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "profileScreen"
@@ -4819,9 +5562,11 @@ function openProfile(){
       "active"
     );
 
+
   activeNav(
     "navProfile"
   );
+
 
   updateProfile();
 
@@ -4836,6 +5581,7 @@ function openInvite(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "inviteScreen"
@@ -4844,9 +5590,11 @@ function openInvite(){
       "active"
     );
 
+
   activeNav(
     "navInvite"
   );
+
 
   renderInvite();
 
@@ -4861,6 +5609,7 @@ function openOffers(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "offersScreen"
@@ -4868,6 +5617,7 @@ function openOffers(){
     .classList.add(
       "active"
     );
+
 
   activeNav(
     "navOffers"
@@ -4883,6 +5633,7 @@ function openPromotion(){
   closeMenu();
 
   hideScreens();
+
 
   document
     .getElementById(
@@ -4903,6 +5654,7 @@ function openWallet(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "walletScreen"
@@ -4910,6 +5662,7 @@ function openWallet(){
     .classList.add(
       "active"
     );
+
 
   updateWallet();
 
@@ -4924,6 +5677,7 @@ function openRecords(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "recordsScreen"
@@ -4931,6 +5685,7 @@ function openRecords(){
     .classList.add(
       "active"
     );
+
 
   renderRecords();
 
@@ -4945,6 +5700,7 @@ function openData(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "dataScreen"
@@ -4952,6 +5708,7 @@ function openData(){
     .classList.add(
       "active"
     );
+
 
   renderData();
 
@@ -4966,6 +5723,7 @@ function openSecurity(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "securityScreen"
@@ -4973,6 +5731,7 @@ function openSecurity(){
     .classList.add(
       "active"
     );
+
 
   scrollToTop();
 
@@ -4985,6 +5744,7 @@ function openAbout(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "aboutScreen"
@@ -4992,6 +5752,7 @@ function openAbout(){
     .classList.add(
       "active"
     );
+
 
   scrollToTop();
 
@@ -5004,6 +5765,7 @@ function openFaq(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "faqScreen"
@@ -5011,6 +5773,7 @@ function openFaq(){
     .classList.add(
       "active"
     );
+
 
   scrollToTop();
 
@@ -5023,6 +5786,7 @@ function openSupport(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "supportScreen"
@@ -5030,6 +5794,7 @@ function openSupport(){
     .classList.add(
       "active"
     );
+
 
   scrollToTop();
 
@@ -5042,6 +5807,7 @@ function openNotifications(){
 
   hideScreens();
 
+
   document
     .getElementById(
       "notificationsScreen"
@@ -5049,6 +5815,7 @@ function openNotifications(){
     .classList.add(
       "active"
     );
+
 
   scrollToTop();
 
@@ -5068,6 +5835,7 @@ function openMenu(){
     .classList.add(
       "show"
     );
+
 
   document
     .getElementById(
@@ -5090,6 +5858,7 @@ function closeMenu(){
       "show"
     );
 
+
   document
     .getElementById(
       "drawer"
@@ -5102,7 +5871,7 @@ function closeMenu(){
 
 
 /* =========================================================
-CARREGAMENTO DOS JOGOS
+LOAD GAMES
 ========================================================= */
 
 async function loadGames(){
@@ -5126,15 +5895,11 @@ async function loadGames(){
   home.innerHTML =
     `
     <div class="loading">
-
       🎰 Conectando aos jogos...
-
       <br><br>
-
       <small>
         Isso pode levar alguns segundos.
       </small>
-
     </div>
     `;
 
@@ -5149,12 +5914,6 @@ async function loadGames(){
 
   count.textContent =
     "Conectando...";
-
-
-  console.log(
-    "[559627WIN] Chamando:",
-    GAMES_FUNCTION
-  );
 
 
   const controller =
@@ -5200,23 +5959,8 @@ async function loadGames(){
     );
 
 
-    console.log(
-      "[559627WIN] HTTP:",
-      response.status
-    );
-
-
     const text =
       await response.text();
-
-
-    console.log(
-      "[559627WIN] Resposta:",
-      text.substring(
-        0,
-        1500
-      )
-    );
 
 
     let result;
@@ -5232,8 +5976,7 @@ async function loadGames(){
     }catch{
 
       throw new Error(
-        "A Edge Function não retornou JSON válido. HTTP " +
-        response.status
+        "A API não retornou JSON válido."
       );
 
     }
@@ -5259,7 +6002,7 @@ async function loadGames(){
       throw new Error(
         result.error ||
         result.message ||
-        "A API informou que a operação falhou."
+        "A API informou erro."
       );
 
     }
@@ -5299,16 +6042,10 @@ async function loadGames(){
     }
 
 
-    console.log(
-      "[559627WIN] Jogos encontrados:",
-      games.length
-    );
-
-
     if(!games.length){
 
       throw new Error(
-        "A API respondeu, mas não retornou nenhum jogo."
+        "A API não retornou jogos."
       );
 
     }
@@ -5369,7 +6106,8 @@ async function loadGames(){
 
 
     console.log(
-      "[559627WIN] Jogos carregados com sucesso."
+      "[559627WIN] Jogos carregados:",
+      allGames.length
     );
 
 
@@ -5381,25 +6119,21 @@ async function loadGames(){
 
 
     console.error(
-      "[559627WIN] ERRO AO CARREGAR JOGOS:",
+      "[559627WIN] Erro:",
       error
     );
 
 
-    let message =
-      error.message ||
-      "Erro desconhecido.";
-
-
-    if(
+    const message =
       error.name ===
       "AbortError"
-    ){
-
-      message =
-        "A conexão com a API demorou mais de 30 segundos.";
-
-    }
+      ?
+      "A conexão demorou mais de 30 segundos."
+      :
+      (
+        error.message ||
+        "Erro desconhecido."
+      );
 
 
     home.innerHTML =
@@ -5439,15 +6173,6 @@ async function loadGames(){
           ${escapeHtml(message)}
         </small>
 
-        <br><br>
-
-        <button
-          class="gold-btn"
-          onclick="loadGames()"
-        >
-          🔄 TENTAR NOVAMENTE
-        </button>
-
       </div>
       `;
 
@@ -5461,7 +6186,7 @@ async function loadGames(){
 
 
 /* =========================================================
-JOGO DEMO
+LAUNCH GAME
 ========================================================= */
 
 async function launchGame(
@@ -5480,35 +6205,39 @@ async function launchGame(
   }
 
 
-  const modal =
-    document.getElementById(
+  currentGameId =
+    String(gameId);
+
+  currentGameTitle =
+    title;
+
+
+  document
+    .getElementById(
       "gameModal"
+    )
+    .classList.add(
+      "show"
     );
 
-  const frame =
-    document.getElementById(
-      "gameFrame"
-    );
 
-  const titleElement =
-    document.getElementById(
+  document
+    .getElementById(
       "gameTitle"
-    );
+    )
+    .textContent =
+    title;
 
 
-  modal.classList.add(
-    "show"
-  );
-
-
-  titleElement.textContent =
-    "Carregando " +
-    title +
-    "...";
-
-
-  frame.src =
+  document
+    .getElementById(
+      "gameFrame"
+    )
+    .src =
     "about:blank";
+
+
+  updateBetUI();
 
 
   saveRecent(
@@ -5566,11 +6295,11 @@ async function launchGame(
     }
 
 
-    titleElement.textContent =
-      title;
-
-
-    frame.src =
+    document
+      .getElementById(
+        "gameFrame"
+      )
+      .src =
       result.game_url ||
       result.url;
 
@@ -5587,7 +6316,7 @@ async function launchGame(
         "Jogo DEMO aberto",
 
       value:
-        0
+        currentBet
 
     });
 
@@ -5599,12 +6328,12 @@ async function launchGame(
     );
 
 
-    titleElement.textContent =
+    document
+      .getElementById(
+        "gameTitle"
+      )
+      .textContent =
       "Erro ao abrir";
-
-
-    frame.src =
-      "about:blank";
 
 
     showToast(
@@ -5627,12 +6356,201 @@ function closeGame(){
       "show"
     );
 
+
   document
     .getElementById(
       "gameFrame"
     )
     .src =
     "about:blank";
+
+
+  currentGameId =
+    null;
+
+}
+
+
+/* =========================================================
+BET DEMO
+========================================================= */
+
+function setBet(
+  value
+){
+
+  const number =
+    Number(
+      value
+    );
+
+
+  if(
+    !BET_VALUES.includes(
+      number
+    )
+  ){
+
+    return;
+
+  }
+
+
+  currentBet =
+    number;
+
+
+  localStorage.setItem(
+    userKey(
+      "demo_bet"
+    ),
+    String(
+      currentBet
+    )
+  );
+
+
+  updateBetUI();
+
+
+  showToast(
+    "Bet DEMO: " +
+    money(
+      currentBet
+    )
+  );
+
+}
+
+
+function changeBet(
+  direction
+){
+
+  let index =
+    BET_VALUES.indexOf(
+      currentBet
+    );
+
+
+  if(index < 0){
+
+    index =
+      2;
+
+  }
+
+
+  index +=
+    Number(
+      direction
+    );
+
+
+  if(
+    index < 0
+  ){
+
+    index =
+      0;
+
+  }
+
+
+  if(
+    index >=
+    BET_VALUES.length
+  ){
+
+    index =
+      BET_VALUES.length - 1;
+
+  }
+
+
+  setBet(
+    BET_VALUES[index]
+  );
+
+}
+
+
+function updateBetUI(){
+
+  const saved =
+    Number(
+      localStorage.getItem(
+        userKey(
+          "demo_bet"
+        )
+      )
+    );
+
+
+  if(
+    BET_VALUES.includes(
+      saved
+    )
+  ){
+
+    currentBet =
+      saved;
+
+  }
+
+
+  const value =
+    document.getElementById(
+      "betValue"
+    );
+
+
+  if(value){
+
+    value.textContent =
+      money(
+        currentBet
+      );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".bet-option"
+    )
+    .forEach(
+      button => {
+
+        const bet =
+          Number(
+            button.dataset.bet
+          );
+
+        button.classList.toggle(
+          "active",
+          bet ===
+          currentBet
+        );
+
+      }
+    );
+
+
+  const balance =
+    document.getElementById(
+      "demoBetBalance"
+    );
+
+
+  if(balance){
+
+    balance.textContent =
+      money(
+        getBalance()
+      );
+
+  }
 
 }
 
@@ -5651,12 +6569,17 @@ function openAccount(){
 
   }
 
+
   openLogin();
 
 }
 
 
 function openLogin(){
+
+  authMode =
+    "login";
+
 
   document
     .getElementById(
@@ -5666,21 +6589,6 @@ function openLogin(){
       "show"
     );
 
-  document
-    .getElementById(
-      "loginForm"
-    )
-    .classList.remove(
-      "hidden"
-    );
-
-  document
-    .getElementById(
-      "registerForm"
-    )
-    .classList.add(
-      "hidden"
-    );
 
   document
     .getElementById(
@@ -5688,6 +6596,41 @@ function openLogin(){
     )
     .textContent =
     "Entrar";
+
+
+  document
+    .getElementById(
+      "confirmPasswordWrap"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "ageCheckWrap"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "toggleAuthButton"
+    )
+    .textContent =
+    "Criar cadastro";
+
+
+  document
+    .getElementById(
+      "authPassword"
+    )
+    .autocomplete =
+    "current-password";
+
 
   document
     .getElementById(
@@ -5701,6 +6644,10 @@ function openLogin(){
 
 function openRegister(){
 
+  authMode =
+    "register";
+
+
   document
     .getElementById(
       "authModal"
@@ -5709,21 +6656,6 @@ function openRegister(){
       "show"
     );
 
-  document
-    .getElementById(
-      "loginForm"
-    )
-    .classList.add(
-      "hidden"
-    );
-
-  document
-    .getElementById(
-      "registerForm"
-    )
-    .classList.remove(
-      "hidden"
-    );
 
   document
     .getElementById(
@@ -5732,12 +6664,65 @@ function openRegister(){
     .textContent =
     "Criar cadastro";
 
+
+  document
+    .getElementById(
+      "confirmPasswordWrap"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "ageCheckWrap"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
+
+  document
+    .getElementById(
+      "toggleAuthButton"
+    )
+    .textContent =
+    "Já tenho uma conta";
+
+
+  document
+    .getElementById(
+      "authPassword"
+    )
+    .autocomplete =
+    "new-password";
+
+
   document
     .getElementById(
       "authMessage"
     )
     .textContent =
     "";
+
+}
+
+
+function toggleAuthMode(){
+
+  if(
+    authMode ===
+    "register"
+  ){
+
+    openLogin();
+
+  }else{
+
+    openRegister();
+
+  }
 
 }
 
@@ -5755,214 +6740,310 @@ function closeAuth(){
 }
 
 
-async function login(){
+async function submitAuth(){
 
-  const email =
-    document
-      .getElementById(
-        "loginEmail"
-      )
-      .value
-      .trim();
+  const identifier =
+    getAuthIdentifier();
 
   const password =
     document
       .getElementById(
-        "loginPassword"
+        "authPassword"
       )
       .value;
 
 
-  if(
-    !email ||
-    !password
-  ){
+  if(!identifier){
 
     showAuthMessage(
-      "Informe e-mail e senha."
+      "Informe seu e-mail ou telefone."
     );
 
     return;
 
   }
 
+
+  if(!password){
+
+    showAuthMessage(
+      "Informe sua senha."
+    );
+
+    return;
+
+  }
+
+
+  const identifierIsEmail =
+    isEmail(
+      identifier
+    );
+
+
+  const identifierIsPhone =
+    isPhone(
+      identifier
+    );
+
+
+  if(
+    !identifierIsEmail &&
+    !identifierIsPhone
+  ){
+
+    showAuthMessage(
+      "Digite um e-mail válido ou um telefone válido."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    authMode ===
+    "register"
+  ){
+
+    const confirm =
+      document
+        .getElementById(
+          "authConfirmPassword"
+        )
+        .value;
+
+
+    const age =
+      document
+        .getElementById(
+          "ageCheck"
+        )
+        .checked;
+
+
+    if(
+      password.length <
+      6
+    ){
+
+      showAuthMessage(
+        "A senha precisa ter pelo menos 6 caracteres."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      password !==
+      confirm
+    ){
+
+      showAuthMessage(
+        "As senhas não são iguais."
+      );
+
+      return;
+
+    }
+
+
+    if(!age){
+
+      showAuthMessage(
+        "Confirme que você tem 18 anos ou mais."
+      );
+
+      return;
+
+    }
+
+
+    showAuthMessage(
+      "Criando cadastro..."
+    );
+
+
+    try{
+
+      const referral =
+        getPendingReferral();
+
+
+      let result;
+
+
+      if(
+        identifierIsEmail
+      ){
+
+        result =
+          await supabaseClient.auth
+            .signUp({
+
+              email:
+                identifier,
+
+              password,
+
+              options:{
+                data:{
+                  referral_code:
+                    referral ||
+                    null
+                }
+              }
+
+            });
+
+      }else{
+
+        const phone =
+          normalizePhone(
+            identifier
+          );
+
+
+        result =
+          await supabaseClient.auth
+            .signUp({
+
+              phone,
+
+              password,
+
+              options:{
+                data:{
+                  referral_code:
+                    referral ||
+                    null
+                }
+              }
+
+            });
+
+      }
+
+
+      if(result.error){
+
+        showAuthMessage(
+          result.error.message
+        );
+
+        return;
+
+      }
+
+
+      if(
+        result.data?.session
+      ){
+
+        currentUser =
+          result.data.user;
+
+        clearPendingReferral();
+
+        closeAuth();
+
+        updateAuthUI();
+
+        updateProfile();
+
+        renderAllHomeSections();
+
+        showToast(
+          "Cadastro criado!"
+        );
+
+      }else{
+
+        showAuthMessage(
+          "Cadastro criado. Se o Supabase solicitar confirmação, ela precisa ser desativada/configurada no provedor correspondente."
+        );
+
+      }
+
+    }catch(error){
+
+      showAuthMessage(
+        error.message ||
+        "Erro ao criar cadastro."
+      );
+
+    }
+
+
+    return;
+
+  }
+
+
+  /* LOGIN */
 
   showAuthMessage(
     "Entrando..."
   );
 
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth
-      .signInWithPassword({
-        email,
-        password
-      });
+  try{
+
+    let result;
 
 
-  if(error){
+    if(
+      identifierIsEmail
+    ){
 
-    showAuthMessage(
-      error.message
-    );
+      result =
+        await supabaseClient.auth
+          .signInWithPassword({
 
-    return;
+            email:
+              identifier,
 
-  }
+            password
 
+          });
 
-  currentUser =
-    data.user;
+    }else{
 
-
-  closeAuth();
-
-  updateAuthUI();
-
-  updateProfile();
-
-  renderAllHomeSections();
-
-  showToast(
-    "Login realizado."
-  );
-
-}
+      const phone =
+        normalizePhone(
+          identifier
+        );
 
 
-async function register(){
+      result =
+        await supabaseClient.auth
+          .signInWithPassword({
 
-  const email =
-    document
-      .getElementById(
-        "registerEmail"
-      )
-      .value
-      .trim();
+            phone,
 
-  const password =
-    document
-      .getElementById(
-        "registerPassword"
-      )
-      .value;
+            password
 
-  const password2 =
-    document
-      .getElementById(
-        "registerPassword2"
-      )
-      .value;
+          });
 
-  const age =
-    document
-      .getElementById(
-        "ageCheck"
-      )
-      .checked;
+    }
 
 
-  if(!email){
+    if(result.error){
 
-    showAuthMessage(
-      "Informe seu e-mail."
-    );
+      showAuthMessage(
+        result.error.message
+      );
 
-    return;
+      return;
 
-  }
+    }
 
-
-  if(
-    password.length <
-    6
-  ){
-
-    showAuthMessage(
-      "A senha precisa ter pelo menos 6 caracteres."
-    );
-
-    return;
-
-  }
-
-
-  if(
-    password !==
-    password2
-  ){
-
-    showAuthMessage(
-      "As senhas não são iguais."
-    );
-
-    return;
-
-  }
-
-
-  if(!age){
-
-    showAuthMessage(
-      "Confirme que você tem 18 anos ou mais."
-    );
-
-    return;
-
-  }
-
-
-  showAuthMessage(
-    "Criando cadastro..."
-  );
-
-
-  const referral =
-    getPendingReferral();
-
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth
-      .signUp({
-
-        email,
-
-        password,
-
-        options:{
-          data:{
-            referral_code:
-              referral ||
-              null
-          }
-        }
-
-      });
-
-
-  if(error){
-
-    showAuthMessage(
-      error.message
-    );
-
-    return;
-
-  }
-
-
-  if(data.session){
 
     currentUser =
-      data.user;
+      result.data.user;
 
-    clearPendingReferral();
 
     closeAuth();
 
@@ -5973,39 +7054,18 @@ async function register(){
     renderAllHomeSections();
 
     showToast(
-      "Cadastro criado!"
+      "Login realizado!"
     );
 
-  }else{
+
+  }catch(error){
 
     showAuthMessage(
-      "Cadastro criado. Se a confirmação aparecer, desative Confirm email no Supabase."
+      error.message ||
+      "Erro ao entrar."
     );
 
   }
-
-}
-
-
-async function logout(){
-
-  await supabaseClient.auth
-    .signOut();
-
-  currentUser =
-    null;
-
-  updateAuthUI();
-
-  updateProfile();
-
-  renderAllHomeSections();
-
-  goHome();
-
-  showToast(
-    "Sessão encerrada."
-  );
 
 }
 
@@ -6024,6 +7084,31 @@ function showAuthMessage(
 }
 
 
+async function logout(){
+
+  await supabaseClient.auth
+    .signOut();
+
+
+  currentUser =
+    null;
+
+
+  updateAuthUI();
+
+  updateProfile();
+
+  renderAllHomeSections();
+
+  goHome();
+
+  showToast(
+    "Sessão encerrada."
+  );
+
+}
+
+
 function updateAuthUI(){
 
   const button =
@@ -6031,15 +7116,18 @@ function updateAuthUI(){
       "loginBtn"
     );
 
+
   const register =
     document.getElementById(
       "registerHomeButton"
     );
 
+
   const loginProfile =
     document.getElementById(
       "profileLoginButton"
     );
+
 
   const logoutProfile =
     document.getElementById(
@@ -6087,14 +7175,16 @@ function updateAuthUI(){
 
 
 /* =========================================================
-PERFIL / CARTEIRA
+PERFIL
 ========================================================= */
 
 function getBalance(){
 
   return Number(
     localStorage.getItem(
-      userKey("balance")
+      userKey(
+        "balance"
+      )
     ) ||
     100000
   );
@@ -6106,7 +7196,9 @@ function getPoints(){
 
   return Number(
     localStorage.getItem(
-      userKey("points")
+      userKey(
+        "points"
+      )
     ) ||
     0
   );
@@ -6121,20 +7213,24 @@ function updateProfile(){
       "profileName"
     );
 
+
   const email =
     document.getElementById(
       "profileEmail"
     );
+
 
   const balance =
     document.getElementById(
       "profileBalance"
     );
 
+
   const points =
     document.getElementById(
       "profilePoints"
     );
+
 
   const avatar =
     document.getElementById(
@@ -6159,22 +7255,39 @@ function updateProfile(){
       currentUser.email ||
       "";
 
+    const userPhone =
+      currentUser.phone ||
+      "";
+
+
+    const identifier =
+      userEmail ||
+      userPhone ||
+      "Usuário";
+
+
     name.textContent =
       userEmail
       ?
       userEmail.split("@")[0]
       :
-      "Usuário";
+      identifier;
+
 
     email.textContent =
-      userEmail;
+      userEmail ||
+      userPhone;
 
     avatar.textContent =
       (
-        userEmail.charAt(0)
-          .toUpperCase() ||
-        "U"
-      );
+        userEmail
+          ?
+          userEmail.charAt(0)
+          :
+          "📱"
+      )
+      .toString()
+      .toUpperCase();
 
   }
 
@@ -6184,11 +7297,16 @@ function updateProfile(){
       getBalance()
     );
 
+
   points.textContent =
     getPoints();
 
 }
 
+
+/* =========================================================
+WALLET
+========================================================= */
 
 function updateWallet(){
 
@@ -6205,7 +7323,7 @@ function updateWallet(){
 
 
 /* =========================================================
-REGISTROS
+RECORDS
 ========================================================= */
 
 function getRecords(){
@@ -6214,7 +7332,9 @@ function getRecords(){
 
     return JSON.parse(
       localStorage.getItem(
-        userKey("records")
+        userKey(
+          "records"
+        )
       ) || "[]"
     );
 
@@ -6234,6 +7354,7 @@ function saveRecord(
   const records =
     getRecords();
 
+
   records.unshift({
 
     ...record,
@@ -6246,8 +7367,11 @@ function saveRecord(
 
   });
 
+
   localStorage.setItem(
-    userKey("records"),
+    userKey(
+      "records"
+    ),
     JSON.stringify(
       records.slice(
         0,
@@ -6265,6 +7389,7 @@ function renderRecords(){
     document.getElementById(
       "recordsList"
     );
+
 
   const records =
     getRecords();
@@ -6337,13 +7462,37 @@ DADOS
 
 function renderData(){
 
+  const identifier =
+    currentUser?.email ||
+    currentUser?.phone ||
+    "Não conectado";
+
+
+  document
+    .getElementById(
+      "dataIdentifier"
+    )
+    .textContent =
+    identifier;
+
+
   document
     .getElementById(
       "dataEmail"
     )
     .textContent =
     currentUser?.email ||
-    "Não conectado";
+    "Não cadastrado";
+
+
+  document
+    .getElementById(
+      "dataPhone"
+    )
+    .textContent =
+    currentUser?.phone ||
+    "Não cadastrado";
+
 
   document
     .getElementById(
@@ -6360,40 +7509,6 @@ function renderData(){
 REFERRAL
 ========================================================= */
 
-function hashString(
-  value
-){
-
-  let hash =
-    0;
-
-  for(
-    let i=0;
-    i<value.length;
-    i++
-  ){
-
-    hash =
-      (
-        (
-          hash << 5
-        ) -
-        hash
-      ) +
-      value.charCodeAt(i);
-
-    hash |=
-      0;
-
-  }
-
-  return Math.abs(
-    hash
-  );
-
-}
-
-
 function getReferralCode(){
 
   if(!currentUser){
@@ -6401,6 +7516,7 @@ function getReferralCode(){
     return "VISITANTE";
 
   }
+
 
   const raw =
     String(
@@ -6412,12 +7528,14 @@ function getReferralCode(){
     )
     .toUpperCase();
 
+
   const hash =
     hashString(
       raw
     )
     .toString(36)
     .toUpperCase();
+
 
   return (
     "559627-" +
@@ -6456,10 +7574,12 @@ function getPendingReferral(){
       window.location.search
     );
 
+
   const ref =
     params.get(
       "ref"
     );
+
 
   if(ref){
 
@@ -6471,6 +7591,7 @@ function getPendingReferral(){
     return ref;
 
   }
+
 
   return (
     localStorage.getItem(
@@ -6496,8 +7617,10 @@ function renderInvite(){
   const code =
     getReferralCode();
 
+
   const link =
     getInviteLink();
+
 
   document
     .getElementById(
@@ -6506,6 +7629,7 @@ function renderInvite(){
     .textContent =
     code;
 
+
   document
     .getElementById(
       "inviteLink"
@@ -6513,15 +7637,22 @@ function renderInvite(){
     .value =
     link;
 
+
   const qr =
     document.getElementById(
       "qrCode"
     );
 
+
   qr.innerHTML =
     "";
 
-  if(currentUser){
+
+  if(
+    currentUser &&
+    typeof QRCode !==
+    "undefined"
+  ){
 
     new QRCode(
       qr,
@@ -6550,6 +7681,7 @@ function renderInvite(){
 
   }
 
+
   const stats =
     JSON.parse(
       localStorage.getItem(
@@ -6560,26 +7692,32 @@ function renderInvite(){
       '{"clicks":0,"direct":0,"rewards":0}'
     );
 
+
   document
     .getElementById(
       "refClicks"
     )
     .textContent =
-    stats.clicks || 0;
+    stats.clicks ||
+    0;
+
 
   document
     .getElementById(
       "refDirect"
     )
     .textContent =
-    stats.direct || 0;
+    stats.direct ||
+    0;
+
 
   document
     .getElementById(
       "refRewards"
     )
     .textContent =
-    stats.rewards || 0;
+    stats.rewards ||
+    0;
 
 }
 
@@ -6596,10 +7734,12 @@ function copyInvite(){
 
   }
 
+
   const input =
     document.getElementById(
       "inviteLink"
     );
+
 
   navigator.clipboard
     .writeText(
@@ -6637,9 +7777,11 @@ async function shareInvite(
   const link =
     getInviteLink();
 
+
   const text =
     "🎰 Venha conhecer a 559627WIN!\n\n" +
     link;
+
 
   if(
     type ===
@@ -6657,6 +7799,7 @@ async function shareInvite(
     return;
 
   }
+
 
   if(
     type ===
@@ -6678,6 +7821,7 @@ async function shareInvite(
     return;
 
   }
+
 
   if(
     navigator.share
@@ -6713,6 +7857,7 @@ function claimReward(){
       "reward_claimed"
     );
 
+
   if(
     localStorage.getItem(
       key
@@ -6727,8 +7872,10 @@ function claimReward(){
 
   }
 
+
   const points =
     getPoints();
+
 
   localStorage.setItem(
     userKey(
@@ -6740,12 +7887,15 @@ function claimReward(){
     )
   );
 
+
   localStorage.setItem(
     key,
     "1"
   );
 
+
   updateProfile();
+
 
   saveRecord({
 
@@ -6763,6 +7913,7 @@ function claimReward(){
 
   });
 
+
   showToast(
     "+100 pontos DEMO!"
   );
@@ -6771,7 +7922,7 @@ function claimReward(){
 
 
 /* =========================================================
-SEGURANÇA
+SECURITY
 ========================================================= */
 
 async function changePassword(){
@@ -6786,12 +7937,15 @@ async function changePassword(){
 
   }
 
+
   const password =
     prompt(
       "Digite sua nova senha:"
     );
 
+
   if(!password)return;
+
 
   if(
     password.length <
@@ -6806,6 +7960,7 @@ async function changePassword(){
 
   }
 
+
   const {
     error
   } =
@@ -6813,6 +7968,7 @@ async function changePassword(){
       .updateUser({
         password
       });
+
 
   if(error){
 
@@ -6823,6 +7979,7 @@ async function changePassword(){
     return;
 
   }
+
 
   showToast(
     "Senha alterada."
@@ -6841,7 +7998,9 @@ async function init(){
     "[559627WIN] Inicializando..."
   );
 
+
   getPendingReferral();
+
 
   const {
     data,
@@ -6849,6 +8008,7 @@ async function init(){
   } =
     await supabaseClient.auth
       .getSession();
+
 
   if(error){
 
@@ -6859,15 +8019,20 @@ async function init(){
 
   }
 
+
   currentUser =
     data?.session?.user ||
     null;
+
 
   updateAuthUI();
 
   updateProfile();
 
+  updateBetUI();
+
   await loadGames();
+
 
   supabaseClient.auth
     .onAuthStateChange(
@@ -6877,9 +8042,12 @@ async function init(){
           session?.user ||
           null;
 
+
         updateAuthUI();
 
         updateProfile();
+
+        updateBetUI();
 
         renderAllHomeSections();
 
@@ -6888,10 +8056,6 @@ async function init(){
 
 }
 
-
-/* =========================================================
-INICIALIZAÇÃO
-========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
