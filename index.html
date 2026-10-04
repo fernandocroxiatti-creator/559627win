@@ -1001,39 +1001,45 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
+  flex:none;
 }
 
-.notification-text{
+.notification-content{
   flex:1;
 }
 
-.notification-text strong{
-  display:block;
+.notification-title{
+  font-weight:900;
 }
 
-.notification-text span{
-  display:block;
+.notification-text{
   margin-top:4px;
-  color:#777;
-  font-size:12px;
+  color:#888;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.notification-date{
+  margin-top:5px;
+  color:#555;
+  font-size:11px;
 }
 
 /* =========================================================
-   MODAL
+   MODAIS
 ========================================================= */
 
 .modal{
   position:fixed;
   inset:0;
-  z-index:1000;
-
+  z-index:500;
   display:none;
   align-items:center;
   justify-content:center;
+  padding:20px;
 
-  padding:15px;
-
-  background:rgba(0,0,0,.88);
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(7px);
 }
 
 .modal.show{
@@ -1041,16 +1047,17 @@ header{
 }
 
 .modal-box{
-  width:100%;
-  max-width:480px;
+  width:min(520px,100%);
   max-height:90vh;
   overflow-y:auto;
 
-  padding:24px;
+  padding:22px;
+
+  border:1px solid #333;
+  border-radius:17px;
 
   background:#111;
-  border:1px solid #333;
-  border-radius:16px;
+  box-shadow:0 25px 80px rgba(0,0,0,.6);
 }
 
 .modal-header{
@@ -1061,25 +1068,42 @@ header{
   margin-bottom:18px;
 }
 
+.modal-header h2{
+  font-size:23px;
+}
+
 .close-button{
-  width:40px;
-  height:40px;
-  border:0;
-  border-radius:50%;
-  background:#222;
+  width:38px;
+  height:38px;
+  border-radius:9px;
+  border:1px solid #333;
+  background:#1b1b1b;
   color:#fff;
   font-size:22px;
 }
 
+.close-button:hover{
+  border-color:#f5c400;
+}
+
+.info-card{
+  padding:15px;
+  margin-bottom:10px;
+  border:1px solid #292929;
+  border-radius:11px;
+  background:#171717;
+}
+
 .field{
   width:100%;
-  padding:13px;
-  margin-bottom:9px;
+  height:46px;
+  margin-bottom:10px;
+  padding:0 13px;
 
-  background:#181818;
   border:1px solid #333;
-  border-radius:8px;
+  border-radius:9px;
 
+  background:#171717;
   color:#fff;
   outline:none;
 }
@@ -1088,201 +1112,67 @@ header{
   border-color:#f5c400;
 }
 
-.primary-button{
+.checkbox-row{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  margin:5px 0 15px;
+
+  color:#aaa;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.checkbox-row input{
+  margin-top:2px;
+}
+
+.primary-button,
+.secondary-button{
   width:100%;
   padding:13px;
-  border:0;
-  border-radius:8px;
-  background:#f5c400;
-  color:#000;
+  border-radius:9px;
   font-weight:900;
 }
 
+.primary-button{
+  border:0;
+  background:#f5c400;
+  color:#000;
+}
+
 .secondary-button{
-  width:100%;
-  padding:12px;
-  margin-top:8px;
-
-  border:1px solid #333;
-  border-radius:8px;
-
-  background:#181818;
+  margin-top:9px;
+  border:1px solid #444;
+  background:#1c1c1c;
   color:#fff;
+}
+
+.auth-switch{
+  margin-top:15px;
+  text-align:center;
+  color:#999;
+  font-size:13px;
+}
+
+.auth-switch button{
+  border:0;
+  background:none;
+  color:#f5c400;
+  font-weight:900;
 }
 
 .modal-message{
   margin-top:12px;
-  color:#999;
-  line-height:1.4;
-  font-size:13px;
-}
-
-.info-card{
-  padding:17px;
-  margin-bottom:10px;
-  border-radius:11px;
-  background:#171717;
-  border:1px solid #292929;
-}
-
-.check-row{
-  display:flex;
-  gap:9px;
-  align-items:flex-start;
-  margin:6px 0 14px;
-  color:#aaa;
+  color:#f5c400;
   font-size:13px;
   line-height:1.4;
 }
-
-.check-row input{
-  margin-top:3px;
-  accent-color:#f5c400;
-}
-
-/* =========================================================
-   DRAWER
-========================================================= */
-
-.drawer{
-  position:fixed;
-  inset:0;
-  z-index:800;
-
-  background:rgba(0,0,0,.7);
-
-  opacity:0;
-  visibility:hidden;
-  transition:.2s;
-}
-
-.drawer.open{
-  opacity:1;
-  visibility:visible;
-}
-
-.drawer-panel{
-  width:330px;
-  max-width:88%;
-  height:100%;
-
-  padding:20px;
-
-  background:#101010;
-  border-right:1px solid #292929;
-
-  transform:translateX(-100%);
-  transition:.25s;
-
-  overflow-y:auto;
-}
-
-.drawer.open .drawer-panel{
-  transform:translateX(0);
-}
-
-.drawer-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:20px;
-}
-
-.drawer-logo{
-  font-size:24px;
-  font-weight:900;
-}
-
-.drawer-logo span{
-  color:#f5c400;
-}
-
-.menu-item{
-  width:100%;
-  padding:14px;
-  margin-bottom:7px;
-
-  text-align:left;
-
-  border:1px solid #292929;
-  border-radius:9px;
-
-  background:#171717;
-  color:#ddd;
-}
-
-.menu-item:hover{
-  background:#f5c400;
-  color:#000;
-}
-
-/* =========================================================
-   BOTTOM NAV
-========================================================= */
-
-.bottom-nav{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:700;
-
-  height:78px;
-
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-
-  background:#151515;
-  border-top:1px solid #333;
-
-  padding-bottom:env(safe-area-inset-bottom);
-}
-
-.bottom-nav-button{
-  position:relative;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:4px;
-
-  border:0;
-  background:transparent;
-  color:#777;
-
-  font-size:11px;
-  font-weight:700;
-}
-
-.bottom-nav-icon{
-  font-size:22px;
-  line-height:1;
-}
-
-.bottom-nav-button.active{
-  color:#f5c400;
-}
-
-.bottom-nav-button.active::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:25%;
-  right:25%;
-  height:3px;
-  background:#f5c400;
-  border-radius:0 0 5px 5px;
-}
-
-/* =========================================================
-   JOGO
-========================================================= */
 
 .game-modal{
   position:fixed;
   inset:0;
-  z-index:2000;
+  z-index:1000;
 
   display:none;
   flex-direction:column;
@@ -1295,22 +1185,151 @@ header{
 }
 
 .game-bar{
-  height:55px;
-  padding:0 12px;
+  height:58px;
+  flex:none;
 
   display:flex;
   align-items:center;
   justify-content:space-between;
+
+  padding:0 15px;
 
   background:#101010;
   border-bottom:1px solid #292929;
 }
 
 .game-frame{
-  flex:1;
   width:100%;
+  height:calc(100vh - 58px);
   border:0;
   background:#000;
+}
+
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
+
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+
+  z-index:300;
+
+  height:76px;
+
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+
+  background:rgba(10,10,10,.97);
+  border-top:1px solid #292929;
+
+  backdrop-filter:blur(15px);
+}
+
+.bottom-nav-button{
+  border:0;
+  background:transparent;
+  color:#777;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  gap:4px;
+
+  font-size:10px;
+  font-weight:700;
+}
+
+.bottom-nav-button.active,
+.bottom-nav-button:hover{
+  color:#f5c400;
+}
+
+.bottom-nav-icon{
+  font-size:21px;
+}
+
+/* =========================================================
+   DRAWER
+========================================================= */
+
+.drawer-overlay{
+  position:fixed;
+  inset:0;
+  z-index:450;
+
+  display:none;
+
+  background:rgba(0,0,0,.7);
+}
+
+.drawer-overlay.show{
+  display:block;
+}
+
+.drawer{
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+
+  z-index:451;
+
+  width:min(330px,88vw);
+
+  padding:20px;
+
+  overflow-y:auto;
+
+  background:#111;
+  border-right:1px solid #292929;
+
+  transform:translateX(-100%);
+  transition:.25s;
+}
+
+.drawer.show{
+  transform:translateX(0);
+}
+
+.drawer-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  margin-bottom:20px;
+}
+
+.drawer-logo{
+  font-size:25px;
+  font-weight:900;
+}
+
+.drawer-logo span{
+  color:#f5c400;
+}
+
+.menu-item{
+  width:100%;
+  padding:14px;
+  margin-bottom:8px;
+
+  border:1px solid #292929;
+  border-radius:10px;
+
+  background:#171717;
+  color:#fff;
+
+  text-align:left;
+}
+
+.menu-item:hover{
+  border-color:#f5c400;
+  color:#f5c400;
 }
 
 /* =========================================================
@@ -1322,11 +1341,11 @@ header{
   left:50%;
   bottom:95px;
 
-  transform:translateX(-50%) translateY(20px);
+  z-index:1200;
 
-  z-index:3000;
+  max-width:90vw;
 
-  padding:13px 18px;
+  padding:13px 17px;
 
   border-radius:10px;
 
@@ -1336,6 +1355,9 @@ header{
   font-weight:900;
   font-size:13px;
 
+  transform:
+    translate(-50%,20px);
+
   opacity:0;
   pointer-events:none;
 
@@ -1343,27 +1365,21 @@ header{
 }
 
 .toast.show{
+  transform:
+    translate(-50%,0);
+
   opacity:1;
-  transform:translateX(-50%) translateY(0);
 }
 
 /* =========================================================
-   MOBILE
+   RESPONSIVO
 ========================================================= */
 
-@media(max-width:700px){
-
-  body{
-    padding-bottom:82px;
-  }
-
-  header{
-    height:64px;
-  }
+@media(max-width:900px){
 
   .header-inner{
     padding:0 10px;
-    gap:9px;
+    gap:8px;
   }
 
   .logo{
@@ -1375,146 +1391,99 @@ header{
   }
 
   .account-button{
-    margin-left:auto;
     padding:10px 12px;
+    font-size:12px;
   }
 
   .hero{
-    margin:12px;
-    padding:32px 20px;
+    margin:10px;
+    padding:35px 20px;
   }
+
+  .section{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .slots-layout{
+    grid-template-columns:82px 1fr;
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .slots-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+  }
+
+  .games{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+  }
+
+  .game-info{
+    padding:7px;
+  }
+
+  .game-title{
+    font-size:11px;
+  }
+
+  .game-provider{
+    font-size:9px;
+    margin-bottom:7px;
+  }
+
+  .play-button{
+    padding:8px 4px;
+    font-size:10px;
+  }
+
+  .favorite{
+    width:28px;
+    height:28px;
+    font-size:12px;
+  }
+
+  .profile-container,
+  .simple-screen{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+}
+
+@media(max-width:520px){
 
   .hero h1{
     font-size:35px;
   }
 
-  .hero p{
-    font-size:15px;
-  }
-
-  .section{
-    padding:0 12px 40px;
-  }
-
-  .games{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px;
-  }
-
-  .game-info{
-    padding:8px;
-  }
-
-  .game-title{
-    font-size:12px;
-  }
-
-  .game-provider{
-    font-size:10px;
-  }
-
-  .play-button{
-    font-size:11px;
-    padding:9px 4px;
-  }
-
-  .slots-header{
-    padding:14px 12px;
-  }
-
-  .slots-search{
-    padding:0 12px 12px;
-  }
-
-  .slots-tabs{
-    padding:0 12px 15px;
-  }
-
   .slots-layout{
-    padding:0 12px 40px;
     grid-template-columns:72px 1fr;
     gap:8px;
   }
 
-  .provider-sidebar{
-    height:calc(100vh - 180px);
-    max-height:none;
+  .slots-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
   }
 
   .side-provider{
-    font-size:10px;
-    padding:10px 2px;
-  }
-
-  .slots-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:7px;
-  }
-
-  .slots-grid .favorite{
-    width:26px;
-    height:26px;
-    top:3px;
-    right:3px;
-    font-size:13px;
-  }
-
-  .slots-grid .game-info{
-    padding:5px;
-  }
-
-  .slots-grid .game-title{
+    padding:11px 2px;
     font-size:9px;
   }
 
-  .slots-grid .game-provider{
-    font-size:8px;
-  }
-
-  .slots-grid .play-button{
-    font-size:8px;
-    padding:7px 2px;
-  }
-
-  .profile-container,
-  .simple-screen{
-    padding:14px 14px 95px;
-  }
-
-  .profile-top{
-    padding:20px 15px;
-  }
-
   .profile-demo{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .balance-value{
-    font-size:19px;
-  }
-
-  .profile-item{
-    min-height:63px;
-  }
-
-  .profile-item-title{
-    font-size:14px;
-  }
-
-  .profile-item-description{
-    font-size:10px;
+    grid-template-columns:1fr;
   }
 
   .share-grid{
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .stats-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .stat-value{
-    font-size:19px;
+    grid-template-columns:1fr 1fr 1fr;
   }
 
   .invite-link-box{
@@ -1522,11 +1491,7 @@ header{
   }
 
   .copy-button{
-    height:43px;
-  }
-
-  .modal-box{
-    padding:20px;
+    height:42px;
   }
 
 }
@@ -1540,7 +1505,7 @@ header{
      HEADER
 ========================================================= -->
 
-<header>
+<header id="mainHeader">
 
   <div class="header-inner">
 
@@ -1552,18 +1517,22 @@ header{
       ☰
     </button>
 
-    <div class="logo">
+    <div
+      class="logo"
+      onclick="goHome()"
+      style="cursor:pointer"
+    >
       559627<span>WIN</span>
     </div>
 
     <div class="search-container">
 
       <input
-        id="searchInput"
+        id="globalSearch"
         class="search-input"
         type="search"
-        placeholder="🔎 Procurar jogo..."
-        autocomplete="off"
+        placeholder="Pesquisar jogos..."
+        oninput="searchGames(this.value)"
       >
 
     </div>
@@ -1573,7 +1542,9 @@ header{
       class="account-button"
       onclick="openAccount()"
     >
-      👤 <span id="accountLabel">Entrar</span>
+      <span id="accountLabel">
+        Entrar
+      </span>
     </button>
 
   </div>
@@ -1595,7 +1566,8 @@ header{
     </h1>
 
     <p>
-      Explore milhares de jogos no modo demonstração.
+      Explore jogos, promoções e recursos da
+      plataforma em ambiente demonstrativo.
     </p>
 
     <div class="hero-actions">
@@ -1604,7 +1576,7 @@ header{
         class="hero-button"
         onclick="openSlots()"
       >
-        🎰 Explorar Slots
+        EXPLORAR SLOTS
       </button>
 
       <button
@@ -1612,7 +1584,7 @@ header{
         class="hero-button secondary"
         onclick="openRegister()"
       >
-        📝 Criar cadastro
+        CRIAR CADASTRO
       </button>
 
     </div>
@@ -1623,69 +1595,60 @@ header{
   <div class="quick-menu">
 
     <button
-      id="quickAll"
       class="quick-button active"
-      onclick="showAll(this)"
+      onclick="goHome()"
     >
-      🎰 Todos
+      🏠 Todos
     </button>
 
     <button
       class="quick-button"
-      onclick="showPopular(this)"
+      onclick="showPopular()"
     >
       🔥 Populares
     </button>
 
     <button
       class="quick-button"
-      onclick="openSlots()"
-    >
-      🎰 Slots
-    </button>
-
-    <button
-      class="quick-button"
-      onclick="showNew(this)"
+      onclick="showNew()"
     >
       ✨ Novidades
     </button>
 
     <button
       class="quick-button"
-      onclick="openVip()"
+      onclick="showVip()"
     >
       👑 VIP
     </button>
 
     <button
       class="quick-button"
-      onclick="openRewards()"
+      onclick="showRewards()"
     >
       🎁 Recompensas
     </button>
 
     <button
       class="quick-button"
-      onclick="showPromotion()"
+      onclick="openOffers()"
     >
-      🎁 Promoções
+      🎁 Ofertas
     </button>
 
   </div>
 
 
-  <section
-    id="gamesSection"
-    class="section"
-  >
+  <section class="section">
 
     <div class="section-header">
 
-      <h2>🎰 Jogos</h2>
+      <h2>
+        🎮 Jogos
+      </h2>
 
       <span
-        id="status"
+        id="gamesStatus"
         class="status"
       >
         Carregando...
@@ -1693,10 +1656,12 @@ header{
 
     </div>
 
+
     <div
       id="providers"
       class="providers"
     ></div>
+
 
     <div
       id="games"
@@ -1715,10 +1680,12 @@ header{
 
 
 <!-- =========================================================
-     SLOTS
+     SLOTS SCREEN
 ========================================================= -->
 
-<section id="slotsScreen">
+<section
+  id="slotsScreen"
+>
 
   <div class="slots-header">
 
@@ -1729,59 +1696,69 @@ header{
       ←
     </button>
 
-    <h2>🎰 Slots</h2>
+    <h2>
+      Slots
+    </h2>
 
   </div>
+
 
   <div class="slots-search">
 
     <input
       id="slotsSearch"
       type="search"
-      placeholder="🔎 Procurar slot..."
-      autocomplete="off"
+      placeholder="Pesquisar slots..."
+      oninput="renderSlots()"
     >
 
   </div>
 
+
   <div class="slots-tabs">
 
     <button
+      id="slotsTabSlots"
       class="slots-tab active"
-      onclick="setSlotsTab('slots',this)"
+      onclick="setSlotsTab('slots')"
     >
       Slots
     </button>
 
     <button
+      id="slotsTabPopular"
       class="slots-tab"
-      onclick="setSlotsTab('popular',this)"
+      onclick="setSlotsTab('popular')"
     >
       Popular
     </button>
 
     <button
+      id="slotsTabBrands"
       class="slots-tab"
-      onclick="setSlotsTab('all',this)"
+      onclick="setSlotsTab('brands')"
     >
-      Todas as marcas
+      Todas as Marcas
     </button>
 
     <button
+      id="slotsTabRecent"
       class="slots-tab"
-      onclick="setSlotsTab('recent',this)"
+      onclick="setSlotsTab('recent')"
     >
       Recente
     </button>
 
     <button
+      id="slotsTabFavorites"
       class="slots-tab"
-      onclick="setSlotsTab('favorites',this)"
+      onclick="setSlotsTab('favorites')"
     >
       Favoritos
     </button>
 
   </div>
+
 
   <div class="slots-layout">
 
@@ -1790,23 +1767,21 @@ header{
       class="provider-sidebar"
     ></aside>
 
+
     <div>
 
       <div
-        id="slotsStatus"
-        class="status"
-        style="margin-bottom:10px"
+        id="slotsGrid"
+        class="slots-grid"
       >
-        Carregando...
+        <div class="loading">
+          Carregando...
+        </div>
       </div>
 
-      <div
-        id="slotsGames"
-        class="slots-grid"
-      ></div>
 
       <div
-        id="pagination"
+        id="slotsPagination"
         class="pagination"
       ></div>
 
@@ -1818,12 +1793,30 @@ header{
 
 
 <!-- =========================================================
-     PERFIL
+     PROFILE SCREEN
 ========================================================= -->
 
-<section id="profileScreen">
+<section
+  id="profileScreen"
+>
 
   <div class="profile-container">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="goHome()"
+      >
+        ←
+      </button>
+
+      <h2>
+        Perfil
+      </h2>
+
+    </div>
+
 
     <div class="profile-top">
 
@@ -1861,7 +1854,9 @@ header{
 
         <div class="balance-card">
 
-          <span>Saldo demo</span>
+          <span>
+            Saldo DEMO
+          </span>
 
           <div
             id="profileBalance"
@@ -1872,9 +1867,12 @@ header{
 
         </div>
 
+
         <div class="balance-card">
 
-          <span>Pontos</span>
+          <span>
+            Pontos
+          </span>
 
           <div
             id="profilePoints"
@@ -1894,24 +1892,28 @@ header{
 
       <button
         class="profile-item"
-        onclick="openRecords()"
+        onclick="renderRecords();openScreen('recordsScreen')"
       >
 
-        <div class="profile-icon">📋</div>
+        <div class="profile-icon">
+          📋
+        </div>
 
         <div class="profile-item-content">
 
           <div class="profile-item-title">
-            Meus Registros
+            Meus registros
           </div>
 
           <div class="profile-item-description">
-            Histórico das atividades demo
+            Histórico de atividades
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -1921,7 +1923,9 @@ header{
         onclick="openWithdrawals()"
       >
 
-        <div class="profile-icon">💳</div>
+        <div class="profile-icon">
+          💸
+        </div>
 
         <div class="profile-item-content">
 
@@ -1930,12 +1934,14 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Área demonstrativa de saques
+            Solicitações DEMO
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -1945,7 +1951,9 @@ header{
         onclick="showPromotion()"
       >
 
-        <div class="profile-icon">🎁</div>
+        <div class="profile-icon">
+          👑
+        </div>
 
         <div class="profile-item-content">
 
@@ -1954,12 +1962,14 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Consulte promoções e recompensas
+            Benefícios e recompensas
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -1969,7 +1979,9 @@ header{
         onclick="openInvite()"
       >
 
-        <div class="profile-icon">🤝</div>
+        <div class="profile-icon">
+          🤝
+        </div>
 
         <div class="profile-item-content">
 
@@ -1978,12 +1990,14 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Seu link, QR Code e recompensas
+            Seu link exclusivo de convite
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -1993,7 +2007,9 @@ header{
         onclick="openWallet()"
       >
 
-        <div class="profile-icon">💰</div>
+        <div class="profile-icon">
+          💰
+        </div>
 
         <div class="profile-item-content">
 
@@ -2002,12 +2018,14 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Saldo e créditos demo
+            Saldo e movimentações DEMO
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2017,7 +2035,9 @@ header{
         onclick="openNotifications()"
       >
 
-        <div class="profile-icon">🔔</div>
+        <div class="profile-icon">
+          🔔
+        </div>
 
         <div class="profile-item-content">
 
@@ -2026,22 +2046,26 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Avisos e novidades da plataforma
+            Avisos da plataforma
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
 
       <button
         class="profile-item"
-        onclick="openDataScreen()"
+        onclick="openData()"
       >
 
-        <div class="profile-icon">👤</div>
+        <div class="profile-icon">
+          👤
+        </div>
 
         <div class="profile-item-content">
 
@@ -2050,22 +2074,26 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Informações da sua conta
+            Informações da conta
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
 
       <button
         class="profile-item"
-        onclick="openSecurityScreen()"
+        onclick="openSecurity()"
       >
 
-        <div class="profile-icon">🛡️</div>
+        <div class="profile-icon">
+          🔐
+        </div>
 
         <div class="profile-item-content">
 
@@ -2074,12 +2102,14 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Proteção e acesso da conta
+            Senha e sessão
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2089,7 +2119,9 @@ header{
         onclick="openResponsible()"
       >
 
-        <div class="profile-icon">❤️</div>
+        <div class="profile-icon">
+          🛡️
+        </div>
 
         <div class="profile-item-content">
 
@@ -2098,12 +2130,14 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Controle e proteção
+            Informações importantes
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2113,7 +2147,9 @@ header{
         onclick="openSupport()"
       >
 
-        <div class="profile-icon">💬</div>
+        <div class="profile-icon">
+          💬
+        </div>
 
         <div class="profile-item-content">
 
@@ -2122,12 +2158,14 @@ header{
           </div>
 
           <div class="profile-item-description">
-            Precisa de ajuda?
+            Fale com a equipe
           </div>
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2137,7 +2175,9 @@ header{
         onclick="openFaq()"
       >
 
-        <div class="profile-icon">❓</div>
+        <div class="profile-icon">
+          ❓
+        </div>
 
         <div class="profile-item-content">
 
@@ -2151,7 +2191,9 @@ header{
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2161,12 +2203,14 @@ header{
         onclick="openAbout()"
       >
 
-        <div class="profile-icon">ℹ️</div>
+        <div class="profile-icon">
+          ℹ️
+        </div>
 
         <div class="profile-item-content">
 
           <div class="profile-item-title">
-            Sobre o 559627WIN
+            Sobre
           </div>
 
           <div class="profile-item-description">
@@ -2175,7 +2219,9 @@ header{
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2186,7 +2232,9 @@ header{
         onclick="openLogin()"
       >
 
-        <div class="profile-icon">🔐</div>
+        <div class="profile-icon">
+          🔑
+        </div>
 
         <div class="profile-item-content">
 
@@ -2200,7 +2248,9 @@ header{
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2211,7 +2261,9 @@ header{
         onclick="logout()"
       >
 
-        <div class="profile-icon">🚪</div>
+        <div class="profile-icon">
+          🚪
+        </div>
 
         <div class="profile-item-content">
 
@@ -2225,7 +2277,9 @@ header{
 
         </div>
 
-        <div class="profile-arrow">›</div>
+        <div class="profile-arrow">
+          ›
+        </div>
 
       </button>
 
@@ -2237,10 +2291,12 @@ header{
 
 
 <!-- =========================================================
-     OFERTAS
+     OFFERS
 ========================================================= -->
 
-<section id="offersScreen">
+<section
+  id="offersScreen"
+>
 
   <div class="simple-screen">
 
@@ -2253,9 +2309,12 @@ header{
         ←
       </button>
 
-      <h2>🎁 Ofertas</h2>
+      <h2>
+        🎁 Ofertas
+      </h2>
 
     </div>
+
 
     <div class="simple-card">
 
@@ -2263,67 +2322,21 @@ header{
         DEMO
       </span>
 
-      <h3 style="margin-top:10px">
-        Oferta de boas-vindas
+      <h3 style="margin-top:12px;">
+        Bônus de boas-vindas
       </h3>
 
       <p>
-        Receba créditos virtuais para conhecer
+        Ganhe créditos virtuais para testar
         a plataforma.
       </p>
 
       <button
         class="action-button"
-        onclick="claimDemoReward()"
+        onclick="addDemoBalance()"
       >
-        RECEBER RECOMPENSA DEMO
+        RECEBER R$ 1.000 DEMO
       </button>
-
-    </div>
-
-    <div class="simple-card">
-
-      <h3>
-        🎰 Free Spins DEMO
-      </h3>
-
-      <p>
-        Promoção demonstrativa para futuras
-        campanhas da plataforma.
-      </p>
-
-      <button
-        class="outline-button"
-        onclick="toast('Promoção DEMO selecionada')"
-      >
-        VER PROMOÇÃO
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROMOÇÃO
-========================================================= -->
-
-<section id="promotionScreen">
-
-  <div class="simple-screen">
-
-    <div class="simple-header">
-
-      <button
-        class="back-button"
-        onclick="openProfile()"
-      >
-        ←
-      </button>
-
-      <h2>👑 Promoções</h2>
 
     </div>
 
@@ -2334,40 +2347,20 @@ header{
         DEMO
       </span>
 
-      <h3 style="margin-top:10px">
-        🎁 Convide amigos
+      <h3 style="margin-top:12px;">
+        Convide seus amigos
       </h3>
 
       <p>
-        Compartilhe seu link e acompanhe suas
-        recompensas de demonstração.
+        Compartilhe seu link exclusivo e
+        acompanhe seus convidados.
       </p>
 
       <button
         class="action-button"
         onclick="openInvite()"
       >
-        CONVIDAR AGORA
-      </button>
-
-    </div>
-
-
-    <div class="simple-card">
-
-      <h3>
-        👑 Programa VIP
-      </h3>
-
-      <p>
-        Sistema de níveis e pontos demonstrativo.
-      </p>
-
-      <button
-        class="action-button"
-        onclick="openVip()"
-      >
-        VER MEU VIP
+        CONVIDAR AMIGOS
       </button>
 
     </div>
@@ -2378,10 +2371,12 @@ header{
 
 
 <!-- =========================================================
-     CARTEIRA
+     PROMOTION
 ========================================================= -->
 
-<section id="walletScreen">
+<section
+  id="promotionScreen"
+>
 
   <div class="simple-screen">
 
@@ -2394,7 +2389,9 @@ header{
         ←
       </button>
 
-      <h2>💰 Minha carteira</h2>
+      <h2>
+        👑 Promoções
+      </h2>
 
     </div>
 
@@ -2402,25 +2399,100 @@ header{
     <div class="simple-card">
 
       <span class="demo-badge">
-        SALDO DEMO
+        DEMO
       </span>
+
+      <h3 style="margin-top:12px;">
+        Programa de recompensas
+      </h3>
+
+      <p>
+        Acumule pontos utilizando os recursos
+        demonstrativos da plataforma.
+      </p>
+
+      <button
+        class="action-button"
+        onclick="showRewards()"
+      >
+        VER RECOMPENSAS
+      </button>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Convide e ganhe
+      </h3>
+
+      <p>
+        Cada usuário possui um código de
+        convite exclusivo.
+      </p>
+
+      <button
+        class="action-button"
+        onclick="openInvite()"
+      >
+        MEU LINK DE CONVITE
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     WALLET
+========================================================= -->
+
+<section
+  id="walletScreen"
+>
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
+      <h2>
+        💰 Minha carteira
+      </h2>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <span class="demo-badge">
+        AMBIENTE DEMONSTRATIVO
+      </span>
+
+      <h3 style="margin-top:12px;">
+        Saldo disponível
+      </h3>
 
       <div
         id="walletBalance"
         style="
-          font-size:36px;
-          font-weight:900;
-          color:#f5c400;
           margin-top:10px;
+          color:#f5c400;
+          font-size:34px;
+          font-weight:900;
         "
       >
         R$ 100.000,00
       </div>
-
-      <p>
-        Este saldo é exclusivamente virtual.
-        Nenhuma transação financeira real é realizada.
-      </p>
 
       <button
         class="action-button"
@@ -2434,47 +2506,12 @@ header{
 
     <div class="simple-card">
 
-      <h3>Movimentações demo</h3>
-
-      <div id="walletHistory"></div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     REGISTROS
-========================================================= -->
-
-<section id="recordsScreen">
-
-  <div class="simple-screen">
-
-    <div class="simple-header">
-
-      <button
-        class="back-button"
-        onclick="openProfile()"
-      >
-        ←
-      </button>
-
-      <h2>📋 Meus Registros</h2>
-
-    </div>
-
-    <div class="simple-card">
-
-      <span class="demo-badge">
-        ATIVIDADE DEMO
-      </span>
+      <h3>
+        Movimentações
+      </h3>
 
       <div
-        id="recordsList"
-        style="margin-top:15px"
+        id="walletHistory"
       ></div>
 
     </div>
@@ -2485,10 +2522,12 @@ header{
 
 
 <!-- =========================================================
-     SAQUES
+     RECORDS
 ========================================================= -->
 
-<section id="withdrawalsScreen">
+<section
+  id="recordsScreen"
+>
 
   <div class="simple-screen">
 
@@ -2501,7 +2540,45 @@ header{
         ←
       </button>
 
-      <h2>💳 Gestão de saques</h2>
+      <h2>
+        📋 Meus registros
+      </h2>
+
+    </div>
+
+
+    <div
+      id="recordsList"
+      class="simple-card"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     WITHDRAWALS
+========================================================= -->
+
+<section
+  id="withdrawalsScreen"
+>
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
+      <h2>
+        💸 Gestão de saques
+      </h2>
 
     </div>
 
@@ -2509,24 +2586,26 @@ header{
     <div class="simple-card">
 
       <span class="demo-badge">
-        SOMENTE DEMO
+        DEMO
       </span>
 
-      <h3 style="margin-top:10px">
-        Solicitação de saque
+      <h3 style="margin-top:12px;">
+        Solicitar saque
       </h3>
 
       <p>
-        Esta tela representa o fluxo visual de
-        saque. Nenhum valor real será transferido.
+        Esta função registra somente uma
+        solicitação virtual.
       </p>
 
       <input
         id="withdrawAmount"
         class="field"
         type="number"
+        min="1"
+        step="0.01"
         placeholder="Valor DEMO"
-        style="margin-top:15px"
+        style="margin-top:15px;"
       >
 
       <button
@@ -2542,10 +2621,13 @@ header{
     <div class="simple-card">
 
       <h3>
-        Histórico
+        Histórico de solicitações
       </h3>
 
-      <div id="withdrawalHistory"></div>
+      <div
+        id="withdrawalHistory"
+        style="margin-top:10px;"
+      ></div>
 
     </div>
 
@@ -2555,10 +2637,12 @@ header{
 
 
 <!-- =========================================================
-     DADOS
+     DATA
 ========================================================= -->
 
-<section id="dataScreen">
+<section
+  id="dataScreen"
+>
 
   <div class="simple-screen">
 
@@ -2571,99 +2655,9 @@ header{
         ←
       </button>
 
-      <h2>👤 Meus dados</h2>
-
-    </div>
-
-
-    <div class="simple-card">
-
-      <div
-        style="color:#777;font-size:12px"
-      >
-        E-mail
-      </div>
-
-      <div
-        id="dataEmail"
-        style="
-          margin-top:5px;
-          font-weight:900;
-        "
-      >
-        —
-      </div>
-
-    </div>
-
-
-    <div class="simple-card">
-
-      <div
-        style="color:#777;font-size:12px"
-      >
-        ID da conta
-      </div>
-
-      <div
-        id="dataId"
-        style="
-          margin-top:5px;
-          font-weight:900;
-          word-break:break-all;
-        "
-      >
-        —
-      </div>
-
-    </div>
-
-
-    <div class="simple-card">
-
-      <div
-        style="color:#777;font-size:12px"
-      >
-        Código de convite
-      </div>
-
-      <div
-        id="dataReferral"
-        style="
-          margin-top:5px;
-          font-size:20px;
-          color:#f5c400;
-          font-weight:900;
-        "
-      >
-        —
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     SEGURANÇA
-========================================================= -->
-
-<section id="securityScreen">
-
-  <div class="simple-screen">
-
-    <div class="simple-header">
-
-      <button
-        class="back-button"
-        onclick="openProfile()"
-      >
-        ←
-      </button>
-
-      <h2>🛡️ Segurança</h2>
+      <h2>
+        👤 Dados
+      </h2>
 
     </div>
 
@@ -2671,16 +2665,75 @@ header{
     <div class="simple-card">
 
       <h3>
-        🔐 Autenticação
+        Informações da conta
       </h3>
 
       <p>
-        Sua sessão é administrada pelo Supabase Auth.
+        E-mail:
+        <strong
+          id="dataEmail"
+          style="color:#fff;"
+        >
+          -
+        </strong>
+      </p>
+
+      <p>
+        Código de convite:
+        <strong
+          id="dataReferral"
+          style="color:#f5c400;"
+        >
+          -
+        </strong>
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SECURITY
+========================================================= -->
+
+<section
+  id="securityScreen"
+>
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
+      <h2>
+        🔐 Segurança
+      </h2>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Alterar senha
+      </h3>
+
+      <p>
+        Atualize sua senha de acesso.
       </p>
 
       <button
         class="action-button"
-        onclick="openChangePassword()"
+        onclick="openPasswordModal()"
       >
         ALTERAR SENHA
       </button>
@@ -2691,7 +2744,7 @@ header{
     <div class="simple-card">
 
       <h3>
-        🟢 Sessão atual
+        Sessão
       </h3>
 
       <p>
@@ -2719,13 +2772,13 @@ header{
   </div>
 
 </section>
-
-
 <!-- =========================================================
-     SOBRE
+     ABOUT
 ========================================================= -->
 
-<section id="aboutScreen">
+<section
+  id="aboutScreen"
+>
 
   <div class="simple-screen">
 
@@ -2738,38 +2791,27 @@ header{
         ←
       </button>
 
-      <h2>ℹ️ Sobre</h2>
+      <h2>
+        ℹ️ Sobre
+      </h2>
 
     </div>
 
 
     <div class="simple-card">
 
-      <h3>
+      <span class="demo-badge">
         559627WIN
+      </span>
+
+      <h3 style="margin-top:12px;">
+        Plataforma demonstrativa
       </h3>
 
       <p>
-        Plataforma demonstrativa de entretenimento
-        digital.
-      </p>
-
-      <p>
-        Versão: 1.0.0 DEMO
-      </p>
-
-    </div>
-
-
-    <div class="simple-card">
-
-      <h3>
-        Termos de uso
-      </h3>
-
-      <p>
-        Esta versão utiliza exclusivamente créditos
-        e recursos demonstrativos.
+        A 559627WIN é um ambiente de demonstração
+        desenvolvido para apresentar a experiência
+        de navegação, jogos e recursos da plataforma.
       </p>
 
     </div>
@@ -2778,12 +2820,12 @@ header{
     <div class="simple-card">
 
       <h3>
-        Política de privacidade
+        Ambiente DEMO
       </h3>
 
       <p>
-        Dados de autenticação são administrados
-        pelo Supabase Auth.
+        Os valores exibidos na carteira são créditos
+        virtuais utilizados exclusivamente para testes.
       </p>
 
     </div>
@@ -2797,7 +2839,9 @@ header{
      FAQ
 ========================================================= -->
 
-<section id="faqScreen">
+<section
+  id="faqScreen"
+>
 
   <div class="simple-screen">
 
@@ -2810,7 +2854,9 @@ header{
         ←
       </button>
 
-      <h2>❓ FAQ</h2>
+      <h2>
+        ❓ FAQ
+      </h2>
 
     </div>
 
@@ -2821,12 +2867,15 @@ header{
         class="faq-question"
         onclick="toggleFaq(this)"
       >
-        Como criar uma conta?
+        Como funciona a plataforma?
       </button>
 
       <div class="faq-answer">
-        Clique em Criar cadastro e informe seu
-        e-mail e senha.
+
+        A plataforma possui uma área de jogos,
+        perfil, carteira demonstrativa, promoções
+        e sistema de convites.
+
       </div>
 
     </div>
@@ -2838,12 +2887,15 @@ header{
         class="faq-question"
         onclick="toggleFaq(this)"
       >
-        Preciso informar telefone?
+        O saldo é dinheiro real?
       </button>
 
       <div class="faq-answer">
-        Não. A versão atual utiliza somente
-        e-mail e senha.
+
+        Não. O saldo apresentado atualmente é
+        exclusivamente DEMO e serve para testes
+        da interface e das funcionalidades.
+
       </div>
 
     </div>
@@ -2855,12 +2907,14 @@ header{
         class="faq-question"
         onclick="toggleFaq(this)"
       >
-        Os jogos usam dinheiro real?
+        Como funciona o convite?
       </button>
 
       <div class="faq-answer">
-        Não. Esta versão utiliza o ambiente
-        demonstrativo.
+
+        Cada usuário cadastrado recebe um código
+        e um link exclusivo de convite.
+
       </div>
 
     </div>
@@ -2872,14 +2926,16 @@ header{
         class="faq-question"
         onclick="toggleFaq(this)"
       >
-        Como funciona meu link de convite?
+        Preciso confirmar meu e-mail?
       </button>
 
       <div class="faq-answer">
-        Cada usuário recebe um código único e
-        permanente. Quando outra pessoa acessa
-        o link, o código é capturado durante o
-        cadastro.
+
+        O fluxo da plataforma foi preparado para
+        funcionar sem exigir confirmação de e-mail,
+        desde que essa opção esteja desativada
+        no projeto de autenticação.
+
       </div>
 
     </div>
@@ -2891,11 +2947,14 @@ header{
         class="faq-question"
         onclick="toggleFaq(this)"
       >
-        Onde encontro meus registros?
+        Posso usar pelo celular?
       </button>
 
       <div class="faq-answer">
-        Acesse Perfil → Meus Registros.
+
+        Sim. A interface foi desenvolvida para
+        funcionar também em telas pequenas.
+
       </div>
 
     </div>
@@ -2906,10 +2965,12 @@ header{
 
 
 <!-- =========================================================
-     SUPORTE
+     SUPPORT
 ========================================================= -->
 
-<section id="supportScreen">
+<section
+  id="supportScreen"
+>
 
   <div class="simple-screen">
 
@@ -2922,7 +2983,9 @@ header{
         ←
       </button>
 
-      <h2>💬 Suporte</h2>
+      <h2>
+        💬 Suporte
+      </h2>
 
     </div>
 
@@ -2930,19 +2993,19 @@ header{
     <div class="simple-card">
 
       <h3>
-        Precisa de ajuda?
+        Central de atendimento
       </h3>
 
       <p>
-        Entre em contato com o suporte da
-        plataforma.
+        Entre em contato com a equipe através
+        dos canais disponíveis na plataforma.
       </p>
 
       <button
         class="action-button"
-        onclick="openSupportWhatsApp()"
+        onclick="contactSupport()"
       >
-        ABRIR SUPORTE
+        FALAR COM SUPORTE
       </button>
 
     </div>
@@ -2951,11 +3014,12 @@ header{
     <div class="simple-card">
 
       <h3>
-        🕐 Atendimento
+        Horário de atendimento
       </h3>
 
       <p>
-        Central de atendimento demonstrativa.
+        Atendimento conforme disponibilidade
+        da equipe responsável.
       </p>
 
     </div>
@@ -2966,10 +3030,12 @@ header{
 
 
 <!-- =========================================================
-     JOGO RESPONSÁVEL
+     RESPONSIBLE
 ========================================================= -->
 
-<section id="responsibleScreen">
+<section
+  id="responsibleScreen"
+>
 
   <div class="simple-screen">
 
@@ -2982,7 +3048,9 @@ header{
         ←
       </button>
 
-      <h2>❤️ Jogo responsável</h2>
+      <h2>
+        🛡️ Jogo responsável
+      </h2>
 
     </div>
 
@@ -2990,15 +3058,1982 @@ header{
     <div class="simple-card">
 
       <h3>
-        Controle de tempo
+        Ambiente demonstrativo
       </h3>
 
       <p>
-        Use pausas e limites para manter o
-        entretenimento sob controle.
+        Os jogos disponibilizados nesta versão
+        utilizam créditos virtuais para fins
+        de demonstração.
       </p>
 
     </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        Controle de uso
+      </h3>
+
+      <p>
+        Utilize a plataforma de maneira consciente
+        e faça pausas sempre que necessário.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     NOTIFICATIONS
+========================================================= -->
+
+<section
+  id="notificationsScreen"
+>
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
+      <h2>
+        🔔 Notificações
+      </h2>
+
+    </div>
+
+
+    <div
+      id="notificationsList"
+    >
+
+      <div class="notification">
+
+        <div class="notification-icon">
+          🎁
+        </div>
+
+        <div class="notification-content">
+
+          <div class="notification-title">
+            Bem-vindo à 559627WIN
+          </div>
+
+          <div class="notification-text">
+            Explore a plataforma e conheça
+            os recursos disponíveis.
+          </div>
+
+          <div class="notification-date">
+            Agora
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="notification">
+
+        <div class="notification-icon">
+          💰
+        </div>
+
+        <div class="notification-content">
+
+          <div class="notification-title">
+            Saldo DEMO
+          </div>
+
+          <div class="notification-text">
+            Sua carteira utiliza créditos
+            virtuais para testes.
+          </div>
+
+          <div class="notification-date">
+            Agora
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="notification">
+
+        <div class="notification-icon">
+          🤝
+        </div>
+
+        <div class="notification-content">
+
+          <div class="notification-title">
+            Convide seus amigos
+          </div>
+
+          <div class="notification-text">
+            Compartilhe seu link exclusivo
+            de convite.
+          </div>
+
+          <div class="notification-date">
+            Agora
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     INVITE SCREEN
+========================================================= -->
+
+<section
+  id="inviteScreen"
+>
+
+  <div class="simple-screen">
+
+    <div class="simple-header">
+
+      <button
+        class="back-button"
+        onclick="openProfile()"
+      >
+        ←
+      </button>
+
+      <h2>
+        🤝 Convidar amigos
+      </h2>
+
+    </div>
+
+
+    <div class="invite-hero">
+
+      <span class="demo-badge">
+        PROGRAMA DE CONVITES
+      </span>
+
+      <h3 style="margin-top:12px;">
+        Convide amigos e ganhe benefícios
+      </h3>
+
+      <p>
+        Compartilhe seu link exclusivo de convite
+        e acompanhe seus resultados diretamente
+        pelo seu perfil.
+      </p>
+
+
+      <div class="ref-code">
+
+        <div class="ref-code-label">
+          Seu código de convite
+        </div>
+
+        <div
+          id="referralCode"
+          class="ref-code-value"
+        >
+          CARREGANDO...
+        </div>
+
+      </div>
+
+
+      <div class="invite-link-box">
+
+        <input
+          id="inviteLink"
+          type="text"
+          readonly
+        >
+
+        <button
+          class="copy-button"
+          onclick="copyInviteLink()"
+        >
+          COPIAR
+        </button>
+
+      </div>
+
+
+      <div class="qr-wrapper">
+
+        <div class="qr-box">
+
+          <div
+            id="inviteQr"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div class="share-grid">
+
+        <button
+          class="share-button"
+          onclick="shareInvite('whatsapp')"
+        >
+          🟢 WhatsApp
+        </button>
+
+        <button
+          class="share-button"
+          onclick="shareInvite('telegram')"
+        >
+          🔵 Telegram
+        </button>
+
+        <button
+          class="share-button"
+          onclick="shareInvite('facebook')"
+        >
+          🔵 Facebook
+        </button>
+
+        <button
+          class="share-button"
+          onclick="shareInvite('native')"
+        >
+          📤 Compartilhar
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        📊 Meu desempenho
+      </h3>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <div
+            id="inviteTotal"
+            class="stat-value"
+          >
+            0
+          </div>
+
+          <div class="stat-label">
+            Convites
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div
+            id="inviteDirect"
+            class="stat-value"
+          >
+            0
+          </div>
+
+          <div class="stat-label">
+            Diretos
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div
+            id="inviteRewards"
+            class="stat-value"
+          >
+            R$ 0
+          </div>
+
+          <div class="stat-label">
+            Recompensas DEMO
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        🎁 Benefícios
+      </h3>
+
+
+      <div class="reward-row">
+
+        <div>
+          Convite realizado
+        </div>
+
+        <div class="reward-value">
+          +100 pts
+        </div>
+
+      </div>
+
+
+      <div class="reward-row">
+
+        <div>
+          Amigo cadastrado
+        </div>
+
+        <div class="reward-value">
+          +500 pts
+        </div>
+
+      </div>
+
+
+      <div class="reward-row">
+
+        <div>
+          Campanhas especiais
+        </div>
+
+        <div class="reward-value">
+          Variável
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="simple-card">
+
+      <h3>
+        📢 Como funciona
+      </h3>
+
+      <p>
+        1. Copie seu link exclusivo.
+      </p>
+
+      <p>
+        2. Envie para seus amigos.
+      </p>
+
+      <p>
+        3. Quando eles acessarem pelo seu link,
+        o código de referência será identificado.
+      </p>
+
+      <p>
+        4. Acompanhe seus resultados nesta tela.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     BOTTOM NAV
+========================================================= -->
+
+<nav
+  id="bottomNav"
+  class="bottom-nav"
+>
+
+  <button
+    id="navHome"
+    class="bottom-nav-button active"
+    onclick="goHome()"
+  >
+
+    <span class="bottom-nav-icon">
+      🏠
+    </span>
+
+    Começar
+
+  </button>
+
+
+  <button
+    id="navOffers"
+    class="bottom-nav-button"
+    onclick="openOffers()"
+  >
+
+    <span class="bottom-nav-icon">
+      🎁
+    </span>
+
+    Ofertas
+
+  </button>
+
+
+  <button
+    id="navPromotion"
+    class="bottom-nav-button"
+    onclick="showPromotion()"
+  >
+
+    <span class="bottom-nav-icon">
+      👑
+    </span>
+
+    Promoção
+
+  </button>
+
+
+  <button
+    id="navWallet"
+    class="bottom-nav-button"
+    onclick="openWallet()"
+  >
+
+    <span class="bottom-nav-icon">
+      💰
+    </span>
+
+    Carteira
+
+  </button>
+
+
+  <button
+    id="navProfile"
+    class="bottom-nav-button"
+    onclick="openProfile()"
+  >
+
+    <span class="bottom-nav-icon">
+      👤
+    </span>
+
+    Perfil
+
+  </button>
+
+</nav>
+
+
+<!-- =========================================================
+     DRAWER
+========================================================= -->
+
+<div
+  id="drawerOverlay"
+  class="drawer-overlay"
+  onclick="closeMenu()"
+></div>
+
+
+<aside
+  id="drawer"
+  class="drawer"
+>
+
+  <div class="drawer-header">
+
+    <div class="drawer-logo">
+      559627<span>WIN</span>
+    </div>
+
+    <button
+      class="close-button"
+      onclick="closeMenu()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <button
+    class="menu-item"
+    onclick="goHome();closeMenu()"
+  >
+    🏠 Início
+  </button>
+
+
+  <button
+    class="menu-item"
+    onclick="openSlots();closeMenu()"
+  >
+    🎰 Slots
+  </button>
+
+
+  <button
+    class="menu-item"
+    onclick="showPromotion();closeMenu()"
+  >
+    👑 Promoções
+  </button>
+
+
+  <button
+    class="menu-item"
+    onclick="openInvite();closeMenu()"
+  >
+    🤝 Convidar amigos
+  </button>
+
+
+  <button
+    class="menu-item"
+    onclick="openWallet();closeMenu()"
+  >
+    💰 Carteira
+  </button>
+
+
+  <button
+    class="menu-item"
+    onclick="openProfile();closeMenu()"
+  >
+    👤 Perfil
+  </button>
+
+
+  <button
+    class="menu-item"
+    onclick="openSupport();closeMenu()"
+  >
+    💬 Suporte
+  </button>
+
+</aside>
+
+
+<!-- =========================================================
+     AUTH MODAL
+========================================================= -->
+
+<div
+  id="authModal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2 id="authTitle">
+        Entrar
+      </h2>
+
+      <button
+        class="close-button"
+        onclick="closeAuth()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div id="loginForm">
+
+      <input
+        id="loginEmail"
+        class="field"
+        type="email"
+        autocomplete="email"
+        placeholder="E-mail"
+      >
+
+
+      <input
+        id="loginPassword"
+        class="field"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Senha"
+      >
+
+
+      <button
+        class="primary-button"
+        onclick="login()"
+      >
+        ENTRAR
+      </button>
+
+
+      <button
+        class="secondary-button"
+        onclick="openRegister()"
+      >
+        CRIAR CONTA
+      </button>
+
+
+      <div
+        id="loginMessage"
+        class="modal-message"
+      ></div>
+
+    </div>
+
+
+    <div
+      id="registerForm"
+      class="hidden"
+    >
+
+      <input
+        id="registerEmail"
+        class="field"
+        type="email"
+        autocomplete="email"
+        placeholder="E-mail"
+      >
+
+
+      <input
+        id="registerPassword"
+        class="field"
+        type="password"
+        autocomplete="new-password"
+        placeholder="Senha"
+      >
+
+
+      <input
+        id="registerPasswordConfirm"
+        class="field"
+        type="password"
+        autocomplete="new-password"
+        placeholder="Confirmar senha"
+      >
+
+
+      <label class="checkbox-row">
+
+        <input
+          id="ageCheck"
+          type="checkbox"
+        >
+
+        <span>
+          Confirmo que tenho 18 anos ou mais
+          e aceito os termos de uso da plataforma.
+        </span>
+
+      </label>
+
+
+      <button
+        class="primary-button"
+        onclick="register()"
+      >
+        CRIAR CADASTRO
+      </button>
+
+
+      <button
+        class="secondary-button"
+        onclick="openLogin()"
+      >
+        JÁ TENHO UMA CONTA
+      </button>
+
+
+      <div
+        id="registerMessage"
+        class="modal-message"
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     PASSWORD MODAL
+========================================================= -->
+
+<div
+  id="passwordModal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2>
+        Alterar senha
+      </h2>
+
+      <button
+        class="close-button"
+        onclick="closePasswordModal()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <input
+      id="newPassword"
+      class="field"
+      type="password"
+      placeholder="Nova senha"
+    >
+
+
+    <button
+      class="primary-button"
+      onclick="changePassword()"
+    >
+      ALTERAR SENHA
+    </button>
+
+
+    <div
+      id="passwordMessage"
+      class="modal-message"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     GAME MODAL
+========================================================= -->
+
+<div
+  id="gameModal"
+  class="game-modal"
+>
+
+  <div class="game-bar">
+
+    <strong
+      id="gameModalTitle"
+    >
+      Jogo
+    </strong>
+
+
+    <button
+      class="close-button"
+      onclick="closeGame()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <iframe
+    id="gameFrame"
+    class="game-frame"
+    allow="autoplay; fullscreen"
+  ></iframe>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+  id="toast"
+  class="toast"
+></div>
+
+
+<script>
+
+const SUPABASE_URL =
+  "https://dzjjtdxukdagcjjjpnpq.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
+
+const LAUNCH_FUNCTION =
+  `${SUPABASE_URL}/functions/v1/bigbang-launch`;
+
+const GAMES_FUNCTION =
+  `${SUPABASE_URL}/functions/v1/bigbang-games`;
+
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+let currentUser = null;
+
+let allGames = [];
+
+let currentSlotsTab = "slots";
+
+let currentProvider = "all";
+
+let currentSlotsPage = 1;
+
+let slotsPerPage = 15;
+
+let demoWallet = {
+  balance: 0,
+  locked_balance: 0,
+  currency: "BRL"
+};
+
+
+let pendingReferralCode = null;
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function money(value){
+
+  return new Intl.NumberFormat(
+    "pt-BR",
+    {
+      style:"currency",
+      currency:"BRL"
+    }
+  ).format(Number(value || 0));
+
+}
+
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  if(!toast){
+    return;
+  }
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+  window.toastTimer =
+    setTimeout(
+      () => {
+        toast.classList.remove("show");
+      },
+      2800
+    );
+
+}
+
+
+function userStorageKey(name){
+
+  if(!currentUser){
+    return `559627WIN_demo_${name}`;
+  }
+
+  return `559627WIN_${currentUser.id}_${name}`;
+
+}
+
+
+function getRecords(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        userStorageKey("records")
+      ) || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function saveRecords(records){
+
+  localStorage.setItem(
+    userStorageKey("records"),
+    JSON.stringify(records)
+  );
+
+}
+
+
+function addRecord(record){
+
+  const records =
+    getRecords();
+
+  records.unshift({
+    ...record,
+    created_at:
+      new Date().toISOString()
+  });
+
+  saveRecords(
+    records.slice(0,100)
+  );
+
+}
+
+
+function getPoints(){
+
+  return Number(
+    localStorage.getItem(
+      userStorageKey("points")
+    ) || 0
+  );
+
+}
+
+
+function setPoints(value){
+
+  localStorage.setItem(
+    userStorageKey("points"),
+    String(
+      Math.max(
+        0,
+        Number(value || 0)
+      )
+    )
+  );
+
+}
+
+
+function addPoints(value){
+
+  const next =
+    getPoints() +
+    Number(value || 0);
+
+  setPoints(next);
+
+  updateProfile();
+
+  return next;
+
+}
+
+
+/* =========================================================
+   WALLET DEMO — SUPABASE
+========================================================= */
+
+function resetDemoWallet(){
+
+  demoWallet = {
+    balance:0,
+    locked_balance:0,
+    currency:"BRL"
+  };
+
+}
+
+
+function getDemoBalance(){
+
+  return Number(
+    demoWallet.balance || 0
+  );
+
+}
+
+
+async function loadDemoWallet(){
+
+  if(!currentUser){
+
+    resetDemoWallet();
+
+    updateProfile();
+
+    updateWallet();
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.rpc(
+        "get_demo_wallet"
+      );
+
+
+    if(error){
+
+      console.error(
+        "Erro ao carregar carteira:",
+        error
+      );
+
+      showToast(
+        "Não foi possível carregar a carteira."
+      );
+
+      return;
+
+    }
+
+
+    if(data){
+
+      demoWallet = {
+        balance:
+          Number(
+            data.balance || 0
+          ),
+
+        locked_balance:
+          Number(
+            data.locked_balance || 0
+          ),
+
+        currency:
+          data.currency || "BRL"
+      };
+
+    }else{
+
+      resetDemoWallet();
+
+    }
+
+
+    updateProfile();
+
+    await updateWallet();
+
+  }catch(error){
+
+    console.error(
+      "Erro na carteira:",
+      error
+    );
+
+  }
+
+}
+
+
+async function updateWallet(){
+
+  const balance =
+    getDemoBalance();
+
+
+  const walletBalance =
+    document.getElementById(
+      "walletBalance"
+    );
+
+  if(walletBalance){
+
+    walletBalance.textContent =
+      money(balance);
+
+  }
+
+
+  const profileBalance =
+    document.getElementById(
+      "profileBalance"
+    );
+
+  if(profileBalance){
+
+    profileBalance.textContent =
+      money(balance);
+
+  }
+
+
+  const history =
+    document.getElementById(
+      "walletHistory"
+    );
+
+  if(!history){
+
+    return;
+
+  }
+
+
+  if(!currentUser){
+
+    history.innerHTML = `
+      <p style="color:#777;">
+        Entre na sua conta para visualizar
+        a carteira.
+      </p>
+    `;
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("wallet_transactions")
+        .select(
+          "id,type,amount,description,balance_after,created_at"
+        )
+        .eq(
+          "user_id",
+          currentUser.id
+        )
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        )
+        .limit(30);
+
+
+    if(error){
+
+      console.error(
+        "Erro no extrato:",
+        error
+      );
+
+      history.innerHTML = `
+        <p style="color:#ff7777;">
+          Erro ao carregar o extrato.
+        </p>
+      `;
+
+      return;
+
+    }
+
+
+    if(!data || !data.length){
+
+      history.innerHTML = `
+        <p style="color:#777;">
+          Nenhuma movimentação encontrada.
+        </p>
+      `;
+
+      return;
+
+    }
+
+
+    history.innerHTML =
+      data.map(
+        item => {
+
+          const amount =
+            Number(
+              item.amount || 0
+            );
+
+          const positive =
+            amount >= 0;
+
+          const date =
+            item.created_at
+              ? new Date(
+                  item.created_at
+                ).toLocaleString(
+                  "pt-BR"
+                )
+              : "-";
+
+
+          return `
+
+            <div
+              style="
+                padding:13px 0;
+                border-bottom:1px solid #292929;
+              "
+            >
+
+              <div
+                style="
+                  display:flex;
+                  justify-content:space-between;
+                  gap:10px;
+                "
+              >
+
+                <strong>
+                  ${escapeHtml(
+                    item.description ||
+                    item.type ||
+                    "Movimentação"
+                  )}
+                </strong>
+
+                <strong
+                  style="
+                    color:${positive
+                      ? "#56d364"
+                      : "#ff7777"};
+                  "
+                >
+                  ${positive ? "+" : ""}
+                  ${money(amount)}
+                </strong>
+
+              </div>
+
+
+              <div
+                style="
+                  margin-top:5px;
+                  color:#666;
+                  font-size:11px;
+                "
+              >
+                ${date}
+              </div>
+
+
+              <div
+                style="
+                  margin-top:3px;
+                  color:#777;
+                  font-size:11px;
+                "
+              >
+                Saldo:
+                ${money(
+                  item.balance_after
+                )}
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      ).join("");
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+  }
+
+}
+
+
+async function addDemoBalance(){
+
+  if(!currentUser){
+
+    openLogin();
+
+    showToast(
+      "Entre na sua conta primeiro."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.rpc(
+        "demo_credit",
+        {
+          p_amount:1000,
+
+          p_type:"demo_bonus",
+
+          p_description:
+            "Bônus DEMO de R$ 1.000,00",
+
+          p_reference_id:null,
+
+          p_metadata:{
+            source:
+              "559627WIN_wallet"
+          }
+        }
+      );
+
+
+    if(error){
+
+      console.error(
+        "Erro ao adicionar saldo DEMO:",
+        error
+      );
+
+      showToast(
+        error.message ||
+        "Erro ao adicionar saldo."
+      );
+
+      return;
+
+    }
+
+
+    if(data){
+
+      demoWallet = {
+        ...demoWallet,
+        balance:
+          Number(
+            data.balance ??
+            data.new_balance ??
+            data.current_balance ??
+            demoWallet.balance + 1000
+          )
+      };
+
+    }else{
+
+      demoWallet.balance += 1000;
+
+    }
+
+
+    addRecord({
+      type:"wallet",
+      action:"Bônus DEMO",
+      amount:1000,
+      balance:
+        demoWallet.balance
+    });
+
+
+    addPoints(100);
+
+
+    await updateWallet();
+
+    updateProfile();
+
+
+    showToast(
+      "R$ 1.000 DEMO adicionados!"
+    );
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+    showToast(
+      "Erro ao adicionar saldo DEMO."
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+function hideAllScreens(){
+
+  const screens = [
+    "homeScreen",
+    "slotsScreen",
+    "profileScreen",
+    "offersScreen",
+    "promotionScreen",
+    "walletScreen",
+    "recordsScreen",
+    "withdrawalsScreen",
+    "dataScreen",
+    "securityScreen",
+    "aboutScreen",
+    "faqScreen",
+    "supportScreen",
+    "responsibleScreen",
+    "notificationsScreen",
+    "inviteScreen"
+  ];
+
+
+  screens.forEach(
+    id => {
+
+      const element =
+        document.getElementById(id);
+
+      if(!element){
+        return;
+      }
+
+      if(id === "homeScreen"){
+
+        element.classList.add(
+          "home-hidden"
+        );
+
+      }else{
+
+        element.classList.remove(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+function updateBottomNav(active){
+
+  const buttons = [
+    "navHome",
+    "navOffers",
+    "navPromotion",
+    "navWallet",
+    "navProfile"
+  ];
+
+
+  buttons.forEach(
+    id => {
+
+      const button =
+        document.getElementById(id);
+
+      if(button){
+
+        button.classList.remove(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+
+  const activeButton =
+    document.getElementById(
+      active
+    );
+
+  if(activeButton){
+
+    activeButton.classList.add(
+      "active"
+    );
+
+  }
+
+}
+
+
+function goHome(){
+
+  hideAllScreens();
+
+  document
+    .getElementById(
+      "homeScreen"
+    )
+    .classList.remove(
+      "home-hidden"
+    );
+
+  updateBottomNav(
+    "navHome"
+  );
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function openScreen(id){
+
+  hideAllScreens();
+
+  const screen =
+    document.getElementById(id);
+
+  if(screen){
+
+    screen.classList.add(
+      "active"
+    );
+
+  }
+
+  updateBottomNavForScreen(
+    id
+  );
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function updateBottomNavForScreen(id){
+
+  if(id === "offersScreen"){
+
+    updateBottomNav(
+      "navOffers"
+    );
+
+  }else if(id === "promotionScreen"){
+
+    updateBottomNav(
+      "navPromotion"
+    );
+
+  }else if(id === "walletScreen"){
+
+    updateBottomNav(
+      "navWallet"
+    );
+
+  }else if(id === "profileScreen"){
+
+    updateBottomNav(
+      "navProfile"
+    );
+
+  }else{
+
+    updateBottomNav(
+      ""
+    );
+
+  }
+
+}
+
+
+function openProfile(){
+
+  openScreen(
+    "profileScreen"
+  );
+
+  updateProfile();
+
+}
+
+
+function openOffers(){
+
+  openScreen(
+    "offersScreen"
+  );
+
+}
+
+
+function showPromotion(){
+
+  openScreen(
+    "promotionScreen"
+  );
+
+}
+
+
+function openWallet(){
+
+  if(!currentUser){
+
+    openLogin();
+
+    showToast(
+      "Entre na sua conta para acessar a carteira."
+    );
+
+    return;
+
+  }
+
+  openScreen(
+    "walletScreen"
+  );
+
+  updateWallet();
+
+}
+
+
+function openNotifications(){
+
+  openScreen(
+    "notificationsScreen"
+  );
+
+}
+
+
+function openData(){
+
+  openScreen(
+    "dataScreen"
+  );
+
+  updateDataScreen();
+
+}
+
+
+function openSecurity(){
+
+  openScreen(
+    "securityScreen"
+  );
+
+}
+
+
+function openAbout(){
+
+  openScreen(
+    "aboutScreen"
+  );
+
+}
+
+
+function openFaq(){
+
+  openScreen(
+    "faqScreen"
+  );
+
+}
+
+
+function openSupport(){
+
+  openScreen(
+    "supportScreen"
+  );
+
+}
+
+
+function openResponsible(){
+
+  openScreen(
+    "responsibleScreen"
+  );
+
+}
+
+
+function openInvite(){
+
+  if(!currentUser){
+
+    openLogin();
+
+    showToast(
+      "Entre na sua conta para gerar seu link."
+    );
+
+    return;
+
+  }
+
+  openScreen(
+    "inviteScreen"
+  );
+
+  renderInvite();
+
+}
+
+
+function openWithdrawals(){
+
+  if(!currentUser){
+
+    openLogin();
+
+    showToast(
+      "Entre na sua conta primeiro."
+    );
+
+    return;
+
+  }
+
+  openScreen(
+    "withdrawalsScreen"
+  );
+
+  renderWithdrawals();
+
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+function openMenu(){
+
+  document
+    .getElementById(
+      "drawerOverlay"
+    )
+    .classList.add(
+      "show"
+    );
+
+  document
+    .getElementById(
+      "drawer"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+function closeMenu(){
+
+  document
+    .getElementById(
+      "drawerOverlay"
+    )
+    .classList.remove(
+      "show"
+    );
+
+  document
+    .getElementById(
+      "drawer"
+    )
+    .classList.remove(
+      "show"
+    );
+
+}
+
+
+/* =========================================================
+   AUTH MODAL
+========================================================= */
+
+function openAccount(){
+
+  if(currentUser){
+
+    openProfile();
+
+  }else{
+
+    openLogin();
+
+  }
+
+}
+
+
+function openAuth(){
+
+  document
+    .getElementById(
+      "authModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+  document.body.classList.add(
+    "lock"
+  );
+
+}
+
+
+function closeAuth(){
+
+  document
+    .getElementById(
+      "authModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+  document.body.classList.remove(
+    "lock"
+  );
+
+}
+
+
+function openLogin(){
+
+  openAuth();
+
+  document
+    .getElementById(
+      "loginForm"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "registerForm"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "authTitle"
+    )
+    .textContent =
+      "Entrar";
+
+}
+
+
+function openRegister(){
+
+  openAuth();
+
+  document
+    .getElementById(
+      "loginForm"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "registerForm"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "authTitle"
+    )
+    .textContent =
+      "Criar cadastro";
+
+}
+      </div>
 
 
     <div class="simple-card">
@@ -3997,8 +6032,7 @@ const SUPABASE_URL =
 
 const SUPABASE_KEY =
   "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
-
-const GAMES_FUNCTION =
+  const GAMES_FUNCTION =
   SUPABASE_URL +
   "/functions/v1/bigbang-games";
 
@@ -4025,6 +6059,12 @@ let filteredGames = [];
 let selectedProvider = "Todos";
 
 let currentUser = null;
+
+let demoWallet = {
+  balance: 0,
+  locked_balance: 0,
+  currency: "BRL"
+};
 
 let authMode = "signup";
 
@@ -4112,28 +6152,201 @@ function userStorageKey(name){
 }
 
 
+/* =========================================================
+   CARTEIRA DEMO — SUPABASE
+========================================================= */
+
+function resetDemoWallet(){
+
+  demoWallet = {
+    balance: 0,
+    locked_balance: 0,
+    currency: "BRL"
+  };
+
+}
+
+
 function getDemoBalance(){
 
   return Number(
-    localStorage.getItem(
-      userStorageKey("balance")
-    ) ||
-    100000
+    demoWallet.balance || 0
   );
 
 }
 
 
-function setDemoBalance(value){
+async function loadDemoWallet(){
 
-  localStorage.setItem(
-    userStorageKey("balance"),
-    String(value)
-  );
+  if(!currentUser){
 
-  updateProfile();
+    resetDemoWallet();
 
-  updateWallet();
+    updateProfile();
+    updateWallet();
+
+    return;
+
+  }
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .rpc("get_demo_wallet");
+
+    if(error){
+
+      throw error;
+
+    }
+
+    const {
+      count: transactionCount,
+      error: transactionError
+    } =
+      await supabaseClient
+        .from("wallet_transactions")
+        .select("id", {
+          count: "exact",
+          head: true
+        })
+        .eq(
+          "user_id",
+          currentUser.id
+        );
+
+    if(transactionError){
+
+      throw transactionError;
+
+    }
+
+    /*
+      Migração única do saldo DEMO antigo.
+      Se ainda não existir nenhuma movimentação
+      no ledger, preservamos o saldo antigo.
+    */
+
+    if(
+      transactionCount === 0 &&
+      (
+        !data ||
+        !data.length ||
+        Number(data[0].balance || 0) === 0
+      )
+    ){
+
+      const legacyKey =
+        userStorageKey("balance");
+
+      const legacyValue =
+        Number(
+          localStorage.getItem(
+            legacyKey
+          ) || 0
+        );
+
+      const initialAmount =
+        legacyValue > 0
+        ? legacyValue
+        : 100000;
+
+      const {
+        data:creditedBalance,
+        error:creditError
+      } =
+        await supabaseClient
+          .rpc(
+            "demo_credit",
+            {
+              p_amount:
+                initialAmount,
+
+              p_type:
+                "demo_bonus",
+
+              p_description:
+                "Saldo inicial DEMO",
+
+              p_reference_id:
+                null,
+
+              p_metadata:{
+                source:
+                  "559627WIN_initial_demo"
+              }
+            }
+          );
+
+      if(creditError){
+
+        throw creditError;
+
+      }
+
+      demoWallet.balance =
+        Number(
+          creditedBalance || 0
+        );
+
+      demoWallet.locked_balance =
+        0;
+
+      demoWallet.currency =
+        "BRL";
+
+      localStorage.removeItem(
+        legacyKey
+      );
+
+    }else if(
+      data &&
+      data.length
+    ){
+
+      demoWallet = {
+
+        balance:
+          Number(
+            data[0].balance || 0
+          ),
+
+        locked_balance:
+          Number(
+            data[0].locked_balance || 0
+          ),
+
+        currency:
+          data[0].currency ||
+          "BRL"
+
+      };
+
+    }else{
+
+      resetDemoWallet();
+
+    }
+
+    updateProfile();
+    updateWallet();
+
+  }catch(error){
+
+    console.error(
+      "Erro ao carregar carteira DEMO:",
+      error
+    );
+
+    toast(
+      "Não foi possível carregar a carteira DEMO."
+    );
+
+  }
 
 }
 
@@ -4818,1008 +7031,7 @@ function openSlots(){
   slotsProvider = "Todos";
 
   slotsTab = "slots";
-
-  document
-    .querySelectorAll(".slots-tab")
-    .forEach(
-      (button,index) => {
-
-        button.classList.toggle(
-          "active",
-          index === 0
-        );
-
-      }
-    );
-
-  renderProviderSidebar();
-
-  renderSlots();
-
-  scrollTop();
-
-}
-
-
-function setSlotsTab(
-  tab,
-  button
-){
-
-  slotsTab = tab;
-
-  slotsPage = 1;
-
-  document
-    .querySelectorAll(".slots-tab")
-    .forEach(
-      item => {
-
-        item.classList.remove(
-          "active"
-        );
-
-      }
-    );
-
-  button.classList.add(
-    "active"
-  );
-
-  renderSlots();
-
-}
-
-
-/* =========================================================
-   FAVORITOS
-========================================================= */
-
-function getFavorites(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        favoriteKey
-      ) ||
-      "[]"
-    );
-
-  }catch{
-
-    return [];
-
-  }
-
-}
-
-
-function isFavorite(id){
-
-  return getFavorites()
-    .includes(
-      String(id)
-    );
-
-}
-
-
-function toggleFavorite(id){
-
-  const key =
-    String(id);
-
-  const list =
-    getFavorites();
-
-  const index =
-    list.indexOf(key);
-
-  if(index >= 0){
-
-    list.splice(
-      index,
-      1
-    );
-
-  }else{
-
-    list.push(key);
-
-  }
-
-  localStorage.setItem(
-    favoriteKey,
-    JSON.stringify(list)
-  );
-
-  renderGames(
-    filteredGames
-  );
-
-  renderSlots();
-
-}
-
-
-/* =========================================================
-   JOGOS
-========================================================= */
-
-function gameText(game){
-
-  return [
-
-    game?.game_type,
-    game?.type,
-    game?.category,
-    game?.category_title,
-    game?.title,
-    game?.name
-
-  ]
-  .filter(Boolean)
-  .join(" ")
-  .toLowerCase();
-
-}
-
-
-function isSlotGame(game){
-
-  const text =
-    gameText(game);
-
-  if(
-    text.includes("slot") ||
-    text.includes("casino")
-  ){
-
-    return true;
-
-  }
-
-  const nonSlot = [
-
-    "pescaria",
-    "fish",
-    "fishing",
-    "esporte",
-    "sport",
-    "crash",
-    "aviator",
-    "baccarat",
-    "blackjack",
-    "roulette",
-    "roleta",
-    "poker",
-    "live casino"
-
-  ];
-
-  if(
-    nonSlot.some(
-      word =>
-        text.includes(word)
-    )
-  ){
-
-    return false;
-
-  }
-
-  return true;
-
-}
-
-
-function getProvider(game){
-
-  return String(
-    game?.provider ||
-    game?.provider_name ||
-    game?.brand ||
-    "Outros"
-  ).trim();
-
-}
-
-
-function gameCardHtml(game){
-
-  const id =
-    game?.id;
-
-  const title =
-    game?.title ||
-    game?.name ||
-    "Jogo";
-
-  const provider =
-    getProvider(game);
-
-  const image =
-    game?.thumbnail ||
-    "";
-
-  return `
-
-    <article class="game-card">
-
-      <div class="game-image">
-
-        ${
-          image
-          ?
-          `
-            <img
-              src="${escapeHtml(image)}"
-              alt="${escapeHtml(title)}"
-              loading="lazy"
-            >
-          `
-          :
-          `
-            <div
-              style="
-                width:100%;
-                height:100%;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                font-size:40px;
-              "
-            >
-              🎰
-            </div>
-          `
-        }
-
-        <button
-          class="
-            favorite
-            ${isFavorite(id) ? "active" : ""}
-          "
-          onclick="
-            event.stopPropagation();
-            toggleFavorite('${String(id).replaceAll("'","")}');
-          "
-        >
-          ${isFavorite(id) ? "★" : "☆"}
-        </button>
-
-      </div>
-
-      <div class="game-info">
-
-        <div class="game-title">
-          ${escapeHtml(title)}
-        </div>
-
-        <div class="game-provider">
-          ${escapeHtml(provider)}
-        </div>
-
-        <button
-          class="play-button"
-          onclick="
-            launchGame(
-              '${String(id).replaceAll("'","")}',
-              '${String(title).replaceAll("'","\\'")}'
-            )
-          "
-        >
-          JOGAR DEMO
-        </button>
-
-      </div>
-
-    </article>
-
-  `;
-
-}
-
-
-async function loadGames(){
-
-  const gamesElement =
-    document.getElementById(
-      "games"
-    );
-
-  const status =
-    document.getElementById(
-      "status"
-    );
-
-  gamesElement.innerHTML =
-    `
-      <div class="loading">
-        Carregando jogos...
-      </div>
-    `;
-
-  try{
-
-    const response =
-      await fetch(
-        GAMES_FUNCTION,
-        {
-          headers:{
-            "apikey":
-              SUPABASE_KEY,
-
-            "Authorization":
-              "Bearer " +
-              SUPABASE_KEY
-          }
-        }
-      );
-
-    const result =
-      await response.json();
-
-    if(
-      !response.ok ||
-      !result.success
-    ){
-
-      throw new Error(
-        result.error ||
-        "Não foi possível carregar os jogos."
-      );
-
-    }
-
-    allGames =
-      Array.isArray(
-        result.data
-      )
-      ?
-      result.data
-      :
-      [];
-
-    filteredGames =
-      [...allGames];
-
-    buildProviders();
-
-    renderGames(
-      filteredGames
-    );
-
-    renderProviderSidebar();
-
-    renderSlots();
-
-    status.textContent =
-      `${allGames.length} jogos disponíveis`;
-
-  }catch(error){
-
-    console.error(error);
-
-    gamesElement.innerHTML =
-      `
-        <div class="error">
-          Não foi possível carregar os jogos.<br><br>
-          ${escapeHtml(error.message)}
-        </div>
-      `;
-
-    status.textContent =
-      "Erro ao carregar";
-
-  }
-
-}
-
-
-function buildProviders(){
-
-  const container =
-    document.getElementById(
-      "providers"
-    );
-
-  const providers =
-    [
-      "Todos",
-      ...new Set(
-        allGames
-          .map(getProvider)
-          .filter(Boolean)
-      )
-    ];
-
-  container.innerHTML =
-    providers
-      .map(
-        provider => `
-
-          <button
-            class="
-              provider-button
-              ${
-                provider ===
-                selectedProvider
-                ?
-                "active"
-                :
-                ""
-              }
-            "
-            onclick="
-              selectProvider(
-                '${String(provider).replaceAll("'","\\'")}',
-                this
-              )
-            "
-          >
-            ${escapeHtml(provider)}
-          </button>
-
-        `
-      )
-      .join("");
-
-}
-
-
-function selectProvider(
-  provider,
-  button
-){
-
-  selectedProvider =
-    provider;
-
-  document
-    .querySelectorAll(
-      "#providers .provider-button"
-    )
-    .forEach(
-      item =>
-        item.classList.remove(
-          "active"
-        )
-    );
-
-  button.classList.add(
-    "active"
-  );
-
-  filterGames();
-
-}
-
-
-function filterGames(){
-
-  const query =
-    document
-      .getElementById(
-        "searchInput"
-      )
-      .value
-      .trim()
-      .toLowerCase();
-
-  filteredGames =
-    allGames.filter(
-      game => {
-
-        const provider =
-          getProvider(game);
-
-        const text =
-          gameText(game);
-
-        const providerOK =
-          selectedProvider ===
-          "Todos"
-          ||
-          provider ===
-          selectedProvider;
-
-        const searchOK =
-          !query ||
-          text.includes(query);
-
-        return (
-          providerOK &&
-          searchOK
-        );
-
-      }
-    );
-
-  renderGames(
-    filteredGames
-  );
-
-}
-
-
-function renderGames(games){
-
-  const container =
-    document.getElementById(
-      "games"
-    );
-
-  if(!games.length){
-
-    container.innerHTML =
-      `
-        <div class="empty">
-          Nenhum jogo encontrado.
-        </div>
-      `;
-
-    return;
-
-  }
-
-  container.innerHTML =
-    games
-      .map(gameCardHtml)
-      .join("");
-
-}
-
-
-function renderProviderSidebar(){
-
-  const container =
-    document.getElementById(
-      "providerSidebar"
-    );
-
-  if(!container){
-
-    return;
-
-  }
-
-  const providers =
-    [
-      "Todos",
-      ...new Set(
-        allGames
-          .filter(isSlotGame)
-          .map(getProvider)
-          .filter(Boolean)
-      )
-    ];
-
-  container.innerHTML =
-    providers
-      .map(
-        provider => `
-
-          <button
-            class="
-              side-provider
-              ${
-                provider ===
-                slotsProvider
-                ?
-                "active"
-                :
-                ""
-              }
-            "
-            onclick="
-              selectSlotProvider(
-                '${String(provider).replaceAll("'","\\'")}'
-              )
-            "
-          >
-            ${escapeHtml(provider)}
-          </button>
-
-        `
-      )
-      .join("");
-
-}
-
-
-function selectSlotProvider(
-  provider
-){
-
-  slotsProvider =
-    provider;
-
-  slotsPage = 1;
-
-  renderProviderSidebar();
-
-  renderSlots();
-
-}
-
-
-function getSlotGames(){
-
-  let games =
-    allGames.filter(
-      isSlotGame
-    );
-
-  const query =
-    document
-      .getElementById(
-        "slotsSearch"
-      )
-      ?.value
-      .trim()
-      .toLowerCase() ||
-    "";
-
-  if(query){
-
-    games =
-      games.filter(
-        game =>
-          gameText(game)
-            .includes(query)
-      );
-
-  }
-
-  if(
-    slotsProvider !==
-    "Todos"
-  ){
-
-    games =
-      games.filter(
-        game =>
-          getProvider(game) ===
-          slotsProvider
-      );
-
-  }
-
-  if(
-    slotsTab ===
-    "popular"
-  ){
-
-    games =
-      games.slice(
-        0,
-        100
-      );
-
-  }
-
-  if(
-    slotsTab ===
-    "recent"
-  ){
-
-    games =
-      [...games]
-        .reverse()
-        .slice(
-          0,
-          100
-        );
-
-  }
-
-  if(
-    slotsTab ===
-    "favorites"
-  ){
-
-    games =
-      games.filter(
-        game =>
-          isFavorite(
-            game.id
-          )
-      );
-
-  }
-
-  return games;
-
-}
-
-
-function renderSlots(){
-
-  const container =
-    document.getElementById(
-      "slotsGames"
-    );
-
-  const status =
-    document.getElementById(
-      "slotsStatus"
-    );
-
-  const pagination =
-    document.getElementById(
-      "pagination"
-    );
-
-  if(!container){
-
-    return;
-
-  }
-
-  const games =
-    getSlotGames();
-
-  const totalPages =
-    Math.max(
-      1,
-      Math.ceil(
-        games.length /
-        SLOTS_PER_PAGE
-      )
-    );
-
-  if(
-    slotsPage >
-    totalPages
-  ){
-
-    slotsPage =
-      totalPages;
-
-  }
-
-  const start =
-    (
-      slotsPage -
-      1
-    ) *
-    SLOTS_PER_PAGE;
-
-  const pageGames =
-    games.slice(
-      start,
-      start +
-      SLOTS_PER_PAGE
-    );
-
-  status.textContent =
-    `${games.length} slots encontrados`;
-
-  if(!pageGames.length){
-
-    container.innerHTML =
-      `
-        <div class="empty">
-          Nenhum slot encontrado.
-        </div>
-      `;
-
-    pagination.innerHTML =
-      "";
-
-    return;
-
-  }
-
-  container.innerHTML =
-    pageGames
-      .map(gameCardHtml)
-      .join("");
-
-  pagination.innerHTML =
-    Array.from(
-      {
-        length:totalPages
-      },
-      (_,index) => {
-
-        const page =
-          index + 1;
-
-        return `
-
-          <button
-            class="
-              page-button
-              ${
-                page ===
-                slotsPage
-                ?
-                "active"
-                :
-                ""
-              }
-            "
-            onclick="
-              goSlotsPage(${page})
-            "
-          >
-            ${page}
-          </button>
-
-        `;
-
-      }
-    )
-    .join("");
-
-}
-
-
-function goSlotsPage(page){
-
-  slotsPage =
-    page;
-
-  renderSlots();
-
-  scrollTop();
-
-}
-
-
-/* =========================================================
-   BUSCA
-========================================================= */
-
-document
-  .getElementById(
-    "searchInput"
-  )
-  .addEventListener(
-    "input",
-    filterGames
-  );
-
-
-document
-  .getElementById(
-    "slotsSearch"
-  )
-  .addEventListener(
-    "input",
-    () => {
-
-      slotsPage = 1;
-
-      renderSlots();
-
-    }
-  );
-
-
-/* =========================================================
-   FILTROS HOME
-========================================================= */
-
-function activateQuickButton(
-  button
-){
-
-  document
-    .querySelectorAll(
-      ".quick-button"
-    )
-    .forEach(
-      item =>
-        item.classList.remove(
-          "active"
-        )
-    );
-
-  if(button){
-
-    button.classList.add(
-      "active"
-    );
-
-  }
-
-}
-
-
-function showAll(button){
-
-  closeMenu();
-
-  goHome();
-
-  selectedProvider =
-    "Todos";
-
-  buildProviders();
-
-  activateQuickButton(
-    button ||
-    document.getElementById(
-      "quickAll"
-    )
-  );
-
-  filterGames();
-
-}
-
-
-function showPopular(button){
-
-  closeMenu();
-
-  goHome();
-
-  activateQuickButton(
-    button
-  );
-
-  renderGames(
-    [...allGames]
-      .slice(
-        0,
-        50
-      )
-  );
-
-}
-
-
-function showNew(button){
-
-  closeMenu();
-
-  goHome();
-
-  activateQuickButton(
-    button
-  );
-
-  renderGames(
-    [...allGames]
-      .slice(
-        -50
-      )
-      .reverse()
-  );
-
-}
-
-
-/* =========================================================
-   BIGBANG DEMO
-========================================================= */
-
-async function launchGame(
-  gameId,
-  title
-){
-
-  const modal =
-    document.getElementById(
-      "gameModal"
-    );
-
-  const frame =
-    document.getElementById(
-      "gameFrame"
-    );
-
-  const gameTitle =
-    document.getElementById(
-      "gameTitle"
-    );
-
-  modal.classList.add(
+    modal.classList.add(
     "show"
   );
 
@@ -6093,118 +7305,364 @@ function updateAccountLabel(){
    CARTEIRA
 ========================================================= */
 
-function updateWallet(){
+async function updateWallet(){
 
   const balance =
     getDemoBalance();
 
-  document
-    .getElementById(
-      "walletBalance"
-    )
-    .textContent =
-    money(balance);
 
-
-  const history =
+  const walletBalance =
     document.getElementById(
-      "walletHistory"
+      "walletBalance"
     );
 
-  const records =
-    getRecords()
-      .filter(
-        item =>
-          item.type ===
-          "wallet"
+  if(walletBalance){
+
+    walletBalance.textContent =
+      money(balance);
+
+  }
+
+
+  const walletLocked =
+    document.getElementById(
+      "walletLocked"
+    );
+
+  if(walletLocked){
+
+    walletLocked.textContent =
+      money(
+        demoWallet.locked_balance
       );
 
-  if(!records.length){
+  }
 
-    history.innerHTML =
-      `
-        <div
-          style="
-            margin-top:15px;
-            color:#777;
-          "
-        >
-          Nenhuma movimentação demo.
-        </div>
-      `;
+
+  const walletCurrency =
+    document.getElementById(
+      "walletCurrency"
+    );
+
+  if(walletCurrency){
+
+    walletCurrency.textContent =
+      demoWallet.currency ||
+      "BRL";
+
+  }
+
+
+  const walletUser =
+    document.getElementById(
+      "walletUser"
+    );
+
+  if(walletUser){
+
+    walletUser.textContent =
+      currentUser
+        ? currentUser.email
+        : "Visitante";
+
+  }
+
+
+  const transactionList =
+    document.getElementById(
+      "walletTransactions"
+    );
+
+  if(!transactionList){
 
     return;
 
   }
 
-  history.innerHTML =
-    records
-      .slice(0,20)
-      .map(
-        item => `
 
-          <div
-            style="
-              padding:12px 0;
-              border-bottom:1px solid #292929;
-            "
-          >
+  if(!currentUser){
 
-            <strong>
-              ${escapeHtml(item.title)}
-            </strong>
+    transactionList.innerHTML = `
 
-            <div
-              style="
-                margin-top:4px;
-                color:#777;
-                font-size:12px;
-              "
-            >
-              ${escapeHtml(item.date)}
-            </div>
+      <div class="empty">
 
-          </div>
+        Entre na sua conta para
+        visualizar suas movimentações.
 
-        `
-      )
-      .join("");
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from(
+          "wallet_transactions"
+        )
+        .select(
+          "*"
+        )
+        .eq(
+          "user_id",
+          currentUser.id
+        )
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        )
+        .limit(30);
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    if(
+      !data ||
+      !data.length
+    ){
+
+      transactionList.innerHTML = `
+
+        <div class="empty">
+
+          Nenhuma movimentação encontrada.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    transactionList.innerHTML =
+      data
+        .map(
+          transaction => {
+
+            const amount =
+              Number(
+                transaction.amount ||
+                0
+              );
+
+            const positive =
+              amount >= 0;
+
+            const date =
+              transaction.created_at
+              ? new Date(
+                  transaction.created_at
+                ).toLocaleString(
+                  "pt-BR"
+                )
+              : "-";
+
+
+            return `
+
+              <div
+                class="transaction-row"
+              >
+
+                <div>
+
+                  <strong>
+                    ${
+                      escapeHtml(
+                        transaction.description ||
+                        transaction.type ||
+                        "Movimentação"
+                      )
+                    }
+                  </strong>
+
+                  <small>
+                    ${date}
+                  </small>
+
+                </div>
+
+
+                <div
+                  class="
+                    transaction-amount
+                    ${
+                      positive
+                      ? "positive"
+                      : "negative"
+                    }
+                  "
+                >
+                  ${
+                    positive
+                    ? "+"
+                    : ""
+                  }
+                  ${money(amount)}
+                </div>
+
+              </div>
+
+            `;
+
+          }
+        )
+        .join("");
+
+
+  }catch(error){
+
+    console.error(
+      "Erro ao carregar transações:",
+      error
+    );
+
+    transactionList.innerHTML = `
+
+      <div class="error">
+
+        Não foi possível carregar
+        as movimentações.
+
+      </div>
+
+    `;
+
+  }
 
 }
 
 
-function addDemoBalance(){
+/* =========================================================
+   BÔNUS DEMO
+========================================================= */
 
-  const oldBalance =
-    getDemoBalance();
+async function claimDemoReward(){
 
-  const newBalance =
-    oldBalance +
-    1000;
+  if(!currentUser){
 
-  setDemoBalance(
-    newBalance
-  );
+    openLogin();
 
-  saveRecord({
+    return;
 
-    type:"wallet",
+  }
 
-    title:
-      "+ R$ 1.000,00 DEMO",
 
-    description:
-      "Crédito virtual",
+  const message =
+    document.getElementById(
+      "rewardMessage"
+    );
 
-    value:1000
 
-  });
+  try{
 
-  updateWallet();
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .rpc(
+          "demo_credit",
+          {
+            p_amount:
+              100,
 
-  toast(
-    "R$ 1.000 DEMO adicionados"
-  );
+            p_type:
+              "demo_reward",
+
+            p_description:
+              "Recompensa DEMO",
+
+            p_reference_id:
+              null,
+
+            p_metadata:{
+              source:
+                "559627WIN_reward"
+            }
+          }
+        );
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    demoWallet.balance =
+      Number(
+        data || 0
+      );
+
+
+    setPoints(
+      getPoints() + 100
+    );
+
+
+    saveRecord({
+
+      type:"reward",
+
+      title:
+        "Recompensa DEMO",
+
+      description:
+        "Bônus de demonstração",
+
+      value:100
+
+    });
+
+
+    updateWallet();
+
+    updateProfile();
+
+
+    message.textContent =
+      "Recompensa de 100 pontos recebida!";
+
+    message.className =
+      "modal-message success";
+
+
+    toast(
+      "Recompensa DEMO recebida!"
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    message.textContent =
+      error.message ||
+      "Não foi possível resgatar a recompensa.";
+
+    message.className =
+      "modal-message error";
+
+  }
 
 }
 
@@ -6220,27 +7678,33 @@ function renderRecords(){
       "recordsList"
     );
 
-  const records =
-    getRecords();
-
-  if(!records.length){
-
-    container.innerHTML =
-      `
-        <div
-          style="
-            color:#777;
-            padding:20px 0;
-          "
-        >
-          Ainda não existem atividades
-          registradas nesta conta.
-        </div>
-      `;
+  if(!container){
 
     return;
 
   }
+
+
+  const records =
+    getRecords();
+
+
+  if(!records.length){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        Nenhum registro encontrado.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
 
   container.innerHTML =
     records
@@ -6248,59 +7712,50 @@ function renderRecords(){
         item => `
 
           <div
-            style="
-              padding:15px 0;
-              border-bottom:1px solid #292929;
-            "
+            class="record-row"
           >
 
-            <div
-              style="
-                display:flex;
-                justify-content:space-between;
-                gap:10px;
-              "
-            >
+            <div>
 
               <strong>
-                ${escapeHtml(item.title)}
+                ${
+                  escapeHtml(
+                    item.title ||
+                    item.action ||
+                    "Registro"
+                  )
+                }
               </strong>
 
-              <span
-                style="
-                  color:#f5c400;
-                  font-weight:900;
-                "
-              >
+              <small>
                 ${
-                  item.value
-                  ?
-                  money(item.value)
-                  :
-                  "DEMO"
+                  escapeHtml(
+                    item.description ||
+                    ""
+                  )
                 }
-              </span>
+              </small>
+
+              <small>
+                ${
+                  escapeHtml(
+                    item.date ||
+                    ""
+                  )
+                }
+              </small>
 
             </div>
 
-            <div
-              style="
-                margin-top:5px;
-                color:#777;
-                font-size:12px;
-              "
-            >
-              ${escapeHtml(item.description || "")}
-            </div>
 
             <div
-              style="
-                margin-top:4px;
-                color:#555;
-                font-size:11px;
-              "
+              class="record-value"
             >
-              ${escapeHtml(item.date)}
+              ${
+                item.value !== undefined
+                ? money(item.value)
+                : ""
+              }
             </div>
 
           </div>
@@ -6316,138 +7771,86 @@ function renderRecords(){
    SAQUES DEMO
 ========================================================= */
 
-function requestDemoWithdrawal(){
-
-  const input =
-    document.getElementById(
-      "withdrawAmount"
-    );
-
-  const amount =
-    Number(
-      input.value
-    );
-
-  if(
-    !amount ||
-    amount <= 0
-  ){
-
-    toast(
-      "Informe um valor DEMO"
-    );
-
-    return;
-
-  }
-
-  const item = {
-
-    amount:amount,
-
-    status:"Solicitado DEMO",
-
-    date:
-      new Date()
-        .toLocaleString(
-          "pt-BR"
-        )
-
-  };
-
-  saveWithdrawal(
-    item
-  );
-
-  saveRecord({
-
-    type:"withdrawal",
-
-    title:
-      "Solicitação de saque DEMO",
-
-    description:
-      "Nenhum valor real foi transferido",
-
-    value:amount
-
-  });
-
-  input.value =
-    "";
-
-  renderWithdrawals();
-
-  toast(
-    "Saque DEMO registrado"
-  );
-
-}
-
-
 function renderWithdrawals(){
 
   const container =
     document.getElementById(
-      "withdrawalHistory"
+      "withdrawalsList"
     );
 
-  const list =
-    getWithdrawals();
-
-  if(!list.length){
-
-    container.innerHTML =
-      `
-        <div
-          style="
-            color:#777;
-            margin-top:12px;
-          "
-        >
-          Nenhuma solicitação.
-        </div>
-      `;
+  if(!container){
 
     return;
 
   }
 
+
+  const withdrawals =
+    getWithdrawals();
+
+
+  if(!withdrawals.length){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        Nenhuma solicitação de saque.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
   container.innerHTML =
-    list
+    withdrawals
       .map(
         item => `
 
           <div
-            style="
-              padding:13px 0;
-              border-bottom:1px solid #292929;
-            "
+            class="withdrawal-row"
           >
 
-            <strong>
-              ${money(item.amount)}
-            </strong>
+            <div>
 
-            <div
-              style="
-                margin-top:4px;
-                color:#f5c400;
-                font-size:12px;
-              "
-            >
-              ${escapeHtml(item.status)}
+              <strong>
+                ${
+                  money(
+                    item.amount
+                  )
+                }
+              </strong>
+
+              <small>
+                ${
+                  escapeHtml(
+                    item.method ||
+                    "Método DEMO"
+                  )
+                }
+              </small>
+
+              <small>
+                ${
+                  escapeHtml(
+                    item.date ||
+                    ""
+                  )
+                }
+              </small>
+
             </div>
 
-            <div
-              style="
-                margin-top:3px;
-                color:#666;
-                font-size:11px;
-              "
+
+            <span
+              class="status-badge"
             >
-              ${escapeHtml(item.date)}
-            </div>
+              DEMO
+            </span>
 
           </div>
 
@@ -6459,33 +7862,338 @@ function renderWithdrawals(){
 
 
 /* =========================================================
-   DADOS
+   SOLICITAR SAQUE DEMO
+========================================================= */
+
+async function requestDemoWithdrawal(){
+
+  if(!currentUser){
+
+    openLogin();
+
+    return;
+
+  }
+
+
+  const input =
+    document.getElementById(
+      "withdrawAmount"
+    );
+
+  const amount =
+    Number(
+      input?.value || 0
+    );
+
+
+  if(
+    !amount ||
+    amount <= 0
+  ){
+
+    toast(
+      "Digite um valor válido."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    amount >
+    getDemoBalance()
+  ){
+
+    toast(
+      "Saldo DEMO insuficiente."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .rpc(
+          "demo_debit",
+          {
+            p_amount:
+              amount,
+
+            p_type:
+              "demo_withdrawal",
+
+            p_description:
+              "Solicitação de saque DEMO",
+
+            p_reference_id:
+              null,
+
+            p_metadata:{
+              source:
+                "559627WIN_withdrawal"
+            }
+          }
+        );
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    demoWallet.balance =
+      Number(
+        data || 0
+      );
+
+
+    saveWithdrawal({
+
+      amount,
+
+      method:
+        "Carteira DEMO",
+
+      date:
+        new Date()
+          .toLocaleString(
+            "pt-BR"
+          )
+
+    });
+
+
+    saveRecord({
+
+      type:
+        "withdrawal",
+
+      title:
+        "Saque DEMO",
+
+      description:
+        "Solicitação demonstrativa",
+
+      value:
+        amount
+
+    });
+
+
+    updateWallet();
+
+    updateProfile();
+
+    renderWithdrawals();
+
+
+    if(input){
+
+      input.value =
+        "";
+
+    }
+
+
+    toast(
+      "Solicitação DEMO registrada."
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      error.message ||
+      "Não foi possível solicitar o saque."
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   DADOS DA CONTA
 ========================================================= */
 
 function updateDataScreen(){
 
-  document
-    .getElementById(
+  const email =
+    document.getElementById(
       "dataEmail"
-    )
-    .textContent =
-    currentUser?.email ||
-    "—";
+    );
 
-  document
-    .getElementById(
-      "dataId"
-    )
-    .textContent =
-    currentUser?.id ||
-    "—";
+  const id =
+    document.getElementById(
+      "dataUserId"
+    );
 
-  document
-    .getElementById(
-      "dataReferral"
-    )
-    .textContent =
-    getReferralCode();
+  const created =
+    document.getElementById(
+      "dataCreated"
+    );
+
+
+  if(!currentUser){
+
+    if(email){
+      email.textContent =
+        "-";
+    }
+
+    if(id){
+      id.textContent =
+        "-";
+    }
+
+    if(created){
+      created.textContent =
+        "-";
+    }
+
+    return;
+
+  }
+
+
+  if(email){
+
+    email.textContent =
+      currentUser.email ||
+      "-";
+
+  }
+
+
+  if(id){
+
+    id.textContent =
+      currentUser.id ||
+      "-";
+
+  }
+
+
+  if(created){
+
+    created.textContent =
+      currentUser.created_at
+      ? new Date(
+          currentUser.created_at
+        ).toLocaleString(
+          "pt-BR"
+        )
+      : "-";
+
+  }
+
+}
+
+
+/* =========================================================
+   ALTERAR SENHA
+========================================================= */
+
+async function changePassword(){
+
+  if(!currentUser){
+
+    openLogin();
+
+    return;
+
+  }
+
+
+  const input =
+    document.getElementById(
+      "newPassword"
+    );
+
+  const message =
+    document.getElementById(
+      "passwordMessage"
+    );
+
+
+  const password =
+    input?.value || "";
+
+
+  if(
+    password.length < 6
+  ){
+
+    message.textContent =
+      "A senha precisa ter pelo menos 6 caracteres.";
+
+    message.className =
+      "modal-message error";
+
+    return;
+
+  }
+
+
+  try{
+
+    const {
+      error
+    } =
+      await supabaseClient.auth
+        .updateUser({
+          password
+        });
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    message.textContent =
+      "Senha alterada com sucesso.";
+
+    message.className =
+      "modal-message success";
+
+
+    input.value =
+      "";
+
+
+    toast(
+      "Senha alterada."
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    message.textContent =
+      error.message ||
+      "Não foi possível alterar a senha.";
+
+    message.className =
+      "modal-message error";
+
+  }
 
 }
 
@@ -6502,25 +8210,39 @@ function renderInvite(){
 
   }
 
+
   const code =
     getReferralCode();
 
   const link =
     getInviteLink();
 
-  document
-    .getElementById(
-      "inviteCode"
-    )
-    .textContent =
-    code;
 
-  document
-    .getElementById(
+  const codeElement =
+    document.getElementById(
+      "inviteCode"
+    );
+
+  const linkElement =
+    document.getElementById(
       "inviteLink"
-    )
-    .value =
-    link;
+    );
+
+
+  if(codeElement){
+
+    codeElement.textContent =
+      code;
+
+  }
+
+
+  if(linkElement){
+
+    linkElement.value =
+      link;
+
+  }
 
 
   const qr =
@@ -6528,103 +8250,188 @@ function renderInvite(){
       "inviteQr"
     );
 
-  qr.innerHTML =
-    "";
 
-  if(
-    window.QRCode
-  ){
+  if(qr){
 
-    new QRCode(
-      qr,
-      {
-        text:link,
-        width:180,
-        height:180,
-        colorDark:"#000000",
-        colorLight:"#ffffff"
-      }
-    );
+    qr.innerHTML =
+      "";
+
+    if(
+      typeof QRCode !==
+      "undefined"
+    ){
+
+      new QRCode(
+        qr,
+        {
+          text:link,
+
+          width:180,
+
+          height:180,
+
+          colorDark:"#000000",
+
+          colorLight:"#ffffff",
+
+          correctLevel:
+            QRCode.CorrectLevel.H
+        }
+      );
+
+    }
 
   }
 
 
   const stats =
-    getReferralStats();
+    getInviteStats();
 
-  document
-    .getElementById(
+
+  const clicks =
+    document.getElementById(
       "statClicks"
-    )
-    .textContent =
-    stats.clicks;
+    );
 
-  document
-    .getElementById(
+  const direct =
+    document.getElementById(
       "statDirect"
-    )
-    .textContent =
-    stats.direct;
+    );
 
-  document
-    .getElementById(
+  const rewards =
+    document.getElementById(
       "statRewards"
-    )
-    .textContent =
-    stats.rewards;
+    );
 
-  document
-    .getElementById(
+  const networkDirect =
+    document.getElementById(
       "networkDirect"
-    )
-    .textContent =
-    stats.direct;
+    );
 
-  document
-    .getElementById(
+  const networkTotal =
+    document.getElementById(
       "networkTotal"
-    )
-    .textContent =
-    stats.total;
+    );
 
-  document
-    .getElementById(
+  const networkPoints =
+    document.getElementById(
       "networkPoints"
-    )
-    .textContent =
-    stats.rewards * 100;
+    );
+
+
+  if(clicks){
+
+    clicks.textContent =
+      stats.clicks;
+
+  }
+
+  if(direct){
+
+    direct.textContent =
+      stats.direct;
+
+  }
+
+  if(rewards){
+
+    rewards.textContent =
+      stats.rewards;
+
+  }
+
+  if(networkDirect){
+
+    networkDirect.textContent =
+      stats.direct;
+
+  }
+
+  if(networkTotal){
+
+    networkTotal.textContent =
+      stats.total;
+
+  }
+
+  if(networkPoints){
+
+    networkPoints.textContent =
+      stats.points;
+
+  }
 
 }
 
 
-function getReferralStats(){
+function getInviteStats(){
 
   const key =
     userStorageKey(
-      "referral_stats"
+      "invite_stats"
     );
+
 
   try{
 
-    return JSON.parse(
-      localStorage.getItem(
-        key
-      ) ||
-      JSON.stringify({
-        clicks:0,
-        direct:0,
-        total:0,
-        rewards:0
-      })
-    );
+    const saved =
+      JSON.parse(
+        localStorage.getItem(
+          key
+        ) ||
+        "{}"
+      );
+
+
+    return {
+
+      clicks:
+        Number(
+          saved.clicks ||
+          0
+        ),
+
+      direct:
+        Number(
+          saved.direct ||
+          0
+        ),
+
+      total:
+        Number(
+          saved.total ||
+          saved.direct ||
+          0
+        ),
+
+      rewards:
+        Number(
+          saved.rewards ||
+          0
+        ),
+
+      points:
+        Number(
+          saved.points ||
+          0
+        )
+
+    };
 
   }catch{
 
     return {
+
       clicks:0,
+
       direct:0,
+
       total:0,
-      rewards:0
+
+      rewards:0,
+
+      points:0
+
     };
 
   }
@@ -6632,54 +8439,55 @@ function getReferralStats(){
 }
 
 
-function copyInviteLink(){
+async function copyInviteLink(){
 
-  const link =
-    getInviteLink();
-
-  navigator.clipboard
-    ?.writeText(link)
-    .then(
-      () => {
-
-        toast(
-          "Link de convite copiado!"
-        );
-
-      }
-    )
-    .catch(
-      () => {
-
-        const input =
-          document.getElementById(
-            "inviteLink"
-          );
-
-        input.select();
-
-        document.execCommand(
-          "copy"
-        );
-
-        toast(
-          "Link copiado!"
-        );
-
-      }
+  const input =
+    document.getElementById(
+      "inviteLink"
     );
+
+  if(!input){
+
+    return;
+
+  }
+
+
+  try{
+
+    await navigator.clipboard.writeText(
+      input.value
+    );
+
+    toast(
+      "Link de convite copiado!"
+    );
+
+  }catch{
+
+    input.select();
+
+    document.execCommand(
+      "copy"
+    );
+
+    toast(
+      "Link copiado!"
+    );
+
+  }
 
 }
 
 
-function shareInvite(type){
+async function shareInvite(type){
 
   const link =
     getInviteLink();
 
   const text =
-    "🎰 Venha conhecer o 559627WIN!\n\n" +
-    "Acesse pelo meu convite:\n" +
+    "Conheça a 559627WIN! " +
+    "Acesse pelo meu link: " +
     link;
 
 
@@ -6692,14 +8500,23 @@ function shareInvite(type){
       navigator.share
     ){
 
-      navigator.share({
-        title:
-          "559627WIN",
-        text:
+      try{
+
+        await navigator.share({
+          title:
+            "559627WIN",
+
           text,
-        url:
-          link
-      });
+
+          url:link
+
+        });
+
+      }catch{
+
+        // usuário cancelou
+
+      }
 
     }else{
 
@@ -6719,7 +8536,9 @@ function shareInvite(type){
 
     window.open(
       "https://wa.me/?text=" +
-      encodeURIComponent(text),
+      encodeURIComponent(
+        text
+      ),
       "_blank"
     );
 
@@ -6738,7 +8557,7 @@ function shareInvite(type){
       encodeURIComponent(link) +
       "&text=" +
       encodeURIComponent(
-        "Conheça o 559627WIN!"
+        text
       ),
       "_blank"
     );
@@ -6765,121 +8584,489 @@ function shareInvite(type){
 
 
 /* =========================================================
-   PROMOÇÕES / PONTOS
+   FAQ
 ========================================================= */
 
-function claimDemoReward(){
+function toggleFaq(button){
 
-  const oldPoints =
-    getPoints();
+  const answer =
+    button.nextElementSibling;
 
-  setPoints(
-    oldPoints +
-    100
+  if(!answer){
+
+    return;
+
+  }
+
+
+  answer.classList.toggle(
+    "open"
   );
+
+}
+
+
+/* =========================================================
+   SUPORTE
+========================================================= */
+
+function contactSupport(){
+
+  const number =
+    "";
+
+  if(!number){
+
+    toast(
+      "Canal de suporte ainda não configurado."
+    );
+
+    return;
+
+  }
+
+
+  window.open(
+    "https://wa.me/" +
+    number,
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   MODAIS
+========================================================= */
+
+function closeModal(id){
+
+  const modal =
+    document.getElementById(id);
+
+  if(modal){
+
+    modal.classList.remove(
+      "show"
+    );
+
+  }
+
+}
+
+
+document
+  .querySelectorAll(
+    ".modal"
+  )
+  .forEach(
+    modal => {
+
+      modal.addEventListener(
+        "click",
+        event => {
+
+          if(
+            event.target ===
+            modal
+          ){
+
+            modal.classList.remove(
+              "show"
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+async function init(){
+
+  getPendingReferral();
+
+  await checkUser();
+
+  loadGames();
+
+}
+
+
+init();
+
+</script>
+
+</body>
+</html>
+function getReferralStats(){
+
+  if(!currentUser){
+
+    return {
+      clicks:0,
+      direct:0,
+      total:0,
+      rewards:0
+    };
+
+  }
+
+  const key =
+    userStorageKey(
+      "referral_stats"
+    );
+
+  try{
+
+    const data =
+      JSON.parse(
+        localStorage.getItem(
+          key
+        ) ||
+        "{}"
+      );
+
+    return {
+
+      clicks:
+        Number(
+          data.clicks || 0
+        ),
+
+      direct:
+        Number(
+          data.direct || 0
+        ),
+
+      total:
+        Number(
+          data.total ||
+          data.direct ||
+          0
+        ),
+
+      rewards:
+        Number(
+          data.rewards || 0
+        )
+
+    };
+
+  }catch{
+
+    return {
+      clicks:0,
+      direct:0,
+      total:0,
+      rewards:0
+    };
+
+  }
+
+}
+
+
+function saveReferralStats(
+  stats
+){
+
+  if(!currentUser){
+
+    return;
+
+  }
+
+  localStorage.setItem(
+
+    userStorageKey(
+      "referral_stats"
+    ),
+
+    JSON.stringify(
+      stats
+    )
+
+  );
+
+}
+
+
+function registerReferralClick(){
+
+  if(!currentUser){
+
+    return;
+
+  }
 
   const stats =
     getReferralStats();
 
-  stats.rewards += 1;
+  stats.clicks++;
 
-  localStorage.setItem(
-    userStorageKey(
-      "referral_stats"
-    ),
-    JSON.stringify(stats)
+  saveReferralStats(
+    stats
   );
 
-  document
-    .getElementById(
-      "rewardPoints"
-    )
-    .textContent =
-    getPoints();
+}
 
-  document
-    .getElementById(
-      "vipPoints"
-    )
-    .textContent =
-    getPoints();
 
-  const message =
-    document.getElementById(
-      "rewardMessage"
-    );
+function registerReferralDirect(){
 
-  if(message){
+  if(!currentUser){
 
-    message.textContent =
-      "100 pontos DEMO adicionados.";
+    return;
 
   }
 
-  updateProfile();
+  const stats =
+    getReferralStats();
 
-  toast(
-    "+100 pontos DEMO"
+  stats.direct++;
+
+  stats.total++;
+
+  stats.rewards +=
+    100;
+
+  saveReferralStats(
+    stats
   );
 
 }
 
 
-/* =========================================================
-   VIP
-========================================================= */
+async function copyInviteLink(){
 
-function openVip(){
-
-  closeMenu();
-
-  document
-    .getElementById(
-      "vipPoints"
-    )
-    .textContent =
-    getPoints();
-
-  document
-    .getElementById(
-      "vipModal"
-    )
-    .classList.add(
-      "show"
+  const input =
+    document.getElementById(
+      "inviteLink"
     );
+
+  if(!input){
+
+    return;
+
+  }
+
+  try{
+
+    await navigator.clipboard.writeText(
+      input.value
+    );
+
+    toast(
+      "Link copiado!"
+    );
+
+  }catch{
+
+    input.select();
+
+    document.execCommand(
+      "copy"
+    );
+
+    toast(
+      "Link copiado!"
+    );
+
+  }
+
+}
+
+
+async function shareInvite(
+  type
+){
+
+  const link =
+    getInviteLink();
+
+  const message =
+    "🎰 Venha conhecer a 559627WIN!\n\n" +
+    "Acesse pelo meu link:\n" +
+    link;
+
+
+  if(
+    type ===
+    "native"
+  ){
+
+    if(
+      navigator.share
+    ){
+
+      try{
+
+        await navigator.share({
+
+          title:
+            "559627WIN",
+
+          text:
+            message,
+
+          url:
+            link
+
+        });
+
+      }catch{
+
+      }
+
+    }else{
+
+      copyInviteLink();
+
+    }
+
+    return;
+
+  }
+
+
+  if(
+    type ===
+    "whatsapp"
+  ){
+
+    window.open(
+
+      "https://wa.me/?text=" +
+
+      encodeURIComponent(
+        message
+      ),
+
+      "_blank"
+
+    );
+
+    return;
+
+  }
+
+
+  if(
+    type ===
+    "telegram"
+  ){
+
+    window.open(
+
+      "https://t.me/share/url?url=" +
+
+      encodeURIComponent(
+        link
+      ) +
+
+      "&text=" +
+
+      encodeURIComponent(
+        message
+      ),
+
+      "_blank"
+
+    );
+
+    return;
+
+  }
+
+
+  if(
+    type ===
+    "facebook"
+  ){
+
+    window.open(
+
+      "https://www.facebook.com/sharer/sharer.php?u=" +
+
+      encodeURIComponent(
+        link
+      ),
+
+      "_blank"
+
+    );
+
+  }
 
 }
 
 
 /* =========================================================
-   RECOMPENSAS
+   AUTH
 ========================================================= */
 
-function openRewards(){
+function openLogin(){
 
-  closeMenu();
-
-  document
-    .getElementById(
-      "rewardPoints"
-    )
-    .textContent =
-    getPoints();
+  authMode =
+    "login";
 
   document
     .getElementById(
-      "rewardsModal"
+      "authModal"
     )
     .classList.add(
       "show"
     );
 
+  document
+    .getElementById(
+      "authTitle"
+    )
+    .textContent =
+    "Entrar";
+
+  document
+    .getElementById(
+      "confirmPasswordWrap"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "ageCheckWrap"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "toggleAuthButton"
+    )
+    .textContent =
+    "Criar cadastro";
+
+  document
+    .getElementById(
+      "authMessage"
+    )
+    .textContent =
+    "";
+
+  document.body.classList.add(
+    "lock"
+  );
+
 }
 
-
-/* =========================================================
-   AUTH MODAL
-========================================================= */
 
 function openRegister(){
 
@@ -6888,10 +9075,34 @@ function openRegister(){
 
   document
     .getElementById(
+      "authModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+  document
+    .getElementById(
       "authTitle"
     )
     .textContent =
-    "📝 Criar cadastro";
+    "Criar cadastro";
+
+  document
+    .getElementById(
+      "confirmPasswordWrap"
+    )
+    .classList.remove(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "ageCheckWrap"
+    )
+    .classList.remove(
+      "hidden"
+    );
 
   document
     .getElementById(
@@ -6902,87 +9113,14 @@ function openRegister(){
 
   document
     .getElementById(
-      "confirmPasswordWrap"
-    )
-    .classList.remove(
-      "hidden"
-    );
-
-  document
-    .getElementById(
-      "ageCheckWrap"
-    )
-    .classList.remove(
-      "hidden"
-    );
-
-  document
-    .getElementById(
       "authMessage"
     )
     .textContent =
     "";
 
-  document
-    .getElementById(
-      "authModal"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-
-function openLogin(){
-
-  authMode =
-    "login";
-
-  document
-    .getElementById(
-      "authTitle"
-    )
-    .textContent =
-    "🔐 Entrar";
-
-  document
-    .getElementById(
-      "toggleAuthButton"
-    )
-    .textContent =
-    "Criar uma conta";
-
-  document
-    .getElementById(
-      "confirmPasswordWrap"
-    )
-    .classList.add(
-      "hidden"
-    );
-
-  document
-    .getElementById(
-      "ageCheckWrap"
-    )
-    .classList.add(
-      "hidden"
-    );
-
-  document
-    .getElementById(
-      "authMessage"
-    )
-    .textContent =
-    "";
-
-  document
-    .getElementById(
-      "authModal"
-    )
-    .classList.add(
-      "show"
-    );
+  document.body.classList.add(
+    "lock"
+  );
 
 }
 
@@ -6991,23 +9129,19 @@ function toggleAuthMode(){
 
   if(
     authMode ===
-    "signup"
+    "login"
   ){
 
-    openLogin();
+    openRegister();
 
   }else{
 
-    openRegister();
+    openLogin();
 
   }
 
 }
 
-
-/* =========================================================
-   AUTH SUBMIT
-========================================================= */
 
 async function submitAuth(){
 
@@ -7026,7 +9160,7 @@ async function submitAuth(){
       )
       .value;
 
-  const confirm =
+  const confirmPassword =
     document
       .getElementById(
         "authConfirmPassword"
@@ -7041,19 +9175,19 @@ async function submitAuth(){
       .checked;
 
   const message =
-    document
-      .getElementById(
-        "authMessage"
-      );
+    document.getElementById(
+      "authMessage"
+    );
 
 
-  if(
-    !email ||
-    !password
-  ){
+  message.textContent =
+    "";
+
+
+  if(!email){
 
     message.textContent =
-      "Preencha e-mail e senha.";
+      "Informe seu e-mail.";
 
     return;
 
@@ -7061,7 +9195,8 @@ async function submitAuth(){
 
 
   if(
-    password.length < 6
+    password.length <
+    6
   ){
 
     message.textContent =
@@ -7079,7 +9214,7 @@ async function submitAuth(){
 
     if(
       password !==
-      confirm
+      confirmPassword
     ){
 
       message.textContent =
@@ -7102,102 +9237,12 @@ async function submitAuth(){
   }
 
 
-  message.textContent =
-    "Processando...";
-
-
   try{
 
     if(
       authMode ===
-      "signup"
+      "login"
     ){
-
-      const referral =
-        getPendingReferral();
-
-      const {
-        data,
-        error
-      } =
-        await supabaseClient
-          .auth
-          .signUp({
-
-            email,
-
-            password,
-
-            options:{
-
-              data:{
-
-                referral_code:
-                  referral
-                  ?
-                  referral
-                  :
-                  null,
-
-                age_confirmed:
-                  true,
-
-                platform:
-                  "559627WIN"
-
-              }
-
-            }
-
-          });
-
-
-      if(error){
-
-        throw error;
-
-      }
-
-
-      if(
-        data?.session
-      ){
-
-        currentUser =
-          data.user;
-
-        clearPendingReferral();
-
-        await ensureUserReferralMetadata();
-
-        updateAccountLabel();
-
-        updateProfile();
-
-        message.textContent =
-          "Cadastro criado e login realizado!";
-
-        setTimeout(
-          () => {
-
-            closeModal(
-              "authModal"
-            );
-
-            openProfile();
-
-          },
-          600
-        );
-
-      }else{
-
-        message.textContent =
-          "Cadastro criado, mas o Supabase está exigindo confirmação de e-mail. Desative Confirm email no Supabase.";
-
-      }
-
-    }else{
 
       const {
         data,
@@ -7222,42 +9267,117 @@ async function submitAuth(){
 
 
       currentUser =
-        data?.user ||
-        null;
+        data.user;
 
-      await ensureUserReferralMetadata();
 
-      updateAccountLabel();
+      closeModal(
+        "authModal"
+      );
+
+
+      await loadDemoWallet();
 
       updateProfile();
 
-      message.textContent =
-        "Login realizado!";
-
-      setTimeout(
-        () => {
-
-          closeModal(
-            "authModal"
-          );
-
-          openProfile();
-
-        },
-        500
+      toast(
+        "Login realizado!"
       );
+
+
+    }else{
+
+      const metadata = {
+
+        referral_code:
+          pendingReferral ||
+          null
+
+      };
+
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient
+          .auth
+          .signUp({
+
+            email,
+
+            password,
+
+            options:{
+              data:
+                metadata
+            }
+
+          });
+
+
+      if(error){
+
+        throw error;
+
+      }
+
+
+      if(
+        data.user
+      ){
+
+        currentUser =
+          data.user;
+
+      }
+
+
+      /*
+        Se o Supabase estiver com
+        confirmação de e-mail desligada,
+        a sessão já estará disponível.
+      */
+
+      if(
+        data.session
+      ){
+
+        currentUser =
+          data.session.user;
+
+        clearPendingReferral();
+
+        closeModal(
+          "authModal"
+        );
+
+        await loadDemoWallet();
+
+        updateProfile();
+
+        toast(
+          "Cadastro criado com sucesso!"
+        );
+
+      }else{
+
+        message.textContent =
+          "Cadastro criado. Se o Supabase estiver exigindo confirmação de e-mail, desative essa opção em Authentication → Providers → Email.";
+
+      }
 
     }
 
   }catch(error){
 
     console.error(
+      "Erro de autenticação:",
       error
     );
 
     message.textContent =
       error.message ||
-      "Ocorreu um erro.";
+      "Não foi possível concluir a operação.";
 
   }
 
@@ -7265,32 +9385,10 @@ async function submitAuth(){
 
 
 /* =========================================================
-   USER METADATA / REFERRAL
+   CHECK USER
 ========================================================= */
 
-async function ensureUserReferralMetadata(){
-
-  if(!currentUser){
-
-    return;
-
-  }
-
-  const code =
-    getReferralCode();
-
-  const metadata =
-    currentUser.user_metadata ||
-    {};
-
-  if(
-    metadata.referral_code ===
-    code
-  ){
-
-    return;
-
-  }
+async function checkUser(){
 
   try{
 
@@ -7300,40 +9398,74 @@ async function ensureUserReferralMetadata(){
     } =
       await supabaseClient
         .auth
-        .updateUser({
-
-          data:{
-
-            ...metadata,
-
-            referral_code:
-              code
-
-          }
-
-        });
+        .getSession();
 
 
-    if(
-      !error &&
-      data?.user
-    ){
+    if(error){
 
-      currentUser =
-        data.user;
+      throw error;
 
     }
 
+
+    currentUser =
+      data.session
+        ? data.session.user
+        : null;
+
+
+    updateProfile();
+
+    await loadDemoWallet();
+
+
   }catch(error){
 
-    console.warn(
-      "Não foi possível atualizar metadata:",
+    console.error(
+      "Erro ao verificar sessão:",
       error
     );
+
+    currentUser =
+      null;
+
+    updateProfile();
 
   }
 
 }
+
+
+supabaseClient
+  .auth
+  .onAuthStateChange(
+    async (
+      event,
+      session
+    ) => {
+
+      currentUser =
+        session
+          ? session.user
+          : null;
+
+
+      updateProfile();
+
+      if(currentUser){
+
+        await loadDemoWallet();
+
+      }else{
+
+        resetDemoWallet();
+
+        updateWallet();
+
+      }
+
+    }
+  );
 
 
 /* =========================================================
@@ -7356,215 +9488,905 @@ async function logout(){
 
   }
 
+
   currentUser =
     null;
 
-  updateAccountLabel();
+  resetDemoWallet();
 
   updateProfile();
 
-  closeModal(
-    "accountModal"
-  );
+  updateWallet();
 
   goHome();
 
   toast(
-    "Sessão encerrada"
+    "Você saiu da conta."
   );
 
 }
 
 
 /* =========================================================
-   AUTH CHECK
+   MODAL DE RECOMPENSAS
 ========================================================= */
 
-async function checkUser(){
+function openRewards(){
 
-  const {
-    data
-  } =
-    await supabaseClient
-      .auth
-      .getUser();
+  const modal =
+    document.getElementById(
+      "rewardsModal"
+    );
 
-  currentUser =
-    data?.user ||
-    null;
+  if(!modal){
 
-  if(currentUser){
-
-    await ensureUserReferralMetadata();
+    return;
 
   }
 
-  updateAccountLabel();
+  document
+    .getElementById(
+      "rewardPoints"
+    )
+    .textContent =
+    getPoints();
 
-  updateProfile();
+  modal.classList.add(
+    "show"
+  );
 
 }
 
 
-supabaseClient
-  .auth
-  .onAuthStateChange(
-    async (
-      event,
-      session
-    ) => {
+function openVip(){
 
-      currentUser =
-        session?.user ||
-        null;
+  const modal =
+    document.getElementById(
+      "vipModal"
+    );
 
-      updateAccountLabel();
+  if(!modal){
 
-      updateProfile();
+    return;
 
-    }
-  );
-
-
-/* =========================================================
-   ACCOUNT MODAL
-========================================================= */
-
-function openAccount(){
-
-  closeMenu();
-
-  renderAccount();
+  }
 
   document
     .getElementById(
-      "accountModal"
+      "vipPoints"
     )
-    .classList.add(
-      "show"
-    );
+    .textContent =
+    getPoints();
+
+  modal.classList.add(
+    "show"
+  );
 
 }
 
 
-function renderAccount(){
+/* =========================================================
+   MENU / CLIQUES
+========================================================= */
 
-  const content =
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      event.key ===
+      "Escape"
+    ){
+
+      closeMenu();
+
+      closeGame();
+
+      document
+        .querySelectorAll(
+          ".modal.show"
+        )
+        .forEach(
+          modal =>
+            modal.classList.remove(
+              "show"
+            )
+        );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function scrollToGames(){
+
+  const element =
     document.getElementById(
-      "accountContent"
+      "gamesSection"
+    );
+
+  if(element){
+
+    element.scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+
+function exploreSlots(){
+
+  openSlots();
+
+}
+
+
+function createAccount(){
+
+  openRegister();
+
+}
+
+
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+
+function selectHomeCategory(
+  category,
+  button
+){
+
+  document
+    .querySelectorAll(
+      ".category-button"
+    )
+    .forEach(
+      item =>
+        item.classList.remove(
+          "active"
+        )
     );
 
 
-  if(!currentUser){
+  if(button){
 
-    content.innerHTML =
-      `
+    button.classList.add(
+      "active"
+    );
 
-        <div class="info-card">
+  }
 
-          Você ainda não está conectado.
 
-        </div>
+  if(
+    category ===
+    "slots"
+  ){
 
-        <button
-          class="primary-button"
-          onclick="
-            closeModal('accountModal');
-            openLogin();
-          "
-        >
-          ENTRAR
-        </button>
-
-        <button
-          class="secondary-button"
-          onclick="
-            closeModal('accountModal');
-            openRegister();
-          "
-        >
-          CRIAR CADASTRO
-        </button>
-
-      `;
+    openSlots();
 
     return;
 
   }
 
 
-  content.innerHTML =
-    `
+  if(
+    category ===
+    "popular"
+  ){
 
-      <div class="info-card">
+    showPopular(
+      button
+    );
 
-        <div
-          style="
-            color:#777;
-            font-size:12px;
-          "
-        >
-          E-mail
-        </div>
+    return;
 
-        <div
-          style="
-            margin-top:5px;
-            font-weight:900;
-          "
-        >
-          ${escapeHtml(
-            currentUser.email
-          )}
-        </div>
-
-      </div>
+  }
 
 
-      <div class="info-card">
+  if(
+    category ===
+    "new"
+  ){
 
-        <div
-          style="
-            color:#777;
-            font-size:12px;
-          "
-        >
-          Código de convite
-        </div>
+    showNew(
+      button
+    );
 
-        <div
-          style="
-            margin-top:5px;
-            color:#f5c400;
-            font-size:22px;
-            font-weight:900;
-          "
-        >
-          ${getReferralCode()}
-        </div>
+    return;
 
-      </div>
+  }
 
 
-      <button
-        class="primary-button"
-        onclick="
-          closeModal('accountModal');
-          openInvite();
-        "
-      >
-        🤝 CONVIDAR AMIGOS
+  if(
+    category ===
+    "vip"
+  ){
+
+    openVip();
+
+    return;
+
+  }
+
+
+  if(
+    category ===
+    "rewards"
+  ){
+
+    openRewards();
+
+    return;
+
+  }
+
+
+  if(
+    category ===
+    "promotion"
+  ){
+
+    showPromotion();
+
+    return;
+
+  }
+
+
+  showAll(
+    button
+  );
+
+}
+
+
+/* =========================================================
+   SLOTS
+========================================================= */
+
+function setSlotsTab(
+  tab,
+  button
+){
+
+  slotsTab =
+    tab;
+
+  slotsPage =
+    1;
+
+
+  document
+    .querySelectorAll(
+      ".slots-tab"
+    )
+    .forEach(
+      item =>
+        item.classList.remove(
+          "active"
+        )
+    );
+
+
+  if(button){
+
+    button.classList.add(
+      "active"
+    );
+
+  }
+
+
+  renderSlots();
+
+}
+
+
+/* =========================================================
+   FAVORITOS
+========================================================= */
+
+function getFavorites(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        favoriteKey
+      ) ||
+      "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function isFavorite(
+  id
+){
+
+  return getFavorites()
+    .includes(
+      String(id)
+    );
+
+}
+
+
+function toggleFavorite(
+  id
+){
+
+  const key =
+    String(id);
+
+  const list =
+    getFavorites();
+
+  const index =
+    list.indexOf(
+      key
+    );
+
+
+  if(
+    index >= 0
+  ){
+
+    list.splice(
+      index,
+      1
+    );
+
+  }else{
+
+    list.push(
+      key
+    );
+
+  }
+
+
+  localStorage.setItem(
+    favoriteKey,
+    JSON.stringify(
+      list
+    )
+  );
+
+
+  renderGames(
+    filteredGames
+  );
+
+  renderSlots();
+
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+function toggleFaq(
+  button
+){
+
+  const answer =
+    button
+      .nextElementSibling;
+
+  if(!answer){
+
+    return;
+
+  }
+
+
+  answer.classList.toggle(
+    "open"
+  );
+
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO FINAL
+========================================================= */
+
+window.addEventListener(
+  "load",
+  async () => {
+
+    try{
+
+      await checkUser();
+
+      await loadGames();
+
+      renderProviderSidebar();
+
+      renderSlots();
+
+      updateProfile();
+
+      updateWallet();
+
+    }catch(error){
+
+      console.error(
+        "Erro na inicialização:",
+        error
+      );
+
+    }
+
+  }
+);
+
+</script>
+                PERFIL
       </button>
 
 
       <button
-        class="secondary-button"
+        class="outline-button"
         onclick="
           closeModal('accountModal');
-          openProfile();
+          logout();
         "
       >
-        👤 ABRIR PERFIL
+        🚪 SAIR DA CONTA
+      </button>
+
+    `;
+
+}
+
+
+/* =========================================================
+   FECHAR MODAIS
+========================================================= */
+
+document
+  .querySelectorAll(
+    ".modal"
+  )
+  .forEach(
+    modal => {
+
+      modal.addEventListener(
+        "click",
+        event => {
+
+          if(
+            event.target ===
+            modal
+          ){
+
+            modal.classList.remove(
+              "show"
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   GAME MODAL
+========================================================= */
+
+document
+  .getElementById(
+    "gameModal"
+  )
+  .addEventListener(
+    "click",
+    event => {
+
+      if(
+        event.target.id ===
+        "gameModal"
+      ){
+
+        closeGame();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   TECLADO
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      event.key ===
+      "Escape"
+    ){
+
+      closeMenu();
+
+      closeGame();
+
+      document
+        .querySelectorAll(
+          ".modal.show"
+        )
+        .forEach(
+          modal =>
+            modal.classList.remove(
+              "show"
+            )
+        );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   CATEGORIAS DA HOME
+========================================================= */
+
+function showAll(
+  button
+){
+
+  selectedProvider =
+    "Todos";
+
+  activateQuickButton(
+    button
+  );
+
+  filterGames();
+
+  scrollToGames();
+
+}
+
+
+function showPopular(
+  button
+){
+
+  activateQuickButton(
+    button
+  );
+
+  const popular =
+    [...allGames]
+      .slice(
+        0,
+        50
+      );
+
+  renderGames(
+    popular
+  );
+
+  scrollToGames();
+
+}
+
+
+function showNew(
+  button
+){
+
+  activateQuickButton(
+    button
+  );
+
+  const newest =
+    [...allGames]
+      .reverse()
+      .slice(
+        0,
+        50
+      );
+
+  renderGames(
+    newest
+  );
+
+  scrollToGames();
+
+}
+
+
+function showHomeSlots(){
+
+  openSlots();
+
+}
+
+
+/* =========================================================
+   QUICK BUTTON
+========================================================= */
+
+function activateQuickButton(
+  button
+){
+
+  document
+    .querySelectorAll(
+      ".quick-button"
+    )
+    .forEach(
+      item =>
+        item.classList.remove(
+          "active"
+        )
+    );
+
+
+  if(button){
+
+    button.classList.add(
+      "active"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   SCROLL DOS JOGOS
+========================================================= */
+
+function scrollToGames(){
+
+  const section =
+    document.getElementById(
+      "gamesSection"
+    );
+
+  if(section){
+
+    section.scrollIntoView({
+      behavior:
+        "smooth",
+      block:
+        "start"
+    });
+
+  }
+
+}
+
+
+/* =========================================================
+   EXPLORAR SLOTS
+========================================================= */
+
+function exploreSlots(){
+
+  openSlots();
+
+}
+
+
+/* =========================================================
+   CRIAR CONTA
+========================================================= */
+
+function createAccount(){
+
+  openRegister();
+
+}
+
+
+/* =========================================================
+   BOTÕES DE CATEGORIA
+========================================================= */
+
+function selectCategory(
+  category,
+  button
+){
+
+  document
+    .querySelectorAll(
+      ".category-button"
+    )
+    .forEach(
+      item =>
+        item.classList.remove(
+          "active"
+        )
+    );
+
+
+  if(button){
+
+    button.classList.add(
+      "active"
+    );
+
+  }
+
+
+  switch(
+    category
+  ){
+
+    case "all":
+
+      showAll(
+        button
+      );
+
+      break;
+
+
+    case "popular":
+
+      showPopular(
+        button
+      );
+
+      break;
+
+
+    case "slots":
+
+      openSlots();
+
+      break;
+
+
+    case "new":
+
+      showNew(
+        button
+      );
+
+      break;
+
+
+    case "vip":
+
+      openVip();
+
+      break;
+
+
+    case "rewards":
+
+      openRewards();
+
+      break;
+
+
+    case "promotion":
+
+      showPromotion();
+
+      break;
+
+
+    default:
+
+      showAll(
+        button
+      );
+
+  }
+
+}
+
+
+/* =========================================================
+   CARREGAMENTO INICIAL
+========================================================= */
+
+async function initializeApp(){
+
+  try{
+
+    await checkUser();
+
+  }catch(error){
+
+    console.error(
+      "Erro ao verificar usuário:",
+      error
+    );
+
+  }
+
+
+  try{
+
+    await loadGames();
+
+  }catch(error){
+
+    console.error(
+      "Erro ao carregar jogos:",
+      error
+    );
+
+  }
+
+
+  try{
+
+    renderProviderSidebar();
+
+    renderSlots();
+
+    updateProfile();
+
+    updateWallet();
+
+  }catch(error){
+
+    console.error(
+      "Erro ao renderizar interface:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+if(
+  document.readyState ===
+  "loading"
+){
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeApp
+  );
+
+}else{
+
+  initializeApp();
+
+}
+
+
+</script>
+
+</body>
+</html>
+              👤 ABRIR PERFIL
       </button>
 
 
@@ -7805,3 +10627,4 @@ init();
 
 </body>
 </html>
+      
