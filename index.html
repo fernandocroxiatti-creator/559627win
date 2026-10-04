@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>559627WIN</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0d0d0d;
+      border-bottom: 1px solid #242424;
+      padding: 15px 20px;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      white-space: nowrap;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #f5c400;
+    }
+
+    .search {
+      flex: 1;
+      max-width: 550px;
+      margin-left: auto;
+    }
+
+    .search input {
+      width: 100%;
+      background: #171717;
+      border: 1px solid #303030;
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: white;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search input:focus {
+      border-color: #f5c400;
+    }
+
+    .login {
+      background: #f5c400;
+      color: #000;
+      border: 0;
+      border-radius: 9px;
+      padding: 12px 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      max-width: 1400px;
+      margin: 25px auto;
+      padding: 45px 30px;
+      border-radius: 18px;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          #4d3d00 0%,
+          transparent 35%
+        ),
+        linear-gradient(135deg, #181818, #090909);
+      border: 1px solid #292929;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #f5c400;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories {
+      max-width: 1400px;
+      margin: 0 auto 25px;
+      padding: 0 20px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category {
+      white-space: nowrap;
+      padding: 10px 18px;
+      background: #171717;
+      border: 1px solid #2c2c2c;
+      border-radius: 30px;
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .category.active,
+    .category:hover {
+      background: #f5c400;
+      color: #000;
+      border-color: #f5c400;
+      font-weight: bold;
+    }
+
+    /* =========================
+       GAMES
+    ========================= */
+
+    .section {
+      max-width: 1400px;
+      margin: auto;
+      padding: 0 20px 50px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+      font-size: 25px;
+    }
+
+    .status {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(180px, 1fr)
+      );
+      gap: 16px;
+    }
+
+    .game {
+      background: #111;
+      border: 1px solid #252525;
+      border-radius: 12px;
+      overflow: hidden;
+      transition:
+        transform .2s,
+        border-color .2s;
+    }
+
+    .game:hover {
+      transform: translateY(-4px);
+      border-color: #f5c400;
+    }
+
+    .game-image {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #1b1b1b;
+      overflow: hidden;
+    }
+
+    .game-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .game-info {
+      padding: 12px;
+    }
+
+    .game-name {
+      font-weight: 700;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 5px;
+    }
+
+    .provider {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .play {
+      width: 100%;
+      padding: 10px;
+      border: 0;
+      border-radius: 7px;
+      background: #f5c400;
+      color: #000;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .play:hover {
+      background: #ffd92b;
+    }
+
+    /* =========================
+       LOADING / ERROR
+    ========================= */
+
+    .loading,
+    .error,
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px 20px;
+      color: #888;
+    }
+
+    .error {
+      color: #ff7070;
+    }
+
+    /* =========================
+       MODAL DO JOGO
+    ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, .94);
+      padding: 15px;
+    }
+
+    .modal.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+    }
+
+    .modal-title {
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .close {
+      border: 0;
+      background: #222;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .game-frame {
+      flex: 1;
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 12px;
+      }
+
+      .header-content {
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .search {
+        order: 3;
+        width: 100%;
+        max-width: none;
+      }
+
+      .login {
+        margin-left: auto;
+      }
+
+      .hero {
+        margin: 15px 12px;
+        padding: 30px 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .section {
+        padding: 0 12px 40px;
+      }
+
+      .games {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+      }
+
+      .game-info {
+        padding: 9px;
+      }
+
+      .game-name {
+        font-size: 13px;
+      }
+
+      .provider {
+        font-size: 11px;
+      }
+
+      .play {
+        font-size: 12px;
+        padding: 9px 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <div class="header-content">
+
+      <div class="logo">
+        559627<span>WIN</span>
+      </div>
+
+      <div class="search">
+
+        <input
+          id="search"
+          type="search"
+          placeholder="🔎 Procurar jogo..."
+          autocomplete="off"
+        >
+
+      </div>
+
+      <button
+        class="login"
+        type="button"
+      >
+        Entrar
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <h1>
+      Bem-vindo à
+      <span>559627WIN</span>
+    </h1>
+
+    <p>
+      Explore nossos jogos e divirta-se
+      no modo demonstração.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       CATEGORIAS
+  ========================= -->
+
+  <div class="categories">
+
+    <button
+      class="category active"
+      data-category="all"
+      type="button"
+    >
+      Todos
+    </button>
+
+    <button
+      class="category"
+      data-category="popular"
+      type="button"
+    >
+      🔥 Populares
+    </button>
+
+    <button
+      class="category"
+      data-category="new"
+      type="button"
+    >
+      ✨ Novos
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       LISTA DE JOGOS
+  ========================= -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        🎰 Jogos
+      </h2>
+
+      <span
+        class="status"
+        id="status"
+      >
+        Carregando...
+      </span>
+
+    </div>
+
+    <div
+      class="games"
+      id="games"
+    >
+
+      <div class="loading">
+        Carregando jogos...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MODAL DO JOGO
+  ========================= -->
+
+  <div
+    class="modal"
+    id="gameModal"
+  >
+
+    <div class="modal-header">
+
+      <div
+        class="modal-title"
+        id="modalTitle"
+      >
+        Jogo Demo
+      </div>
+
+      <button
+        class="close"
+        id="closeModal"
+        type="button"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <iframe
+      id="gameFrame"
+      class="game-frame"
+      allow="fullscreen"
+      allowfullscreen
+    ></iframe>
+
+  </div>
+
+
+  <script>
+
+    /* =========================================
+       CONFIGURAÇÃO SUPABASE
+    ========================================= */
+
+    const SUPABASE_URL =
+      "https://dzjjtdxukdagcjjjpnpq.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
+
+
+    /* =========================================
+       EDGE FUNCTIONS
+    ========================================= */
+
+    const GAMES_FUNCTION =
+      `${SUPABASE_URL}/functions/v1/bigbang-games`;
+
+    const LAUNCH_FUNCTION =
+      `${SUPABASE_URL}/functions/v1/bigbang-launch`;
+
+
+    /* =========================================
+       ESTADO
+    ========================================= */
+
+    let allGames = [];
+
+    let currentCategory = "all";
+
+
+    /* =========================================
+       ELEMENTOS
+    ========================================= */
+
+    const gamesContainer =
+      document.getElementById("games");
+
+    const status =
+      document.getElementById("status");
+
+    const search =
+      document.getElementById("search");
+
+    const modal =
+      document.getElementById("gameModal");
+
+    const gameFrame =
+      document.getElementById("gameFrame");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+
+    /* =========================================
+       CARREGAR JOGOS
+    ========================================= */
+
+    async function loadGames() {
+
+      try {
+
+        status.textContent =
+          "Buscando jogos...";
+
+        const response =
+          await fetch(
+            GAMES_FUNCTION,
+            {
+              method: "GET",
+
+              headers: {
+                "apikey": SUPABASE_KEY,
+                "Authorization":
+                  `Bearer ${SUPABASE_KEY}`
+              }
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (
+          !response.ok ||
+          !result.success
+        ) {
+
+          throw new Error(
+            result.error ||
+            "Erro ao carregar jogos."
+          );
+
+        }
+
+
+        allGames =
+          Array.isArray(result.data)
+            ? result.data
+            : [];
+
+
+        renderGames(
+          getFilteredGames()
+        );
+
+
+        status.textContent =
+          `${allGames.length} jogos encontrados`;
+
+
+      } catch (error) {
+
+        console.error(
+          "Erro ao carregar jogos:",
+          error
+        );
+
+
+        gamesContainer.innerHTML = `
+
+          <div class="error">
+
+            Não foi possível carregar os jogos.
+
+            <br><br>
+
+            ${escapeHtml(
+              error.message
+            )}
+
+          </div>
+
+        `;
+
+
+        status.textContent =
+          "Erro ao carregar";
+
+      }
+
+    }
+
+
+    /* =========================================
+       FILTRAR JOGOS
+    ========================================= */
+
+    function getFilteredGames() {
+
+      let games =
+        [...allGames];
+
+
+      /* Busca */
+
+      const term =
+        search.value
+          .trim()
+          .toLowerCase();
+
+
+      if (term) {
+
+        games =
+          games.filter(
+            game => {
+
+              const text = [
+
+                game.title,
+                game.name,
+                game.provider,
+                game.category,
+                game.category_title
+
+              ]
+                .filter(Boolean)
+                .join(" ")
+                .toLowerCase();
+
+
+              return text.includes(term);
+
+            }
+          );
+
+      }
+
+
+      /* Categorias */
+
+      if (
+        currentCategory !== "all" &&
+        currentCategory !== "popular" &&
+        currentCategory !== "new"
+      ) {
+
+        games =
+          games.filter(
+            game =>
+              String(
+                game.category || ""
+              ).toLowerCase() ===
+              currentCategory.toLowerCase()
+          );
+
+      }
+
+
+      return games;
+
+    }
+
+
+    /* =========================================
+       RENDERIZAR JOGOS
+    ========================================= */
+
+    function renderGames(
+      games
+    ) {
+
+      if (!games.length) {
+
+        gamesContainer.innerHTML = `
+
+          <div class="empty">
+
+            Nenhum jogo encontrado.
+
+          </div>
+
+        `;
+
+        status.textContent =
+          "0 jogos";
+
+        return;
+
+      }
+
+
+      gamesContainer.innerHTML =
+        games
+          .map(
+            game => {
+
+              const title =
+                game.title ||
+                game.name ||
+                "Jogo";
+
+
+              const thumbnail =
+                game.thumbnail ||
+                "";
+
+
+              const provider =
+                game.provider ||
+                "BigBang";
+
+
+              return `
+
+                <article
+                  class="game"
+                >
+
+                  <div
+                    class="game-image"
+                  >
+
+                    <img
+                      src="${escapeAttribute(
+                        thumbnail
+                      )}"
+                      alt="${escapeAttribute(
+                        title
+                      )}"
+                      loading="lazy"
+                      onerror="
+                        this.style.display='none'
+                      "
+                    >
+
+                  </div>
+
+
+                  <div
+                    class="game-info"
+                  >
+
+                    <div
+                      class="game-name"
+                      title="${escapeAttribute(
+                        title
+                      )}"
+                    >
+                      ${escapeHtml(
+                        title
+                      )}
+                    </div>
+
+
+                    <div
+                      class="provider"
+                    >
+                      ${escapeHtml(
+                        provider
+                      )}
+                    </div>
+
+
+                    <button
+                      class="play"
+                      type="button"
+                      onclick="
+                        launchGame(
+                          '${escapeJs(
+                            String(
+                              game.id
+                            )
+                          )}',
+                          '${escapeJs(
+                            title
+                          )}'
+                        )
+                      "
+                    >
+                      ▶ JOGAR DEMO
+                    </button>
+
+                  </div>
+
+                </article>
+
+              `;
+
+            }
+          )
+          .join("");
+
+
+      status.textContent =
+        `${games.length} jogos encontrados`;
+
+    }
+
+
+    /* =========================================
+       ABRIR JOGO
+    ========================================= */
+
+    async function launchGame(
+      gameId,
+      title
+    ) {
+
+      try {
+
+        modalTitle.textContent =
+          `Carregando ${title}...`;
+
+
+        modal.classList.add(
+          "active"
+        );
+
+
+        gameFrame.src =
+          "about:blank";
+
+
+        const response =
+          await fetch(
+            LAUNCH_FUNCTION,
+            {
+
+              method: "POST",
+
+              headers: {
+
+                "Content-Type":
+                  "application/json",
+
+                "apikey":
+                  SUPABASE_KEY,
+
+                "Authorization":
+                  `Bearer ${SUPABASE_KEY}`
+
+              },
+
+              body:
+                JSON.stringify({
+                  game_id:
+                    String(gameId)
+                })
+
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (
+          !response.ok ||
+          !result.success
+        ) {
+
+          throw new Error(
+            result.error ||
+            "Erro ao abrir o jogo."
+          );
+
+        }
+
+
+        if (
+          !result.game_url
+        ) {
+
+          throw new Error(
+            "A BigBang não retornou a URL do jogo."
+          );
+
+        }
+
+
+        modalTitle.textContent =
+          title;
+
+
+        gameFrame.src =
+          result.game_url;
+
+
+      } catch (error) {
+
+        console.error(
+          "Erro ao lançar jogo:",
+          error
+        );
+
+
+        alert(
+          "Não foi possível abrir o jogo.\n\n" +
+          error.message
+        );
+
+
+        closeGame();
+
+      }
+
+    }
+
+
+    /* =========================================
+       FECHAR JOGO
+    ========================================= */
+
+    function closeGame() {
+
+      gameFrame.src =
+        "about:blank";
+
+      modal.classList.remove(
+        "active"
+      );
+
+    }
+
+
+    /* =========================================
+       BOTÃO FECHAR
+    ========================================= */
+
+    document
+      .getElementById(
+        "closeModal"
+      )
+      .addEventListener(
+        "click",
+        closeGame
+      );
+
+
+    /* =========================================
+       FECHAR COM ESC
+    ========================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains(
+            "active"
+          )
+        ) {
+
+          closeGame();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       BUSCA
+    ========================================= */
+
+    search.addEventListener(
+      "input",
+      () => {
+
+        renderGames(
+          getFilteredGames()
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       CATEGORIAS
+    ========================================= */
+
+    document
+      .querySelectorAll(
+        ".category"
+      )
+      .forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              document
+                .querySelectorAll(
+                  ".category"
+                )
+                .forEach(
+                  item =>
+                    item.classList.remove(
+                      "active"
+                    )
+                );
+
+
+              button.classList.add(
+                "active"
+              );
+
+
+              currentCategory =
+                button.dataset.category;
+
+
+              renderGames(
+                getFilteredGames()
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================================
+       ESCAPES DE SEGURANÇA
+    ========================================= */
+
+    function escapeHtml(
+      value
+    ) {
+
+      return String(value)
+
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
+    }
+
+
+    function escapeAttribute(
+      value
+    ) {
+
+      return escapeHtml(
+        value
+      );
+
+    }
+
+
+    function escapeJs(
+      value
+    ) {
+
+      return String(value)
+
+        .replaceAll(
+          "\\",
+          "\\\\"
+        )
+
+        .replaceAll(
+          "'",
+          "\\'"
+        )
+
+        .replaceAll(
+          "\n",
+          " "
+        )
+
+        .replaceAll(
+          "\r",
+          " "
+        );
+
+    }
+
+
+    /* =========================================
+       INICIAR
+    ========================================= */
+
+    loadGames();
+
+  </script>
+
+</body>
+</html>
