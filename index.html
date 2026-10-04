@@ -1,787 +1,876 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>559627WIN</title>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #070707;
-      color: #fff;
-      min-height: 100vh;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: 72px;
-      background: rgba(10, 10, 10, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #292929;
-    }
-
-    .header-inner {
-      width: 100%;
-      max-width: 1450px;
-      height: 100%;
-      margin: auto;
-      padding: 0 20px;
-
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .menu-button {
-      width: 44px;
-      height: 44px;
-
-      border: 1px solid #333;
-      border-radius: 10px;
-
-      background: #171717;
-      color: #fff;
-
-      font-size: 22px;
-    }
-
-    .menu-button:hover {
-      border-color: #f5c400;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: -1px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #f5c400;
-    }
-
-    .search-container {
-      flex: 1;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    .search-input {
-      width: 100%;
-      height: 44px;
-
-      padding: 0 16px;
-
-      background: #171717;
-      border: 1px solid #333;
-      border-radius: 11px;
-
-      color: #fff;
-      outline: none;
-    }
-
-    .search-input:focus {
-      border-color: #f5c400;
-    }
-
-    .account-button {
-      border: 0;
-      border-radius: 10px;
-
-      padding: 12px 18px;
-
-      background: #f5c400;
-      color: #000;
-
-      font-weight: 900;
-    }
-
-    .account-button:hover {
-      background: #ffd72a;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      max-width: 1450px;
-      margin: 22px auto;
-
-      padding: 55px 35px;
-
-      border-radius: 20px;
-      border: 1px solid #292929;
-
-      background:
-        radial-gradient(
-          circle at 85% 20%,
-          rgba(245, 196, 0, 0.22),
-          transparent 35%
-        ),
-        linear-gradient(
-          135deg,
-          #191919,
-          #090909
-        );
-    }
-
-    .hero h1 {
-      font-size: clamp(35px, 5vw, 62px);
-      line-height: 1.05;
-    }
-
-    .hero h1 span {
-      color: #f5c400;
-    }
-
-    .hero p {
-      margin-top: 15px;
-      color: #aaa;
-      font-size: 18px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 25px;
-      flex-wrap: wrap;
-    }
-
-    .hero-button {
-      border: 0;
-      border-radius: 9px;
-      padding: 13px 20px;
-      font-weight: 900;
-      background: #f5c400;
-      color: #000;
-    }
-
-    .hero-button.secondary {
-      background: #202020;
-      color: #fff;
-      border: 1px solid #363636;
-    }
-
-    /* =========================
-       QUICK MENU
-    ========================= */
-
-    .quick-menu {
-      max-width: 1450px;
-      margin: 0 auto 25px;
-      padding: 0 20px;
-
-      display: flex;
-      gap: 10px;
-
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .quick-menu::-webkit-scrollbar {
-      display: none;
-    }
-
-    .quick-button {
-      white-space: nowrap;
-
-      padding: 11px 18px;
-
-      border-radius: 30px;
-      border: 1px solid #303030;
-
-      background: #171717;
-      color: #ccc;
-    }
-
-    .quick-button:hover,
-    .quick-button.active {
-      background: #f5c400;
-      color: #000;
-      border-color: #f5c400;
-      font-weight: 900;
-    }
-
-    /* =========================
-       CONTENT
-    ========================= */
-
-    .section {
-      max-width: 1450px;
-      margin: auto;
-      padding: 0 20px 60px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-
-      margin-bottom: 18px;
-    }
-
-    .section-header h2 {
-      font-size: 26px;
-    }
-
-    .status {
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* =========================
-       PROVIDERS
-    ========================= */
-
-    .providers {
-      display: flex;
-      gap: 8px;
-
-      overflow-x: auto;
-      margin-bottom: 20px;
-
-      scrollbar-width: none;
-    }
-
-    .providers::-webkit-scrollbar {
-      display: none;
-    }
-
-    .provider-button {
-      white-space: nowrap;
-
-      padding: 9px 15px;
-
-      background: #151515;
-      color: #bbb;
-
-      border: 1px solid #303030;
-      border-radius: 25px;
-    }
-
-    .provider-button:hover,
-    .provider-button.active {
-      background: #f5c400;
-      color: #000;
-      border-color: #f5c400;
-      font-weight: 900;
-    }
-
-    /* =========================
-       GAMES
-    ========================= */
-
-    .games {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fill,
-          minmax(175px, 1fr)
-        );
-
-      gap: 15px;
-    }
-
-    .game-card {
-      overflow: hidden;
-
-      background: #111;
-      border: 1px solid #262626;
-      border-radius: 13px;
-
-      transition:
-        transform 0.2s,
-        border-color 0.2s;
-    }
-
-    .game-card:hover {
-      transform: translateY(-4px);
-      border-color: #f5c400;
-    }
-
-    .game-image {
-      position: relative;
-
-      width: 100%;
-      aspect-ratio: 1 / 1;
-
-      background: #181818;
-    }
-
-    .game-image img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      display: block;
-    }
-
-    .game-info {
-      padding: 10px;
-    }
-
-    .game-title {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .game-provider {
-      margin-top: 5px;
-      margin-bottom: 10px;
-
-      color: #777;
-      font-size: 12px;
-    }
-
-    .play-button {
-      width: 100%;
-
-      padding: 10px;
-
-      border: 0;
-      border-radius: 7px;
-
-      background: #f5c400;
-      color: #000;
-
-      font-weight: 900;
-    }
-
-    .play-button:hover {
-      background: #ffd72a;
-    }
-
-    .loading,
-    .empty,
-    .error {
-      grid-column: 1 / -1;
-
-      padding: 60px 20px;
-
-      text-align: center;
-      color: #777;
-    }
-
-    .error {
-      color: #ff7777;
-    }
-
-    /* =========================
-       DRAWER
-    ========================= */
-
-    .drawer {
-      position: fixed;
-      inset: 0;
-
-      z-index: 500;
-
-      background: rgba(0, 0, 0, 0.7);
-
-      opacity: 0;
-      visibility: hidden;
-
-      transition: 0.2s;
-    }
-
-    .drawer.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .drawer-panel {
-      width: 320px;
-      max-width: 88%;
-      height: 100%;
-
-      padding: 20px;
-
-      background: #101010;
-      border-right: 1px solid #292929;
-
-      transform: translateX(-100%);
-      transition: 0.25s;
-    }
-
-    .drawer.open .drawer-panel {
-      transform: translateX(0);
-    }
-
-    .drawer-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      margin-bottom: 25px;
-    }
-
-    .drawer-logo {
-      font-size: 24px;
-      font-weight: 900;
-    }
-
-    .drawer-logo span {
-      color: #f5c400;
-    }
-
-    .close-button {
-      width: 40px;
-      height: 40px;
-
-      border: 0;
-      border-radius: 50%;
-
-      background: #222;
-      color: #fff;
-
-      font-size: 22px;
-    }
-
-    .menu-item {
-      width: 100%;
-
-      padding: 14px;
-
-      margin-bottom: 7px;
-
-      text-align: left;
-
-      border: 1px solid #292929;
-      border-radius: 9px;
-
-      background: #171717;
-      color: #ddd;
-    }
-
-    .menu-item:hover {
-      background: #f5c400;
-      color: #000;
-    }
-
-    /* =========================
-       MODALS
-    ========================= */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-
-      z-index: 800;
-
-      display: none;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: 15px;
-
-      background: rgba(0, 0, 0, 0.9);
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-box {
-      width: 100%;
-      max-width: 470px;
-
-      max-height: 90vh;
-      overflow-y: auto;
-
-      padding: 25px;
-
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 15px;
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      margin-bottom: 20px;
-    }
-
-    .modal-header h2 {
-      font-size: 23px;
-    }
-
-    .field {
-      width: 100%;
-
-      padding: 13px;
-      margin-bottom: 9px;
-
-      background: #181818;
-      border: 1px solid #333;
-      border-radius: 8px;
-
-      color: #fff;
-      outline: none;
-    }
-
-    .field:focus {
-      border-color: #f5c400;
-    }
-
-    .primary-button {
-      width: 100%;
-
-      padding: 13px;
-
-      border: 0;
-      border-radius: 8px;
-
-      background: #f5c400;
-      color: #000;
-
-      font-weight: 900;
-    }
-
-    .secondary-button {
-      width: 100%;
-
-      padding: 12px;
-      margin-top: 8px;
-
-      border: 1px solid #333;
-      border-radius: 8px;
-
-      background: #181818;
-      color: #fff;
-    }
-
-    .modal-message {
-      margin-top: 12px;
-
-      color: #999;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .info-card {
-      padding: 18px;
-      margin-bottom: 10px;
-
-      background: #171717;
-      border: 1px solid #292929;
-      border-radius: 11px;
-    }
-
-    .vip-level {
-      color: #f5c400;
-      font-size: 28px;
-      font-weight: 900;
-    }
-
-    .points {
-      margin-top: 8px;
-
-      font-size: 34px;
-      font-weight: 900;
-    }
-
-    /* =========================
-       GAME MODAL
-    ========================= */
-
-    .game-modal {
-      position: fixed;
-      inset: 0;
-
-      z-index: 1000;
-
-      display: none;
-      flex-direction: column;
-
-      background: #000;
-    }
-
-    .game-modal.show {
-      display: flex;
-    }
-
-    .game-bar {
-      height: 55px;
-
-      padding: 0 12px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      background: #101010;
-      border-bottom: 1px solid #292929;
-    }
-
-    .game-frame {
-      flex: 1;
-
-      width: 100%;
-
-      border: 0;
-      background: #000;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      header {
-        height: 64px;
-      }
-
-      .header-inner {
-        padding: 0 10px;
-        gap: 9px;
-      }
-
-      .logo {
-        font-size: 21px;
-      }
-
-      .search-container {
-        display: none;
-      }
-
-      .account-button {
-        margin-left: auto;
-        padding: 10px 12px;
-      }
-
-      .hero {
-        margin: 12px;
-        padding: 32px 20px;
-      }
-
-      .hero h1 {
-        font-size: 35px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .section {
-        padding: 0 12px 40px;
-      }
-
-      .games {
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-
-        gap: 9px;
-      }
-
-      .game-info {
-        padding: 8px;
-      }
-
-      .game-title {
-        font-size: 13px;
-      }
-
-      .game-provider {
-        font-size: 11px;
-      }
-
-      .play-button {
-        font-size: 12px;
-        padding: 9px 5px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>559627WIN</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#080808;
+  --panel:#151515;
+  --panel2:#1d1d1d;
+  --line:#303030;
+  --gold:#f7c900;
+  --gold2:#ffdb35;
+  --text:#fff;
+  --muted:#999;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at top,#171717 0,#080808 45%);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  padding-bottom:75px;
+}
+
+button,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:68px;
+  background:rgba(8,8,8,.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #292929;
+}
+
+.header-inner{
+  height:100%;
+  max-width:1500px;
+  margin:auto;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+  border:1px solid #333;
+  border-radius:12px;
+  background:#171717;
+  color:white;
+  font-size:23px;
+}
+
+.logo{
+  font-size:27px;
+  font-weight:900;
+  white-space:nowrap;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  color:var(--gold);
+}
+
+.header-search{
+  flex:1;
+  max-width:720px;
+  margin:auto;
+}
+
+.search{
+  width:100%;
+  height:44px;
+  border-radius:12px;
+  border:1px solid #333;
+  background:#171717;
+  color:white;
+  padding:0 17px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:var(--gold);
+}
+
+.login-btn{
+  border:0;
+  border-radius:12px;
+  background:var(--gold);
+  color:#000;
+  font-weight:900;
+  padding:12px 17px;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+  max-width:1500px;
+  margin:18px auto;
+  padding:42px 30px;
+  border:1px solid #292929;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 90% 30%,rgba(247,201,0,.18),transparent 35%),
+    linear-gradient(135deg,#191919,#0b0b0b);
+}
+
+.hero h1{
+  font-size:clamp(34px,5vw,62px);
+  line-height:1;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero p{
+  margin-top:15px;
+  color:#aaa;
+  font-size:18px;
+}
+
+.hero-buttons{
+  margin-top:25px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.gold-btn{
+  border:0;
+  border-radius:12px;
+  background:var(--gold);
+  color:#000;
+  padding:14px 20px;
+  font-weight:900;
+}
+
+.dark-btn{
+  border:1px solid #3a3a3a;
+  border-radius:12px;
+  background:#202020;
+  color:white;
+  padding:14px 20px;
+  font-weight:900;
+}
+
+/* =========================
+CATEGORIES
+========================= */
+
+.category-wrap{
+  max-width:1500px;
+  margin:auto;
+  padding:0 18px 20px;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:9px;
+}
+
+.category{
+  min-height:70px;
+  border:1px solid #303030;
+  border-radius:14px;
+  background:#151515;
+  color:#ddd;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  font-weight:800;
+}
+
+.category .icon{
+  font-size:24px;
+}
+
+.category:hover,
+.category.active{
+  background:var(--gold);
+  color:#000;
+  border-color:var(--gold);
+}
+
+/* =========================
+CONTENT
+========================= */
+
+.container{
+  max-width:1500px;
+  margin:auto;
+  padding:0 18px;
+}
+
+.section{
+  margin-bottom:38px;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.section-title h2{
+  font-size:27px;
+}
+
+.section-title span{
+  color:#777;
+}
+
+/* =========================
+PROVIDERS
+========================= */
+
+.provider-scroll{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding-bottom:5px;
+}
+
+.provider-scroll::-webkit-scrollbar{
+  display:none;
+}
+
+.provider{
+  flex:0 0 auto;
+  padding:11px 17px;
+  border:1px solid #303030;
+  border-radius:25px;
+  background:#151515;
+  color:#ccc;
+  white-space:nowrap;
+}
+
+.provider.active,
+.provider:hover{
+  background:var(--gold);
+  color:#000;
+  border-color:var(--gold);
+  font-weight:900;
+}
+
+/* =========================
+GAME GRID
+========================= */
+
+.games{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:14px;
+}
+
+.game{
+  position:relative;
+  overflow:hidden;
+  background:#111;
+  border:1px solid #292929;
+  border-radius:15px;
+  transition:.18s;
+}
+
+.game:hover{
+  transform:translateY(-3px);
+  border-color:var(--gold);
+}
+
+.game-img{
+  position:relative;
+  aspect-ratio:1/1;
+  background:#181818;
+}
+
+.game-img img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.favorite{
+  position:absolute;
+  right:8px;
+  top:8px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:rgba(0,0,0,.72);
+  color:#fff;
+  font-size:18px;
+  z-index:2;
+}
+
+.favorite.on{
+  color:var(--gold);
+}
+
+.game-info{
+  padding:10px;
+}
+
+.game-name{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight:900;
+  font-size:14px;
+}
+
+.game-provider{
+  color:#777;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.play{
+  width:100%;
+  margin-top:9px;
+  border:0;
+  border-radius:8px;
+  background:var(--gold);
+  color:#000;
+  padding:10px;
+  font-weight:900;
+}
+
+/* =========================
+SLOTS SCREEN
+========================= */
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+.back-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:18px 0;
+}
+
+.back-btn{
+  border:1px solid #333;
+  background:#171717;
+  color:white;
+  border-radius:10px;
+  padding:10px 15px;
+}
+
+.screen-title{
+  font-size:29px;
+  font-weight:900;
+}
+
+.slot-toolbar{
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  margin-bottom:17px;
+}
+
+.slot-toolbar::-webkit-scrollbar{
+  display:none;
+}
+
+.slot-filter{
+  flex:0 0 auto;
+  border:1px solid #333;
+  border-radius:12px;
+  background:#151515;
+  color:#ddd;
+  padding:11px 18px;
+}
+
+.slot-filter.active{
+  background:var(--gold);
+  color:#000;
+  border-color:var(--gold);
+  font-weight:900;
+}
+
+/* =========================
+PAGINATION
+========================= */
+
+.pagination{
+  display:flex;
+  justify-content:center;
+  gap:7px;
+  margin:30px 0;
+}
+
+.page{
+  min-width:42px;
+  height:42px;
+  border:1px solid #333;
+  border-radius:9px;
+  background:#151515;
+  color:white;
+}
+
+.page.active{
+  background:var(--gold);
+  color:#000;
+  border-color:var(--gold);
+  font-weight:900;
+}
+
+/* =========================
+DRAWER
+========================= */
+
+.drawer{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(0,0,0,.72);
+  opacity:0;
+  visibility:hidden;
+  transition:.2s;
+}
+
+.drawer.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.drawer-panel{
+  width:330px;
+  max-width:90%;
+  height:100%;
+  overflow-y:auto;
+  background:#111;
+  border-right:1px solid #333;
+  padding:18px;
+  transform:translateX(-100%);
+  transition:.25s;
+}
+
+.drawer.open .drawer-panel{
+  transform:translateX(0);
+}
+
+.drawer-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.drawer-logo{
+  font-size:25px;
+  font-weight:900;
+}
+
+.drawer-logo span{
+  color:var(--gold);
+}
+
+.close{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#242424;
+  color:#fff;
+  font-size:22px;
+}
+
+.menu-item{
+  width:100%;
+  text-align:left;
+  padding:15px;
+  margin-bottom:8px;
+  border:1px solid #2d2d2d;
+  border-radius:12px;
+  background:#171717;
+  color:#ddd;
+  font-weight:700;
+}
+
+.menu-item:hover{
+  background:var(--gold);
+  color:#000;
+}
+
+/* =========================
+MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:800;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  background:rgba(0,0,0,.9);
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:480px;
+  max-height:90vh;
+  overflow:auto;
+  background:#111;
+  border:1px solid #333;
+  border-radius:17px;
+  padding:22px;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.modal-head h2{
+  font-size:23px;
+}
+
+.field{
+  width:100%;
+  padding:13px;
+  margin-bottom:10px;
+  border-radius:9px;
+  border:1px solid #333;
+  background:#181818;
+  color:#fff;
+  outline:none;
+}
+
+.field:focus{
+  border-color:var(--gold);
+}
+
+.full-btn{
+  width:100%;
+  border:0;
+  border-radius:9px;
+  padding:13px;
+  background:var(--gold);
+  color:#000;
+  font-weight:900;
+  margin-top:5px;
+}
+
+.info{
+  padding:16px;
+  border:1px solid #2d2d2d;
+  border-radius:12px;
+  background:#171717;
+  margin-bottom:10px;
+}
+
+.big-number{
+  font-size:35px;
+  font-weight:900;
+  color:var(--gold);
+  margin-top:5px;
+}
+
+/* =========================
+GAME PLAYER
+========================= */
+
+.game-modal{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:#000;
+  display:none;
+  flex-direction:column;
+}
+
+.game-modal.show{
+  display:flex;
+}
+
+.game-header{
+  height:56px;
+  background:#111;
+  border-bottom:1px solid #292929;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 12px;
+}
+
+.game-header strong{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.game-frame{
+  flex:1;
+  width:100%;
+  border:0;
+}
+
+/* =========================
+BOTTOM NAV
+========================= */
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:200;
+  height:70px;
+  background:rgba(24,24,24,.98);
+  border-top:1px solid #333;
+  display:none;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.bottom-item{
+  border:0;
+  background:transparent;
+  color:#777;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  font-size:12px;
+}
+
+.bottom-item .bi{
+  font-size:22px;
+}
+
+.bottom-item.active{
+  color:var(--gold);
+}
+
+/* =========================
+LOADING
+========================= */
+
+.loading,
+.empty,
+.error{
+  grid-column:1/-1;
+  padding:50px 20px;
+  text-align:center;
+  color:#777;
+}
+
+.error{
+  color:#ff7373;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  .header{
+    height:62px;
+  }
+
+  .header-inner{
+    padding:0 10px;
+    gap:8px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .header-search{
+    display:none;
+  }
+
+  .login-btn{
+    margin-left:auto;
+    padding:10px 12px;
+  }
+
+  .hero{
+    margin:10px;
+    padding:30px 20px;
+  }
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .category-wrap{
+    padding:0 10px 16px;
+  }
+
+  .category-grid{
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none;
+    gap:8px;
+  }
+
+  .category-grid::-webkit-scrollbar{
+    display:none;
+  }
+
+  .category{
+    min-width:78px;
+    min-height:72px;
+    padding:8px;
+  }
+
+  .container{
+    padding:0 10px;
+  }
+
+  .games{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
+  }
+
+  .game{
+    border-radius:10px;
+  }
+
+  .game-info{
+    padding:7px;
+  }
+
+  .game-name{
+    font-size:11px;
+  }
+
+  .game-provider{
+    font-size:9px;
+  }
+
+  .play{
+    font-size:10px;
+    padding:8px 2px;
+  }
+
+  .favorite{
+    width:29px;
+    height:29px;
+    font-size:15px;
+    right:5px;
+    top:5px;
+  }
+
+  .section-title h2{
+    font-size:21px;
+  }
+
+  .section-title span{
+    font-size:11px;
+  }
+
+  .bottom-nav{
+    display:grid;
+  }
+
+  body{
+    padding-bottom:70px;
+  }
+
+}
+
+@media(min-width:901px){
+  body{
+    padding-bottom:0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<header class="header">
+  <div class="header-inner">
 
-  <header>
+    <button class="menu-btn" onclick="openMenu()">☰</button>
 
-    <div class="header-inner">
-
-      <button
-        class="menu-button"
-        onclick="openMenu()"
-        aria-label="Abrir menu"
-      >
-        ☰
-      </button>
-
-      <div class="logo">
-        559627<span>WIN</span>
-      </div>
-
-      <div class="search-container">
-
-        <input
-          id="searchInput"
-          class="search-input"
-          type="search"
-          placeholder="🔎 Procurar jogo..."
-          autocomplete="off"
-        >
-
-      </div>
-
-      <button
-        class="account-button"
-        onclick="openAccount()"
-      >
-        👤 <span id="accountLabel">Entrar</span>
-      </button>
-
+    <div class="logo">
+      559627<span>WIN</span>
     </div>
 
-  </header>
+    <div class="header-search">
+      <input
+        id="searchInput"
+        class="search"
+        placeholder="🔎 Procurar jogo..."
+        oninput="handleSearch()"
+      >
+    </div>
+
+    <button
+      id="loginBtn"
+      class="login-btn"
+      onclick="openAccount()"
+    >
+      👤 Entrar
+    </button>
+
+  </div>
+</header>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+<!-- =========================
+HOME
+========================= -->
+
+<main id="homeScreen" class="screen active">
 
   <section class="hero">
 
@@ -794,17 +883,17 @@
       Explore milhares de jogos no modo demonstração.
     </p>
 
-    <div class="hero-actions">
+    <div class="hero-buttons">
 
       <button
-        class="hero-button"
-        onclick="scrollToGames()"
+        class="gold-btn"
+        onclick="openSlots()"
       >
-        🎰 Explorar jogos
+        🎰 Explorar Slots
       </button>
 
       <button
-        class="hero-button secondary"
+        class="dark-btn"
         onclick="openRegister()"
       >
         📝 Criar cadastro
@@ -815,77 +904,170 @@
   </section>
 
 
-  <!-- =========================
-       QUICK MENU
-  ========================= -->
+  <section class="category-wrap">
 
-  <div class="quick-menu">
+    <div class="category-grid">
 
-    <button
-      id="quickAll"
-      class="quick-button active"
-      onclick="showAll(this)"
-    >
-      🎰 Todos
-    </button>
+      <button
+        class="category active"
+        onclick="showHomeCategory('popular',this)"
+      >
+        <span class="icon">🔥</span>
+        Popular
+      </button>
 
-    <button
-      class="quick-button"
-      onclick="showPopular(this)"
-    >
-      🔥 Populares
-    </button>
+      <button
+        class="category"
+        onclick="openSlots()"
+      >
+        <span class="icon">🎰</span>
+        Slots
+      </button>
 
-    <button
-      class="quick-button"
-      onclick="showNew(this)"
-    >
-      ✨ Novidades
-    </button>
+      <button
+        class="category"
+        onclick="showHomeCategory('mini',this)"
+      >
+        <span class="icon">🕹️</span>
+        Mini
+      </button>
 
-    <button
-      class="quick-button"
-      onclick="openVip()"
-    >
-      👑 VIP
-    </button>
+      <button
+        class="category"
+        onclick="showHomeCategory('fishing',this)"
+      >
+        <span class="icon">🎣</span>
+        Pescaria
+      </button>
 
-    <button
-      class="quick-button"
-      onclick="openRewards()"
-    >
-      🎁 Recompensas
-    </button>
+      <button
+        class="category"
+        onclick="showHomeCategory('sports',this)"
+      >
+        <span class="icon">⚽</span>
+        Esporte
+      </button>
 
-    <button
-      class="quick-button"
-      onclick="openBonus()"
-    >
-      🎁 Resgatar bônus
-    </button>
+      <button
+        class="category"
+        onclick="showHomeCategory('recent',this)"
+      >
+        <span class="icon">🕘</span>
+        Recentes
+      </button>
+
+      <button
+        class="category"
+        onclick="showFavorites()"
+      >
+        <span class="icon">⭐</span>
+        Favoritos
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <div class="container">
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2 id="homeTitle">
+          🔥 Popular
+        </h2>
+
+        <span id="homeCount">
+          Carregando...
+        </span>
+
+      </div>
+
+      <div id="homeProviders" class="provider-scroll"></div>
+
+      <div id="homeGames" class="games">
+
+        <div class="loading">
+          Carregando jogos...
+        </div>
+
+      </div>
+
+      <div id="homePagination" class="pagination"></div>
+
+    </section>
 
   </div>
 
+</main>
 
-  <!-- =========================
-       GAMES
-  ========================= -->
 
-  <section
-    id="gamesSection"
-    class="section"
-  >
+<!-- =========================
+SLOTS
+========================= -->
 
-    <div class="section-header">
+<main id="slotsScreen" class="screen">
+
+  <div class="container">
+
+    <div class="back-row">
+
+      <button
+        class="back-btn"
+        onclick="goHome()"
+      >
+        ← Voltar
+      </button>
+
+      <div class="screen-title">
+        🎰 Slots
+      </div>
+
+    </div>
+
+
+    <div class="slot-toolbar">
+
+      <button
+        class="slot-filter active"
+        onclick="setSlotMode('all',this)"
+      >
+        🎰 Todos os Slots
+      </button>
+
+      <button
+        class="slot-filter"
+        onclick="setSlotMode('popular',this)"
+      >
+        🔥 Populares
+      </button>
+
+      <button
+        class="slot-filter"
+        onclick="setSlotMode('recent',this)"
+      >
+        🆕 Recentes
+      </button>
+
+      <button
+        class="slot-filter"
+        onclick="showFavorites(true)"
+      >
+        ⭐ Favoritos
+      </button>
+
+    </div>
+
+
+    <div class="section-title">
 
       <h2>
-        🎰 Jogos
+        Provedores
       </h2>
 
-      <span
-        id="status"
-        class="status"
-      >
+      <span id="slotCount">
         Carregando...
       </span>
 
@@ -893,386 +1075,55 @@
 
 
     <div
-      id="providers"
-      class="providers"
+      id="slotProviders"
+      class="provider-scroll"
     ></div>
 
 
     <div
-      id="games"
+      id="slotGames"
       class="games"
+      style="margin-top:18px"
     >
 
       <div class="loading">
-        Carregando jogos...
+        Carregando Slots...
       </div>
 
     </div>
 
-  </section>
 
-
-  <!-- =========================
-       DRAWER
-  ========================= -->
-
-  <div
-    id="drawer"
-    class="drawer"
-    onclick="handleDrawerClick(event)"
-  >
-
-    <div class="drawer-panel">
-
-      <div class="drawer-header">
-
-        <div class="drawer-logo">
-          559627<span>WIN</span>
-        </div>
-
-        <button
-          class="close-button"
-          onclick="closeMenu()"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      <button
-        class="menu-item"
-        onclick="goHome()"
-      >
-        🏠 Início
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="showAll()"
-      >
-        🎰 Todos os jogos
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="showPopular()"
-      >
-        🔥 Populares
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="showNew()"
-      >
-        ✨ Novidades
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="openVip()"
-      >
-        👑 VIP
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="openRewards()"
-      >
-        🎁 Recompensas
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="openBonus()"
-      >
-        🎁 Resgatar bônus demo
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="openAccount()"
-      >
-        👤 Minha conta
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="openRegister()"
-      >
-        📝 Criar cadastro
-      </button>
-
-
-      <button
-        class="menu-item"
-        onclick="openLogin()"
-      >
-        🔐 Entrar
-      </button>
-
-    </div>
+    <div
+      id="slotPagination"
+      class="pagination"
+    ></div>
 
   </div>
 
+</main>
 
-  <!-- =========================
-       ACCOUNT MODAL
-  ========================= -->
 
-  <div
-    id="accountModal"
-    class="modal"
-  >
+<!-- =========================
+DRAWER
+========================= -->
 
-    <div class="modal-box">
+<div
+  id="drawer"
+  class="drawer"
+  onclick="drawerOutside(event)"
+>
 
-      <div class="modal-header">
+  <div class="drawer-panel">
 
-        <h2>👤 Minha conta</h2>
+    <div class="drawer-head">
 
-        <button
-          class="close-button"
-          onclick="closeModal('accountModal')"
-        >
-          ×
-        </button>
-
+      <div class="drawer-logo">
+        559627<span>WIN</span>
       </div>
-
-      <div id="accountContent"></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       AUTH MODAL
-  ========================= -->
-
-  <div
-    id="authModal"
-    class="modal"
-  >
-
-    <div class="modal-box">
-
-      <div class="modal-header">
-
-        <h2 id="authTitle">
-          📝 Criar cadastro
-        </h2>
-
-        <button
-          class="close-button"
-          onclick="closeModal('authModal')"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      <input
-        id="authEmail"
-        class="field"
-        type="email"
-        placeholder="Seu e-mail"
-      >
-
-
-      <input
-        id="authPassword"
-        class="field"
-        type="password"
-        placeholder="Sua senha"
-      >
-
 
       <button
-        class="primary-button"
-        onclick="submitAuth()"
-      >
-        Continuar
-      </button>
-
-
-      <button
-        id="toggleAuthButton"
-        class="secondary-button"
-        onclick="toggleAuthMode()"
-      >
-        Já tenho uma conta
-      </button>
-
-
-      <div
-        id="authMessage"
-        class="modal-message"
-      ></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       VIP MODAL
-  ========================= -->
-
-  <div
-    id="vipModal"
-    class="modal"
-  >
-
-    <div class="modal-box">
-
-      <div class="modal-header">
-
-        <h2>👑 Programa VIP</h2>
-
-        <button
-          class="close-button"
-          onclick="closeModal('vipModal')"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="info-card">
-
-        <div class="vip-level">
-          VIP BRONZE
-        </div>
-
-        <p style="margin-top:8px;color:#aaa">
-          Nível demonstrativo da sua conta.
-        </p>
-
-      </div>
-
-
-      <div class="info-card">
-
-        <div>
-          ⭐ Pontos demo
-        </div>
-
-        <div
-          id="vipPoints"
-          class="points"
-        >
-          0
-        </div>
-
-      </div>
-
-
-      <div class="info-card">
-
-        <strong>Próximos níveis</strong>
-
-        <p style="margin-top:8px;color:#aaa">
-          🥈 Prata<br>
-          🥇 Ouro<br>
-          💎 Diamante
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       REWARDS MODAL
-  ========================= -->
-
-  <div
-    id="rewardsModal"
-    class="modal"
-  >
-
-    <div class="modal-box">
-
-      <div class="modal-header">
-
-        <h2>🎁 Recompensas</h2>
-
-        <button
-          class="close-button"
-          onclick="closeModal('rewardsModal')"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="info-card">
-
-        <div>
-          ⭐ Pontos demo
-        </div>
-
-        <div
-          id="rewardPoints"
-          class="points"
-        >
-          0
-        </div>
-
-      </div>
-
-
-      <button
-        class="primary-button"
-        onclick="claimDemoReward()"
-      >
-        🎁 Resgatar recompensa demo
-      </button>
-
-
-      <div
-        id="rewardMessage"
-        class="modal-message"
-      ></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       GAME MODAL
-  ========================= -->
-
-  <div
-    id="gameModal"
-    class="game-modal"
-  >
-
-    <div class="game-bar">
-
-      <strong id="gameTitle">
-        Jogo Demo
-      </strong>
-
-      <button
-        class="close-button"
-        onclick="closeGame()"
+        class="close"
+        onclick="closeMenu()"
       >
         ×
       </button>
@@ -1280,1561 +1131,2505 @@
     </div>
 
 
-    <iframe
-      id="gameFrame"
-      class="game-frame"
-      allow="fullscreen"
-      allowfullscreen
-    ></iframe>
+    <button
+      class="menu-item"
+      onclick="goHome()"
+    >
+      🏠 Início
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showHomeCategory('popular')"
+    >
+      🔥 Popular
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="openSlots()"
+    >
+      🎰 Slots
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showHomeCategory('mini')"
+    >
+      🕹️ Mini jogos
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showHomeCategory('fishing')"
+    >
+      🎣 Pescaria
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showHomeCategory('sports')"
+    >
+      ⚽ Esporte
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showHomeCategory('recent')"
+    >
+      🕘 Recentes
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showFavorites()"
+    >
+      ⭐ Favoritos
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="openVip()"
+    >
+      👑 VIP
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="openRewards()"
+    >
+      🎁 Recompensas
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="openBonus()"
+    >
+      🎁 Resgatar bônus demo
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="openAccount()"
+    >
+      👤 Minha conta
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="openRegister()"
+    >
+      📝 Criar cadastro
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="openLogin()"
+    >
+      🔐 Entrar
+    </button>
 
   </div>
 
-
-  <script>
-
-    /* ======================================
-       SUPABASE
-    ====================================== */
-
-    const SUPABASE_URL =
-      "https://dzjjtdxukdagcjjjpnpq.supabase.co";
-
-    const SUPABASE_KEY =
-      "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
+</div>
 
 
-    const supabaseClient =
-      window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
+<!-- =========================
+ACCOUNT
+========================= -->
+
+<div id="accountModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>👤 Minha conta</h2>
+
+      <button
+        class="close"
+        onclick="closeModal('accountModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div id="accountContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+AUTH
+========================= -->
+
+<div id="authModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2 id="authTitle">
+        📝 Criar cadastro
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('authModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <input
+      id="authEmail"
+      class="field"
+      type="email"
+      placeholder="E-mail"
+    >
+
+    <input
+      id="authPassword"
+      class="field"
+      type="password"
+      placeholder="Senha"
+    >
+
+    <button
+      class="full-btn"
+      onclick="submitAuth()"
+    >
+      Continuar
+    </button>
+
+    <button
+      id="toggleAuth"
+      class="dark-btn"
+      style="width:100%;margin-top:8px"
+      onclick="toggleAuth()"
+    >
+      Já tenho uma conta
+    </button>
+
+    <div
+      id="authMessage"
+      style="margin-top:12px;color:#aaa"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+VIP
+========================= -->
+
+<div id="vipModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>👑 VIP 559627WIN</h2>
+
+      <button
+        class="close"
+        onclick="closeModal('vipModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="info">
+
+      <div style="color:#aaa">
+        Nível atual
+      </div>
+
+      <div class="big-number">
+        VIP 1
+      </div>
+
+    </div>
+
+    <div class="info">
+
+      <div style="color:#aaa">
+        Pontos demo
+      </div>
+
+      <div
+        id="vipPoints"
+        class="big-number"
+      >
+        0
+      </div>
+
+    </div>
+
+    <div class="info">
+      Continue explorando a plataforma para acumular pontos de demonstração.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+REWARDS
+========================= -->
+
+<div id="rewardsModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>🎁 Recompensas</h2>
+
+      <button
+        class="close"
+        onclick="closeModal('rewardsModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="info">
+
+      Pontos disponíveis
+
+      <div
+        id="rewardPoints"
+        class="big-number"
+      >
+        0
+      </div>
+
+    </div>
+
+    <button
+      class="full-btn"
+      onclick="claimDemoReward()"
+    >
+      🎁 Resgatar recompensa demo
+    </button>
+
+    <div
+      id="rewardMessage"
+      style="margin-top:12px;color:#aaa"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+BOTTOM NAV
+========================= -->
+
+<nav class="bottom-nav">
+
+  <button
+    class="bottom-item active"
+    onclick="goHome()"
+  >
+    <span class="bi">🏠</span>
+    Início
+  </button>
+
+  <button
+    class="bottom-item"
+    onclick="openRewards()"
+  >
+    <span class="bi">🎁</span>
+    Ofertas
+  </button>
+
+  <button
+    class="bottom-item"
+    onclick="openVip()"
+  >
+    <span class="bi">👑</span>
+    VIP
+  </button>
+
+  <button
+    class="bottom-item"
+    onclick="openAccount()"
+  >
+    <span class="bi">👤</span>
+    Perfil
+  </button>
+
+</nav>
+
+
+<!-- =========================
+GAME PLAYER
+========================= -->
+
+<div id="gameModal" class="game-modal">
+
+  <div class="game-header">
+
+    <strong id="gameTitle">
+      Jogo
+    </strong>
+
+    <button
+      class="close"
+      onclick="closeGame()"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <iframe
+    id="gameFrame"
+    class="game-frame"
+    allow="fullscreen; autoplay"
+  ></iframe>
+
+</div>
+
+
+<script>
+
+/* =========================================
+CONFIGURAÇÃO
+========================================= */
+
+const SUPABASE_URL =
+  "https://dzjjtdxukdagcjjjpnpq.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
+
+const GAMES_FUNCTION =
+  SUPABASE_URL +
+  "/functions/v1/bigbang-games";
+
+const LAUNCH_FUNCTION =
+  SUPABASE_URL +
+  "/functions/v1/bigbang-launch";
+
+const supabaseClient =
+  supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+/* =========================================
+ESTADO
+========================================= */
+
+let allGames = [];
+
+let currentUser = null;
+
+let selectedProvider = "Todos";
+
+let selectedSlotProvider = "Todos";
+
+let slotMode = "all";
+
+let homeMode = "popular";
+
+let authMode = "signup";
+
+let homePage = 1;
+
+let slotPage = 1;
+
+const PAGE_SIZE = 30;
+
+
+/* =========================================
+ELEMENTOS
+========================================= */
+
+const homeGames =
+  document.getElementById("homeGames");
+
+const slotGames =
+  document.getElementById("slotGames");
+
+const homeProviders =
+  document.getElementById("homeProviders");
+
+const slotProviders =
+  document.getElementById("slotProviders");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+
+/* =========================================
+INICIALIZAÇÃO
+========================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  async () => {
+
+    await checkUser();
+
+    await loadGames();
+
+  }
+);
+
+
+/* =========================================
+CARREGAR CATÁLOGO
+========================================= */
+
+async function loadGames(){
+
+  try{
+
+    homeGames.innerHTML =
+      `<div class="loading">
+        Carregando catálogo BigBang...
+      </div>`;
+
+    const response =
+      await fetch(
+        GAMES_FUNCTION,
+        {
+          method:"GET",
+          headers:{
+            apikey:SUPABASE_KEY,
+            Authorization:
+              "Bearer " + SUPABASE_KEY
+          }
+        }
       );
 
+    const result =
+      await response.json();
 
-    /* ======================================
-       EDGE FUNCTIONS
-    ====================================== */
-
-    const GAMES_FUNCTION =
-      `${SUPABASE_URL}/functions/v1/bigbang-games`;
-
-    const LAUNCH_FUNCTION =
-      `${SUPABASE_URL}/functions/v1/bigbang-launch`;
-
-
-    /* ======================================
-       ESTADO
-    ====================================== */
-
-    let allGames = [];
-
-    let selectedProvider = "Todos";
-
-    let currentUser = null;
-
-    let authMode = "signup";
-
-
-    /* ======================================
-       ELEMENTOS
-    ====================================== */
-
-    const gamesElement =
-      document.getElementById("games");
-
-    const statusElement =
-      document.getElementById("status");
-
-    const searchElement =
-      document.getElementById("searchInput");
-
-    const providersElement =
-      document.getElementById("providers");
-
-
-    /* ======================================
-       CARREGAR CATÁLOGO
-    ====================================== */
-
-    async function loadGames() {
-
-      try {
-
-        statusElement.textContent =
-          "Buscando jogos...";
-
-
-        const response =
-          await fetch(
-            GAMES_FUNCTION,
-            {
-              method: "GET",
-
-              headers: {
-                "apikey": SUPABASE_KEY,
-
-                "Authorization":
-                  `Bearer ${SUPABASE_KEY}`
-              }
-            }
-          );
-
-
-        const result =
-          await response.json();
-
-
-        if (
-          !response.ok ||
-          !result.success
-        ) {
-
-          throw new Error(
-            result.error ||
-            "Erro ao carregar catálogo."
-          );
-
-        }
-
-
-        allGames =
-          Array.isArray(result.data)
-            ? result.data
-            : [];
-
-
-        buildProviders();
-
-        renderGames(
-          allGames
-        );
-
-
-      } catch (error) {
-
-        console.error(
-          "Erro catálogo:",
-          error
-        );
-
-
-        gamesElement.innerHTML = `
-
-          <div class="error">
-
-            Não foi possível carregar os jogos.
-
-            <br><br>
-
-            ${escapeHtml(
-              error.message
-            )}
-
-          </div>
-
-        `;
-
-        statusElement.textContent =
-          "Erro";
-
-      }
-
+    if(
+      !response.ok ||
+      !result.success
+    ){
+      throw new Error(
+        result.error ||
+        "Erro ao carregar catálogo."
+      );
     }
 
+    allGames =
+      Array.isArray(result.data)
+        ? result.data
+        : [];
 
-    /* ======================================
-       PROVEDORES
-    ====================================== */
+    console.log(
+      "Jogos carregados:",
+      allGames.length
+    );
 
-    function buildProviders() {
+    buildHomeProviders();
 
-      const providers = [
-        ...new Set(
-          allGames
-            .map(
-              game => game.provider
-            )
-            .filter(Boolean)
+    buildSlotProviders();
+
+    renderHome();
+
+  }catch(error){
+
+    console.error(error);
+
+    homeGames.innerHTML =
+      `<div class="error">
+        Não foi possível carregar os jogos.<br><br>
+        ${escapeHtml(error.message)}
+      </div>`;
+
+  }
+
+}
+
+
+/* =========================================
+NORMALIZAR TEXTO
+========================================= */
+
+function normalize(value){
+
+  return String(
+    value || ""
+  )
+  .normalize("NFD")
+  .replace(
+    /[\u0300-\u036f]/g,
+    ""
+  )
+  .toLowerCase();
+
+}
+
+
+/* =========================================
+DETECTAR CATEGORIA
+========================================= */
+
+function gameType(game){
+
+  const text =
+    normalize(
+      [
+        game.game_type,
+        game.type,
+        game.category,
+        game.category_title,
+        game.title,
+        game.name
+      ]
+      .filter(Boolean)
+      .join(" ")
+    );
+
+  if(
+    text.includes("fishing") ||
+    text.includes("fish") ||
+    text.includes("pesca")
+  ){
+    return "fishing";
+  }
+
+  if(
+    text.includes("sport") ||
+    text.includes("football") ||
+    text.includes("soccer") ||
+    text.includes("basketball") ||
+    text.includes("esporte")
+  ){
+    return "sports";
+  }
+
+  if(
+    text.includes("mini") ||
+    text.includes("arcade")
+  ){
+    return "mini";
+  }
+
+  if(
+    text.includes("slot") ||
+    text.includes("slots")
+  ){
+    return "slots";
+  }
+
+  /*
+   * Na Sandbox da BigBang muitos jogos
+   * standard são slots mesmo.
+   */
+  return "slots";
+
+}
+
+
+/* =========================================
+PROVEDORES HOME
+========================================= */
+
+function buildHomeProviders(){
+
+  const providers =
+    [
+      ...new Set(
+        allGames
+          .map(
+            game =>
+              game.provider
+          )
+          .filter(Boolean)
+      )
+    ]
+    .sort(
+      (a,b) =>
+        String(a).localeCompare(
+          String(b)
         )
-      ].sort();
+    );
 
+  homeProviders.innerHTML =
+    `
+    <button
+      class="provider active"
+      onclick="selectHomeProvider('Todos',this)"
+    >
+      Todos
+    </button>
+    `;
 
-      providersElement.innerHTML = `
+  providers.forEach(
+    provider => {
 
-        <button
-          class="provider-button active"
-          onclick="selectProvider('Todos', this)"
-        >
-          Todos
-        </button>
+      const button =
+        document.createElement(
+          "button"
+        );
 
-      `;
+      button.className =
+        "provider";
 
+      button.textContent =
+        provider;
 
-      providers.forEach(
-        provider => {
-
-          const button =
-            document.createElement(
-              "button"
-            );
-
-          button.className =
-            "provider-button";
-
-          button.textContent =
-            provider;
-
-          button.onclick =
-            () =>
-              selectProvider(
-                provider,
-                button
-              );
-
-          providersElement.appendChild(
+      button.onclick =
+        () =>
+          selectHomeProvider(
+            provider,
             button
           );
 
-        }
+      homeProviders.appendChild(
+        button
       );
 
     }
+  );
+
+}
 
 
-    /* ======================================
-       SELECIONAR PROVEDOR
-    ====================================== */
+/* =========================================
+PROVEDORES SLOTS
+========================================= */
 
-    function selectProvider(
-      provider,
-      button
-    ) {
+function buildSlotProviders(){
 
-      selectedProvider =
+  const providers =
+    [
+      ...new Set(
+        allGames
+          .filter(
+            game =>
+              gameType(game) ===
+              "slots"
+          )
+          .map(
+            game =>
+              game.provider
+          )
+          .filter(Boolean)
+      )
+    ]
+    .sort(
+      (a,b) =>
+        String(a).localeCompare(
+          String(b)
+        )
+    );
+
+  slotProviders.innerHTML =
+    `
+    <button
+      class="provider active"
+      onclick="selectSlotProvider('Todos',this)"
+    >
+      🎰 Todos
+    </button>
+    `;
+
+  providers.forEach(
+    provider => {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.className =
+        "provider";
+
+      button.textContent =
         provider;
 
+      button.onclick =
+        () =>
+          selectSlotProvider(
+            provider,
+            button
+          );
 
-      document
-        .querySelectorAll(
-          ".provider-button"
-        )
-        .forEach(
-          element =>
-            element.classList.remove(
-              "active"
-            )
-        );
+      slotProviders.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
 
 
-      if (button) {
+/* =========================================
+SELECIONAR PROVEDOR HOME
+========================================= */
 
-        button.classList.add(
+function selectHomeProvider(
+  provider,
+  button
+){
+
+  selectedProvider =
+    provider;
+
+  document
+    .querySelectorAll(
+      "#homeProviders .provider"
+    )
+    .forEach(
+      el =>
+        el.classList.remove(
           "active"
-        );
+        )
+    );
 
-      }
+  button.classList.add(
+    "active"
+  );
 
+  homePage = 1;
 
-      filterGames();
+  renderHome();
 
-    }
-
-
-    /* ======================================
-       FILTRAR
-    ====================================== */
-
-    function filterGames() {
-
-      const search =
-        searchElement.value
-          .trim()
-          .toLowerCase();
+}
 
 
-      let games =
-        [...allGames];
+/* =========================================
+SELECIONAR PROVEDOR SLOTS
+========================================= */
+
+function selectSlotProvider(
+  provider,
+  button
+){
+
+  selectedSlotProvider =
+    provider;
+
+  document
+    .querySelectorAll(
+      "#slotProviders .provider"
+    )
+    .forEach(
+      el =>
+        el.classList.remove(
+          "active"
+        )
+    );
+
+  button.classList.add(
+    "active"
+  );
+
+  slotPage = 1;
+
+  renderSlots();
+
+}
 
 
-      if (
-        selectedProvider !==
-        "Todos"
-      ) {
+/* =========================================
+BUSCA
+========================================= */
 
-        games =
-          games.filter(
-            game =>
-              String(
-                game.provider || ""
-              ) ===
-              selectedProvider
-          );
+function handleSearch(){
 
-      }
+  if(
+    document
+      .getElementById(
+        "slotsScreen"
+      )
+      .classList.contains(
+        "active"
+      )
+  ){
 
+    slotPage = 1;
 
-      if (search) {
+    renderSlots();
 
-        games =
-          games.filter(
-            game => {
+  }else{
 
-              const text = [
+    homePage = 1;
 
-                game.title,
-                game.name,
-                game.provider,
-                game.category,
-                game.category_title
+    renderHome();
 
-              ]
-                .filter(Boolean)
-                .join(" ")
-                .toLowerCase();
+  }
+
+}
 
 
-              return text.includes(
-                search
-              );
+/* =========================================
+FILTRAR BUSCA
+========================================= */
 
-            }
-          );
+function matchesSearch(
+  game,
+  search
+){
 
-      }
+  if(!search)
+    return true;
+
+  const text =
+    normalize(
+      [
+        game.title,
+        game.name,
+        game.provider,
+        game.category,
+        game.category_title,
+        game.game_type
+      ]
+      .filter(Boolean)
+      .join(" ")
+    );
+
+  return text.includes(
+    normalize(search)
+  );
+
+}
 
 
-      renderGames(
-        games
+/* =========================================
+HOME CATEGORIA
+========================================= */
+
+function showHomeCategory(
+  mode,
+  button
+){
+
+  closeMenu();
+
+  showScreen("homeScreen");
+
+  homeMode =
+    mode;
+
+  homePage = 1;
+
+  document
+    .querySelectorAll(
+      ".category"
+    )
+    .forEach(
+      el =>
+        el.classList.remove(
+          "active"
+        )
+    );
+
+  if(button){
+    button.classList.add(
+      "active"
+    );
+  }
+
+  renderHome();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================================
+RENDER HOME
+========================================= */
+
+function renderHome(){
+
+  if(!allGames.length)
+    return;
+
+  let games =
+    [...allGames];
+
+  const search =
+    searchInput.value.trim();
+
+  if(
+    homeMode ===
+    "slots"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          gameType(game) ===
+          "slots"
       );
 
-    }
+  }
 
+  if(
+    homeMode ===
+    "mini"
+  ){
 
-    /* ======================================
-       RENDERIZAR JOGOS
-    ====================================== */
-
-    function renderGames(
-      games
-    ) {
-
-      statusElement.textContent =
-        `${games.length} jogos encontrados`;
-
-
-      if (!games.length) {
-
-        gamesElement.innerHTML = `
-
-          <div class="empty">
-
-            Nenhum jogo encontrado.
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      gamesElement.innerHTML =
-        games
-          .map(
-            game => {
-
-              const title =
-                game.title ||
-                game.name ||
-                "Jogo";
-
-
-              const image =
-                game.thumbnail ||
-                "";
-
-
-              const provider =
-                game.provider ||
-                "BigBang";
-
-
-              return `
-
-                <article
-                  class="game-card"
-                >
-
-                  <div
-                    class="game-image"
-                  >
-
-                    <img
-                      src="${escapeAttribute(
-                        image
-                      )}"
-                      alt="${escapeAttribute(
-                        title
-                      )}"
-                      loading="lazy"
-                    >
-
-                  </div>
-
-
-                  <div
-                    class="game-info"
-                  >
-
-                    <div
-                      class="game-title"
-                      title="${escapeAttribute(
-                        title
-                      )}"
-                    >
-                      ${escapeHtml(
-                        title
-                      )}
-                    </div>
-
-
-                    <div
-                      class="game-provider"
-                    >
-                      ${escapeHtml(
-                        provider
-                      )}
-                    </div>
-
-
-                    <button
-                      class="play-button"
-                      onclick="launchGame(
-                        '${escapeJs(
-                          String(game.id)
-                        )}',
-                        '${escapeJs(
-                          title
-                        )}'
-                      )"
-                    >
-                      ▶ JOGAR DEMO
-                    </button>
-
-                  </div>
-
-                </article>
-
-              `;
-
-            }
-          )
-          .join("");
-
-    }
-
-
-    /* ======================================
-       ABRIR JOGO
-    ====================================== */
-
-    async function launchGame(
-      gameId,
-      title
-    ) {
-
-      const modal =
-        document.getElementById(
-          "gameModal"
-        );
-
-      const frame =
-        document.getElementById(
-          "gameFrame"
-        );
-
-      const gameTitle =
-        document.getElementById(
-          "gameTitle"
-        );
-
-
-      modal.classList.add(
-        "show"
+    games =
+      games.filter(
+        game =>
+          gameType(game) ===
+          "mini"
       );
 
+  }
 
-      gameTitle.textContent =
-        `Carregando ${title}...`;
+  if(
+    homeMode ===
+    "fishing"
+  ){
 
+    games =
+      games.filter(
+        game =>
+          gameType(game) ===
+          "fishing"
+      );
 
-      frame.src =
-        "about:blank";
+  }
 
+  if(
+    homeMode ===
+    "sports"
+  ){
 
-      try {
+    games =
+      games.filter(
+        game =>
+          gameType(game) ===
+          "sports"
+      );
 
-        const response =
-          await fetch(
-            LAUNCH_FUNCTION,
-            {
-              method: "POST",
+  }
 
-              headers: {
-                "Content-Type":
-                  "application/json",
+  if(
+    homeMode ===
+    "recent"
+  ){
 
-                "apikey":
-                  SUPABASE_KEY,
+    games =
+      [...games].reverse();
 
-                "Authorization":
-                  `Bearer ${SUPABASE_KEY}`
-              },
+  }
 
-              body:
-                JSON.stringify({
-                  game_id:
-                    String(gameId)
-                })
-            }
-          );
+  if(
+    homeMode ===
+    "popular"
+  ){
 
+    /*
+     * Até termos métricas reais,
+     * usamos a ordem recebida pela
+     * BigBang como catálogo popular.
+     */
+    games =
+      [...games];
 
-        const result =
-          await response.json();
+  }
 
+  if(
+    selectedProvider !==
+    "Todos"
+  ){
 
-        if (
-          !response.ok ||
-          !result.success
-        ) {
+    games =
+      games.filter(
+        game =>
+          String(
+            game.provider || ""
+          ) ===
+          selectedProvider
+      );
 
-          throw new Error(
-            result.error ||
-            "Não foi possível abrir o jogo."
-          );
+  }
 
-        }
-
-
-        if (
-          !result.game_url
-        ) {
-
-          throw new Error(
-            "A BigBang não retornou uma URL."
-          );
-
-        }
-
-
-        gameTitle.textContent =
-          title;
-
-
-        frame.src =
-          result.game_url;
-
-
-      } catch (error) {
-
-        console.error(
-          "Erro no jogo:",
-          error
-        );
-
-
-        alert(
-          "Não foi possível abrir o jogo.\n\n" +
-          error.message
-        );
-
-
-        closeGame();
-
-      }
-
-    }
-
-
-    /* ======================================
-       FECHAR JOGO
-    ====================================== */
-
-    function closeGame() {
-
-      document
-        .getElementById(
-          "gameFrame"
+  games =
+    games.filter(
+      game =>
+        matchesSearch(
+          game,
+          search
         )
-        .src =
-        "about:blank";
+    );
 
+  const total =
+    games.length;
 
-      document
-        .getElementById(
-          "gameModal"
-        )
-        .classList.remove(
-          "show"
-        );
+  const start =
+    (homePage - 1) *
+    PAGE_SIZE;
 
-    }
+  const pageGames =
+    games.slice(
+      start,
+      start + PAGE_SIZE
+    );
 
+  document
+    .getElementById(
+      "homeCount"
+    )
+    .textContent =
+    `${total} jogos`;
 
-    /* ======================================
-       MENU
-    ====================================== */
+  document
+    .getElementById(
+      "homeTitle"
+    )
+    .textContent =
+    homeTitle();
 
-    function openMenu() {
+  renderGameGrid(
+    homeGames,
+    pageGames
+  );
 
-      document
-        .getElementById(
-          "drawer"
-        )
-        .classList.add(
-          "open"
-        );
-
-    }
-
-
-    function closeMenu() {
-
-      document
-        .getElementById(
-          "drawer"
-        )
-        .classList.remove(
-          "open"
-        );
-
-    }
-
-
-    function handleDrawerClick(
-      event
-    ) {
-
-      if (
-        event.target.id ===
-        "drawer"
-      ) {
-
-        closeMenu();
-
-      }
-
-    }
-
-
-    /* ======================================
-       HOME
-    ====================================== */
-
-    function goHome() {
-
-      closeMenu();
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-
-
-    function scrollToGames() {
-
-      document
-        .getElementById(
-          "gamesSection"
-        )
-        .scrollIntoView({
-          behavior: "smooth"
+  renderPagination(
+    "homePagination",
+    total,
+    homePage,
+    page =>
+      {
+        homePage = page;
+        renderHome();
+        window.scrollTo({
+          top:300,
+          behavior:"smooth"
         });
+      }
+  );
 
-    }
-
-
-    /* ======================================
-       QUICK BUTTONS
-    ====================================== */
-
-    function activateQuickButton(
-      button
-    ) {
-
-      document
-        .querySelectorAll(
-          ".quick-button"
-        )
-        .forEach(
-          item =>
-            item.classList.remove(
-              "active"
-            )
-        );
+}
 
 
-      if (button) {
+/* =========================================
+TÍTULO HOME
+========================================= */
 
-        button.classList.add(
+function homeTitle(){
+
+  const titles = {
+    popular:"🔥 Popular",
+    recent:"🕘 Recentes",
+    mini:"🕹️ Mini jogos",
+    fishing:"🎣 Pescaria",
+    sports:"⚽ Esportes",
+    slots:"🎰 Slots"
+  };
+
+  return (
+    titles[homeMode] ||
+    "🎰 Jogos"
+  );
+
+}
+
+
+/* =========================================
+ABRIR SLOTS
+========================================= */
+
+function openSlots(){
+
+  closeMenu();
+
+  showScreen(
+    "slotsScreen"
+  );
+
+  slotPage = 1;
+
+  renderSlots();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================================
+MODO SLOTS
+========================================= */
+
+function setSlotMode(
+  mode,
+  button
+){
+
+  slotMode =
+    mode;
+
+  document
+    .querySelectorAll(
+      ".slot-filter"
+    )
+    .forEach(
+      el =>
+        el.classList.remove(
           "active"
-        );
+        )
+    );
 
+  button.classList.add(
+    "active"
+  );
+
+  slotPage = 1;
+
+  renderSlots();
+
+}
+
+
+/* =========================================
+RENDER SLOTS
+========================================= */
+
+function renderSlots(){
+
+  let games =
+    allGames.filter(
+      game =>
+        gameType(game) ===
+        "slots"
+    );
+
+  if(
+    selectedSlotProvider !==
+    "Todos"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          String(
+            game.provider || ""
+          ) ===
+          selectedSlotProvider
+      );
+
+  }
+
+  if(
+    slotMode ===
+    "recent"
+  ){
+
+    games =
+      [...games].reverse();
+
+  }
+
+  if(
+    slotMode ===
+    "popular"
+  ){
+
+    games =
+      [...games];
+
+  }
+
+  const search =
+    searchInput.value.trim();
+
+  games =
+    games.filter(
+      game =>
+        matchesSearch(
+          game,
+          search
+        )
+    );
+
+  const total =
+    games.length;
+
+  const start =
+    (slotPage - 1) *
+    PAGE_SIZE;
+
+  const pageGames =
+    games.slice(
+      start,
+      start + PAGE_SIZE
+    );
+
+  document
+    .getElementById(
+      "slotCount"
+    )
+    .textContent =
+    `${total} slots`;
+
+  renderGameGrid(
+    slotGames,
+    pageGames
+  );
+
+  renderPagination(
+    "slotPagination",
+    total,
+    slotPage,
+    page =>
+      {
+        slotPage = page;
+        renderSlots();
+        window.scrollTo({
+          top:150,
+          behavior:"smooth"
+        });
       }
+  );
 
-    }
-
-
-    function showAll(
-      button
-    ) {
-
-      closeMenu();
-
-      selectedProvider =
-        "Todos";
+}
 
 
-      document
-        .querySelectorAll(
-          ".provider-button"
+/* =========================================
+FAVORITOS
+========================================= */
+
+function getFavorites(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "559627_favorites"
+      ) || "[]"
+    );
+
+  }catch{
+
+    return [];
+
+  }
+
+}
+
+
+function saveFavorites(
+  list
+){
+
+  localStorage.setItem(
+    "559627_favorites",
+    JSON.stringify(list)
+  );
+
+}
+
+
+function toggleFavorite(
+  id
+){
+
+  const list =
+    getFavorites();
+
+  const key =
+    String(id);
+
+  const index =
+    list.indexOf(key);
+
+  if(index >= 0){
+
+    list.splice(
+      index,
+      1
+    );
+
+  }else{
+
+    list.push(key);
+
+  }
+
+  saveFavorites(
+    list
+  );
+
+  renderCurrentScreen();
+
+}
+
+
+function isFavorite(
+  id
+){
+
+  return getFavorites()
+    .includes(
+      String(id)
+    );
+
+}
+
+
+function showFavorites(
+  slotsOnly=false
+){
+
+  closeMenu();
+
+  let games =
+    allGames.filter(
+      game =>
+        isFavorite(
+          game.id
         )
-        .forEach(
-          item =>
-            item.classList.remove(
-              "active"
-            )
-        );
+    );
 
+  if(slotsOnly){
 
-      const firstProvider =
-        document.querySelector(
-          ".provider-button"
-        );
+    showScreen(
+      "slotsScreen"
+    );
 
-
-      if (firstProvider) {
-
-        firstProvider.classList.add(
-          "active"
-        );
-
-      }
-
-
-      activateQuickButton(
-        button ||
-        document.getElementById(
-          "quickAll"
-        )
+    games =
+      games.filter(
+        game =>
+          gameType(game) ===
+          "slots"
       );
 
+    document
+      .getElementById(
+        "slotCount"
+      )
+      .textContent =
+      `${games.length} favoritos`;
 
-      filterGames();
-
-    }
-
-
-    function showPopular(
-      button
-    ) {
-
-      closeMenu();
-
-      activateQuickButton(
-        button
-      );
-
-
-      /*
-        Demonstração:
-        usamos os primeiros jogos
-        do catálogo como seleção
-        de populares.
-      */
-
-      const games =
-        [...allGames]
-          .slice(0, 50);
-
-
-      renderGames(
-        games
-      );
-
-    }
-
-
-    function showNew(
-      button
-    ) {
-
-      closeMenu();
-
-      activateQuickButton(
-        button
-      );
-
-
-      /*
-        Demonstração:
-        usamos os últimos jogos
-        retornados pela API.
-      */
-
-      const games =
-        [...allGames]
-          .slice(-50)
-          .reverse();
-
-
-      renderGames(
-        games
-      );
-
-    }
-
-
-    /* ======================================
-       ACCOUNT
-    ====================================== */
-
-    function openAccount() {
-
-      closeMenu();
-
-      renderAccount();
-
-      document
-        .getElementById(
-          "accountModal"
+    renderGameGrid(
+      slotGames,
+      games
+        .slice(
+          0,
+          PAGE_SIZE
         )
-        .classList.add(
-          "show"
-        );
+    );
 
-    }
+  }else{
 
+    showScreen(
+      "homeScreen"
+    );
 
-    function renderAccount() {
+    document
+      .getElementById(
+        "homeTitle"
+      )
+      .textContent =
+      "⭐ Favoritos";
 
-      const content =
-        document.getElementById(
-          "accountContent"
-        );
+    document
+      .getElementById(
+        "homeCount"
+      )
+      .textContent =
+      `${games.length} favoritos`;
 
-
-      if (!currentUser) {
-
-        content.innerHTML = `
-
-          <div class="info-card">
-
-            Você ainda não está conectado.
-
-          </div>
-
-
-          <button
-            class="primary-button"
-            onclick="openRegister()"
-          >
-            📝 Criar cadastro
-          </button>
-
-
-          <button
-            class="secondary-button"
-            onclick="openLogin()"
-          >
-            🔐 Entrar
-          </button>
-
-        `;
-
-        return;
-
-      }
-
-
-      content.innerHTML = `
-
-        <div class="info-card">
-
-          <div>
-            E-mail
-          </div>
-
-          <strong>
-            ${escapeHtml(
-              currentUser.email || ""
-            )}
-          </strong>
-
-        </div>
-
-
-        <div class="info-card">
-
-          ⭐ Pontos demo
-
-          <div class="points">
-            ${getPoints()}
-          </div>
-
-        </div>
-
-
-        <button
-          class="primary-button"
-          onclick="logout()"
-        >
-          🚪 Sair da conta
-        </button>
-
-      `;
-
-    }
-
-
-    /* ======================================
-       AUTH
-    ====================================== */
-
-    function openRegister() {
-
-      closeMenu();
-
-      closeModal(
-        "accountModal"
-      );
-
-
-      authMode =
-        "signup";
-
-
-      document
-        .getElementById(
-          "authTitle"
+    renderGameGrid(
+      homeGames,
+      games
+        .slice(
+          0,
+          PAGE_SIZE
         )
-        .textContent =
-        "📝 Criar cadastro";
+    );
 
+  }
 
-      document
-        .getElementById(
-          "toggleAuthButton"
-        )
-        .textContent =
-        "Já tenho uma conta";
+}
 
 
-      document
-        .getElementById(
-          "authMessage"
-        )
-        .textContent =
-        "";
+/* =========================================
+RENDER GRID
+========================================= */
 
+function renderGameGrid(
+  element,
+  games
+){
 
-      document
-        .getElementById(
-          "authModal"
-        )
-        .classList.add(
-          "show"
-        );
+  if(!games.length){
 
-    }
+    element.innerHTML =
+      `<div class="empty">
+        Nenhum jogo encontrado.
+      </div>`;
 
+    return;
 
-    function openLogin() {
+  }
 
-      closeMenu();
+  element.innerHTML =
+    games.map(
+      game => {
 
-      closeModal(
-        "accountModal"
-      );
+        const title =
+          game.title ||
+          game.name ||
+          "Jogo";
 
+        const provider =
+          game.provider ||
+          "BigBang";
 
-      authMode =
-        "login";
+        const image =
+          game.thumbnail ||
+          "";
 
-
-      document
-        .getElementById(
-          "authTitle"
-        )
-        .textContent =
-        "🔐 Entrar";
-
-
-      document
-        .getElementById(
-          "toggleAuthButton"
-        )
-        .textContent =
-        "Criar uma conta";
-
-
-      document
-        .getElementById(
-          "authMessage"
-        )
-        .textContent =
-        "";
-
-
-      document
-        .getElementById(
-          "authModal"
-        )
-        .classList.add(
-          "show"
-        );
-
-    }
-
-
-    function toggleAuthMode() {
-
-      if (
-        authMode ===
-        "signup"
-      ) {
-
-        openLogin();
-
-      } else {
-
-        openRegister();
-
-      }
-
-    }
-
-
-    async function submitAuth() {
-
-      const email =
-        document
-          .getElementById(
-            "authEmail"
-          )
-          .value
-          .trim();
-
-
-      const password =
-        document
-          .getElementById(
-            "authPassword"
-          )
-          .value;
-
-
-      const message =
-        document.getElementById(
-          "authMessage"
-        );
-
-
-      if (
-        !email ||
-        !password
-      ) {
-
-        message.textContent =
-          "Preencha e-mail e senha.";
-
-        return;
-
-      }
-
-
-      if (
-        password.length < 6
-      ) {
-
-        message.textContent =
-          "A senha precisa ter pelo menos 6 caracteres.";
-
-        return;
-
-      }
-
-
-      message.textContent =
-        "Processando...";
-
-
-      try {
-
-        if (
-          authMode ===
-          "signup"
-        ) {
-
-          const {
-            data,
-            error
-          } =
-            await supabaseClient
-              .auth
-              .signUp({
-                email,
-                password
-              });
-
-
-          if (error) {
-
-            throw error;
-
-          }
-
-
-          if (
-            data.session
-          ) {
-
-            message.textContent =
-              "Cadastro criado e login realizado.";
-
-          } else {
-
-            message.textContent =
-              "Cadastro criado. Se a confirmação por e-mail estiver ativada no Supabase, verifique seu e-mail.";
-
-          }
-
-
-        } else {
-
-          const {
-            error
-          } =
-            await supabaseClient
-              .auth
-              .signInWithPassword({
-                email,
-                password
-              });
-
-
-          if (error) {
-
-            throw error;
-
-          }
-
-
-          message.textContent =
-            "Login realizado!";
-
-
-          setTimeout(
-            () => {
-
-              closeModal(
-                "authModal"
-              );
-
-              updateAccountLabel();
-
-            },
-            500
+        const fav =
+          isFavorite(
+            game.id
           );
 
-        }
+        return `
+          <article class="game">
 
-      } catch (error) {
+            <div class="game-img">
 
-        console.error(
-          error
-        );
+              <img
+                src="${escapeAttr(image)}"
+                alt="${escapeAttr(title)}"
+                loading="lazy"
+              >
 
+              <button
+                class="favorite ${fav ? "on":""}"
+                onclick="event.stopPropagation();toggleFavorite('${escapeJs(String(game.id))}')"
+                title="Favorito"
+              >
+                ${fav ? "★":"☆"}
+              </button>
 
-        message.textContent =
-          error.message ||
-          "Ocorreu um erro.";
+            </div>
+
+            <div class="game-info">
+
+              <div
+                class="game-name"
+                title="${escapeAttr(title)}"
+              >
+                ${escapeHtml(title)}
+              </div>
+
+              <div class="game-provider">
+                ${escapeHtml(provider)}
+              </div>
+
+              <button
+                class="play"
+                onclick="launchGame('${escapeJs(String(game.id))}','${escapeJs(title)}')"
+              >
+                ▶ JOGAR DEMO
+              </button>
+
+            </div>
+
+          </article>
+        `;
 
       }
+    )
+    .join("");
 
-    }
-
-
-    async function logout() {
-
-      await supabaseClient
-        .auth
-        .signOut();
+}
 
 
-      currentUser =
-        null;
+/* =========================================
+PAGINAÇÃO
+========================================= */
+
+function renderPagination(
+  elementId,
+  total,
+  current,
+  callback
+){
+
+  const element =
+    document.getElementById(
+      elementId
+    );
+
+  const pages =
+    Math.ceil(
+      total /
+      PAGE_SIZE
+    );
+
+  if(pages <= 1){
+
+    element.innerHTML = "";
+
+    return;
+
+  }
+
+  let html = "";
+
+  const max =
+    Math.min(
+      pages,
+      12
+    );
+
+  for(
+    let i=1;
+    i<=max;
+    i++
+  ){
+
+    html += `
+      <button
+        class="page ${i===current?"active":""}"
+        onclick="window.__pageCallback(${i})"
+      >
+        ${i}
+      </button>
+    `;
+
+  }
+
+  if(current < pages){
+
+    html += `
+      <button
+        class="page"
+        onclick="window.__pageCallback(${current+1})"
+      >
+        ›
+      </button>
+    `;
+
+  }
+
+  element.innerHTML =
+    html;
+
+  window.__pageCallback =
+    callback;
+
+}
 
 
-      updateAccountLabel();
+/* =========================================
+RENDER TELA ATUAL
+========================================= */
 
-      renderAccount();
+function renderCurrentScreen(){
 
-      closeModal(
-        "accountModal"
-      );
+  if(
+    document
+      .getElementById(
+        "slotsScreen"
+      )
+      .classList.contains(
+        "active"
+      )
+  ){
 
-    }
+    renderSlots();
+
+  }else{
+
+    renderHome();
+
+  }
+
+}
 
 
-    /* ======================================
-       AUTH STATE
-    ====================================== */
+/* =========================================
+NAVEGAÇÃO
+========================================= */
 
-    async function checkUser() {
+function showScreen(
+  id
+){
+
+  document
+    .querySelectorAll(
+      ".screen"
+    )
+    .forEach(
+      el =>
+        el.classList.remove(
+          "active"
+        )
+    );
+
+  document
+    .getElementById(
+      id
+    )
+    .classList.add(
+      "active"
+    );
+
+}
+
+
+function goHome(){
+
+  closeMenu();
+
+  showScreen(
+    "homeScreen"
+  );
+
+  homeMode =
+    "popular";
+
+  homePage = 1;
+
+  renderHome();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================================
+MENU
+========================================= */
+
+function openMenu(){
+
+  document
+    .getElementById(
+      "drawer"
+    )
+    .classList.add(
+      "open"
+    );
+
+}
+
+
+function closeMenu(){
+
+  document
+    .getElementById(
+      "drawer"
+    )
+    .classList.remove(
+      "open"
+    );
+
+}
+
+
+function drawerOutside(
+  event
+){
+
+  if(
+    event.target.id ===
+    "drawer"
+  ){
+
+    closeMenu();
+
+  }
+
+}
+
+
+/* =========================================
+ACCOUNT
+========================================= */
+
+function openAccount(){
+
+  closeMenu();
+
+  renderAccount();
+
+  document
+    .getElementById(
+      "accountModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+function renderAccount(){
+
+  const content =
+    document.getElementById(
+      "accountContent"
+    );
+
+  if(!currentUser){
+
+    content.innerHTML = `
+      <div class="info">
+        Você ainda não está conectado.
+      </div>
+
+      <button
+        class="full-btn"
+        onclick="openRegister()"
+      >
+        📝 Criar cadastro
+      </button>
+
+      <button
+        class="dark-btn"
+        style="width:100%;margin-top:8px"
+        onclick="openLogin()"
+      >
+        🔐 Entrar
+      </button>
+    `;
+
+    return;
+
+  }
+
+  content.innerHTML = `
+
+    <div class="info">
+
+      <div style="color:#999">
+        E-mail
+      </div>
+
+      <strong>
+        ${escapeHtml(
+          currentUser.email || ""
+        )}
+      </strong>
+
+    </div>
+
+    <div class="info">
+
+      <div style="color:#999">
+        ⭐ Pontos demo
+      </div>
+
+      <div class="big-number">
+        ${getPoints()}
+      </div>
+
+    </div>
+
+    <div class="info">
+
+      <div style="color:#999">
+        ⭐ Favoritos
+      </div>
+
+      <div class="big-number">
+        ${getFavorites().length}
+      </div>
+
+    </div>
+
+    <button
+      class="full-btn"
+      onclick="logout()"
+    >
+      🚪 Sair
+    </button>
+
+  `;
+
+}
+
+
+/* =========================================
+AUTH
+========================================= */
+
+function openRegister(){
+
+  closeMenu();
+
+  closeModal(
+    "accountModal"
+  );
+
+  authMode =
+    "signup";
+
+  document
+    .getElementById(
+      "authTitle"
+    )
+    .textContent =
+    "📝 Criar cadastro";
+
+  document
+    .getElementById(
+      "toggleAuth"
+    )
+    .textContent =
+    "Já tenho uma conta";
+
+  document
+    .getElementById(
+      "authMessage"
+    )
+    .textContent =
+    "";
+
+  document
+    .getElementById(
+      "authModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+function openLogin(){
+
+  closeMenu();
+
+  closeModal(
+    "accountModal"
+  );
+
+  authMode =
+    "login";
+
+  document
+    .getElementById(
+      "authTitle"
+    )
+    .textContent =
+    "🔐 Entrar";
+
+  document
+    .getElementById(
+      "toggleAuth"
+    )
+    .textContent =
+    "Criar uma conta";
+
+  document
+    .getElementById(
+      "authMessage"
+    )
+    .textContent =
+    "";
+
+  document
+    .getElementById(
+      "authModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+function toggleAuth(){
+
+  if(
+    authMode ===
+    "signup"
+  ){
+
+    openLogin();
+
+  }else{
+
+    openRegister();
+
+  }
+
+}
+
+
+async function submitAuth(){
+
+  const email =
+    document
+      .getElementById(
+        "authEmail"
+      )
+      .value
+      .trim();
+
+  const password =
+    document
+      .getElementById(
+        "authPassword"
+      )
+      .value;
+
+  const message =
+    document.getElementById(
+      "authMessage"
+    );
+
+  if(
+    !email ||
+    !password
+  ){
+
+    message.textContent =
+      "Preencha e-mail e senha.";
+
+    return;
+
+  }
+
+  if(
+    password.length < 6
+  ){
+
+    message.textContent =
+      "A senha precisa ter pelo menos 6 caracteres.";
+
+    return;
+
+  }
+
+  message.textContent =
+    "Processando...";
+
+  try{
+
+    if(
+      authMode ===
+      "signup"
+    ){
 
       const {
-        data
+        data,
+        error
       } =
         await supabaseClient
           .auth
-          .getUser();
+          .signUp({
+            email,
+            password
+          });
 
+      if(error)
+        throw error;
 
-      currentUser =
-        data?.user ||
-        null;
+      if(data.session){
 
+        message.textContent =
+          "Cadastro criado e login realizado!";
 
-      updateAccountLabel();
+      }else{
 
-    }
-
-
-    supabaseClient
-      .auth
-      .onAuthStateChange(
-        (_event, session) => {
-
-          currentUser =
-            session?.user ||
-            null;
-
-
-          updateAccountLabel();
-
-        }
-      );
-
-
-    function updateAccountLabel() {
-
-      const label =
-        document.getElementById(
-          "accountLabel"
-        );
-
-
-      if (
-        currentUser
-      ) {
-
-        label.textContent =
-          "Conta";
-
-      } else {
-
-        label.textContent =
-          "Entrar";
+        message.textContent =
+          "Cadastro criado. Verifique o e-mail se a confirmação estiver ativada.";
 
       }
 
-    }
+    }else{
 
+      const {
+        error
+      } =
+        await supabaseClient
+          .auth
+          .signInWithPassword({
+            email,
+            password
+          });
 
-    /* ======================================
-       VIP
-    ====================================== */
+      if(error)
+        throw error;
 
-    function openVip() {
+      message.textContent =
+        "Login realizado!";
 
-      closeMenu();
-
-
-      document
-        .getElementById(
-          "vipPoints"
-        )
-        .textContent =
-        getPoints();
-
-
-      document
-        .getElementById(
-          "vipModal"
-        )
-        .classList.add(
-          "show"
-        );
-
-    }
-
-
-    /* ======================================
-       RECOMPENSAS
-    ====================================== */
-
-    function openRewards() {
-
-      closeMenu();
-
-
-      document
-        .getElementById(
-          "rewardPoints"
-        )
-        .textContent =
-        getPoints();
-
-
-      document
-        .getElementById(
-          "rewardMessage"
-        )
-        .textContent =
-        "";
-
-
-      document
-        .getElementById(
-          "rewardsModal"
-        )
-        .classList.add(
-          "show"
-        );
-
-    }
-
-
-    function openBonus() {
-
-      closeMenu();
-
-      openRewards();
-
-    }
-
-
-    function claimDemoReward() {
-
-      let points =
-        getPoints();
-
-
-      points +=
-        100;
-
-
-      localStorage.setItem(
-        "559627_demo_points",
-        String(points)
-      );
-
-
-      document
-        .getElementById(
-          "rewardPoints"
-        )
-        .textContent =
-        points;
-
-
-      document
-        .getElementById(
-          "rewardMessage"
-        )
-        .textContent =
-        "🎉 Você recebeu 100 pontos de demonstração!";
-
-    }
-
-
-    function getPoints() {
-
-      return Number(
-        localStorage.getItem(
-          "559627_demo_points"
-        ) || 0
-      );
-
-    }
-
-
-    /* ======================================
-       MODAIS
-    ====================================== */
-
-    function closeModal(
-      id
-    ) {
-
-      const modal =
-        document.getElementById(
-          id
-        );
-
-
-      if (modal) {
-
-        modal.classList.remove(
-          "show"
-        );
-
-      }
-
-    }
-
-
-    /* ======================================
-       BUSCA
-    ====================================== */
-
-    searchElement
-      .addEventListener(
-        "input",
+      setTimeout(
         () => {
-
-          filterGames();
-
-        }
-      );
-
-
-    /* ======================================
-       ESC
-    ====================================== */
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key ===
-          "Escape"
-        ) {
-
-          closeMenu();
-
-          closeGame();
-
-          closeModal(
-            "accountModal"
-          );
 
           closeModal(
             "authModal"
           );
 
-          closeModal(
-            "vipModal"
-          );
+          updateAccountButton();
 
-          closeModal(
-            "rewardsModal"
-          );
-
-        }
-
-      }
-    );
-
-
-    /* ======================================
-       SEGURANÇA HTML
-    ====================================== */
-
-    function escapeHtml(
-      value
-    ) {
-
-      return String(
-        value ?? ""
-      )
-        .replaceAll(
-          "&",
-          "&amp;"
-        )
-        .replaceAll(
-          "<",
-          "&lt;"
-        )
-        .replaceAll(
-          ">",
-          "&gt;"
-        )
-        .replaceAll(
-          '"',
-          "&quot;"
-        )
-        .replaceAll(
-          "'",
-          "&#039;"
-        );
-
-    }
-
-
-    function escapeAttribute(
-      value
-    ) {
-
-      return escapeHtml(
-        value
+        },
+        500
       );
 
     }
 
+  }catch(error){
 
-    function escapeJs(
-      value
-    ) {
+    console.error(error);
 
-      return String(
-        value ?? ""
-      )
-        .replaceAll(
-          "\\",
-          "\\\\"
-        )
-        .replaceAll(
-          "'",
-          "\\'"
-        )
-        .replaceAll(
-          "\n",
-          " "
-        )
-        .replaceAll(
-          "\r",
-          " "
-        );
+    message.textContent =
+      error.message ||
+      "Ocorreu um erro.";
+
+  }
+
+}
+
+
+/* =========================================
+SUPABASE USER
+========================================= */
+
+async function checkUser(){
+
+  const {
+    data
+  } =
+    await supabaseClient
+      .auth
+      .getUser();
+
+  currentUser =
+    data?.user ||
+    null;
+
+  updateAccountButton();
+
+}
+
+
+supabaseClient
+  .auth
+  .onAuthStateChange(
+    (_event,session) => {
+
+      currentUser =
+        session?.user ||
+        null;
+
+      updateAccountButton();
+
+    }
+  );
+
+
+function updateAccountButton(){
+
+  const button =
+    document.getElementById(
+      "loginBtn"
+    );
+
+  if(currentUser){
+
+    button.textContent =
+      "👤 Conta";
+
+  }else{
+
+    button.textContent =
+      "👤 Entrar";
+
+  }
+
+}
+
+
+async function logout(){
+
+  await supabaseClient
+    .auth
+    .signOut();
+
+  currentUser =
+    null;
+
+  updateAccountButton();
+
+  renderAccount();
+
+  closeModal(
+    "accountModal"
+  );
+
+}
+
+
+/* =========================================
+VIP
+========================================= */
+
+function openVip(){
+
+  closeMenu();
+
+  document
+    .getElementById(
+      "vipPoints"
+    )
+    .textContent =
+    getPoints();
+
+  document
+    .getElementById(
+      "vipModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+/* =========================================
+RECOMPENSAS
+========================================= */
+
+function openRewards(){
+
+  closeMenu();
+
+  document
+    .getElementById(
+      "rewardPoints"
+    )
+    .textContent =
+    getPoints();
+
+  document
+    .getElementById(
+      "rewardMessage"
+    )
+    .textContent =
+    "";
+
+  document
+    .getElementById(
+      "rewardsModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+function openBonus(){
+
+  openRewards();
+
+}
+
+
+function claimDemoReward(){
+
+  let points =
+    getPoints();
+
+  points += 100;
+
+  localStorage.setItem(
+    "559627_demo_points",
+    String(points)
+  );
+
+  document
+    .getElementById(
+      "rewardPoints"
+    )
+    .textContent =
+    points;
+
+  document
+    .getElementById(
+      "rewardMessage"
+    )
+    .textContent =
+    "🎉 Você recebeu 100 pontos de demonstração!";
+
+}
+
+
+/* =========================================
+PONTOS
+========================================= */
+
+function getPoints(){
+
+  return Number(
+    localStorage.getItem(
+      "559627_demo_points"
+    ) || 0
+  );
+
+}
+
+
+/* =========================================
+ABRIR JOGO
+========================================= */
+
+async function launchGame(
+  gameId,
+  title
+){
+
+  const modal =
+    document.getElementById(
+      "gameModal"
+    );
+
+  const frame =
+    document.getElementById(
+      "gameFrame"
+    );
+
+  const gameTitle =
+    document.getElementById(
+      "gameTitle"
+    );
+
+  modal.classList.add(
+    "show"
+  );
+
+  frame.src =
+    "about:blank";
+
+  gameTitle.textContent =
+    "Carregando " +
+    title +
+    "...";
+
+  try{
+
+    const response =
+      await fetch(
+        LAUNCH_FUNCTION,
+        {
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "application/json",
+
+            apikey:
+              SUPABASE_KEY,
+
+            Authorization:
+              "Bearer " +
+              SUPABASE_KEY
+          },
+
+          body:
+            JSON.stringify({
+              game_id:
+                String(gameId)
+            })
+        }
+      );
+
+    const result =
+      await response.json();
+
+    if(
+      !response.ok ||
+      !result.success
+    ){
+
+      throw new Error(
+        result.error ||
+        "Não foi possível abrir o jogo."
+      );
 
     }
 
+    if(
+      !result.game_url
+    ){
 
-    /* ======================================
-       INICIALIZAÇÃO
-    ====================================== */
+      throw new Error(
+        "A BigBang não retornou a URL do jogo."
+      );
 
-    loadGames();
+    }
 
-    checkUser();
+    gameTitle.textContent =
+      title;
 
-  </script>
+    frame.src =
+      result.game_url;
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "Não foi possível abrir o jogo.\n\n" +
+      error.message
+    );
+
+    closeGame();
+
+  }
+
+}
+
+
+function closeGame(){
+
+  document
+    .getElementById(
+      "gameFrame"
+    )
+    .src =
+    "about:blank";
+
+  document
+    .getElementById(
+      "gameModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+}
+
+
+/* =========================================
+MODAIS
+========================================= */
+
+function closeModal(
+  id
+){
+
+  const modal =
+    document.getElementById(
+      id
+    );
+
+  if(modal){
+
+    modal.classList.remove(
+      "show"
+    );
+
+  }
+
+}
+
+
+/* =========================================
+SEGURANÇA HTML
+========================================= */
+
+function escapeHtml(
+  value
+){
+
+  return String(
+    value || ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+function escapeAttr(
+  value
+){
+
+  return escapeHtml(
+    value
+  );
+
+}
+
+
+function escapeJs(
+  value
+){
+
+  return String(
+    value || ""
+  )
+  .replace(
+    /\\/g,
+    "\\\\"
+  )
+  .replace(
+    /'/g,
+    "\\'"
+  )
+  .replace(
+    /"/g,
+    '\\"'
+  )
+  .replace(
+    /\n/g,
+    "\\n"
+  )
+  .replace(
+    /\r/g,
+    "\\r"
+  );
+
+}
+
+</script>
 
 </body>
 </html>
