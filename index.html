@@ -26,9 +26,8 @@ button{cursor:pointer}
   --gold:#f5c400;
   --bg:#070707;
   --card:#151515;
-  --card2:#1b1b1b;
   --border:#303030;
-  --muted:#888
+  --muted:#888;
 }
 
 /* HEADER */
@@ -50,7 +49,9 @@ header{
   align-items:center;
   gap:12px
 }
-.menu-btn,.back-btn,.close-btn{
+.menu-btn,
+.back-btn,
+.close-btn{
   width:42px;
   height:42px;
   border:1px solid var(--border);
@@ -59,7 +60,11 @@ header{
   color:#fff;
   font-size:21px
 }
-.menu-btn:hover,.back-btn:hover,.close-btn:hover{border-color:var(--gold)}
+.menu-btn:hover,
+.back-btn:hover,
+.close-btn:hover{
+  border-color:var(--gold)
+}
 .logo{
   font-size:25px;
   font-weight:900;
@@ -67,7 +72,11 @@ header{
   cursor:pointer
 }
 .logo span{color:var(--gold)}
-.header-search{flex:1;max-width:650px;margin:auto}
+.header-search{
+  flex:1;
+  max-width:650px;
+  margin:auto
+}
 .search{
   width:100%;
   height:42px;
@@ -101,15 +110,33 @@ header{
 }
 .hero h1{font-size:clamp(35px,5vw,62px)}
 .hero h1 span{color:var(--gold)}
-.hero p{margin-top:12px;color:#aaa;font-size:17px}
-.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
-.gold-btn,.dark-btn{
+.hero p{
+  margin-top:12px;
+  color:#aaa;
+  font-size:17px
+}
+.hero-buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:23px
+}
+.gold-btn,
+.dark-btn{
   border-radius:9px;
   padding:13px 20px;
   font-weight:900
 }
-.gold-btn{border:0;background:var(--gold);color:#000}
-.dark-btn{border:1px solid #444;background:#191919;color:#fff}
+.gold-btn{
+  border:0;
+  background:var(--gold);
+  color:#000
+}
+.dark-btn{
+  border:1px solid #444;
+  background:#191919;
+  color:#fff
+}
 
 .categories{
   max-width:1450px;
@@ -128,7 +155,8 @@ header{
   background:#151515;
   color:#bbb
 }
-.category.active,.category:hover{
+.category.active,
+.category:hover{
   background:var(--gold);
   color:#000;
   border-color:var(--gold);
@@ -148,7 +176,10 @@ header{
   margin-bottom:15px
 }
 .section-title h2{font-size:25px}
-.count{font-size:12px;color:#777}
+.count{
+  font-size:12px;
+  color:#777
+}
 
 .provider-scroll{
   display:flex;
@@ -167,7 +198,8 @@ header{
   background:#151515;
   color:#aaa
 }
-.provider.active,.provider:hover{
+.provider.active,
+.provider:hover{
   background:var(--gold);
   color:#000;
   border-color:var(--gold)
@@ -185,7 +217,10 @@ header{
   background:#111;
   transition:.2s
 }
-.game:hover{transform:translateY(-3px);border-color:var(--gold)}
+.game:hover{
+  transform:translateY(-3px);
+  border-color:var(--gold)
+}
 .game-img{
   position:relative;
   aspect-ratio:1/1;
@@ -233,7 +268,9 @@ header{
   font-size:12px;
   font-weight:900
 }
-.loading,.empty,.error{
+.loading,
+.empty,
+.error{
   grid-column:1/-1;
   padding:60px 15px;
   text-align:center;
@@ -244,6 +281,7 @@ header{
 /* SCREENS */
 .screen{display:none}
 .screen.active{display:block}
+
 .screen-head{
   max-width:1450px;
   margin:auto;
@@ -327,7 +365,8 @@ header{
   font-size:10px;
   font-weight:700
 }
-.side-provider.active,.side-provider:hover{
+.side-provider.active,
+.side-provider:hover{
   background:var(--gold);
   color:#000;
   border-color:var(--gold)
@@ -372,7 +411,11 @@ header{
     radial-gradient(circle at 90% 10%,rgba(245,196,0,.23),transparent 35%),
     #151515
 }
-.profile-user{display:flex;align-items:center;gap:14px}
+.profile-user{
+  display:flex;
+  align-items:center;
+  gap:14px
+}
 .avatar{
   width:64px;
   height:64px;
@@ -385,8 +428,15 @@ header{
   font-size:26px;
   font-weight:900
 }
-.profile-name{font-size:20px;font-weight:900}
-.profile-email{margin-top:4px;color:#777;font-size:12px}
+.profile-name{
+  font-size:20px;
+  font-weight:900
+}
+.profile-email{
+  margin-top:4px;
+  color:#777;
+  font-size:12px
+}
 .profile-stats{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -406,7 +456,11 @@ header{
   color:var(--gold);
   font-size:20px
 }
-.profile-menu{display:grid;gap:8px;margin-top:12px}
+.profile-menu{
+  display:grid;
+  gap:8px;
+  margin-top:12px
+}
 .profile-item{
   width:100%;
   min-height:68px;
@@ -435,8 +489,15 @@ header{
 }
 .profile-info{flex:1}
 .profile-title{font-weight:900}
-.profile-desc{margin-top:3px;color:#777;font-size:11px}
-.arrow{font-size:25px;color:#777}
+.profile-desc{
+  margin-top:3px;
+  color:#777;
+  font-size:11px
+}
+.arrow{
+  font-size:25px;
+  color:#777
+}
 
 /* SIMPLE */
 .simple{
@@ -488,7 +549,11 @@ header{
     #121212
 }
 .invite h2{font-size:26px}
-.invite p{margin-top:8px;color:#999;line-height:1.5}
+.invite p{
+  margin-top:8px;
+  color:#999;
+  line-height:1.5
+}
 .ref-box{
   margin-top:17px;
   padding:14px;
@@ -496,7 +561,10 @@ header{
   border-radius:11px;
   background:#0d0d0d
 }
-.ref-label{font-size:11px;color:#777}
+.ref-label{
+  font-size:11px;
+  color:#777
+}
 .ref-code{
   margin-top:5px;
   color:var(--gold);
@@ -532,7 +600,11 @@ header{
   justify-content:center;
   margin:18px 0
 }
-.qr-inner{padding:10px;background:#fff;border-radius:8px}
+.qr-inner{
+  padding:10px;
+  background:#fff;
+  border-radius:8px
+}
 .share{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -627,12 +699,6 @@ header{
   color:#888;
   font-size:13px
 }
-.auth-switch button{
-  border:0;
-  background:none;
-  color:var(--gold);
-  font-weight:900
-}
 .message{
   margin-top:10px;
   color:var(--gold);
@@ -706,7 +772,10 @@ header{
   color:#fff;
   text-align:left
 }
-.drawer-item:hover{border-color:var(--gold);color:var(--gold)}
+.drawer-item:hover{
+  border-color:var(--gold);
+  color:var(--gold)
+}
 
 /* BOTTOM */
 .bottom{
@@ -735,7 +804,8 @@ header{
   font-weight:700
 }
 .nav span{font-size:20px}
-.nav.active,.nav:hover{color:var(--gold)}
+.nav.active,
+.nav:hover{color:var(--gold)}
 
 .toast{
   position:fixed;
@@ -759,33 +829,58 @@ header{
   opacity:1
 }
 
-/* RESPONSIVO */
 @media(max-width:1100px){
   .games{grid-template-columns:repeat(5,minmax(0,1fr))}
   .slots-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media(max-width:800px){
   .header-search{display:none}
-  .games{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-  .slots-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .games{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px
+  }
+  .slots-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px
+  }
   .slots-layout{
     grid-template-columns:78px 1fr;
     padding-left:10px;
     padding-right:10px
   }
-  .provider-sidebar{height:calc(100vh - 190px)}
+  .provider-sidebar{
+    height:calc(100vh - 190px)
+  }
   .container{padding:0 10px}
-  .hero{margin:10px;padding:35px 20px}
+  .hero{
+    margin:10px;
+    padding:35px 20px
+  }
   .game-name{font-size:11px}
   .game-provider{font-size:9px}
-  .play{padding:8px 3px;font-size:10px}
-  .fav{width:27px;height:27px;font-size:11px}
+  .play{
+    padding:8px 3px;
+    font-size:10px
+  }
+  .fav{
+    width:27px;
+    height:27px;
+    font-size:11px
+  }
 }
 @media(max-width:500px){
   .logo{font-size:20px}
-  .login-btn{padding:10px 11px;font-size:11px}
-  .slots-layout{grid-template-columns:70px 1fr}
-  .side-provider{font-size:9px;padding:10px 2px}
+  .login-btn{
+    padding:10px 11px;
+    font-size:11px
+  }
+  .slots-layout{
+    grid-template-columns:70px 1fr
+  }
+  .side-provider{
+    font-size:9px;
+    padding:10px 2px
+  }
   .profile-stats{grid-template-columns:1fr}
   .share{grid-template-columns:1fr 1fr}
   .invite-stats{grid-template-columns:repeat(3,1fr)}
@@ -897,7 +992,7 @@ header{
       </h2>
 
       <span id="homeCount" class="count">
-        Carregando...
+        Conectando...
       </span>
 
     </div>
@@ -907,7 +1002,7 @@ header{
     <div id="homeGames" class="games">
 
       <div class="loading">
-        Carregando jogos...
+        🎰 Conectando aos jogos...
       </div>
 
     </div>
@@ -928,7 +1023,6 @@ header{
 
   </div>
 
-
   <div class="slots-search">
 
     <input
@@ -938,7 +1032,6 @@ header{
     >
 
   </div>
-
 
   <div class="slot-tabs">
 
@@ -984,7 +1077,6 @@ header{
 
   </div>
 
-
   <div class="slots-layout">
 
     <aside id="providerSidebar" class="provider-sidebar"></aside>
@@ -992,9 +1084,11 @@ header{
     <div>
 
       <div id="slotsGrid" class="slots-grid">
+
         <div class="loading">
-          Carregando...
+          🎰 Carregando...
         </div>
+
       </div>
 
       <div id="slotsPagination" class="pagination"></div>
@@ -1019,7 +1113,6 @@ header{
 
     </div>
 
-
     <div class="profile-card">
 
       <div class="profile-user">
@@ -1042,33 +1135,21 @@ header{
 
       </div>
 
-
       <div class="profile-stats">
 
         <div class="stat">
-
           <small>Saldo DEMO</small>
-
-          <strong id="profileBalance">
-            R$ 0,00
-          </strong>
-
+          <strong id="profileBalance">R$ 0,00</strong>
         </div>
 
         <div class="stat">
-
           <small>Pontos</small>
-
-          <strong id="profilePoints">
-            0
-          </strong>
-
+          <strong id="profilePoints">0</strong>
         </div>
 
       </div>
 
     </div>
-
 
     <div class="profile-menu">
 
@@ -1081,7 +1162,6 @@ header{
         <div class="arrow">›</div>
       </button>
 
-
       <button class="profile-item" onclick="openInvite()">
         <div class="profile-icon">🤝</div>
         <div class="profile-info">
@@ -1090,7 +1170,6 @@ header{
         </div>
         <div class="arrow">›</div>
       </button>
-
 
       <button class="profile-item" onclick="openPromotion()">
         <div class="profile-icon">🎁</div>
@@ -1101,7 +1180,6 @@ header{
         <div class="arrow">›</div>
       </button>
 
-
       <button class="profile-item" onclick="openRecords()">
         <div class="profile-icon">📋</div>
         <div class="profile-info">
@@ -1110,7 +1188,6 @@ header{
         </div>
         <div class="arrow">›</div>
       </button>
-
 
       <button class="profile-item" onclick="openNotifications()">
         <div class="profile-icon">🔔</div>
@@ -1121,7 +1198,6 @@ header{
         <div class="arrow">›</div>
       </button>
 
-
       <button class="profile-item" onclick="openData()">
         <div class="profile-icon">👤</div>
         <div class="profile-info">
@@ -1130,7 +1206,6 @@ header{
         </div>
         <div class="arrow">›</div>
       </button>
-
 
       <button class="profile-item" onclick="openSecurity()">
         <div class="profile-icon">🔐</div>
@@ -1141,7 +1216,6 @@ header{
         <div class="arrow">›</div>
       </button>
 
-
       <button class="profile-item" onclick="openSupport()">
         <div class="profile-icon">💬</div>
         <div class="profile-info">
@@ -1150,7 +1224,6 @@ header{
         </div>
         <div class="arrow">›</div>
       </button>
-
 
       <button class="profile-item" onclick="openFaq()">
         <div class="profile-icon">❓</div>
@@ -1161,7 +1234,6 @@ header{
         <div class="arrow">›</div>
       </button>
 
-
       <button class="profile-item" onclick="openAbout()">
         <div class="profile-icon">ℹ️</div>
         <div class="profile-info">
@@ -1170,7 +1242,6 @@ header{
         </div>
         <div class="arrow">›</div>
       </button>
-
 
       <button
         id="profileLoginButton"
@@ -1184,7 +1255,6 @@ header{
         </div>
         <div class="arrow">›</div>
       </button>
-
 
       <button
         id="profileLogoutButton"
@@ -1219,18 +1289,13 @@ header{
 
     </div>
 
-
     <div class="invite">
 
-      <h2>
-        Convide amigos e ganhe recompensas DEMO
-      </h2>
+      <h2>Convide amigos e ganhe recompensas DEMO</h2>
 
       <p>
-        Cada usuário possui um código e um link
-        exclusivo de convite.
+        Cada usuário possui um código e um link exclusivo de convite.
       </p>
-
 
       <div class="ref-box">
 
@@ -1238,12 +1303,9 @@ header{
           SEU CÓDIGO DE CONVITE
         </div>
 
-        <div id="refCode" class="ref-code">
-          —
-        </div>
+        <div id="refCode" class="ref-code">—</div>
 
       </div>
-
 
       <div class="link-row">
 
@@ -1255,11 +1317,9 @@ header{
 
       </div>
 
-
       <div class="qr">
         <div id="qrCode" class="qr-inner"></div>
       </div>
-
 
       <div class="share">
 
@@ -1276,11 +1336,10 @@ header{
         </button>
 
         <button onclick="copyInvite()">
-          Copiar link
+          Copiar
         </button>
 
       </div>
-
 
       <div class="invite-stats">
 
@@ -1319,24 +1378,31 @@ header{
     </div>
 
     <div class="card">
+
       <h3>🎁 Oferta de boas-vindas</h3>
+
       <p>
-        Ambiente demonstrativo. Consulte as promoções
-        disponíveis na plataforma.
+        Ambiente demonstrativo. Consulte as promoções disponíveis.
       </p>
-      <button class="action" onclick="showToast('Promoção DEMO disponível')">
+
+      <button class="action" onclick="openPromotion()">
         VER PROMOÇÃO
       </button>
+
     </div>
 
     <div class="card">
+
       <h3>🤝 Convide seus amigos</h3>
+
       <p>
         Cada conta possui um link exclusivo de convite.
       </p>
+
       <button class="action" onclick="openInvite()">
         CONVIDAR
       </button>
+
     </div>
 
   </div>
@@ -1355,14 +1421,17 @@ header{
     </div>
 
     <div class="card">
+
       <h3>🎉 Recompensa DEMO</h3>
+
       <p>
-        Sistema de recompensas disponível apenas
-        para demonstração.
+        Sistema de recompensas disponível apenas para demonstração.
       </p>
+
       <button class="action" onclick="claimReward()">
         RESGATAR DEMO
       </button>
+
     </div>
 
   </div>
@@ -1384,9 +1453,11 @@ header{
 
       <h3>Saldo DEMO</h3>
 
-      <p id="walletBalance"
-         style="font-size:30px;color:#f5c400;font-weight:900">
-        R$ 0,00
+      <p
+        id="walletBalance"
+        style="font-size:30px;color:#f5c400;font-weight:900"
+      >
+        R$ 100.000,00
       </p>
 
       <p>
@@ -1419,38 +1490,6 @@ header{
 </section>
 
 
-<!-- WITHDRAWALS -->
-<section id="withdrawalsScreen" class="screen">
-
-  <div class="simple">
-
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
-      <h2>💸 Saques</h2>
-    </div>
-
-    <div class="card">
-
-      <h3>Ambiente DEMO</h3>
-
-      <p>
-        Saques reais não estão habilitados nesta versão.
-      </p>
-
-      <button
-        class="action"
-        onclick="showToast('Função disponível apenas no ambiente DEMO')"
-      >
-        SOLICITAR DEMO
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
 <!-- DATA -->
 <section id="dataScreen" class="screen">
 
@@ -1462,17 +1501,13 @@ header{
     </div>
 
     <div class="card">
-
-      <h3>Email</h3>
+      <h3>E-mail</h3>
       <p id="dataEmail">Não conectado</p>
-
     </div>
 
     <div class="card">
-
       <h3>ID da conta</h3>
       <p id="dataId">—</p>
-
     </div>
 
   </div>
@@ -1538,9 +1573,8 @@ header{
       <h3>559627WIN</h3>
 
       <p>
-        Plataforma demonstrativa para navegação,
-        jogos, perfil, carteira virtual e recursos
-        de convite.
+        Plataforma demonstrativa para navegação, jogos, perfil,
+        carteira virtual e recursos de convite.
       </p>
 
     </div>
@@ -1551,7 +1585,7 @@ header{
 
       <p>
         Os créditos exibidos são virtuais e destinados
-        exclusivamente a demonstração.
+        exclusivamente à demonstração.
       </p>
 
     </div>
@@ -1589,8 +1623,8 @@ header{
     <div class="card">
       <h3>Como funciona o convite?</h3>
       <p>
-        Cada usuário autenticado recebe um código
-        exclusivo e um link de convite.
+        Cada usuário autenticado recebe um código exclusivo
+        e um link de convite.
       </p>
     </div>
 
@@ -1614,8 +1648,7 @@ header{
       <h3>Atendimento</h3>
 
       <p>
-        Entre em contato com a equipe responsável
-        pela plataforma.
+        Entre em contato com a equipe responsável pela plataforma.
       </p>
 
       <button
@@ -1624,32 +1657,6 @@ header{
       >
         FALAR COM SUPORTE
       </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- RESPONSIBLE -->
-<section id="responsibleScreen" class="screen">
-
-  <div class="simple">
-
-    <div class="screen-head" style="padding-left:0;padding-right:0">
-      <button class="back-btn" onclick="openProfile()">←</button>
-      <h2>🛡️ Jogo responsável</h2>
-    </div>
-
-    <div class="card">
-
-      <h3>Ambiente demonstrativo</h3>
-
-      <p>
-        Os jogos desta versão utilizam créditos virtuais
-        exclusivamente para demonstração.
-      </p>
 
     </div>
 
@@ -1668,30 +1675,25 @@ header{
       <h2>🔔 Notificações</h2>
     </div>
 
-    <div id="notificationsList">
+    <div class="card">
+      <h3>🎁 Bem-vindo</h3>
+      <p>
+        Explore os recursos da 559627WIN.
+      </p>
+    </div>
 
-      <div class="card">
-        <h3>🎁 Bem-vindo</h3>
-        <p>
-          Explore os recursos da 559627WIN.
-        </p>
-      </div>
+    <div class="card">
+      <h3>💰 Carteira DEMO</h3>
+      <p>
+        Seus créditos virtuais estão disponíveis para testes.
+      </p>
+    </div>
 
-      <div class="card">
-        <h3>💰 Carteira DEMO</h3>
-        <p>
-          Seus créditos virtuais estão disponíveis
-          para testes.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🤝 Convide amigos</h3>
-        <p>
-          Compartilhe seu link exclusivo.
-        </p>
-      </div>
-
+    <div class="card">
+      <h3>🤝 Convide amigos</h3>
+      <p>
+        Compartilhe seu link exclusivo.
+      </p>
     </div>
 
   </div>
@@ -1846,8 +1848,7 @@ header{
         >
 
         <span>
-          Confirmo que tenho 18 anos ou mais e
-          aceito os termos de uso.
+          Confirmo que tenho 18 anos ou mais e aceito os termos de uso.
         </span>
 
       </label>
@@ -1861,7 +1862,6 @@ header{
       </button>
 
     </div>
-
 
     <div id="authMessage" class="message"></div>
 
@@ -1894,7 +1894,6 @@ header{
 </div>
 
 
-<!-- TOAST -->
 <div id="toast" class="toast"></div>
 
 
@@ -1932,7 +1931,6 @@ const supabaseClient =
 
 let currentUser = null;
 let allGames = [];
-let homeGames = [];
 let slotsGames = [];
 
 let homeProvider = "Todos";
@@ -1979,7 +1977,8 @@ function showToast(message){
   const toast =
     document.getElementById("toast");
 
-  toast.textContent = message;
+  toast.textContent =
+    message;
 
   toast.classList.add("show");
 
@@ -2081,7 +2080,6 @@ function toggleFavorite(id){
   saveFavorites(favorites);
 
   renderHome();
-
   renderSlots();
 
 }
@@ -2099,13 +2097,11 @@ const screens = [
   "promotionScreen",
   "walletScreen",
   "recordsScreen",
-  "withdrawalsScreen",
   "dataScreen",
   "securityScreen",
   "aboutScreen",
   "faqScreen",
   "supportScreen",
-  "responsibleScreen",
   "notificationsScreen"
 ];
 
@@ -2122,11 +2118,7 @@ function hideScreens(){
       document.getElementById(id);
 
     if(element){
-
-      element.classList.remove(
-        "active"
-      );
-
+      element.classList.remove("active");
     }
 
   });
@@ -2146,9 +2138,7 @@ function activeNav(id){
     document.getElementById(id);
 
   if(item){
-
     item.classList.add("active");
-
   }
 
 }
@@ -2175,9 +2165,9 @@ function goHome(){
 
   activeNav("navHome");
 
-  top();
-
   renderHome();
+
+  top();
 
 }
 
@@ -2207,11 +2197,14 @@ function openSlots(){
       x => x.classList.remove("active")
     );
 
-  document
-    .querySelector(
+  const tab =
+    document.querySelector(
       '.slot-tab[data-tab="slots"]'
-    )
-    .classList.add("active");
+    );
+
+  if(tab){
+    tab.classList.add("active");
+  }
 
   renderProviderSidebar();
   renderSlots();
@@ -2319,20 +2312,6 @@ function openRecords(){
 }
 
 
-function openWithdrawals(){
-
-  closeMenu();
-  hideScreens();
-
-  document
-    .getElementById("withdrawalsScreen")
-    .classList.add("active");
-
-  top();
-
-}
-
-
 function openData(){
 
   closeMenu();
@@ -2405,20 +2384,6 @@ function openSupport(){
 }
 
 
-function openResponsible(){
-
-  closeMenu();
-  hideScreens();
-
-  document
-    .getElementById("responsibleScreen")
-    .classList.add("active");
-
-  top();
-
-}
-
-
 function openNotifications(){
 
   closeMenu();
@@ -2464,7 +2429,8 @@ function closeMenu(){
 
 
 /* =========================================================
-   JOGOS
+   CARREGAMENTO DOS JOGOS
+   CORRIGIDO
 ========================================================= */
 
 async function loadGames(){
@@ -2472,11 +2438,53 @@ async function loadGames(){
   const home =
     document.getElementById("homeGames");
 
+  const slots =
+    document.getElementById("slotsGrid");
+
   const count =
     document.getElementById("homeCount");
 
   home.innerHTML =
-    '<div class="loading">Carregando jogos...</div>';
+    `
+    <div class="loading">
+      🎰 Conectando aos jogos...
+      <br><br>
+      <small>Isso pode levar alguns segundos.</small>
+    </div>
+    `;
+
+  slots.innerHTML =
+    `
+    <div class="loading">
+      🎰 Carregando jogos...
+    </div>
+    `;
+
+  count.textContent =
+    "Conectando...";
+
+
+  console.log(
+    "[559627WIN] Iniciando carregamento:",
+    GAMES_FUNCTION
+  );
+
+
+  /*
+    Timeout de 30 segundos.
+    Assim a página nunca fica eternamente
+    presa em "Carregando jogos..."
+  */
+
+  const controller =
+    new AbortController();
+
+  const timeout =
+    setTimeout(
+      () => controller.abort(),
+      30000
+    );
+
 
   try{
 
@@ -2484,60 +2492,187 @@ async function loadGames(){
       await fetch(
         GAMES_FUNCTION,
         {
+          method:"GET",
+
           headers:{
-            apikey:SUPABASE_KEY,
-            Authorization:
+            "apikey":
+              SUPABASE_KEY,
+
+            "Authorization":
               "Bearer " +
-              SUPABASE_KEY
-          }
+              SUPABASE_KEY,
+
+            "Content-Type":
+              "application/json"
+          },
+
+          signal:
+            controller.signal
         }
       );
 
-    const result =
-      await response.json();
 
-    if(
-      !response.ok ||
-      !result.success
-    ){
+    clearTimeout(timeout);
+
+
+    console.log(
+      "[559627WIN] HTTP:",
+      response.status
+    );
+
+
+    const text =
+      await response.text();
+
+
+    console.log(
+      "[559627WIN] Resposta:",
+      text.substring(0,1500)
+    );
+
+
+    let result;
+
+
+    try{
+
+      result =
+        JSON.parse(text);
+
+    }catch{
+
+      throw new Error(
+        "A Edge Function não retornou JSON válido. HTTP " +
+        response.status
+      );
+
+    }
+
+
+    if(!response.ok){
 
       throw new Error(
         result.error ||
-        "Não foi possível carregar os jogos."
+        result.message ||
+        "Erro HTTP " +
+        response.status
       );
 
     }
+
+
+    if(result.success === false){
+
+      throw new Error(
+        result.error ||
+        result.message ||
+        "A API informou que a operação falhou."
+      );
+
+    }
+
+
+    /*
+      Aceita os formatos:
+
+      data: [...]
+
+      data: {
+        games: [...]
+      }
+
+      games: [...]
+    */
+
+    let games = [];
+
+
+    if(
+      Array.isArray(
+        result.data
+      )
+    ){
+
+      games =
+        result.data;
+
+    }else if(
+      result.data &&
+      Array.isArray(
+        result.data.games
+      )
+    ){
+
+      games =
+        result.data.games;
+
+    }else if(
+      Array.isArray(
+        result.games
+      )
+    ){
+
+      games =
+        result.games;
+
+    }
+
+
+    console.log(
+      "[559627WIN] Quantidade:",
+      games.length
+    );
+
+
+    if(!games.length){
+
+      throw new Error(
+        "A conexão funcionou, mas a API não retornou jogos."
+      );
+
+    }
+
+
+    /*
+      Normalização dos jogos.
+    */
 
     allGames =
-      Array.isArray(result.data)
-      ? result.data
-      : [];
+      games.map(
+        game => ({
+          ...game,
 
-    slotsGames =
-      allGames.filter(
-        game => {
+          id:
+            game.id ??
+            game.game_id ??
+            "",
 
-          const type =
-            String(
-              game.game_type ||
-              game.mode ||
-              ""
-            ).toLowerCase();
+          name:
+            game.name ??
+            game.title ??
+            "Jogo",
 
-          return (
-            type.includes("slot") ||
-            !type
-          );
+          title:
+            game.title ??
+            game.name ??
+            "Jogo",
 
-        }
+          provider:
+            game.provider ??
+            "Outros",
+
+          thumbnail:
+            game.thumbnail ??
+            game.image ??
+            game.cover ??
+            ""
+        })
       );
 
-    if(!slotsGames.length){
 
-      slotsGames =
-        [...allGames];
+    slotsGames =
+      [...allGames];
 
-    }
 
     buildProviders();
 
@@ -2547,15 +2682,92 @@ async function loadGames(){
 
     renderSlots();
 
+
+    count.textContent =
+      `${allGames.length} jogos`;
+
+
+    console.log(
+      "[559627WIN] ✓ Jogos carregados:",
+      allGames.length
+    );
+
+
   }catch(error){
 
-    console.error(error);
+    clearTimeout(timeout);
+
+    console.error(
+      "[559627WIN] ERRO:",
+      error
+    );
+
+
+    let message =
+      error.message ||
+      "Erro desconhecido";
+
+
+    if(
+      error.name ===
+      "AbortError"
+    ){
+
+      message =
+        "A conexão demorou mais de 30 segundos.";
+
+    }
+
 
     home.innerHTML =
-      `<div class="error">
-        Erro ao carregar jogos.<br>
-        ${escapeHtml(error.message)}
-      </div>`;
+      `
+      <div class="error">
+
+        ❌ Não foi possível carregar os jogos.
+
+        <br><br>
+
+        <small>
+          ${escapeHtml(message)}
+        </small>
+
+        <br><br>
+
+        <button
+          class="gold-btn"
+          onclick="loadGames()"
+        >
+          🔄 TENTAR NOVAMENTE
+        </button>
+
+      </div>
+      `;
+
+
+    slots.innerHTML =
+      `
+      <div class="error">
+
+        ❌ Jogos indisponíveis.
+
+        <br><br>
+
+        <small>
+          ${escapeHtml(message)}
+        </small>
+
+        <br><br>
+
+        <button
+          class="gold-btn"
+          onclick="loadGames()"
+        >
+          🔄 TENTAR NOVAMENTE
+        </button>
+
+      </div>
+      `;
+
 
     count.textContent =
       "Erro";
@@ -2565,28 +2777,36 @@ async function loadGames(){
 }
 
 
+/* =========================================================
+   PROVIDERS
+========================================================= */
+
 function buildProviders(){
 
   const providers =
-    [...new Set(
-      allGames
-        .map(
-          game =>
-            String(
-              game.provider ||
-              "Outros"
-            )
-        )
-        .filter(Boolean)
-    )]
-    .sort();
+    [
+      ...new Set(
+        allGames
+          .map(
+            game =>
+              String(
+                game.provider ||
+                "Outros"
+              )
+          )
+          .filter(Boolean)
+      )
+    ].sort();
 
-  const homeProviders =
+
+  const container =
     document.getElementById(
       "homeProviders"
     );
 
-  homeProviders.innerHTML = "";
+
+  container.innerHTML = "";
+
 
   const all =
     document.createElement("button");
@@ -2607,40 +2827,50 @@ function buildProviders(){
 
     };
 
-  homeProviders.appendChild(all);
 
-  providers.forEach(provider => {
+  container.appendChild(all);
 
-    const button =
-      document.createElement("button");
 
-    button.className =
-      "provider";
+  providers.forEach(
+    provider => {
 
-    button.textContent =
-      provider;
+      const button =
+        document.createElement("button");
 
-    button.onclick =
-      () => {
+      button.className =
+        "provider";
 
-        homeProvider =
-          provider;
+      button.textContent =
+        provider;
 
-        renderHome();
+      button.onclick =
+        () => {
 
-      };
+          homeProvider =
+            provider;
 
-    homeProviders.appendChild(button);
+          renderHome();
 
-  });
+        };
+
+      container.appendChild(button);
+
+    }
+  );
+
 
 }
 
+
+/* =========================================================
+   HOME
+========================================================= */
 
 function renderHome(){
 
   let list =
     [...allGames];
+
 
   const search =
     document
@@ -2649,58 +2879,74 @@ function renderHome(){
       .trim()
       .toLowerCase();
 
+
   if(search){
 
     list =
-      list.filter(game =>
-        String(
-          game.name ||
-          game.title ||
-          ""
-        )
-        .toLowerCase()
-        .includes(search)
+      list.filter(
+        game =>
+          (
+            String(game.name || "") +
+            " " +
+            String(game.title || "") +
+            " " +
+            String(game.provider || "")
+          )
+          .toLowerCase()
+          .includes(search)
       );
 
   }
+
 
   if(homeProvider !== "Todos"){
 
     list =
-      list.filter(game =>
-        String(
-          game.provider || ""
-        ) === homeProvider
+      list.filter(
+        game =>
+          String(
+            game.provider || ""
+          ) === homeProvider
       );
 
   }
 
-  homeGames =
-    list.slice(0,60);
 
   const container =
     document.getElementById(
       "homeGames"
     );
 
-  document.getElementById(
-    "homeCount"
-  ).textContent =
-    `${homeGames.length} jogos`;
 
-  if(!homeGames.length){
+  const visible =
+    list.slice(0,60);
+
+
+  document
+    .getElementById("homeCount")
+    .textContent =
+    `${list.length} jogos`;
+
+
+  if(!visible.length){
 
     container.innerHTML =
-      '<div class="empty">Nenhum jogo encontrado.</div>';
+      `
+      <div class="empty">
+        Nenhum jogo encontrado.
+      </div>
+      `;
 
     return;
 
   }
 
+
   container.innerHTML =
-    homeGames
+    visible
       .map(gameCard)
       .join("");
+
 
   updateProviderButtons();
 
@@ -2716,20 +2962,24 @@ function gameCard(game){
       ""
     );
 
+
   const title =
     game.title ||
     game.name ||
     "Jogo";
 
+
   const provider =
     game.provider ||
     "Provider";
+
 
   const image =
     game.thumbnail ||
     game.image ||
     game.cover ||
     "";
+
 
   return `
     <article class="game">
@@ -2738,13 +2988,17 @@ function gameCard(game){
 
         ${
           image
-          ? `<img
-              src="${escapeHtml(image)}"
-              alt="${escapeHtml(title)}"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            >`
-          : ""
+          ?
+          `
+          <img
+            src="${escapeHtml(image)}"
+            alt="${escapeHtml(title)}"
+            loading="lazy"
+            onerror="this.style.display='none'"
+          >
+          `
+          :
+          ""
         }
 
         <button
@@ -2768,7 +3022,10 @@ function gameCard(game){
 
         <button
           class="play"
-          onclick="launchGame('${escapeHtml(id)}','${escapeHtml(title).replaceAll("'","&#039;")}')"
+          onclick="launchGame(
+            '${escapeHtml(id)}',
+            '${escapeHtml(title).replaceAll("'","&#039;")}'
+          )"
         >
           JOGAR DEMO
         </button>
@@ -2787,15 +3044,17 @@ function updateProviderButtons(){
     .querySelectorAll(
       "#homeProviders .provider"
     )
-    .forEach(button => {
+    .forEach(
+      button => {
 
-      button.classList.toggle(
-        "active",
-        button.textContent ===
-        homeProvider
-      );
+        button.classList.toggle(
+          "active",
+          button.textContent ===
+          homeProvider
+        );
 
-    });
+      }
+    );
 
 }
 
@@ -2811,32 +3070,46 @@ function renderProviderSidebar(){
       "providerSidebar"
     );
 
+
   if(!sidebar) return;
 
+
   const providers =
-    [...new Set(
-      slotsGames
-        .map(
-          game =>
-            String(
-              game.provider ||
-              "Outros"
-            )
-        )
-        .filter(Boolean)
-    )]
-    .sort();
+    [
+      ...new Set(
+        slotsGames
+          .map(
+            game =>
+              String(
+                game.provider ||
+                "Outros"
+              )
+          )
+          .filter(Boolean)
+      )
+    ].sort();
+
 
   sidebar.innerHTML = "";
+
 
   const all =
     document.createElement("button");
 
   all.className =
-    "side-provider active";
+    "side-provider";
+
+
+  if(
+    slotsProvider === "Todos"
+  ){
+    all.classList.add("active");
+  }
+
 
   all.textContent =
     "TODOS";
+
 
   all.onclick =
     () => {
@@ -2844,60 +3117,58 @@ function renderProviderSidebar(){
       slotsProvider =
         "Todos";
 
-      slotsPage = 1;
+      slotsPage =
+        1;
 
       renderProviderSidebar();
       renderSlots();
 
     };
 
+
   sidebar.appendChild(all);
 
-  providers.forEach(provider => {
 
-    const button =
-      document.createElement("button");
+  providers.forEach(
+    provider => {
 
-    button.className =
-      "side-provider";
+      const button =
+        document.createElement("button");
 
-    button.textContent =
-      provider;
+      button.className =
+        "side-provider";
 
-    button.onclick =
-      () => {
-
-        slotsProvider =
-          provider;
-
-        slotsPage = 1;
-
-        renderProviderSidebar();
-        renderSlots();
-
-      };
-
-    sidebar.appendChild(button);
-
-  });
-
-  sidebar
-    .querySelectorAll(".side-provider")
-    .forEach(button => {
 
       if(
-        (
-          slotsProvider === "Todos" &&
-          button.textContent === "TODOS"
-        ) ||
-        button.textContent === slotsProvider
+        provider === slotsProvider
       ){
-
         button.classList.add("active");
-
       }
 
-    });
+
+      button.textContent =
+        provider;
+
+
+      button.onclick =
+        () => {
+
+          slotsProvider =
+            provider;
+
+          slotsPage =
+            1;
+
+          renderProviderSidebar();
+          renderSlots();
+
+        };
+
+
+      sidebar.appendChild(button);
+
+    }
+  );
 
 }
 
@@ -2910,13 +3181,17 @@ function setSlotsTab(tab,button){
   slotsPage =
     1;
 
+
   document
     .querySelectorAll(".slot-tab")
     .forEach(
-      x => x.classList.remove("active")
+      x =>
+        x.classList.remove("active")
     );
 
+
   button.classList.add("active");
+
 
   renderSlots();
 
@@ -2930,10 +3205,13 @@ function renderSlots(){
       "slotsGrid"
     );
 
+
   if(!grid) return;
+
 
   let list =
     [...slotsGames];
+
 
   const search =
     document
@@ -2942,50 +3220,58 @@ function renderSlots(){
       .trim()
       .toLowerCase();
 
+
   if(search){
 
     list =
-      list.filter(game =>
-        (
-          String(game.name || "") +
-          " " +
-          String(game.title || "") +
-          " " +
-          String(game.provider || "")
-        )
-        .toLowerCase()
-        .includes(search)
+      list.filter(
+        game =>
+          (
+            String(game.name || "") +
+            " " +
+            String(game.title || "") +
+            " " +
+            String(game.provider || "")
+          )
+          .toLowerCase()
+          .includes(search)
       );
 
   }
+
 
   if(slotsProvider !== "Todos"){
 
     list =
-      list.filter(game =>
-        String(
-          game.provider || ""
-        ) === slotsProvider
+      list.filter(
+        game =>
+          String(
+            game.provider || ""
+          ) === slotsProvider
       );
 
   }
+
 
   if(slotsTab === "favorites"){
 
     list =
-      list.filter(game =>
-        isFavorite(
-          game.id ||
-          game.game_id
-        )
+      list.filter(
+        game =>
+          isFavorite(
+            game.id ||
+            game.game_id
+          )
       );
 
   }
+
 
   if(slotsTab === "recent"){
 
     const recent =
       getRecent();
+
 
     list.sort(
       (a,b) =>
@@ -2999,16 +3285,16 @@ function renderSlots(){
 
   }
 
-  const total =
-    list.length;
 
   const pages =
     Math.max(
       1,
       Math.ceil(
-        total / SLOTS_PER_PAGE
+        list.length /
+        SLOTS_PER_PAGE
       )
     );
+
 
   if(slotsPage > pages){
 
@@ -3017,20 +3303,28 @@ function renderSlots(){
 
   }
 
+
   const start =
     (slotsPage - 1) *
     SLOTS_PER_PAGE;
 
+
   const page =
     list.slice(
       start,
-      start + SLOTS_PER_PAGE
+      start +
+      SLOTS_PER_PAGE
     );
+
 
   if(!page.length){
 
     grid.innerHTML =
-      '<div class="empty">Nenhum jogo encontrado.</div>';
+      `
+      <div class="empty">
+        Nenhum jogo encontrado.
+      </div>
+      `;
 
   }else{
 
@@ -3040,6 +3334,7 @@ function renderSlots(){
         .join("");
 
   }
+
 
   renderPagination(pages);
 
@@ -3053,9 +3348,12 @@ function renderPagination(pages){
       "slotsPagination"
     );
 
+
   element.innerHTML = "";
 
+
   if(pages <= 1) return;
+
 
   for(
     let i=1;
@@ -3066,6 +3364,7 @@ function renderPagination(pages){
     const button =
       document.createElement("button");
 
+
     button.className =
       "page" +
       (
@@ -3074,8 +3373,10 @@ function renderPagination(pages){
         : ""
       );
 
+
     button.textContent =
       i;
+
 
     button.onclick =
       () => {
@@ -3091,6 +3392,7 @@ function renderPagination(pages){
         });
 
       };
+
 
     element.appendChild(button);
 
@@ -3126,13 +3428,16 @@ function saveRecent(id){
 
   const list =
     getRecent()
-      .filter(x =>
-        x !== String(id)
+      .filter(
+        x =>
+          x !== String(id)
       );
+
 
   list.unshift(
     String(id)
   );
+
 
   localStorage.setItem(
     userKey("recent"),
@@ -3145,7 +3450,7 @@ function saveRecent(id){
 
 
 /* =========================================================
-   JOGO
+   ABRIR JOGO
 ========================================================= */
 
 async function launchGame(gameId,title){
@@ -3160,30 +3465,40 @@ async function launchGame(gameId,title){
 
   }
 
+
   const modal =
     document.getElementById(
       "gameModal"
     );
+
 
   const frame =
     document.getElementById(
       "gameFrame"
     );
 
+
   const titleElement =
     document.getElementById(
       "gameTitle"
     );
 
+
   modal.classList.add("show");
 
+
   titleElement.textContent =
-    "Carregando " + title + "...";
+    "Carregando " +
+    title +
+    "...";
+
 
   frame.src =
     "about:blank";
 
+
   saveRecent(gameId);
+
 
   try{
 
@@ -3197,10 +3512,10 @@ async function launchGame(gameId,title){
             "Content-Type":
               "application/json",
 
-            apikey:
+            "apikey":
               SUPABASE_KEY,
 
-            Authorization:
+            "Authorization":
               "Bearer " +
               SUPABASE_KEY
           },
@@ -3213,8 +3528,10 @@ async function launchGame(gameId,title){
         }
       );
 
+
     const result =
       await response.json();
+
 
     if(
       !response.ok ||
@@ -3223,35 +3540,42 @@ async function launchGame(gameId,title){
 
       throw new Error(
         result.error ||
+        result.message ||
         "Não foi possível abrir o jogo."
       );
 
     }
 
+
     titleElement.textContent =
       title;
+
 
     frame.src =
       result.game_url ||
       result.url;
 
+
     saveRecord({
       type:"game",
       title:title,
-      description:
-        "Jogo DEMO aberto",
+      description:"Jogo DEMO aberto",
       value:0
     });
+
 
   }catch(error){
 
     console.error(error);
 
+
     titleElement.textContent =
-      "Erro";
+      "Erro ao abrir";
+
 
     frame.src =
       "about:blank";
+
 
     showToast(
       error.message ||
@@ -3268,6 +3592,7 @@ function closeGame(){
   document
     .getElementById("gameModal")
     .classList.remove("show");
+
 
   document
     .getElementById("gameFrame")
@@ -3302,18 +3627,22 @@ function openLogin(){
     .getElementById("authModal")
     .classList.add("show");
 
+
   document
     .getElementById("loginForm")
     .classList.remove("hidden");
+
 
   document
     .getElementById("registerForm")
     .classList.add("hidden");
 
+
   document
     .getElementById("authTitle")
     .textContent =
     "Entrar";
+
 
   document
     .getElementById("authMessage")
@@ -3329,18 +3658,22 @@ function openRegister(){
     .getElementById("authModal")
     .classList.add("show");
 
+
   document
     .getElementById("loginForm")
     .classList.add("hidden");
+
 
   document
     .getElementById("registerForm")
     .classList.remove("hidden");
 
+
   document
     .getElementById("authTitle")
     .textContent =
     "Criar cadastro";
+
 
   document
     .getElementById("authMessage")
@@ -3367,10 +3700,12 @@ async function login(){
       .value
       .trim();
 
+
   const password =
     document
       .getElementById("loginPassword")
       .value;
+
 
   if(!email || !password){
 
@@ -3382,9 +3717,11 @@ async function login(){
 
   }
 
+
   showAuthMessage(
     "Entrando..."
   );
+
 
   const {
     data,
@@ -3396,6 +3733,7 @@ async function login(){
         password
       });
 
+
   if(error){
 
     showAuthMessage(
@@ -3406,14 +3744,16 @@ async function login(){
 
   }
 
+
   currentUser =
     data.user;
+
 
   closeAuth();
 
   updateAuthUI();
-
   updateProfile();
+
 
   showToast(
     "Login realizado."
@@ -3430,20 +3770,24 @@ async function register(){
       .value
       .trim();
 
+
   const password =
     document
       .getElementById("registerPassword")
       .value;
+
 
   const password2 =
     document
       .getElementById("registerPassword2")
       .value;
 
+
   const age =
     document
       .getElementById("ageCheck")
       .checked;
+
 
   if(!email){
 
@@ -3455,6 +3799,7 @@ async function register(){
 
   }
 
+
   if(password.length < 6){
 
     showAuthMessage(
@@ -3464,6 +3809,7 @@ async function register(){
     return;
 
   }
+
 
   if(password !== password2){
 
@@ -3475,6 +3821,7 @@ async function register(){
 
   }
 
+
   if(!age){
 
     showAuthMessage(
@@ -3485,12 +3832,15 @@ async function register(){
 
   }
 
+
   showAuthMessage(
     "Criando cadastro..."
   );
 
+
   const referral =
     getPendingReferral();
+
 
   const {
     data,
@@ -3505,11 +3855,13 @@ async function register(){
         options:{
           data:{
             referral_code:
-              referral || null
+              referral ||
+              null
           }
         }
 
       });
+
 
   if(error){
 
@@ -3521,6 +3873,7 @@ async function register(){
 
   }
 
+
   if(data.session){
 
     currentUser =
@@ -3531,7 +3884,6 @@ async function register(){
     closeAuth();
 
     updateAuthUI();
-
     updateProfile();
 
     showToast(
@@ -3541,7 +3893,7 @@ async function register(){
   }else{
 
     showAuthMessage(
-      "Cadastro criado. Se o Supabase estiver exigindo confirmação de e-mail, desative 'Confirm email' em Authentication > Providers > Email."
+      "Cadastro criado. Se aparecer confirmação de e-mail, desative Confirm email em Authentication > Providers > Email no Supabase."
     );
 
   }
@@ -3577,10 +3929,6 @@ function showAuthMessage(message){
 }
 
 
-/* =========================================================
-   AUTH UI
-========================================================= */
-
 function updateAuthUI(){
 
   const button =
@@ -3588,58 +3936,64 @@ function updateAuthUI(){
       "loginBtn"
     );
 
+
   const register =
     document.getElementById(
       "registerHomeButton"
     );
+
 
   const loginProfile =
     document.getElementById(
       "profileLoginButton"
     );
 
+
   const logoutProfile =
     document.getElementById(
       "profileLogoutButton"
     );
+
 
   if(currentUser){
 
     button.textContent =
       "Perfil";
 
-    if(register){
 
-      register.classList.add(
-        "hidden"
-      );
+    register.classList.add(
+      "hidden"
+    );
 
-    }
 
-    loginProfile
-      .classList.add("hidden");
+    loginProfile.classList.add(
+      "hidden"
+    );
 
-    logoutProfile
-      .classList.remove("hidden");
+
+    logoutProfile.classList.remove(
+      "hidden"
+    );
 
   }else{
 
     button.textContent =
       "Entrar";
 
-    if(register){
 
-      register.classList.remove(
-        "hidden"
-      );
+    register.classList.remove(
+      "hidden"
+    );
 
-    }
 
-    loginProfile
-      .classList.remove("hidden");
+    loginProfile.classList.remove(
+      "hidden"
+    );
 
-    logoutProfile
-      .classList.add("hidden");
+
+    logoutProfile.classList.add(
+      "hidden"
+    );
 
   }
 
@@ -3647,7 +4001,7 @@ function updateAuthUI(){
 
 
 /* =========================================================
-   PROFILE
+   PERFIL / CARTEIRA
 ========================================================= */
 
 function getBalance(){
@@ -3655,21 +4009,9 @@ function getBalance(){
   return Number(
     localStorage.getItem(
       userKey("balance")
-    ) || 100000
+    ) ||
+    100000
   );
-
-}
-
-
-function setBalance(value){
-
-  localStorage.setItem(
-    userKey("balance"),
-    String(value)
-  );
-
-  updateProfile();
-  updateWallet();
 
 }
 
@@ -3679,7 +4021,8 @@ function getPoints(){
   return Number(
     localStorage.getItem(
       userKey("points")
-    ) || 0
+    ) ||
+    0
   );
 
 }
@@ -3692,25 +4035,30 @@ function updateProfile(){
       "profileName"
     );
 
+
   const email =
     document.getElementById(
       "profileEmail"
     );
+
 
   const balance =
     document.getElementById(
       "profileBalance"
     );
 
+
   const points =
     document.getElementById(
       "profilePoints"
     );
 
+
   const avatar =
     document.getElementById(
       "profileAvatar"
     );
+
 
   if(!currentUser){
 
@@ -3739,16 +4087,17 @@ function updateProfile(){
 
     avatar.textContent =
       (
-        userEmail
-          .charAt(0)
+        userEmail.charAt(0)
           .toUpperCase() ||
         "U"
       );
 
   }
 
+
   balance.textContent =
     money(getBalance());
+
 
   points.textContent =
     getPoints();
@@ -3756,29 +4105,18 @@ function updateProfile(){
 }
 
 
-/* =========================================================
-   WALLET
-========================================================= */
-
 function updateWallet(){
 
-  const balance =
-    document.getElementById(
-      "walletBalance"
-    );
-
-  if(balance){
-
-    balance.textContent =
-      money(getBalance());
-
-  }
+  document
+    .getElementById("walletBalance")
+    .textContent =
+    money(getBalance());
 
 }
 
 
 /* =========================================================
-   RECORDS
+   REGISTROS
 ========================================================= */
 
 function getRecords(){
@@ -3802,22 +4140,27 @@ function getRecords(){
 
 function saveRecord(record){
 
-  const list =
+  const records =
     getRecords();
 
-  list.unshift({
+
+  records.unshift({
+
     ...record,
+
     date:
       new Date()
         .toLocaleString(
           "pt-BR"
         )
+
   });
+
 
   localStorage.setItem(
     userKey("records"),
     JSON.stringify(
-      list.slice(0,100)
+      records.slice(0,100)
     )
   );
 
@@ -3831,8 +4174,10 @@ function renderRecords(){
       "recordsList"
     );
 
+
   const records =
     getRecords();
+
 
   if(!records.length){
 
@@ -3850,42 +4195,48 @@ function renderRecords(){
 
   }
 
+
   element.innerHTML =
     records
-      .map(item => `
-        <div class="card">
+      .map(
+        item =>
+          `
+          <div class="card">
 
-          <h3>
-            ${escapeHtml(
-              item.title ||
-              item.type ||
-              "Atividade"
-            )}
-          </h3>
+            <h3>
+              ${escapeHtml(
+                item.title ||
+                item.type ||
+                "Atividade"
+              )}
+            </h3>
 
-          <p>
-            ${escapeHtml(
-              item.description ||
-              ""
-            )}
-          </p>
+            <p>
+              ${escapeHtml(
+                item.description ||
+                ""
+              )}
+            </p>
 
-          <p style="font-size:11px;color:#555">
-            ${escapeHtml(
-              item.date ||
-              ""
-            )}
-          </p>
+            <p
+              style="font-size:11px;color:#555"
+            >
+              ${escapeHtml(
+                item.date ||
+                ""
+              )}
+            </p>
 
-        </div>
-      `)
+          </div>
+          `
+      )
       .join("");
 
 }
 
 
 /* =========================================================
-   DATA
+   DADOS
 ========================================================= */
 
 function renderData(){
@@ -3895,6 +4246,7 @@ function renderData(){
     .textContent =
     currentUser?.email ||
     "Não conectado";
+
 
   document
     .getElementById("dataId")
@@ -3913,6 +4265,7 @@ function hashString(value){
 
   let hash = 0;
 
+
   for(
     let i=0;
     i<value.length;
@@ -3928,9 +4281,11 @@ function hashString(value){
       ) +
       value.charCodeAt(i);
 
+
     hash |= 0;
 
   }
+
 
   return Math.abs(hash);
 
@@ -3945,15 +4300,18 @@ function getReferralCode(){
 
   }
 
+
   const raw =
     String(currentUser.id)
       .replaceAll("-","")
       .toUpperCase();
 
+
   const hash =
     hashString(raw)
       .toString(36)
       .toUpperCase();
+
 
   return (
     "559627-" +
@@ -3986,8 +4344,10 @@ function getPendingReferral(){
       window.location.search
     );
 
+
   const ref =
     params.get("ref");
+
 
   if(ref){
 
@@ -4000,9 +4360,13 @@ function getPendingReferral(){
 
   }
 
-  return localStorage.getItem(
-    "559627_pending_referral"
-  ) || "";
+
+  return (
+    localStorage.getItem(
+      "559627_pending_referral"
+    ) ||
+    ""
+  );
 
 }
 
@@ -4021,25 +4385,32 @@ function renderInvite(){
   const code =
     getReferralCode();
 
+
   const link =
     getInviteLink();
+
 
   document
     .getElementById("refCode")
     .textContent =
     code;
 
+
   document
     .getElementById("inviteLink")
     .value =
     link;
+
 
   const qr =
     document.getElementById(
       "qrCode"
     );
 
-  qr.innerHTML = "";
+
+  qr.innerHTML =
+    "";
+
 
   if(currentUser){
 
@@ -4056,16 +4427,20 @@ function renderInvite(){
 
     qr.innerHTML =
       `
-      <div style="
-        color:#000;
-        padding:20px;
-        text-align:center;
-        font-weight:900">
+      <div
+        style="
+          color:#000;
+          padding:20px;
+          text-align:center;
+          font-weight:900
+        "
+      >
         Entre para gerar seu QR Code
       </div>
       `;
 
   }
+
 
   const stats =
     JSON.parse(
@@ -4075,15 +4450,18 @@ function renderInvite(){
       '{"clicks":0,"direct":0,"rewards":0}'
     );
 
+
   document
     .getElementById("refClicks")
     .textContent =
     stats.clicks || 0;
 
+
   document
     .getElementById("refDirect")
     .textContent =
     stats.direct || 0;
+
 
   document
     .getElementById("refRewards")
@@ -4095,11 +4473,6 @@ function renderInvite(){
 
 function copyInvite(){
 
-  const input =
-    document.getElementById(
-      "inviteLink"
-    );
-
   if(!currentUser){
 
     showToast(
@@ -4110,8 +4483,17 @@ function copyInvite(){
 
   }
 
+
+  const input =
+    document.getElementById(
+      "inviteLink"
+    );
+
+
   navigator.clipboard
-    .writeText(input.value)
+    .writeText(
+      input.value
+    )
     .then(
       () =>
         showToast(
@@ -4142,9 +4524,11 @@ async function shareInvite(type){
   const link =
     getInviteLink();
 
+
   const text =
     "Venha conhecer a 559627WIN: " +
     link;
+
 
   if(type === "whatsapp"){
 
@@ -4157,6 +4541,7 @@ async function shareInvite(type){
     return;
 
   }
+
 
   if(type === "telegram"){
 
@@ -4174,16 +4559,14 @@ async function shareInvite(type){
 
   }
 
-  if(
-    navigator.share
-  ){
+
+  if(navigator.share){
 
     try{
 
       await navigator.share({
         title:"559627WIN",
-        text:
-          "Conheça a 559627WIN",
+        text:"Conheça a 559627WIN",
         url:link
       });
 
@@ -4207,6 +4590,7 @@ function claimReward(){
   const key =
     userKey("reward_claimed");
 
+
   if(
     localStorage.getItem(key)
   ){
@@ -4219,29 +4603,35 @@ function claimReward(){
 
   }
 
+
   const points =
     getPoints();
 
+
   localStorage.setItem(
     userKey("points"),
-    String(points + 100)
+    String(
+      points + 100
+    )
   );
+
 
   localStorage.setItem(
     key,
     "1"
   );
 
+
   updateProfile();
+
 
   saveRecord({
     type:"reward",
-    title:
-      "Recompensa DEMO",
-    description:
-      "+100 pontos",
+    title:"Recompensa DEMO",
+    description:"+100 pontos",
     value:100
   });
+
 
   showToast(
     "+100 pontos DEMO!"
@@ -4259,33 +4649,50 @@ function homeCategory(type,button){
   document
     .querySelectorAll(".category")
     .forEach(
-      x => x.classList.remove("active")
+      x =>
+        x.classList.remove(
+          "active"
+        )
     );
 
-  button.classList.add("active");
+
+  button.classList.add(
+    "active"
+  );
+
 
   const title =
     document.getElementById(
       "homeTitle"
     );
 
+
   if(type === "popular"){
 
     title.textContent =
       "🔥 Popular";
 
-    homeGames =
-      [...allGames];
+    homeProvider =
+      "Todos";
 
-  }else if(type === "recent"){
+    renderHome();
+
+    return;
+
+  }
+
+
+  if(type === "recent"){
 
     title.textContent =
       "🕘 Recentes";
 
+
     const recent =
       getRecent();
 
-    homeGames =
+
+    const list =
       recent
         .map(
           id =>
@@ -4297,17 +4704,40 @@ function homeCategory(type,button){
         )
         .filter(Boolean);
 
-  }else{
 
-    title.textContent =
-      type === "mini"
-      ? "🕹️ Mini"
-      : type === "fishing"
-      ? "🎣 Pescaria"
-      : "⚽ Esporte";
+    document
+      .getElementById("homeGames")
+      .innerHTML =
+      list.length
+      ?
+      list
+        .slice(0,60)
+        .map(gameCard)
+        .join("")
+      :
+      '<div class="empty">Nenhum jogo recente.</div>';
 
-    homeGames =
-      allGames.filter(game => {
+
+    return;
+
+  }
+
+
+  title.textContent =
+    type === "mini"
+    ? "🕹️ Mini"
+    : type === "fishing"
+    ? "🎣 Pescaria"
+    : "⚽ Esporte";
+
+
+  let list =
+    [...allGames];
+
+
+  list =
+    list.filter(
+      game => {
 
         const text =
           (
@@ -4319,11 +4749,13 @@ function homeCategory(type,button){
           )
           .toLowerCase();
 
+
         if(type === "fishing")
           return (
             text.includes("fish") ||
             text.includes("pesca")
           );
+
 
         if(type === "sports")
           return (
@@ -4332,75 +4764,77 @@ function homeCategory(type,button){
             text.includes("soccer")
           );
 
+
         if(type === "mini")
-          return (
-            text.includes("mini")
-          );
+          return text.includes("mini");
+
 
         return true;
 
-      });
-
-  }
-
-  const container =
-    document.getElementById(
-      "homeGames"
+      }
     );
 
-  if(!homeGames.length){
 
-    container.innerHTML =
-      '<div class="empty">Nenhum jogo encontrado.</div>';
-
-    return;
-
-  }
-
-  container.innerHTML =
-    homeGames
+  document
+    .getElementById("homeGames")
+    .innerHTML =
+    list.length
+    ?
+    list
       .slice(0,60)
       .map(gameCard)
-      .join("");
+      .join("")
+    :
+    '<div class="empty">Nenhum jogo encontrado.</div>';
 
 }
 
 
 /* =========================================================
-   FAVORITOS — TELA
+   FAVORITOS
 ========================================================= */
 
 function showFavorites(){
 
   hideScreens();
 
+
   document
     .getElementById("slotsScreen")
     .classList.add("active");
 
+
   activeNav("navSlots");
+
 
   slotsTab =
     "favorites";
 
+
   document
     .querySelectorAll(".slot-tab")
     .forEach(
-      x => x.classList.remove("active")
+      x =>
+        x.classList.remove(
+          "active"
+        )
     );
 
-  const favoriteButton =
+
+  const button =
     document.querySelector(
       '.slot-tab[data-tab="favorites"]'
     );
 
-  if(favoriteButton){
 
-    favoriteButton.classList.add(
+  if(button){
+
+    button.classList.add(
       "active"
     );
 
   }
+
 
   renderSlots();
 
@@ -4415,31 +4849,28 @@ function showFavorites(){
 
 function handleSearch(value){
 
-  if(
+  const slotsVisible =
     document
-      .getElementById("homeScreen")
-      .style.display === "none"
-  ){
+      .getElementById("slotsScreen")
+      .classList
+      .contains("active");
 
-    const search =
-      document.getElementById(
-        "slotsSearch"
-      );
 
-    if(search){
+  if(slotsVisible){
 
-      search.value =
-        value;
+    document
+      .getElementById("slotsSearch")
+      .value =
+      value;
 
-      renderSlots();
 
-    }
+    renderSlots();
 
-    return;
+  }else{
+
+    renderHome();
 
   }
-
-  renderHome();
 
 }
 
@@ -4460,16 +4891,19 @@ async function changePassword(){
 
   }
 
+
   const password =
     prompt(
       "Digite sua nova senha:"
     );
+
 
   if(!password){
 
     return;
 
   }
+
 
   if(password.length < 6){
 
@@ -4481,6 +4915,7 @@ async function changePassword(){
 
   }
 
+
   const {
     error
   } =
@@ -4488,6 +4923,7 @@ async function changePassword(){
       .updateUser({
         password
       });
+
 
   if(error){
 
@@ -4498,6 +4934,7 @@ async function changePassword(){
     return;
 
   }
+
 
   showToast(
     "Senha alterada."
@@ -4512,23 +4949,50 @@ async function changePassword(){
 
 async function init(){
 
+  console.log(
+    "[559627WIN] Inicializando..."
+  );
+
+
   getPendingReferral();
 
+
   const {
-    data
+    data,
+    error
   } =
     await supabaseClient.auth
       .getSession();
 
+
+  if(error){
+
+    console.error(
+      "[559627WIN] Erro sessão:",
+      error
+    );
+
+  }
+
+
   currentUser =
-    data.session?.user ||
+    data?.session?.user ||
     null;
+
 
   updateAuthUI();
 
   updateProfile();
 
+
+  /*
+    IMPORTANTE:
+    O carregamento dos jogos acontece
+    uma única vez aqui.
+  */
+
   await loadGames();
+
 
   supabaseClient.auth
     .onAuthStateChange(
@@ -4539,6 +5003,7 @@ async function init(){
           null;
 
         updateAuthUI();
+
         updateProfile();
 
       }
