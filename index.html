@@ -41,6 +41,10 @@
       display:none!important
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header{
       position:sticky;
       top:0;
@@ -122,6 +126,10 @@
       background:#ffd72a
     }
 
+    /* =========================
+       HERO
+    ========================= */
+
     .hero{
       max-width:1450px;
       margin:22px auto;
@@ -174,20 +182,45 @@
       border:1px solid #363636
     }
 
+    /* =========================
+       MENUS HORIZONTAIS
+    ========================= */
+
     .quick-menu,
     .slots-tabs{
       max-width:1450px;
       margin:0 auto 25px;
-      padding:0 20px;
+      padding:0 20px 10px;
       display:flex;
       gap:10px;
       overflow-x:auto;
-      scrollbar-width:none
+      overflow-y:hidden;
+
+      scrollbar-width:auto;
+      scrollbar-color:#f5c400 #181818
     }
 
     .quick-menu::-webkit-scrollbar,
     .slots-tabs::-webkit-scrollbar{
-      display:none
+      display:block;
+      height:8px
+    }
+
+    .quick-menu::-webkit-scrollbar-track,
+    .slots-tabs::-webkit-scrollbar-track{
+      background:#181818;
+      border-radius:10px
+    }
+
+    .quick-menu::-webkit-scrollbar-thumb,
+    .slots-tabs::-webkit-scrollbar-thumb{
+      background:#f5c400;
+      border-radius:10px
+    }
+
+    .quick-menu::-webkit-scrollbar-thumb:hover,
+    .slots-tabs::-webkit-scrollbar-thumb:hover{
+      background:#ffd72a
     }
 
     .quick-button,
@@ -209,6 +242,10 @@
       border-color:#f5c400;
       font-weight:900
     }
+
+    /* =========================
+       JOGOS HOME
+    ========================= */
 
     .section{
       max-width:1450px;
@@ -233,16 +270,39 @@
       font-size:14px
     }
 
+    /* =========================
+       PROVEDORES HOME
+    ========================= */
+
     .providers{
       display:flex;
       gap:8px;
       overflow-x:auto;
+      overflow-y:hidden;
       margin-bottom:20px;
-      scrollbar-width:none
+      padding-bottom:10px;
+
+      scrollbar-width:auto;
+      scrollbar-color:#f5c400 #181818
     }
 
     .providers::-webkit-scrollbar{
-      display:none
+      display:block;
+      height:8px
+    }
+
+    .providers::-webkit-scrollbar-track{
+      background:#181818;
+      border-radius:10px
+    }
+
+    .providers::-webkit-scrollbar-thumb{
+      background:#f5c400;
+      border-radius:10px
+    }
+
+    .providers::-webkit-scrollbar-thumb:hover{
+      background:#ffd72a
     }
 
     .provider-button{
@@ -424,14 +484,43 @@
       gap:14px
     }
 
+    /* =========================
+       BARRA VERTICAL PROVEDORES
+    ========================= */
+
     .provider-sidebar{
       background:#101010;
       border:1px solid #292929;
       border-radius:12px;
       padding:8px;
       height:max-content;
+      max-height:calc(100vh - 110px);
+      overflow-y:auto;
+      overflow-x:hidden;
       position:sticky;
-      top:86px
+      top:86px;
+
+      scrollbar-width:auto;
+      scrollbar-color:#f5c400 #181818
+    }
+
+    .provider-sidebar::-webkit-scrollbar{
+      display:block;
+      width:8px
+    }
+
+    .provider-sidebar::-webkit-scrollbar-track{
+      background:#181818;
+      border-radius:10px
+    }
+
+    .provider-sidebar::-webkit-scrollbar-thumb{
+      background:#f5c400;
+      border-radius:10px
+    }
+
+    .provider-sidebar::-webkit-scrollbar-thumb:hover{
+      background:#ffd72a
     }
 
     .side-provider{
@@ -692,7 +781,7 @@
     }
 
     /* =========================
-       GAME
+       JOGO
     ========================= */
 
     .game-modal{
@@ -724,6 +813,10 @@
       border:0;
       background:#000
     }
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media(max-width:700px){
 
@@ -788,6 +881,17 @@
         padding:9px 5px
       }
 
+      .quick-menu,
+      .slots-tabs{
+        padding-left:12px;
+        padding-right:12px;
+        padding-bottom:10px
+      }
+
+      .providers{
+        padding-bottom:10px
+      }
+
       .slots-header{
         padding:0 12px
       }
@@ -803,7 +907,8 @@
       }
 
       .provider-sidebar{
-        padding:5px
+        padding:5px;
+        max-height:calc(100vh - 100px)
       }
 
       .side-provider{
@@ -851,6 +956,7 @@
 <body>
 
 <header>
+
   <div class="header-inner">
 
     <button
@@ -866,6 +972,7 @@
     </div>
 
     <div class="search-container">
+
       <input
         id="searchInput"
         class="search-input"
@@ -873,6 +980,7 @@
         placeholder="🔎 Procurar jogo..."
         autocomplete="off"
       >
+
     </div>
 
     <button
@@ -884,7 +992,13 @@
     </button>
 
   </div>
+
 </header>
+
+
+<!-- =========================
+     HOME
+========================= -->
 
 <main id="homeScreen">
 
@@ -919,6 +1033,9 @@
     </div>
 
   </section>
+
+
+  <!-- MENU PRINCIPAL COM ROLAGEM -->
 
   <div class="quick-menu">
 
@@ -974,6 +1091,7 @@
 
   </div>
 
+
   <section
     id="gamesSection"
     class="section"
@@ -994,18 +1112,24 @@
 
     </div>
 
+
+    <!-- PROVEDORES COM ROLAGEM -->
+
     <div
       id="providers"
       class="providers"
     ></div>
 
+
     <div
       id="games"
       class="games"
     >
+
       <div class="loading">
         Carregando jogos...
       </div>
+
     </div>
 
   </section>
@@ -1014,7 +1138,7 @@
 
 
 <!-- =========================
-     TELA DE SLOTS
+     TELA SLOTS
 ========================= -->
 
 <section id="slotsScreen">
@@ -1034,6 +1158,7 @@
 
   </div>
 
+
   <div class="slots-search">
 
     <input
@@ -1044,6 +1169,9 @@
     >
 
   </div>
+
+
+  <!-- ABAS COM ROLAGEM -->
 
   <div class="slots-tabs">
 
@@ -1084,12 +1212,16 @@
 
   </div>
 
+
   <div class="slots-layout">
+
+    <!-- PROVEDORES COM BARRA VERTICAL -->
 
     <aside
       id="providerSidebar"
       class="provider-sidebar"
     ></aside>
+
 
     <div class="slots-content">
 
@@ -1101,14 +1233,18 @@
         Carregando...
       </div>
 
+
       <div
         id="slotsGames"
         class="slots-grid"
       >
+
         <div class="loading">
           Carregando slots...
         </div>
+
       </div>
+
 
       <div
         id="pagination"
@@ -1149,12 +1285,14 @@
 
     </div>
 
+
     <button
       class="menu-item"
       onclick="goHome()"
     >
       🏠 Início
     </button>
+
 
     <button
       class="menu-item"
@@ -1163,12 +1301,14 @@
       🎰 Todos os jogos
     </button>
 
+
     <button
       class="menu-item"
       onclick="openSlots()"
     >
       🎰 Slots
     </button>
+
 
     <button
       class="menu-item"
@@ -1177,12 +1317,14 @@
       🔥 Populares
     </button>
 
+
     <button
       class="menu-item"
       onclick="showNew()"
     >
       ✨ Novidades
     </button>
+
 
     <button
       class="menu-item"
@@ -1191,12 +1333,14 @@
       👑 VIP
     </button>
 
+
     <button
       class="menu-item"
       onclick="openRewards()"
     >
       🎁 Recompensas
     </button>
+
 
     <button
       class="menu-item"
@@ -1205,6 +1349,7 @@
       🎁 Resgatar bônus demo
     </button>
 
+
     <button
       class="menu-item"
       onclick="openAccount()"
@@ -1212,12 +1357,14 @@
       👤 Minha conta
     </button>
 
+
     <button
       class="menu-item"
       onclick="openRegister()"
     >
       📝 Criar cadastro
     </button>
+
 
     <button
       class="menu-item"
@@ -1290,6 +1437,7 @@
 
     </div>
 
+
     <div
       class="info-card"
       style="margin-bottom:14px"
@@ -1307,6 +1455,7 @@
 
     </div>
 
+
     <input
       id="authEmail"
       class="field"
@@ -1315,6 +1464,7 @@
       autocomplete="email"
     >
 
+
     <input
       id="authPassword"
       class="field"
@@ -1322,6 +1472,7 @@
       placeholder="Senha"
       autocomplete="new-password"
     >
+
 
     <div id="confirmPasswordWrap">
 
@@ -1334,6 +1485,7 @@
       >
 
     </div>
+
 
     <label
       id="ageCheckWrap"
@@ -1351,12 +1503,14 @@
 
     </label>
 
+
     <button
       class="primary-button"
       onclick="submitAuth()"
     >
       Continuar
     </button>
+
 
     <button
       id="toggleAuthButton"
@@ -1365,6 +1519,7 @@
     >
       Já tenho uma conta
     </button>
+
 
     <div
       id="authMessage"
@@ -1402,6 +1557,7 @@
 
     </div>
 
+
     <div class="info-card">
 
       <div style="color:#aaa">
@@ -1409,12 +1565,17 @@
       </div>
 
       <div
-        style="font-size:30px;font-weight:900;color:#f5c400"
+        style="
+          font-size:30px;
+          font-weight:900;
+          color:#f5c400
+        "
       >
         VIP Demo
       </div>
 
     </div>
+
 
     <div class="info-card">
 
@@ -1460,6 +1621,7 @@
 
     </div>
 
+
     <div class="info-card">
 
       Pontos demo
@@ -1473,12 +1635,14 @@
 
     </div>
 
+
     <button
       class="primary-button"
       onclick="claimDemoReward()"
     >
       Resgatar 100 pontos demo
     </button>
+
 
     <div
       id="rewardMessage"
@@ -1514,6 +1678,7 @@
 
   </div>
 
+
   <iframe
     id="gameFrame"
     class="game-frame"
@@ -1525,17 +1690,26 @@
 
 <script>
 
+  /* =========================
+     SUPABASE
+  ========================= */
+
   const SUPABASE_URL =
     "https://dzjjtdxukdagcjjjpnpq.supabase.co";
+
 
   const SUPABASE_KEY =
     "sb_publishable_hqhNTybbEXdEMYIzvtXVLQ_VWSpgQtC";
 
+
   const GAMES_FUNCTION =
-    SUPABASE_URL + "/functions/v1/bigbang-games";
+    SUPABASE_URL +
+    "/functions/v1/bigbang-games";
+
 
   const LAUNCH_FUNCTION =
-    SUPABASE_URL + "/functions/v1/bigbang-launch";
+    SUPABASE_URL +
+    "/functions/v1/bigbang-launch";
 
 
   const supabaseClient =
@@ -1545,24 +1719,36 @@
     );
 
 
+  /* =========================
+     VARIÁVEIS
+  ========================= */
+
   let allGames = [];
 
   let filteredGames = [];
 
-  let selectedProvider = "Todos";
+  let selectedProvider =
+    "Todos";
 
-  let currentUser = null;
+  let currentUser =
+    null;
 
-  let authMode = "signup";
+  let authMode =
+    "signup";
 
 
-  let slotsTab = "slots";
+  let slotsTab =
+    "slots";
 
-  let slotsProvider = "Todos";
+  let slotsProvider =
+    "Todos";
 
-  let slotsPage = 1;
+  let slotsPage =
+    1;
 
-  const SLOTS_PER_PAGE = 24;
+
+  const SLOTS_PER_PAGE =
+    24;
 
 
   const favoriteKey =
@@ -1570,7 +1756,9 @@
 
 
   const searchElement =
-    document.getElementById("searchInput");
+    document.getElementById(
+      "searchInput"
+    );
 
 
   /* =========================
@@ -1599,7 +1787,9 @@
   function isFavorite(id){
 
     return getFavorites()
-      .includes(String(id));
+      .includes(
+        String(id)
+      );
 
   }
 
@@ -1609,8 +1799,10 @@
     const key =
       String(id);
 
+
     const list =
       getFavorites();
+
 
     const index =
       list.indexOf(key);
@@ -1618,7 +1810,10 @@
 
     if(index >= 0){
 
-      list.splice(index,1);
+      list.splice(
+        index,
+        1
+      );
 
     }else{
 
@@ -1637,13 +1832,14 @@
       filteredGames
     );
 
+
     renderSlots();
 
   }
 
 
   /* =========================
-     NORMALIZAÇÃO
+     CLASSIFICAÇÃO
   ========================= */
 
   function normalizeGame(game){
@@ -1747,7 +1943,8 @@
 
     if(
       nonSlot.some(
-        word => text.includes(word)
+        word =>
+          text.includes(word)
       )
     ){
 
@@ -1789,6 +1986,7 @@
         "games"
       );
 
+
     const status =
       document.getElementById(
         "status"
@@ -1796,7 +1994,12 @@
 
 
     gamesElement.innerHTML =
-      '<div class="loading">Carregando jogos...</div>';
+      `
+        <div class="loading">
+          Carregando jogos...
+        </div>
+      `;
+
 
     status.textContent =
       "Carregando...";
@@ -1872,7 +2075,9 @@
 
     }catch(error){
 
-      console.error(error);
+      console.error(
+        error
+      );
 
 
       status.textContent =
@@ -1947,7 +2152,12 @@
 
       <button
         class="provider-button active"
-        onclick="selectProvider('Todos',this)"
+        onclick="
+          selectProvider(
+            'Todos',
+            this
+          )
+        "
       >
         Todos
       </button>
@@ -1958,9 +2168,20 @@
 
             <button
               class="provider-button"
-              onclick="selectProvider(${escapeAttribute(JSON.stringify(provider))},this)"
+              onclick="
+                selectProvider(
+                  ${escapeAttribute(
+                    JSON.stringify(
+                      provider
+                    )
+                  )},
+                  this
+                )
+              "
             >
-              ${escapeHtml(provider)}
+              ${escapeHtml(
+                provider
+              )}
             </button>
 
           `
@@ -2079,10 +2300,12 @@
 
 
   /* =========================
-     CARDS
+     RENDER HOME
   ========================= */
 
-  function renderGames(games){
+  function renderGames(
+    games
+  ){
 
     const container =
       document.getElementById(
@@ -2090,7 +2313,9 @@
       );
 
 
-    if(!games.length){
+    if(
+      !games.length
+    ){
 
       container.innerHTML =
         `
@@ -2114,7 +2339,13 @@
   }
 
 
-  function gameCardHtml(game){
+  /* =========================
+     CARD
+  ========================= */
+
+  function gameCardHtml(
+    game
+  ){
 
     const id =
       String(
@@ -2129,7 +2360,9 @@
 
 
     const provider =
-      getProvider(game);
+      getProvider(
+        game
+      );
 
 
     const image =
@@ -2147,43 +2380,52 @@
           ${
             image
 
-              ?
+            ?
 
-              `
-                <img
-                  src="${escapeAttribute(image)}"
-                  alt="${escapeAttribute(title)}"
-                  loading="lazy"
-                >
-              `
+            `
+              <img
+                src="${escapeAttribute(
+                  image
+                )}"
+                alt="${escapeAttribute(
+                  title
+                )}"
+                loading="lazy"
+              >
+            `
 
-              :
+            :
 
-              `
-                <div
-                  style="
-                    height:100%;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    color:#777
-                  "
-                >
-                  559627WIN
-                </div>
-              `
+            `
+              <div
+                style="
+                  height:100%;
+                  display:flex;
+                  align-items:center;
+                  justify-content:center;
+                  color:#777
+                "
+              >
+                559627WIN
+              </div>
+            `
           }
 
 
           <button
-            class="favorite ${
-              isFavorite(id)
-                ? "active"
-                : ""
-            }"
+            class="
+              favorite
+              ${
+                isFavorite(id)
+                  ? "active"
+                  : ""
+              }
+            "
             onclick="
               event.stopPropagation();
-              toggleFavorite('${escapeJs(id)}')
+              toggleFavorite(
+                '${escapeJs(id)}'
+              )
             "
           >
             ${
@@ -2200,15 +2442,21 @@
 
           <div
             class="game-title"
-            title="${escapeAttribute(title)}"
+            title="${escapeAttribute(
+              title
+            )}"
           >
-            ${escapeHtml(title)}
+            ${escapeHtml(
+              title
+            )}
           </div>
 
 
           <div class="game-provider">
 
-            ${escapeHtml(provider)}
+            ${escapeHtml(
+              provider
+            )}
 
           </div>
 
@@ -2328,7 +2576,7 @@
 
 
   /* =========================
-     TABS SLOTS
+     ABAS SLOTS
   ========================= */
 
   function setSlotsTab(
@@ -2371,7 +2619,7 @@
 
 
   /* =========================
-     SIDEBAR PROVEDORES
+     SIDEBAR SLOTS
   ========================= */
 
   function renderProviderSidebar(){
@@ -2411,35 +2659,52 @@
     sidebar.innerHTML = `
 
       <button
-        class="side-provider ${
-          slotsProvider === "Todos"
-            ? "active"
-            : ""
-        }"
-        onclick="setSlotsProvider('Todos')"
+        class="
+          side-provider
+          ${
+            slotsProvider ===
+            "Todos"
+              ? "active"
+              : ""
+          }
+        "
+        onclick="
+          setSlotsProvider(
+            'Todos'
+          )
+        "
       >
         TODOS
       </button>
+
 
       ${
         providers.map(
           provider => `
 
             <button
-              class="side-provider ${
-                slotsProvider === provider
-                  ? "active"
-                  : ""
-              }"
+              class="
+                side-provider
+                ${
+                  slotsProvider ===
+                  provider
+                    ? "active"
+                    : ""
+                }
+              "
               onclick="
                 setSlotsProvider(
                   ${escapeAttribute(
-                    JSON.stringify(provider)
+                    JSON.stringify(
+                      provider
+                    )
                   )}
                 )
               "
             >
-              ${escapeHtml(provider)}
+              ${escapeHtml(
+                provider
+              )}
             </button>
 
           `
@@ -2471,7 +2736,7 @@
 
 
   /* =========================
-     FILTRO DOS SLOTS
+     JOGOS DOS SLOTS
   ========================= */
 
   function getSlotGames(){
@@ -2484,9 +2749,11 @@
 
     const search =
       (
-        document.getElementById(
-          "slotsSearch"
-        ).value ||
+        document
+          .getElementById(
+            "slotsSearch"
+          )
+          .value ||
         ""
       )
       .trim()
@@ -2539,7 +2806,9 @@
       games =
         games.filter(
           game =>
-            getProvider(game) ===
+            getProvider(
+              game
+            ) ===
             slotsProvider
         );
 
@@ -2670,7 +2939,9 @@
       `${games.length} slots encontrados`;
 
 
-    if(!pageGames.length){
+    if(
+      !pageGames.length
+    ){
 
       container.innerHTML =
         `
@@ -2712,13 +2983,19 @@
           return `
 
             <button
-              class="page-button ${
-                page === slotsPage
-                  ? "active"
-                  : ""
-              }"
+              class="
+                page-button
+                ${
+                  page ===
+                  slotsPage
+                    ? "active"
+                    : ""
+                }
+              "
               onclick="
-                goSlotsPage(${page})
+                goSlotsPage(
+                  ${page}
+                )
               "
             >
               ${page}
@@ -2770,7 +3047,7 @@
 
 
   /* =========================
-     ABRIR JOGO
+     ABRIR JOGO DEMO
   ========================= */
 
   async function launchGame(
@@ -2821,7 +3098,8 @@
           LAUNCH_FUNCTION,
           {
 
-            method:"POST",
+            method:
+              "POST",
 
             headers:{
 
@@ -2839,8 +3117,10 @@
 
             body:
               JSON.stringify({
+
                 game_id:
                   String(gameId)
+
               })
 
           }
@@ -2985,18 +3265,9 @@
   }
 
 
-  function scrollToGames(){
-
-    document
-      .getElementById(
-        "gamesSection"
-      )
-      .scrollIntoView({
-        behavior:"smooth"
-      });
-
-  }
-
+  /* =========================
+     BOTÕES HOME
+  ========================= */
 
   function activateQuickButton(
     button
@@ -3474,7 +3745,9 @@
       }
 
 
-      if(!ageCheck){
+      if(
+        !ageCheck
+      ){
 
         message.textContent =
           "Confirme que você tem 18 anos ou mais.";
@@ -3629,6 +3902,10 @@
   }
 
 
+  /* =========================
+     LOGOUT
+  ========================= */
+
   async function logout(){
 
     await supabaseClient
@@ -3652,6 +3929,10 @@
   }
 
 
+  /* =========================
+     VERIFICAR USUÁRIO
+  ========================= */
+
   async function checkUser(){
 
     const {
@@ -3672,6 +3953,10 @@
   }
 
 
+  /* =========================
+     OBSERVAR LOGIN
+  ========================= */
+
   supabaseClient
     .auth
     .onAuthStateChange(
@@ -3688,18 +3973,9 @@
     );
 
 
-  /* =====================================================
-     AQUI ESTÁ A ALTERAÇÃO PRINCIPAL QUE VOCÊ PEDIU
-     =====================================================
-
-     LOGADO:
-       - esconde Entrar
-       - esconde Criar cadastro
-
-     DESLOGADO:
-       - mostra Entrar
-       - mostra Criar cadastro
-  ===================================================== */
+  /* =================================================
+     ESCONDER ENTRAR E CRIAR CADASTRO
+  ================================================= */
 
   function updateAccountLabel(){
 
@@ -3977,7 +4253,7 @@
 
 
   /* =========================
-     FECHAR MODAIS CLICANDO FORA
+     FECHAR MODAIS
   ========================= */
 
   document
@@ -4010,10 +4286,12 @@
 
 
   /* =========================
-     SEGURANÇA HTML
+     ESCAPES
   ========================= */
 
-  function escapeHtml(value){
+  function escapeHtml(
+    value
+  ){
 
     return String(
       value ?? ""
